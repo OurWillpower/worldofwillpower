@@ -7,57 +7,51 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #eef2f6; font-family: 'Segoe UI', sans-serif; padding-bottom: 100px; }
+        body { background-color: #f0f2f5; font-family: 'Segoe UI', sans-serif; padding-bottom: 100px; }
         
         /* Sidebar */
-        .sidebar { width: 260px; height: 100vh; position: fixed; top: 0; left: 0; background: #0f172a; color: #fff; padding: 20px; overflow-y: auto; z-index: 1000; border-right: 1px solid #1e293b; }
-        .sidebar-brand { font-size: 1.2rem; font-weight: bold; padding-bottom: 20px; border-bottom: 1px solid #334155; margin-bottom: 20px; color: #f59e0b; letter-spacing: 1px; }
-        .nav-btn { display: block; width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; background: transparent; border: none; color: #94a3b8; border-radius: 6px; transition: 0.2s; cursor: pointer; font-weight: 500; }
+        .sidebar { width: 260px; height: 100vh; position: fixed; top: 0; left: 0; background: #0f172a; color: #fff; padding: 20px; overflow-y: auto; z-index: 1000; }
+        .sidebar-brand { font-size: 1.2rem; font-weight: bold; padding-bottom: 20px; border-bottom: 1px solid #334155; margin-bottom: 20px; color: #f59e0b; }
+        .nav-btn { display: block; width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; background: transparent; border: none; color: #94a3b8; border-radius: 6px; transition: 0.2s; cursor: pointer; }
         .nav-btn:hover { background: #1e293b; color: #fff; }
-        .nav-btn.active { background: #f59e0b; color: #000; font-weight: 700; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); }
-        .nav-btn i { width: 25px; text-align: center; margin-right: 10px; }
+        .nav-btn.active { background: #f59e0b; color: #000; font-weight: 700; }
+        .main-content { margin-left: 260px; padding: 40px; max-width: 1200px; } /* WIDER CONTENT AREA */
+        
+        .editor-section { display: none; }
+        .editor-section.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Main Content */
-        .main-content { margin-left: 260px; padding: 40px; max-width: 1200px; }
-        .editor-section { display: none; animation: slideUp 0.4s ease-out; }
-        .editor-section.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Cards */
+        .card { border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 25px; border-radius: 10px; }
+        .card-header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 20px; font-weight: 700; color: #334155; }
+        label { font-size: 0.8rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-top: 15px; display: block; }
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; }
+        input[type="color"] { height: 50px; padding: 0; border: none; cursor: pointer; }
 
-        /* Cards & Inputs */
-        .card { border: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 25px; border-radius: 12px; background: #fff; }
-        .card-header { background: #fff; border-bottom: 1px solid #f1f5f9; padding: 20px 25px; font-weight: 700; color: #334155; font-size: 1.05rem; }
-        .card-body { padding: 25px; }
-        label { font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-top: 20px; display: block; letter-spacing: 0.5px; }
-        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; transition: border 0.2s; background: #f8fafc; }
-        input:focus, textarea:focus { outline: none; border-color: #f59e0b; background: #fff; }
-        input[type="color"] { height: 50px; padding: 0; cursor: pointer; }
+        /* Venture Item */
+        .venture-item { border: 1px solid #cbd5e1; background: #fff; margin-bottom: 30px; border-radius: 8px; overflow: hidden; }
+        .venture-header { background: #f1f5f9; padding: 15px 20px; border-bottom: 1px solid #cbd5e1; display: flex; justify-content: space-between; align-items: center; }
+        .venture-body { padding: 20px; }
+        .btn-remove { color: #dc3545; background: white; border: 1px solid #dc3545; padding: 5px 15px; border-radius: 5px; font-weight: bold; }
 
-        /* Upload Button */
+        /* Upload */
         .upload-group { display: flex; gap: 10px; align-items: flex-end; }
-        .btn-upload { border: 2px dashed #cbd5e1; color: #64748b; background: #f8fafc; padding: 9px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.2s; }
-        .btn-upload:hover { border-color: #f59e0b; color: #f59e0b; background: #fff; }
+        .btn-upload { border: 2px dashed #94a3b8; color: #475569; background: white; padding: 9px 15px; border-radius: 5px; font-weight: bold; cursor: pointer; white-space: nowrap;}
         .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
         .upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height: 100%; width: 100%; }
 
-        /* Venture Item */
-        .venture-item { border: 1px solid #e2e8f0; background: #fff; margin-bottom: 30px; padding: 0; border-radius: 12px; overflow: hidden; position: relative; }
-        .venture-header { background: #f8fafc; padding: 15px 25px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
-        .venture-body { padding: 25px; }
-        .btn-remove { color: #ef4444; background: white; border: 1px solid #ef4444; padding: 5px 15px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; cursor: pointer; }
-        .btn-remove:hover { background: #ef4444; color: white; }
+        /* Actions */
+        .action-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: #fff; padding: 20px 40px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; z-index: 900; }
+        .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 40px; font-weight: 800; border-radius: 5px; cursor: pointer; letter-spacing: 1px; }
+        .btn-publish:hover { background: #000; color: #f59e0b; }
 
-        /* Action Bar */
-        .action-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: #fff; padding: 20px 40px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; z-index: 900; box-shadow: 0 -4px 20px rgba(0,0,0,0.05); }
-        .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 40px; font-weight: 800; border-radius: 8px; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; transition: transform 0.2s; }
-        .btn-publish:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-        /* Connection Status */
-        .connection-status { padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; text-align: center; font-size: 0.9rem; }
-        .status-disconnected { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
-        .status-connected { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        /* Status */
+        .connection-status { padding: 15px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; text-align: center; }
+        .status-disconnected { background-color: #fee2e2; color: #991b1b; }
+        .status-connected { background-color: #dcfce7; color: #166534; }
         
-        #crash-report { display: none; background: #ef4444; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; text-align: center; }
-        #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 350px; background: rgba(15, 23, 42, 0.95); color: #4ade80; padding: 20px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.75rem; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        #crash-report { display: none; background: #dc3545; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; text-align: center; }
+        #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 350px; background: rgba(15, 23, 42, 0.95); color: #4ade80; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; z-index: 2000; }
     </style>
 </head>
 <body>
@@ -71,7 +65,7 @@
     <button class="nav-btn" onclick="switchTab('home')"><i class="fas fa-home"></i> 3. Home Page</button>
     <button class="nav-btn" onclick="switchTab('ventures')"><i class="fas fa-layer-group"></i> 4. Page Factory</button>
     <button class="nav-btn" onclick="switchTab('contact')"><i class="fas fa-address-book"></i> 5. Contact</button>
-    <div style="margin-top: 50px; padding: 20px;"><button onclick="fullReset()" class="btn btn-sm btn-outline-danger w-100">Log Out</button></div>
+    <div style="margin-top: 50px; padding: 20px;"><button onclick="fullReset()" class="btn btn-sm btn-outline-danger w-100">Logout</button></div>
 </div>
 
 <div class="main-content">
@@ -82,58 +76,53 @@
             <label>Username</label><input type="text" id="gh_username">
             <label>Repo Name</label><input type="text" id="gh_repo" value="worldofwillpower">
             <label>Token</label><input type="password" id="gh_token" placeholder="Paste Token here">
-            <button id="btn-connect" onclick="doConnect()" class="btn btn-success mt-4 w-100 fw-bold py-3">CONNECT & REMEMBER</button>
+            <button id="btn-connect" onclick="doConnect()" class="btn btn-success mt-3 w-100 fw-bold py-3">CONNECT & REMEMBER</button>
         </div></div>
     </div>
 
     <div id="design" class="editor-section">
-        <div class="card"><div class="card-header">Global Styling</div><div class="card-body">
+        <div class="card"><div class="card-header">Wide Screen Branding</div><div class="card-body">
             <div class="row">
                 <div class="col-md-6"><label>Company Name</label><input type="text" id="brand_name"></div>
-                <div class="col-md-6"><label>Logo Image</label><div class="upload-group"><input type="text" id="brand_logo_url"><div class="upload-wrapper"><button class="btn-upload">Upload</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div>
+                <div class="col-md-6"><label>Logo Image</label><div class="upload-group"><input type="text" id="brand_logo_url"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-6"><label>Primary Color (Dark)</label><input type="color" id="col_primary" value="#052b1e"></div>
-                <div class="col-md-6"><label>Accent Color (Gold)</label><input type="color" id="col_accent" value="#c5a059"></div>
+                <div class="col-md-6"><label>Font</label><select id="brand_font"><option value="'Cinzel', serif">Cinzel (Elegant)</option><option value="'Montserrat', sans-serif">Montserrat (Modern)</option></select></div>
+                <div class="col-md-6"><label>Size (px)</label><input type="number" id="brand_size" value="28"></div>
             </div>
-            <div class="row mt-3">
-                <div class="col-md-6"><label>Headings Font</label><select id="brand_font"><option value="'Cinzel', serif">Cinzel (Elegant)</option><option value="'Montserrat', sans-serif">Montserrat (Modern)</option></select></div>
-                <div class="col-md-6"><label>Size</label><input type="number" id="brand_size" value="26"></div>
-            </div>
+            <hr>
+            <label>Colors</label><div class="d-flex gap-3"><input type="color" id="col_primary"><input type="color" id="col_accent"></div>
         </div></div>
     </div>
 
     <div id="home" class="editor-section">
-        <div class="card"><div class="card-header">Hero Slider (Slide 1)</div><div class="card-body">
-            <label>Image</label><div class="upload-group"><input type="text" id="img_hero1"><div class="upload-wrapper"><button class="btn-upload">Upload</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
-            <label>Title</label><input type="text" id="hero_h1">
-            <label>Subtitle</label><input type="text" id="hero_p1">
+        <div class="card"><div class="card-header">Hero Slider</div><div class="card-body">
+            <label>Slide 1 Image</label><div class="upload-group"><input type="text" id="img_hero1"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
+            <label>Title</label><input type="text" id="hero_h1"><label>Subtitle</label><input type="text" id="hero_p1">
         </div></div>
-        <div class="card"><div class="card-header">About Section</div><div class="card-body">
-            <label>Company Overview</label><textarea id="about_text" rows="5"></textarea>
-        </div></div>
+        <div class="card"><div class="card-body"><label>About Company (Summary)</label><textarea id="about_text" rows="4"></textarea></div></div>
     </div>
 
     <div id="ventures" class="editor-section">
         <div class="alert alert-primary mb-4">
-            <i class="fas fa-info-circle me-2"></i> <strong>Deep Page Generator:</strong> Fill in the details below. The system will create a full, rich brochure page for each venture automatically.
+            <i class="fas fa-magic me-2"></i> <strong>Deep Page Generator:</strong> Fill in the details. We will generate a dedicated website page for each business added below.
         </div>
         <div id="venture-container"></div>
         <button class="btn btn-dark w-100 py-3" onclick="addVenture()"><i class="fas fa-plus me-2"></i> ADD NEW BUSINESS PAGE</button>
     </div>
 
     <div id="contact" class="editor-section">
-        <div class="card"><div class="card-header">Contact Information</div><div class="card-body">
-            <label>Physical Address</label><input type="text" id="address">
-            <label>Email Address</label><input type="text" id="email">
-            <label>WhatsApp Number (No +)</label><input type="text" id="whatsapp">
+        <div class="card"><div class="card-header">Contact</div><div class="card-body">
+            <label>Address</label><input type="text" id="address">
+            <label>Email</label><input type="text" id="email">
+            <label>WhatsApp (No +)</label><input type="text" id="whatsapp">
         </div></div>
     </div>
 </div>
 
 <div class="action-bar">
     <div id="status-text" class="fw-bold text-success"></div>
-    <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket me-2"></i> GENERATE WEBSITE</button>
+    <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket me-2"></i> GENERATE SITE</button>
 </div>
 
 <div id="debug-console"></div>
@@ -145,26 +134,26 @@
     let auth = { gh_username: '', gh_repo: 'worldofwillpower', gh_token: '' };
     let content = {
         col_primary: '#0f172a', col_accent: '#f59e0b',
-        brand_name: 'World of Willpower', brand_font: "'Cinzel', serif", brand_size: '26', brand_logo_url: '',
+        brand_name: 'World of Willpower', brand_font: "'Cinzel', serif", brand_size: '28', brand_logo_url: '',
         img_hero1: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80',
         hero_h1: 'Forging Leaders.', hero_p1: 'Strategic mentorship for visionaries.',
         about_text: 'World of Willpower is a diversified conglomerate...',
         address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
         email: 'care@worldofwillpower.com', whatsapp: '917039196489',
+        // DEEP STRUCTURE
         ventures: [
             { 
-                title: "Mentoring & Strategy", 
-                image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80", 
+                title: "Mentoring", 
+                image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
                 tagline: "Empowering Visionaries.",
-                vision: "To create a generation of resilient leaders who can navigate uncertainty with confidence.",
-                strategy: "We combine psychological profiling with hard-nosed business tactics to build a roadmap for success.",
-                features: "Leadership Coaching\nPitch Deck Preparation\nCrisis Management\nInvestor Networking",
-                impact: "Helped 100+ founders raise over $10M in seed funding."
+                vision: "Our vision is to build resilient leaders.",
+                features: "Leadership Coaching\nPitch Deck\nStrategy", 
+                impact: "We have helped 50+ startups scale." 
             }
         ]
     };
 
-    // --- INIT ---
+    // --- STARTUP ---
     document.addEventListener('DOMContentLoaded', () => {
         try {
             const savedAuth = localStorage.getItem('wp_auth');
@@ -185,7 +174,7 @@
         } catch(e) { console.error(e); }
     });
 
-    // --- LOGIC ---
+    // --- FUNCTIONS ---
     function doConnect() {
         auth.gh_username = document.getElementById('gh_username').value; auth.gh_repo = document.getElementById('gh_repo').value; auth.gh_token = document.getElementById('gh_token').value;
         if(!auth.gh_token) { alert("Missing Token"); return; }
@@ -195,7 +184,7 @@
     function fullReset() { if(confirm("Logout?")) { localStorage.clear(); location.reload(); } }
     function switchTab(id) { document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active')); document.getElementById(id).classList.add('active'); event.currentTarget.classList.add('active'); }
 
-    // --- VENTURE FACTORY (DEEP) ---
+    // --- VENTURE FACTORY ---
     function renderVentures() {
         const c = document.getElementById('venture-container'); c.innerHTML = '';
         content.ventures.forEach((v, i) => {
@@ -203,7 +192,7 @@
             <div class="venture-item">
                 <div class="venture-header">
                     <h5 class="m-0 text-primary">Page ${i+1}: ${v.title}</h5>
-                    <button class="btn-remove" onclick="delVenture(${i})"><i class="fas fa-trash"></i> Delete</button>
+                    <button class="btn-remove" onclick="delVenture(${i})">Delete</button>
                 </div>
                 <div class="venture-body">
                     <div class="row mb-3">
@@ -211,17 +200,14 @@
                         <div class="col-md-6"><label>Hero Image</label><div class="upload-group"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div>
                     </div>
                     <label>Tagline (Hero Subtitle)</label><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)">
-                    <div class="row">
-                        <div class="col-md-6"><label>The Vision (Paragraph 1)</label><textarea rows="3" oninput="updVenture(${i},'vision',this.value)">${v.vision||''}</textarea></div>
-                        <div class="col-md-6"><label>Strategic Approach (Paragraph 2)</label><textarea rows="3" oninput="updVenture(${i},'strategy',this.value)">${v.strategy||''}</textarea></div>
-                    </div>
-                    <label>Core Features (Bullet Points)</label><textarea rows="3" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea>
-                    <label>Market Impact (Bottom Section)</label><input type="text" value="${v.impact||''}" oninput="updVenture(${i},'impact',this.value)">
+                    <label>Detailed Vision (Description)</label><textarea rows="3" oninput="updVenture(${i},'vision',this.value)">${v.vision||''}</textarea>
+                    <label>Features (Bullet Points)</label><textarea rows="3" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea>
+                    <label>Market Impact (Bottom Section)</label><textarea rows="2" oninput="updVenture(${i},'impact',this.value)">${v.impact||''}</textarea>
                 </div>
             </div>`;
         });
     }
-    function addVenture() { content.ventures.push({title:"New Venture", image:"", features:"", vision:"", strategy:"", impact:"", tagline:""}); renderVentures(); saveInternal(); }
+    function addVenture() { content.ventures.push({title:"New Venture", image:"", features:"", vision:"", impact:"", tagline:""}); renderVentures(); saveInternal(); }
     function delVenture(i) { if(confirm("Delete?")) { content.ventures.splice(i,1); renderVentures(); saveInternal(); } }
     function updVenture(i, k, v) { content.ventures[i][k] = v; if(k==='image') content.ventures[i]['image']=v; saveInternal(); }
     function saveInternal() {
@@ -230,14 +216,14 @@
         localStorage.setItem('wp_content_v9', JSON.stringify(content));
     }
 
-    // --- PUBLISHER ---
+    // --- PUBLISH ENGINE ---
     async function publishToGitHub() {
         saveInternal();
         const stat = document.getElementById('status-text');
         if(!auth.gh_token) { alert("Not Connected!"); switchTab('settings'); return; }
         stat.innerText = "⏳ Generating...";
 
-        // CSS
+        // CSS (WIDE LAYOUT FIX)
         const commonCSS = `<style>:root{--primary:${content.col_primary};--gold:${content.col_accent}} body{font-family:'Manrope',sans-serif; overflow-x:hidden} 
         .navbar{background:var(--primary);padding:15px 5%;border-bottom:3px solid var(--gold)} 
         .navbar-brand{font-family:${content.brand_font}; color:var(--gold)!important; font-size:${content.brand_size}px; font-weight:700}
@@ -277,7 +263,7 @@
 
         const footer = `<footer id="contact"><div class="container"><h4>${content.brand_name}</h4><p class="mt-3">${content.address}</p><div class="mt-3 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp} <span class="mx-3">|</span> <i class="fas fa-envelope text-warning me-2"></i> ${content.email}</div><p class="small mt-4 opacity-50">&copy; 2025 ${content.brand_name}</p></div></footer>`;
 
-        // 1. GENERATE HOMEPAGE
+        // 1. GENERATE HOMEPAGE (Summary Cards Only)
         let homeCards = '';
         content.ventures.forEach(v => {
             const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
@@ -289,12 +275,12 @@
         try {
             await uploadToGH('index.html', indexHTML);
             
-            // 2. GENERATE DEEP PAGES
+            // 2. GENERATE DEEP PAGES (The "New Subdomains")
             for(const v of content.ventures) {
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
                 const list = v.features.split('\n').map(f => `<li class="mb-3"><i class="fas fa-check-circle me-3" style="color:${content.col_accent}"></i>${f}</li>`).join('');
                 
-                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title} | ${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="padding:180px 0 100px 0; background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)),url('${v.image}'); background-size:cover; background-attachment:fixed; text-align:center; color:white;"><h1>${v.title}</h1><p class="lead mt-3" style="color:${content.col_accent}; font-weight:bold; letter-spacing:2px;">${v.tagline||''}</p></div><section style="padding:80px 5%"><div class="container"><div class="row g-5"><div class="col-lg-6"><h3 style="color:${content.col_primary}; border-bottom:3px solid ${content.col_accent}; padding-bottom:15px; margin-bottom:30px; display:inline-block;">Our Vision</h3><p class="lead" style="line-height:1.8;">${v.vision}</p><div class="mt-5 p-4" style="background:#f8fafc; border-left:5px solid ${content.col_primary}"><h5 style="color:${content.col_primary}">Strategic Approach</h5><p class="mb-0 text-muted">${v.strategy}</p></div></div><div class="col-lg-6"><div style="background:${content.col_primary}; color:white; padding:40px; border-radius:12px;"><h3 style="color:${content.col_accent}; margin-bottom:30px;">Core Capabilities</h3><ul class="list-unstyled fs-5">${list}</ul><div class="mt-5 pt-4 border-top border-secondary"><h5 style="color:${content.col_accent}">Market Impact</h5><p>${v.impact}</p></div></div></div></div></div></section><section style="padding:80px 0; background:#f1f5f9; text-align:center;"><div class="container"><h2>Ready to collaborate?</h2><p class="mb-4">Get in touch to discuss ${v.title} opportunities.</p><a href="https://wa.me/${content.whatsapp}" class="btn btn-gold">Connect on WhatsApp</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title} | ${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="padding:180px 0 100px 0; background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)),url('${v.image}'); background-size:cover; background-attachment:fixed; text-align:center; color:white;"><h1>${v.title}</h1><p class="lead mt-3" style="color:${content.col_accent}; font-weight:bold; letter-spacing:2px;">${v.tagline||''}</p></div><section style="padding:80px 5%"><div class="container"><div class="row g-5"><div class="col-lg-6"><h3 style="color:${content.col_primary}; border-bottom:3px solid ${content.col_accent}; padding-bottom:15px; margin-bottom:30px; display:inline-block;">Our Vision</h3><p class="lead" style="line-height:1.8;">${v.vision}</p></div><div class="col-lg-6"><div style="background:${content.col_primary}; color:white; padding:40px; border-radius:12px;"><h3 style="color:${content.col_accent}; margin-bottom:30px;">Core Capabilities</h3><ul class="list-unstyled fs-5">${list}</ul><div class="mt-5 pt-4 border-top border-secondary"><h5 style="color:${content.col_accent}">Market Impact</h5><p>${v.impact}</p></div></div></div></div></div></section><section style="padding:80px 0; background:#f1f5f9; text-align:center;"><div class="container"><h2>Ready to collaborate?</h2><p class="mb-4">Get in touch to discuss ${v.title} opportunities.</p><a href="https://wa.me/${content.whatsapp}" class="btn btn-gold">Connect on WhatsApp</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
                 
                 await uploadToGH(slug, pageHTML);
                 await new Promise(r => setTimeout(r, 500));
@@ -314,6 +300,7 @@
         const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Update', content: utf8_to_b64(content), sha: sha }) });
         if(!res.ok) throw new Error("GitHub rejected upload");
     }
+    
     async function uploadImage(input, targetID, index) {
         const file = input.files[0]; if(!file || !auth.gh_token) return;
         const reader = new FileReader(); reader.readAsDataURL(file);
@@ -323,7 +310,8 @@
             try {
                 document.getElementById('status-text').innerText = "Uploading...";
                 const url = `https://api.github.com/repos/${auth.gh_username}/${auth.gh_repo}/contents/${filename}`;
-                await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: `Img`, content: contentBase64 }) });
+                const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: `Img`, content: contentBase64 }) });
+                if(!res.ok) throw new Error('Failed');
                 const finalUrl = `https://${auth.gh_username}.github.io/${auth.gh_repo}/${filename}`;
                 if(targetID.startsWith('v_img')) { content.ventures[index].image = finalUrl; }
                 document.getElementById(targetID).value = finalUrl;
