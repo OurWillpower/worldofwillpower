@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v7.4</title>
+    <title>Willpower Command Center v7.5</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -29,15 +29,15 @@
         .connection-status { padding: 15px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; text-align: center; }
         .status-disconnected { background-color: #f8d7da; color: #842029; }
         .status-connected { background-color: #d1e7dd; color: #0f5132; }
-        #crash-report { display: none; background: #dc3545; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; text-align: center; }
         
-        /* Dynamic Venture UI */
+        /* Upload & Venture UI */
         .venture-item { border-left: 4px solid #c5a059; background: #fff; margin-bottom: 20px; padding: 20px; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .btn-remove { position: absolute; top: 10px; right: 10px; color: #dc3545; background: none; border: none; }
         .btn-upload { border: 2px dashed #c5a059; color: #c5a059; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 0.8rem;}
         .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
         .upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height: 100%; width: 100%; }
         
+        #crash-report { display: none; background: #dc3545; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; text-align: center; }
         #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 350px; background: rgba(0,0,0,0.9); color: #0f0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; z-index: 2000; }
     </style>
 </head>
@@ -50,9 +50,9 @@
 </div>
 
 <div class="sidebar">
-    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v7.4</div>
+    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v7.5</div>
     <button class="nav-btn active" onclick="switchTab('settings')"><i class="fas fa-cog me-2"></i> 1. Setup</button>
-    <button class="nav-btn" onclick="switchTab('design')"><i class="fas fa-paint-brush me-2"></i> 2. Brand</button>
+    <button class="nav-btn" onclick="switchTab('design')"><i class="fas fa-paint-brush me-2"></i> 2. Brand & Style</button>
     <button class="nav-btn" onclick="switchTab('home')"><i class="fas fa-home me-2"></i> 3. Home</button>
     <button class="nav-btn" onclick="switchTab('ventures')"><i class="fas fa-layer-group me-2"></i> 4. Ventures</button>
     <button class="nav-btn" onclick="switchTab('contact')"><i class="fas fa-address-book me-2"></i> 5. Contact</button>
@@ -72,11 +72,50 @@
     </div>
 
     <div id="design" class="editor-section">
-        <div class="card"><div class="card-header">Branding</div><div class="card-body">
-            <label>Company Name</label><input type="text" id="brand_name">
-            <label>Font</label><select id="brand_font"><option value="'Cinzel', serif">Cinzel</option><option value="'Montserrat', sans-serif">Montserrat</option></select>
-            <label>Colors</label><div class="d-flex gap-3"><input type="color" id="col_primary"><input type="color" id="col_accent"></div>
+        <div class="card"><div class="card-header">Branding Studio</div><div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Company Name Text</label><input type="text" id="brand_name">
+                </div>
+                <div class="col-md-6">
+                    <label>Logo Image (Optional)</label>
+                    <div class="d-flex gap-2">
+                        <input type="text" id="brand_logo_url" placeholder="Paste Link or Upload ->">
+                        <div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label>Font Style</label>
+                    <select id="brand_font">
+                        <option value="'Cinzel', serif">Cinzel (Elegant)</option>
+                        <option value="'Montserrat', sans-serif">Montserrat (Modern)</option>
+                        <option value="'Playfair Display', serif">Playfair (Luxury)</option>
+                        <option value="'Roboto', sans-serif">Roboto (Standard)</option>
+                        <option value="'Great Vibes', cursive">Great Vibes (Cursive)</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Size (px)</label>
+                    <input type="number" id="brand_size" value="24">
+                </div>
+                <div class="col-md-3">
+                    <label>Style</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="checkbox" class="btn-check" id="brand_bold" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="brand_bold"><strong>B</strong></label>
+                        <input type="checkbox" class="btn-check" id="brand_italic" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="brand_italic"><em>I</em></label>
+                    </div>
+                </div>
+            </div>
         </div></div>
+
+        <div class="card"><div class="card-header">Colors</div><div class="card-body"><div class="row">
+            <div class="col-md-6"><label>Primary Color</label><input type="color" id="col_primary" value="#052b1e"></div>
+            <div class="col-md-6"><label>Accent Color</label><input type="color" id="col_accent" value="#c5a059"></div>
+        </div></div></div>
     </div>
 
     <div id="home" class="editor-section">
@@ -89,7 +128,7 @@
     </div>
 
     <div id="ventures" class="editor-section">
-        <div class="alert alert-info">These ventures will appear on the Homepage (summary) AND the Ventures page (details).</div>
+        <div class="alert alert-info">These ventures appear on the Homepage and detailed page.</div>
         <div id="venture-container"></div>
         <button class="btn btn-dark w-100 mt-3" onclick="addVenture()">+ Add Venture</button>
     </div>
@@ -120,10 +159,13 @@
     // --- DATA ---
     let auth = { gh_username: '', gh_repo: 'worldofwillpower', gh_token: '' };
     
-    // DEFAULT DATA WITH YOUR DETAILS
+    // CUSTOM DEFAULTS
     let content = {
         col_primary: '#052b1e', col_accent: '#c5a059',
-        brand_name: 'World of Willpower', brand_font: "'Cinzel', serif",
+        
+        // BRANDING (Restored)
+        brand_name: 'World of Willpower', brand_font: "'Cinzel', serif", brand_size: '26', brand_bold: true, brand_italic: false, brand_logo_url: '',
+        
         img_hero1: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80',
         hero_h1: 'Forging Leaders.', hero_p1: 'Strategic mentorship.',
         about_text: 'World of Willpower is a diversified conglomerate acting as the bridge between intellectual leadership and industrial capability.',
@@ -146,11 +188,15 @@
                 document.getElementById('gh_token').value = auth.gh_token || '';
                 if(auth.gh_token) setConnectedUI(true);
             }
-            const savedContent = localStorage.getItem('wp_content_v7_4');
+            const savedContent = localStorage.getItem('wp_content_v7_5');
             if(savedContent) content = { ...content, ...JSON.parse(savedContent) };
             
-            const ids = ['col_primary','col_accent','brand_name','brand_font','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
+            const ids = ['col_primary','col_accent','brand_name','brand_font','brand_size','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
             ids.forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = content[id] || ''; });
+
+            // Restore Checkboxes
+            if(document.getElementById('brand_bold')) document.getElementById('brand_bold').checked = content.brand_bold;
+            if(document.getElementById('brand_italic')) document.getElementById('brand_italic').checked = content.brand_italic;
 
             renderVentures();
         } catch(e) { console.error(e); }
@@ -207,9 +253,31 @@
     function updVenture(i, k, v) { content.ventures[i][k] = v; saveInternal(); }
 
     function saveInternal() {
-        const ids = ['col_primary','col_accent','brand_name','brand_font','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
+        const ids = ['col_primary','col_accent','brand_name','brand_font','brand_size','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) content[id] = document.getElementById(id).value; });
-        localStorage.setItem('wp_content_v7_4', JSON.stringify(content));
+        
+        content.brand_bold = document.getElementById('brand_bold').checked;
+        content.brand_italic = document.getElementById('brand_italic').checked;
+
+        localStorage.setItem('wp_content_v7_5', JSON.stringify(content));
+    }
+
+    // --- IMAGE UPLOAD ---
+    async function uploadImage(input, targetID) {
+        const file = input.files[0]; if(!file || !auth.gh_token) return;
+        const reader = new FileReader(); reader.readAsDataURL(file);
+        reader.onload = async function() {
+            const contentBase64 = reader.result.split(',')[1];
+            const filename = 'uploads/' + Date.now() + '_' + file.name.replace(/\s/g, '');
+            try {
+                document.getElementById('status-text').innerText = "Uploading...";
+                const url = `https://api.github.com/repos/${auth.gh_username}/${auth.gh_repo}/contents/${filename}`;
+                const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: `Img`, content: contentBase64 }) });
+                if(!res.ok) throw new Error('Failed');
+                document.getElementById(targetID).value = `https://${auth.gh_username}.github.io/${auth.gh_repo}/${filename}`;
+                saveInternal(); document.getElementById('status-text').innerText = "Uploaded!";
+            } catch(e) { alert('Upload Failed'); }
+        };
     }
 
     // --- PUBLISH ENGINE ---
@@ -220,7 +288,17 @@
         
         stat.innerText = "⏳ Publishing...";
         
-        // 1. GENERATE VENTURE CARDS (For Homepage)
+        // BRANDING LOGIC
+        const weight = content.brand_bold ? '700' : '400';
+        const style = content.brand_italic ? 'italic' : 'normal';
+        let brandHTML = '';
+        if(content.brand_logo_url) {
+            brandHTML = `<img src="${content.brand_logo_url}" style="height:50px; margin-right:10px;"> <span style="font-family:${content.brand_font}; font-size:${content.brand_size}px; color:${content.col_accent}; font-weight:${weight}; font-style:${style};">${content.brand_name}</span>`;
+        } else {
+            brandHTML = `<span style="font-family:${content.brand_font}; font-size:${content.brand_size}px; color:${content.col_accent}; font-weight:${weight}; font-style:${style};">${content.brand_name}</span>`;
+        }
+
+        // 1. HOME VENTURES (Grid)
         let homeVentureCards = '';
         content.ventures.forEach(v => {
             homeVentureCards += `
@@ -234,10 +312,10 @@
             </div>`;
         });
 
-        // 2. GENERATE DETAILED VENTURE LIST (For Ventures Page)
+        // 2. DETAILED VENTURES
         let detailedVentures = '';
         content.ventures.forEach(v => {
-            const list = v.features.split('\n').map(f => `<li><i class="fas fa-check" style="color:${content.col_accent}; margin-right:10px;"></i>${f}</li>`).join('');
+            const list = v.features.split('\n').map(f => `<li><i class="fas fa-check" style="color:${content.col_accent}; margin-right:8px;"></i>${f}</li>`).join('');
             detailedVentures += `
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="venture-detail-card">
@@ -247,18 +325,15 @@
             </div>`;
         });
 
-        // SHARED STYLES
-        const style = `<style>:root{--primary:${content.col_primary};--gold:${content.col_accent}} body{font-family:'Manrope',sans-serif} h1,h2,h3,.navbar-brand{font-family:${content.brand_font}} .navbar{background:var(--primary);padding:10px 0;border-bottom:3px solid var(--gold)} .navbar-brand{color:var(--gold)!important;font-weight:700;font-size:1.4rem} .carousel-item{height:85vh;min-height:500px;background-size:cover;background-position:center} .carousel-caption h1{font-size:3.5rem;color:var(--gold);text-shadow:2px 2px 10px rgba(0,0,0,.5)} .overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.3))} .float-wa{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;z-index:999} .venture-card{background:#fff; padding:30px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.05); text-align:center; border-top:4px solid var(--gold); transition:0.3s; height:100%;} .venture-card:hover{transform:translateY(-5px); background:#f9f9f9;} .venture-detail-card{background:#fff; padding:30px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.05); height:100%;} footer{background:var(--primary); color:#fff; padding:15px 0; text-align:center;}</style>`;
+        const commonStyle = `<style>:root{--primary:${content.col_primary};--gold:${content.col_accent}} body{font-family:'Manrope',sans-serif} h1,h2,h3,.navbar-brand{font-family:${content.brand_font}} .navbar{background:var(--primary);padding:10px 0;border-bottom:3px solid var(--gold)}.navbar-brand{display:flex;align-items:center}.nav-link{color:rgba(255,255,255,.8)!important;margin-left:15px;text-transform:uppercase;font-size:.85rem}.carousel-item{height:85vh;min-height:500px;background-size:cover;background-position:center}.carousel-caption{bottom:35%}.carousel-caption h1{font-size:3.5rem;color:var(--gold);text-shadow:2px 2px 10px rgba(0,0,0,.5)}.overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.3))}.float-wa{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;z-index:999} .venture-card{background:#fff; padding:30px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.05); text-align:center; border-top:4px solid var(--gold); transition:0.3s; height:100%;} .venture-card:hover{transform:translateY(-5px); background:#f9f9f9;} .venture-detail-card{background:#fff; padding:30px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.05); height:100%;} footer{background:var(--primary); color:#fff; padding:15px 0; text-align:center;}</style>`;
         
         const footer = `<footer><div class="container"><h4 style="color:var(--gold); margin-bottom:5px;">${content.brand_name}</h4><p style="font-size:0.9rem; margin-bottom:10px;">${content.address}</p><div style="font-size:0.9rem; margin-bottom:10px;"><span><i class="fab fa-whatsapp" style="color:#25d366"></i> +${content.whatsapp}</span> <span style="margin-left:15px"><i class="fas fa-envelope" style="color:#f0ad4e"></i> ${content.email}</span></div><p class="small" style="opacity:0.7">&copy; 2025 World of Willpower.</p></div></footer>`;
 
-        // 3. INDEX HTML (With Ventures Grid)
-        const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600&family=Montserrat&display=swap" rel="stylesheet">${style}</head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html">${content.brand_name}</a></div></nav><div class="carousel slide"><div class="carousel-inner"><div class="carousel-item active" style="background-image:url('${content.img_hero1}')"><div class="overlay"></div><div class="carousel-caption"><h1>${content.hero_h1}</h1><p class="lead text-white mb-4">${content.hero_p1}</p></div></div></div></div><section style="padding:80px 0"><div class="container text-center"><h2 style="color:var(--primary); margin-bottom:20px;">Who We Are</h2><p class="lead text-muted" style="max-width:800px;margin:0 auto 60px auto;">${content.about_text}</p><h2 style="color:var(--primary); margin-bottom:40px;">Our Business Verticals</h2><div class="row">${homeVentureCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a></body></html>`;
+        const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">${commonStyle}</head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html">${brandHTML}</a></div></nav><div class="carousel slide"><div class="carousel-inner"><div class="carousel-item active" style="background-image:url('${content.img_hero1}')"><div class="overlay"></div><div class="carousel-caption"><h1>${content.hero_h1}</h1><p class="lead text-white mb-4">${content.hero_p1}</p></div></div></div></div><section style="padding:80px 0"><div class="container text-center"><h2 style="color:var(--primary); margin-bottom:20px;">Who We Are</h2><p class="lead text-muted" style="max-width:800px;margin:0 auto 60px auto;">${content.about_text}</p><h2 style="color:var(--primary); margin-bottom:40px;">Our Business Verticals</h2><div class="row">${homeVentureCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a></body></html>`;
         
-        // 4. VENTURES HTML (Detailed)
-        const venturesHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ventures</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600&family=Montserrat&display=swap" rel="stylesheet">${style}</head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html">${content.brand_name}</a></div></nav><div style="padding:150px 0 50px 0; background:${content.col_primary}; color:white; text-align:center;"><h1>Our Ventures</h1></div><section style="padding:80px 0"><div class="container"><div class="row">${detailedVentures}</div></div></section>${footer}</body></html>`;
+        const venturesHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ventures</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">${commonStyle}</head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html">${brandHTML}</a></div></nav><div style="padding:150px 0 50px 0; background:${content.col_primary}; color:white; text-align:center;"><h1>Our Ventures</h1></div><section style="padding:80px 0"><div class="container"><div class="row">${detailedVentures}</div></div></section>${footer}</body></html>`;
 
-        // UPLOAD
+        // --- UPLOAD ---
         try {
             await uploadToGH('index.html', indexHTML);
             await uploadToGH('ventures.html', venturesHTML);
@@ -287,12 +362,12 @@
             const contentBase64 = reader.result.split(',')[1];
             const filename = 'uploads/' + Date.now() + '_' + file.name.replace(/\s/g, '');
             try {
-                const log = document.getElementById('status-text'); log.innerText = "Uploading Image...";
+                document.getElementById('status-text').innerText = "Uploading...";
                 const url = `https://api.github.com/repos/${auth.gh_username}/${auth.gh_repo}/contents/${filename}`;
                 const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: `Img`, content: contentBase64 }) });
                 if(!res.ok) throw new Error('Failed');
                 document.getElementById(targetID).value = `https://${auth.gh_username}.github.io/${auth.gh_repo}/${filename}`;
-                saveInternal(); log.innerText = "Image Uploaded";
+                saveInternal(); document.getElementById('status-text').innerText = "Uploaded!";
             } catch(e) { alert('Upload Failed'); }
         };
     }
