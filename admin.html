@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center (Strict Mode)</title>
+    <title>Willpower Command Center (Safe Mode)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -19,7 +19,13 @@
         .btn-save { background: #052b1e; color: #c5a059; border: none; padding: 12px 30px; font-weight: bold; border-radius: 5px; width: 100%; }
         .btn-publish { background: #dc3545; color: white; border: none; padding: 15px 30px; font-weight: bold; border-radius: 5px; width: 100%; margin-top: 10px; }
         .btn-publish:hover { background: #b02a37; }
-        .status-msg { margin-top: 10px; font-size: 0.9rem; font-weight: bold; color: white; }
+        
+        /* Debug Console on Screen */
+        #debug-console { 
+            background: #000; color: #0f0; font-family: monospace; 
+            padding: 15px; border-radius: 5px; margin-top: 20px; 
+            min-height: 100px; font-size: 0.8rem; overflow-wrap: break-word;
+        }
     </style>
 </head>
 <body>
@@ -34,7 +40,7 @@
     <div style="margin-top: 50px;">
         <button class="btn-save" onclick="saveData()"><i class="fas fa-save me-2"></i> Save Draft</button>
         <button class="btn-publish" onclick="publishToGitHub()"><i class="fas fa-cloud-upload-alt me-2"></i> PUBLISH LIVE</button>
-        <div id="status" class="status-msg"></div>
+        <div id="debug-console">System Ready...</div>
     </div>
 </div>
 
@@ -42,7 +48,7 @@
     
     <div id="settings" class="editor-section active">
         <h2><i class="fas fa-lock"></i> Connection Setup</h2>
-        <div class="alert alert-warning">Enter your details. These are required for the Publish button to work.</div>
+        <div class="alert alert-warning">Enter your details exactly as they appear on GitHub.</div>
         <label>GitHub Username</label><input type="text" id="gh_username" placeholder="e.g. OurWillpower">
         <label>Repository Name</label><input type="text" id="gh_repo" value="worldofwillpower">
         <label>GitHub Personal Access Token</label><input type="password" id="gh_token" placeholder="Paste ghp_... code here">
@@ -79,13 +85,19 @@
 </div>
 
 <script>
+    function log(msg) {
+        const consoleDiv = document.getElementById('debug-console');
+        consoleDiv.innerHTML += `<div>> ${msg}</div>`;
+        consoleDiv.scrollTop = consoleDiv.scrollHeight;
+    }
+
     function showTab(id) { document.querySelectorAll('.editor-section').forEach(e=>e.classList.remove('active')); document.getElementById(id).classList.add('active'); }
     
     function saveData() {
         const ids = ['gh_username','gh_repo','gh_token','ga_id','base_visits','hero_h1','hero_p1','hero_h2','hero_p2','about_text','v1_title','v1_f1','v1_f2','v1_f3','v2_title','v2_f1','v2_f2','v2_f3','v3_title','v3_f1','v3_f2','v3_f3','address','phone','email','whatsapp'];
         const data = {}; ids.forEach(id => data[id] = document.getElementById(id).value);
         localStorage.setItem('wp_data', JSON.stringify(data));
-        alert('Draft Saved!');
+        log('Draft Saved to browser.');
     }
 
     window.onload = function() {
@@ -93,53 +105,61 @@
         if(d) for(let k in d) if(document.getElementById(k)) document.getElementById(k).value = d[k];
     }
 
+    // --- SAFE ENCODER (The Fix) ---
+    // This handles Emojis, Smart Quotes, and Foreign characters without crashing
+    function utf8_to_b64(str) {
+        return window.btoa(unescape(encodeURIComponent(str)));
+    }
+
     async function publishToGitHub() {
         saveData();
         const d = JSON.parse(localStorage.getItem('wp_data'));
-        const status = document.getElementById('status');
         
-        if(!d.gh_token || !d.gh_username) { alert('ERROR: Missing GitHub Token or Username! Please check the Setup tab.'); return; }
+        if(!d.gh_token || !d.gh_username) { alert('ERROR: Missing GitHub Token or Username!'); return; }
         
-        status.innerText = "Connecting to GitHub...";
+        log("Generating Files...");
         
         // REGENERATE HTML CONTENT
         const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>World of Willpower</title><script async src="https://www.googletagmanager.com/gtag/js?id=${d.ga_id}"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${d.ga_id}');<\/script><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet"><style>:root{--primary:#052b1e;--gold:#c5a059}body{font-family:'Manrope',sans-serif;background:#f8f9fa;color:#333;overflow-x:hidden}h1,h2,h3,.navbar-brand{font-family:'Cinzel',serif}.navbar{background:var(--primary);padding:15px 0;border-bottom:3px solid var(--gold)}.corp-emblem{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;background:var(--primary);border:2px solid var(--gold);border-radius:50%;margin-right:15px}.corp-emblem i{color:var(--gold);font-size:1.6rem}.navbar-brand{color:var(--gold)!important;font-weight:700;font-size:1.4rem;text-transform:uppercase;display:flex;align-items:center}.nav-link{color:rgba(255,255,255,.8)!important;margin-left:15px;text-transform:uppercase;font-size:.85rem}.nav-link:hover{color:var(--gold)!important}.carousel-item{height:90vh;min-height:600px;background-size:cover;background-position:center}.carousel-caption{bottom:35%}.carousel-caption h1{font-size:4rem;color:var(--gold);text-shadow:2px 2px 10px rgba(0,0,0,.5)}.overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(5,43,30,.8),rgba(5,43,30,.5))}.btn-gold{background:var(--gold);color:var(--primary);padding:15px 40px;font-weight:800;text-decoration:none;display:inline-block;text-transform:uppercase}footer{background:#021a12;color:#ccc;padding:60px 0;text-align:center}.float-wa{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none}</style></head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html"><div class="corp-emblem"><i class="fas fa-crown"></i></div>World of Willpower</a><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="ventures.html">Our Ventures</a></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav><div class="carousel slide carousel-fade" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80')"><div class="overlay"></div><div class="carousel-caption" data-aos="fade-up"><h1>${d.hero_h1}</h1><p class="lead text-white mb-5">${d.hero_p1}</p><a href="ventures.html" class="btn-gold">Explore</a></div></div><div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=80')"><div class="overlay"></div><div class="carousel-caption"><h1>${d.hero_h2}</h1><p class="lead text-white mb-5">${d.hero_p2}</p><a href="ventures.html" class="btn-gold">Products</a></div></div></div></div><section style="padding:100px 0"><div class="container text-center" data-aos="fade-up"><h2 class="fw-bold text-uppercase mb-4" style="color:var(--primary)">The Ecosystem</h2><p class="lead text-muted" style="max-width:800px;margin:0 auto">${d.about_text}</p></div></section><footer id="contact"><div class="container"><div class="corp-emblem mx-auto mb-4"><i class="fas fa-crown"></i></div><h4 style="color:var(--gold)">World of Willpower</h4><p class="mb-4">${d.address}</p><p>P: ${d.phone} | E: ${d.email}</p><div style="margin-top:20px;color:var(--gold);border:1px solid var(--gold);display:inline-block;padding:5px 15px;border-radius:20px">Visitors: <span id="visit-count">...</span></div><p class="small mt-4">&copy; 2025 World of Willpower.</p></div></footer><a href="https://wa.me/${d.whatsapp}" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"><\/script><script>AOS.init({duration:1000,once:true});let v=localStorage.getItem('site_visits')||${d.base_visits};v++;localStorage.setItem('site_visits',v);document.getElementById('visit-count').innerText=v;<\/script></body></html>`;
+        
         const venturesHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ventures | World of Willpower</title><script async src="https://www.googletagmanager.com/gtag/js?id=${d.ga_id}"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${d.ga_id}');<\/script><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet"><style>:root{--primary:#052b1e;--gold:#c5a059}body{font-family:'Manrope',sans-serif;background:#f8f9fa;color:#333}.navbar{background:var(--primary);padding:15px 0;border-bottom:3px solid var(--gold)}.corp-emblem{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;background:var(--primary);border:2px solid var(--gold);border-radius:50%;margin-right:15px}.corp-emblem i{color:var(--gold);font-size:1.6rem}.navbar-brand{color:var(--gold)!important;font-weight:700;font-size:1.4rem;text-transform:uppercase;display:flex;align-items:center}.nav-link{color:rgba(255,255,255,.8)!important;margin-left:15px;text-transform:uppercase;font-size:.85rem}.page-header{background:linear-gradient(to bottom,rgba(5,43,30,.9),rgba(5,43,30,.8)),url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80');padding:150px 0 80px 0;text-align:center;color:white}.page-header h1{color:var(--gold);font-family:'Cinzel',serif;font-size:3.5rem}.venture-card{background:white;box-shadow:0 10px 30px rgba(0,0,0,.05);height:100%;transition:.3s}.venture-card:hover{transform:translateY(-10px)}.venture-body{padding:30px;position:relative}.venture-icon{position:absolute;top:-30px;right:30px;width:60px;height:60px;background:var(--gold);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;border-radius:50%}.venture-list{list-style:none;padding:0;margin-top:20px}.venture-list li i{color:var(--gold);margin-right:10px}footer{background:#021a12;color:#ccc;padding:60px 0;text-align:center;margin-top:auto}</style></head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html"><div class="corp-emblem"><i class="fas fa-crown"></i></div>World of Willpower</a><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link active" href="ventures.html">Our Ventures</a></li></ul></div></div></nav><header class="page-header"><div class="container"><h1>Business Verticals</h1><p class="lead">A diversified portfolio.</p></div></header><section style="padding:80px 0"><div class="container"><div class="row g-4"><div class="col-lg-4"><div class="venture-card"><div style="height:200px;background:gray"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" style="width:100%;height:100%;object-fit:cover"></div><div class="venture-body"><div class="venture-icon"><i class="fas fa-brain"></i></div><h3>${d.v1_title}</h3><ul class="venture-list"><li><i class="fas fa-check"></i> ${d.v1_f1}</li><li><i class="fas fa-check"></i> ${d.v1_f2}</li><li><i class="fas fa-check"></i> ${d.v1_f3}</li></ul></div></div></div><div class="col-lg-4"><div class="venture-card"><div style="height:200px;background:gray"><img src="https://images.unsplash.com/photo-1600189020772-6a8802335103?auto=format&fit=crop&w=800&q=80" style="width:100%;height:100%;object-fit:cover"></div><div class="venture-body"><div class="venture-icon"><i class="fas fa-prescription-bottle-alt"></i></div><h3>${d.v2_title}</h3><ul class="venture-list"><li><i class="fas fa-check"></i> ${d.v2_f1}</li><li><i class="fas fa-check"></i> ${d.v2_f2}</li><li><i class="fas fa-check"></i> ${d.v2_f3}</li></ul></div></div></div><div class="col-lg-4"><div class="venture-card"><div style="height:200px;background:gray"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" style="width:100%;height:100%;object-fit:cover"></div><div class="venture-body"><div class="venture-icon"><i class="fas fa-shipping-fast"></i></div><h3>${d.v3_title}</h3><ul class="venture-list"><li><i class="fas fa-check"></i> ${d.v3_f1}</li><li><i class="fas fa-check"></i> ${d.v3_f2}</li><li><i class="fas fa-check"></i> ${d.v3_f3}</li></ul></div></div></div></div></div></section><footer><div class="container"><p class="small mb-0">&copy; 2025 World of Willpower.</p></div></footer></body></html>`;
 
-        // API CALL FUNCTION (STRICT ERROR HANDLING)
         async function updateFile(filename, content) {
             try {
                 const url = `https://api.github.com/repos/${d.gh_username}/${d.gh_repo}/contents/${filename}`;
                 
-                // 1. GET CURRENT SHA
+                log(`Looking for ${filename}...`);
                 const getRes = await fetch(url, { headers: { 'Authorization': `token ${d.gh_token}` }});
-                if(!getRes.ok) throw new Error(`Could not find ${filename}. Error: ${getRes.status}`);
+                
+                if(!getRes.ok) throw new Error(`Fetch Error (${getRes.status}): Check Repo Name or Token.`);
                 const getData = await getRes.json();
                 
-                // 2. PUT UPDATE
+                log(`Found ${filename}. Uploading new version...`);
+                
+                // USE SAFE ENCODER HERE
                 const res = await fetch(url, {
                     method: 'PUT',
                     headers: { 'Authorization': `token ${d.gh_token}`, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: `Admin Update: ${filename}`, content: btoa(content), sha: getData.sha })
+                    body: JSON.stringify({ message: `Admin Update: ${filename}`, content: utf8_to_b64(content), sha: getData.sha })
                 });
                 
-                if(!res.ok) throw new Error(`Failed to save ${filename}. Error: ${res.status}`);
+                if(!res.ok) throw new Error(`Upload Error (${res.status}): GitHub rejected the file.`);
+                log(`SUCCESS: ${filename} updated!`);
                 return true;
             } catch (err) {
+                log(`ERROR: ${err.message}`);
                 alert(err.message);
-                status.innerText = "ERROR. See Alert.";
                 throw err;
             }
         }
 
-        // EXECUTE
         try {
             await updateFile('index.html', indexHTML);
             await updateFile('ventures.html', venturesHTML);
-            status.innerText = "SUCCESS! SITE LIVE.";
+            log("ALL FILES UPDATED SUCCESSFULLY.");
             alert('Great Success! Website Updated.');
         } catch (e) {
-            console.error(e);
+            log("Update Failed.");
         }
     }
 </script>
