@@ -3,54 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v8.1</title>
+    <title>Willpower Command Center v9.0</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #f0f2f5; font-family: 'Segoe UI', sans-serif; padding-bottom: 100px; }
-        .sidebar { width: 260px; height: 100vh; position: fixed; top: 0; left: 0; background: #1a1d21; color: #fff; padding: 20px; overflow-y: auto; z-index: 1000; }
-        .sidebar-brand { font-size: 1.2rem; font-weight: bold; padding-bottom: 20px; border-bottom: 1px solid #333; margin-bottom: 20px; color: #c5a059; }
-        .nav-btn { display: block; width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; background: transparent; border: none; color: #aaa; border-radius: 6px; transition: 0.2s; cursor: pointer; }
-        .nav-btn:hover { background: #333; color: #fff; }
-        .nav-btn.active { background: #c5a059; color: #000; font-weight: 700; }
-        .main-content { margin-left: 260px; padding: 40px; max-width: 1000px; }
-        .editor-section { display: none; }
-        .editor-section.active { display: block; animation: fadeIn 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .card { border: none; box-shadow: 0 2px 15px rgba(0,0,0,0.05); margin-bottom: 20px; border-radius: 10px; }
-        .card-header { background: #fff; border-bottom: 1px solid #eee; padding: 15px 20px; font-weight: 700; }
-        label { font-size: 0.8rem; font-weight: 700; color: #555; text-transform: uppercase; margin-top: 15px; display: block; }
-        input, textarea, select { width: 100%; padding: 10px; border: 1px solid #dee2e6; border-radius: 5px; }
-        input[type="color"] { height: 50px; padding: 0; border: none; cursor: pointer; }
-        .btn-success { background-color: #198754 !important; }
-        .action-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: #fff; padding: 15px 40px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; z-index: 900; }
-        .btn-publish { background: #052b1e; color: #c5a059; border: none; padding: 12px 30px; font-weight: 700; border-radius: 5px; cursor: pointer; transition: 0.2s; }
-        .btn-publish:hover { background: #000; color: #fff; }
+        body { background-color: #eef2f6; font-family: 'Segoe UI', sans-serif; padding-bottom: 100px; }
         
-        /* Venture UI */
-        .venture-item { border-left: 4px solid #c5a059; background: #fff; margin-bottom: 30px; padding: 25px; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-radius: 8px; }
-        .btn-remove { position: absolute; top: 15px; right: 15px; color: #dc3545; background: none; border: none; font-size: 1.2rem; }
-        .btn-upload { border: 2px dashed #c5a059; color: #c5a059; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 0.8rem;}
+        /* Sidebar */
+        .sidebar { width: 260px; height: 100vh; position: fixed; top: 0; left: 0; background: #0f172a; color: #fff; padding: 20px; overflow-y: auto; z-index: 1000; border-right: 1px solid #1e293b; }
+        .sidebar-brand { font-size: 1.2rem; font-weight: bold; padding-bottom: 20px; border-bottom: 1px solid #334155; margin-bottom: 20px; color: #f59e0b; letter-spacing: 1px; }
+        .nav-btn { display: block; width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; background: transparent; border: none; color: #94a3b8; border-radius: 6px; transition: 0.2s; cursor: pointer; font-weight: 500; }
+        .nav-btn:hover { background: #1e293b; color: #fff; }
+        .nav-btn.active { background: #f59e0b; color: #000; font-weight: 700; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); }
+        .nav-btn i { width: 25px; text-align: center; margin-right: 10px; }
+
+        /* Main Content */
+        .main-content { margin-left: 260px; padding: 40px; max-width: 1200px; }
+        .editor-section { display: none; animation: slideUp 0.4s ease-out; }
+        .editor-section.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Cards & Inputs */
+        .card { border: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 25px; border-radius: 12px; background: #fff; }
+        .card-header { background: #fff; border-bottom: 1px solid #f1f5f9; padding: 20px 25px; font-weight: 700; color: #334155; font-size: 1.05rem; }
+        .card-body { padding: 25px; }
+        label { font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-top: 20px; display: block; letter-spacing: 0.5px; }
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; transition: border 0.2s; background: #f8fafc; }
+        input:focus, textarea:focus { outline: none; border-color: #f59e0b; background: #fff; }
+        input[type="color"] { height: 50px; padding: 0; cursor: pointer; }
+
+        /* Upload Button */
+        .upload-group { display: flex; gap: 10px; align-items: flex-end; }
+        .btn-upload { border: 2px dashed #cbd5e1; color: #64748b; background: #f8fafc; padding: 9px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.2s; }
+        .btn-upload:hover { border-color: #f59e0b; color: #f59e0b; background: #fff; }
         .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
         .upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height: 100%; width: 100%; }
-        .connection-status { padding: 15px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; text-align: center; }
-        .status-disconnected { background-color: #f8d7da; color: #842029; }
-        .status-connected { background-color: #d1e7dd; color: #0f5132; }
-        #crash-report { display: none; background: #dc3545; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; text-align: center; }
+
+        /* Venture Item */
+        .venture-item { border: 1px solid #e2e8f0; background: #fff; margin-bottom: 30px; padding: 0; border-radius: 12px; overflow: hidden; position: relative; }
+        .venture-header { background: #f8fafc; padding: 15px 25px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+        .venture-body { padding: 25px; }
+        .btn-remove { color: #ef4444; background: white; border: 1px solid #ef4444; padding: 5px 15px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; cursor: pointer; }
+        .btn-remove:hover { background: #ef4444; color: white; }
+
+        /* Action Bar */
+        .action-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: #fff; padding: 20px 40px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; z-index: 900; box-shadow: 0 -4px 20px rgba(0,0,0,0.05); }
+        .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 40px; font-weight: 800; border-radius: 8px; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; transition: transform 0.2s; }
+        .btn-publish:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* Connection Status */
+        .connection-status { padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; text-align: center; font-size: 0.9rem; }
+        .status-disconnected { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+        .status-connected { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        
+        #crash-report { display: none; background: #ef4444; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; text-align: center; }
+        #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 350px; background: rgba(15, 23, 42, 0.95); color: #4ade80; padding: 20px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.75rem; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
 
-<div id="crash-report"><h3>⚠️ Error</h3><p id="crash-msg"></p><button class="btn btn-light btn-sm" onclick="localStorage.clear(); location.reload();">Reset</button></div>
+<div id="crash-report"><h3>⚠️ System Error</h3><p id="crash-msg"></p><button class="btn btn-light btn-sm" onclick="localStorage.clear(); location.reload();">Hard Reset</button></div>
 
 <div class="sidebar">
-    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v8.1</div>
-    <button class="nav-btn active" onclick="switchTab('settings')"><i class="fas fa-cog me-2"></i> 1. Setup</button>
-    <button class="nav-btn" onclick="switchTab('design')"><i class="fas fa-paint-brush me-2"></i> 2. Brand</button>
-    <button class="nav-btn" onclick="switchTab('home')"><i class="fas fa-home me-2"></i> 3. Home</button>
-    <button class="nav-btn" onclick="switchTab('ventures')"><i class="fas fa-layer-group me-2"></i> 4. Page Factory</button>
-    <button class="nav-btn" onclick="switchTab('contact')"><i class="fas fa-address-book me-2"></i> 5. Contact</button>
-    <div style="margin-top: 50px; padding: 20px;"><button onclick="fullReset()" class="btn btn-sm btn-outline-danger w-100">Logout</button></div>
+    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v9.0</div>
+    <button class="nav-btn active" onclick="switchTab('settings')"><i class="fas fa-cog"></i> 1. Setup</button>
+    <button class="nav-btn" onclick="switchTab('design')"><i class="fas fa-paint-brush"></i> 2. Brand & Style</button>
+    <button class="nav-btn" onclick="switchTab('home')"><i class="fas fa-home"></i> 3. Home Page</button>
+    <button class="nav-btn" onclick="switchTab('ventures')"><i class="fas fa-layer-group"></i> 4. Page Factory</button>
+    <button class="nav-btn" onclick="switchTab('contact')"><i class="fas fa-address-book"></i> 5. Contact</button>
+    <div style="margin-top: 50px; padding: 20px;"><button onclick="fullReset()" class="btn btn-sm btn-outline-danger w-100">Log Out</button></div>
 </div>
 
 <div class="main-content">
@@ -61,161 +82,238 @@
             <label>Username</label><input type="text" id="gh_username">
             <label>Repo Name</label><input type="text" id="gh_repo" value="worldofwillpower">
             <label>Token</label><input type="password" id="gh_token" placeholder="Paste Token here">
-            <button id="btn-connect" onclick="doConnect()" class="btn btn-success mt-3 w-100 fw-bold">CONNECT & REMEMBER</button>
+            <button id="btn-connect" onclick="doConnect()" class="btn btn-success mt-4 w-100 fw-bold py-3">CONNECT & REMEMBER</button>
         </div></div>
     </div>
 
     <div id="design" class="editor-section">
-        <div class="card"><div class="card-header">Branding</div><div class="card-body">
-            <div class="row"><div class="col-md-6"><label>Company Name</label><input type="text" id="brand_name"></div><div class="col-md-6"><label>Logo Image</label><div class="d-flex gap-2"><input type="text" id="brand_logo_url"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div></div>
-            <div class="row"><div class="col-md-6"><label>Font</label><select id="brand_font"><option value="'Cinzel', serif">Cinzel</option><option value="'Montserrat', sans-serif">Montserrat</option></select></div><div class="col-md-2"><label>Size</label><input type="number" id="brand_size"></div><div class="col-md-4"><label>Style</label><div class="btn-group w-100"><input type="checkbox" class="btn-check" id="brand_bold"><label class="btn btn-outline-dark" for="brand_bold"><strong>B</strong></label><input type="checkbox" class="btn-check" id="brand_italic"><label class="btn btn-outline-dark" for="brand_italic"><em>I</em></label></div></div></div>
-            <hr><label>Colors</label><div class="d-flex gap-3"><input type="color" id="col_primary"><input type="color" id="col_accent"></div>
+        <div class="card"><div class="card-header">Global Styling</div><div class="card-body">
+            <div class="row">
+                <div class="col-md-6"><label>Company Name</label><input type="text" id="brand_name"></div>
+                <div class="col-md-6"><label>Logo Image</label><div class="upload-group"><input type="text" id="brand_logo_url"><div class="upload-wrapper"><button class="btn-upload">Upload</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6"><label>Primary Color (Dark)</label><input type="color" id="col_primary" value="#052b1e"></div>
+                <div class="col-md-6"><label>Accent Color (Gold)</label><input type="color" id="col_accent" value="#c5a059"></div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6"><label>Headings Font</label><select id="brand_font"><option value="'Cinzel', serif">Cinzel (Elegant)</option><option value="'Montserrat', sans-serif">Montserrat (Modern)</option></select></div>
+                <div class="col-md-6"><label>Size</label><input type="number" id="brand_size" value="26"></div>
+            </div>
         </div></div>
     </div>
 
     <div id="home" class="editor-section">
-        <div class="card"><div class="card-header">Hero Slider</div><div class="card-body">
-            <label>Slide 1 Image</label><div class="d-flex gap-2"><input type="text" id="img_hero1"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
-            <label>Title</label><input type="text" id="hero_h1"><label>Subtitle</label><input type="text" id="hero_p1"><hr>
-            <label>Slide 2 Image</label><div class="d-flex gap-2"><input type="text" id="img_hero2"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero2')"></div></div>
-            <label>Title</label><input type="text" id="hero_h2"><label>Subtitle</label><input type="text" id="hero_p2">
+        <div class="card"><div class="card-header">Hero Slider (Slide 1)</div><div class="card-body">
+            <label>Image</label><div class="upload-group"><input type="text" id="img_hero1"><div class="upload-wrapper"><button class="btn-upload">Upload</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
+            <label>Title</label><input type="text" id="hero_h1">
+            <label>Subtitle</label><input type="text" id="hero_p1">
         </div></div>
-        <div class="card"><div class="card-body"><label>About Company</label><textarea id="about_text" rows="4"></textarea></div></div>
+        <div class="card"><div class="card-header">About Section</div><div class="card-body">
+            <label>Company Overview</label><textarea id="about_text" rows="5"></textarea>
+        </div></div>
     </div>
 
     <div id="ventures" class="editor-section">
-        <div class="alert alert-info"><i class="fas fa-file-alt"></i> Each venture added here generates a <strong>Unique Web Page</strong>.</div>
+        <div class="alert alert-primary mb-4">
+            <i class="fas fa-info-circle me-2"></i> <strong>Deep Page Generator:</strong> Fill in the details below. The system will create a full, rich brochure page for each venture automatically.
+        </div>
         <div id="venture-container"></div>
-        <button class="btn btn-dark w-100 mt-3 p-3" onclick="addVenture()">+ ADD NEW BUSINESS PAGE</button>
+        <button class="btn btn-dark w-100 py-3" onclick="addVenture()"><i class="fas fa-plus me-2"></i> ADD NEW BUSINESS PAGE</button>
     </div>
 
     <div id="contact" class="editor-section">
-        <div class="card"><div class="card-header">Contact</div><div class="card-body"><label>Address</label><input type="text" id="address"><label>Email</label><input type="text" id="email"><label>WhatsApp</label><input type="text" id="whatsapp"></div></div>
+        <div class="card"><div class="card-header">Contact Information</div><div class="card-body">
+            <label>Physical Address</label><input type="text" id="address">
+            <label>Email Address</label><input type="text" id="email">
+            <label>WhatsApp Number (No +)</label><input type="text" id="whatsapp">
+        </div></div>
     </div>
 </div>
 
 <div class="action-bar">
     <div id="status-text" class="fw-bold text-success"></div>
-    <button onclick="publishToGitHub()" class="btn-publish">GENERATE & PUBLISH</button>
+    <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket me-2"></i> GENERATE WEBSITE</button>
 </div>
 
+<div id="debug-console"></div>
+
 <script>
-    window.onerror = function(msg) { document.getElementById('crash-report').style.display = 'block'; document.getElementById('crash-msg').innerText = `Error: ${msg}`; };
+    window.onerror = function(msg) { document.getElementById('crash-report').style.display = 'block'; document.getElementById('crash-msg').innerText = msg; };
     
     // --- STATE ---
     let auth = { gh_username: '', gh_repo: 'worldofwillpower', gh_token: '' };
     let content = {
-        col_primary: '#052b1e', col_accent: '#c5a059',
-        brand_name: 'World of Willpower', brand_font: "'Cinzel', serif", brand_size: '26', brand_bold: true, brand_italic: false, brand_logo_url: '',
-        img_hero1: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80', hero_h1: 'Forging Leaders.', hero_p1: 'Strategic mentorship.',
-        img_hero2: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=80', hero_h2: 'Manufacturing Quality.', hero_p2: 'Premium Dairy & Ayurvedic Standards.',
+        col_primary: '#0f172a', col_accent: '#f59e0b',
+        brand_name: 'World of Willpower', brand_font: "'Cinzel', serif", brand_size: '26', brand_logo_url: '',
+        img_hero1: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80',
+        hero_h1: 'Forging Leaders.', hero_p1: 'Strategic mentorship for visionaries.',
         about_text: 'World of Willpower is a diversified conglomerate...',
-        address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204', email: 'care@worldofwillpower.com', whatsapp: '917039196489',
-        ventures: [{ title: "Mentoring", image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80", features: "Coaching\nStrategy", description: "Strategic guidance for founders." }]
+        address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
+        email: 'care@worldofwillpower.com', whatsapp: '917039196489',
+        ventures: [
+            { 
+                title: "Mentoring & Strategy", 
+                image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80", 
+                tagline: "Empowering Visionaries.",
+                vision: "To create a generation of resilient leaders who can navigate uncertainty with confidence.",
+                strategy: "We combine psychological profiling with hard-nosed business tactics to build a roadmap for success.",
+                features: "Leadership Coaching\nPitch Deck Preparation\nCrisis Management\nInvestor Networking",
+                impact: "Helped 100+ founders raise over $10M in seed funding."
+            }
+        ]
     };
 
-    // --- STARTUP ---
+    // --- INIT ---
     document.addEventListener('DOMContentLoaded', () => {
-        const savedAuth = localStorage.getItem('wp_auth');
-        if(savedAuth) { auth = JSON.parse(savedAuth); document.getElementById('gh_username').value = auth.gh_username; document.getElementById('gh_repo').value = auth.gh_repo; document.getElementById('gh_token').value = auth.gh_token; if(auth.gh_token) setConnectedUI(true); }
-        const savedContent = localStorage.getItem('wp_content_v8_1');
-        if(savedContent) content = { ...content, ...JSON.parse(savedContent) };
-        const ids = ['col_primary','col_accent','brand_name','brand_font','brand_size','brand_logo_url','img_hero1','hero_h1','hero_p1','img_hero2','hero_h2','hero_p2','about_text','address','email','whatsapp'];
-        ids.forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = content[id] || ''; });
-        if(document.getElementById('brand_bold')) document.getElementById('brand_bold').checked = content.brand_bold;
-        if(document.getElementById('brand_italic')) document.getElementById('brand_italic').checked = content.brand_italic;
-        renderVentures();
+        try {
+            const savedAuth = localStorage.getItem('wp_auth');
+            if(savedAuth) {
+                auth = JSON.parse(savedAuth);
+                document.getElementById('gh_username').value = auth.gh_username || '';
+                document.getElementById('gh_repo').value = auth.gh_repo || '';
+                document.getElementById('gh_token').value = auth.gh_token || '';
+                if(auth.gh_token) setConnectedUI(true);
+            }
+            const savedContent = localStorage.getItem('wp_content_v9');
+            if(savedContent) content = { ...content, ...JSON.parse(savedContent) };
+            
+            const ids = ['col_primary','col_accent','brand_name','brand_font','brand_size','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
+            ids.forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = content[id] || ''; });
+
+            renderVentures();
+        } catch(e) { console.error(e); }
     });
 
-    // --- FUNCTIONS ---
+    // --- LOGIC ---
     function doConnect() {
         auth.gh_username = document.getElementById('gh_username').value; auth.gh_repo = document.getElementById('gh_repo').value; auth.gh_token = document.getElementById('gh_token').value;
         if(!auth.gh_token) { alert("Missing Token"); return; }
         localStorage.setItem('wp_auth', JSON.stringify(auth)); setConnectedUI(true); alert("Connected!");
     }
-    function setConnectedUI(c) {
-        const s = document.getElementById('auth-status'); s.className = c ? "connection-status status-connected" : "connection-status status-disconnected"; s.innerText = c ? "CONNECTED ✅" : "NOT CONNECTED ❌";
-    }
+    function setConnectedUI(c) { document.getElementById('auth-status').className = c ? "connection-status status-connected" : "connection-status status-disconnected"; document.getElementById('auth-status').innerText = c ? "CONNECTED ✅" : "NOT CONNECTED ❌"; }
     function fullReset() { if(confirm("Logout?")) { localStorage.clear(); location.reload(); } }
-    function switchTab(id) {
-        document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
-        document.getElementById(id).classList.add('active'); event.currentTarget.classList.add('active');
-    }
+    function switchTab(id) { document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active')); document.getElementById(id).classList.add('active'); event.currentTarget.classList.add('active'); }
 
-    // --- VENTURE FACTORY ---
+    // --- VENTURE FACTORY (DEEP) ---
     function renderVentures() {
         const c = document.getElementById('venture-container'); c.innerHTML = '';
         content.ventures.forEach((v, i) => {
-            c.innerHTML += `<div class="venture-item"><button class="btn-remove" onclick="delVenture(${i})">Delete Page</button><div class="row"><div class="col-md-4"><label>Title</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"><label>Image</label><div class="d-flex gap-2"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div><div class="col-md-8"><label>Full Brochure Text</label><textarea rows="3" oninput="updVenture(${i},'description',this.value)">${v.description || ''}</textarea><label>Bullet Points</label><textarea rows="3" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea></div></div></div>`;
+            c.innerHTML += `
+            <div class="venture-item">
+                <div class="venture-header">
+                    <h5 class="m-0 text-primary">Page ${i+1}: ${v.title}</h5>
+                    <button class="btn-remove" onclick="delVenture(${i})"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+                <div class="venture-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6"><label>Page Title</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div>
+                        <div class="col-md-6"><label>Hero Image</label><div class="upload-group"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div>
+                    </div>
+                    <label>Tagline (Hero Subtitle)</label><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)">
+                    <div class="row">
+                        <div class="col-md-6"><label>The Vision (Paragraph 1)</label><textarea rows="3" oninput="updVenture(${i},'vision',this.value)">${v.vision||''}</textarea></div>
+                        <div class="col-md-6"><label>Strategic Approach (Paragraph 2)</label><textarea rows="3" oninput="updVenture(${i},'strategy',this.value)">${v.strategy||''}</textarea></div>
+                    </div>
+                    <label>Core Features (Bullet Points)</label><textarea rows="3" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea>
+                    <label>Market Impact (Bottom Section)</label><input type="text" value="${v.impact||''}" oninput="updVenture(${i},'impact',this.value)">
+                </div>
+            </div>`;
         });
     }
-    function addVenture() { content.ventures.push({title:"New Business", image:"", features:"", description:""}); renderVentures(); saveInternal(); }
+    function addVenture() { content.ventures.push({title:"New Venture", image:"", features:"", vision:"", strategy:"", impact:"", tagline:""}); renderVentures(); saveInternal(); }
     function delVenture(i) { if(confirm("Delete?")) { content.ventures.splice(i,1); renderVentures(); saveInternal(); } }
-    function updVenture(i, k, v) { content.ventures[i][k] = v; if(k === 'image') content.ventures[i]['image'] = v; saveInternal(); }
+    function updVenture(i, k, v) { content.ventures[i][k] = v; if(k==='image') content.ventures[i]['image']=v; saveInternal(); }
     function saveInternal() {
-        const ids = ['col_primary','col_accent','brand_name','brand_font','brand_size','brand_logo_url','img_hero1','hero_h1','hero_p1','img_hero2','hero_h2','hero_p2','about_text','address','email','whatsapp'];
+        const ids = ['col_primary','col_accent','brand_name','brand_font','brand_size','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) content[id] = document.getElementById(id).value; });
-        content.brand_bold = document.getElementById('brand_bold').checked; content.brand_italic = document.getElementById('brand_italic').checked;
-        localStorage.setItem('wp_content_v8_1', JSON.stringify(content));
+        localStorage.setItem('wp_content_v9', JSON.stringify(content));
     }
 
+    // --- PUBLISHER ---
     async function publishToGitHub() {
         saveInternal();
         const stat = document.getElementById('status-text');
-        if(!auth.gh_token) { alert("Not Connected!"); return; }
+        if(!auth.gh_token) { alert("Not Connected!"); switchTab('settings'); return; }
         stat.innerText = "⏳ Generating...";
 
-        // --- STYLES & COMPONENTS ---
-        const weight = content.brand_bold ? '700' : '400'; const style = content.brand_italic ? 'italic' : 'normal';
-        let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px; margin-right:10px;">` : '';
-        brandHTML += `<span style="font-family:${content.brand_font}; font-size:${content.brand_size}px; color:${content.col_accent}; font-weight:${weight}; font-style:${style};">${content.brand_name}</span>`;
+        // CSS
+        const commonCSS = `<style>:root{--primary:${content.col_primary};--gold:${content.col_accent}} body{font-family:'Manrope',sans-serif; overflow-x:hidden} 
+        .navbar{background:var(--primary);padding:15px 5%;border-bottom:3px solid var(--gold)} 
+        .navbar-brand{font-family:${content.brand_font}; color:var(--gold)!important; font-size:${content.brand_size}px; font-weight:700}
+        .nav-link{color:rgba(255,255,255,0.9)!important; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px; margin-left:20px}
+        footer{background:var(--primary);color:#fff;padding:40px 5%;text-align:center}
+        .btn-gold{background:var(--gold);color:var(--primary);padding:15px 35px;font-weight:800;text-decoration:none;display:inline-block;text-transform:uppercase}
+        .float-wa{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999}
+        </style>`;
 
-        const commonCSS = `<style>:root{--primary:${content.col_primary};--gold:${content.col_accent}} body{font-family:'Manrope',sans-serif} .navbar{background:var(--primary);padding:10px 0;border-bottom:3px solid var(--gold)} .navbar-brand{display:flex;align-items:center; text-decoration:none} .carousel-item{height:85vh;min-height:500px;background-size:cover;background-position:center} .carousel-caption h1{font-size:3.5rem;color:var(--gold);text-shadow:2px 2px 10px rgba(0,0,0,.5)} .overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.3))} .float-wa{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;z-index:999} .venture-card{background:#fff; padding:30px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.05); text-align:center; border-top:4px solid var(--gold); transition:0.3s; height:100%; cursor:pointer;} .venture-card:hover{transform:translateY(-5px); background:#f9f9f9;} footer{background:var(--primary); color:#fff; padding:15px 0; text-align:center;} .page-header{padding:100px 0; background:var(--primary); color:white; text-align:center;}</style>`;
-        const footerHTML = `<footer><div class="container"><h4 style="color:var(--gold); margin-bottom:5px;">${content.brand_name}</h4><p style="font-size:0.9rem; margin-bottom:10px;">${content.address}</p><div style="font-size:0.9rem; margin-bottom:10px;"><span><i class="fab fa-whatsapp" style="color:#25d366"></i> +${content.whatsapp}</span> <span style="margin-left:15px"><i class="fas fa-envelope" style="color:#f0ad4e"></i> ${content.email}</span></div><p class="small" style="opacity:0.7">&copy; 2025 World of Willpower.</p></div></footer>`;
-
-        // 1. GENERATE NAV DROPDOWN
-        let dropdownItems = '';
+        // COMPONENTS
+        let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px; margin-right:15px;">` : '';
+        brandHTML += content.brand_name;
+        
+        let dropdownLinks = '';
         content.ventures.forEach(v => {
             const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
-            dropdownItems += `<li><a class="dropdown-item" href="${slug}">${v.title}</a></li>`;
+            dropdownLinks += `<li><a class="dropdown-item" href="${slug}">${v.title}</a></li>`;
         });
-        const navbar = `<nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html">${brandHTML}</a><div class="collapse navbar-collapse"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu">${dropdownItems}</ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav>`;
 
-        // 2. GENERATE HOMEPAGE
+        const navbar = `
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container-fluid px-5">
+                <a class="navbar-brand me-auto" href="index.html">${brandHTML}</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="nav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a>
+                            <ul class="dropdown-menu dropdown-menu-end">${dropdownLinks}</ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>`;
+
+        const footer = `<footer id="contact"><div class="container"><h4>${content.brand_name}</h4><p class="mt-3">${content.address}</p><div class="mt-3 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp} <span class="mx-3">|</span> <i class="fas fa-envelope text-warning me-2"></i> ${content.email}</div><p class="small mt-4 opacity-50">&copy; 2025 ${content.brand_name}</p></div></footer>`;
+
+        // 1. GENERATE HOMEPAGE
         let homeCards = '';
         content.ventures.forEach(v => {
             const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
-            homeCards += `<div class="col-lg-4 col-md-6 mb-4"><a href="${slug}" style="text-decoration:none; color:inherit;"><div class="venture-card"><h3>${v.title}</h3><p style="color:#666; font-size:0.9rem;">View Details <i class="fas fa-arrow-right ms-1"></i></p></div></a></div>`;
+            homeCards += `<div class="col-lg-4 col-md-6 mb-4"><a href="${slug}" style="text-decoration:none; color:inherit;"><div style="background:#fff; border-top:4px solid ${content.col_accent}; padding:30px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%; transition:0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'"><h3 style="color:${content.col_primary}; font-family:'Cinzel'">${v.title}</h3><p class="text-muted mt-3">${v.tagline || 'Click to explore'}</p><div style="color:${content.col_accent}; font-weight:bold; margin-top:20px;">View Details &rarr;</div></div></a></div>`;
         });
-        const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600&family=Montserrat&display=swap" rel="stylesheet">${commonCSS}</head><body>${navbar}<div class="carousel slide"><div class="carousel-inner"><div class="carousel-item active" style="background-image:url('${content.img_hero1}')"><div class="overlay"></div><div class="carousel-caption"><h1>${content.hero_h1}</h1><p class="lead text-white mb-4">${content.hero_p1}</p></div></div></div></div><section style="padding:80px 0"><div class="container text-center"><h2 style="color:var(--primary); margin-bottom:20px;">Who We Are</h2><p class="lead text-muted" style="max-width:800px;margin:0 auto 60px auto;">${content.about_text}</p><h2 style="color:var(--primary); margin-bottom:40px;">Our Business Verticals</h2><div class="row">${homeCards}</div></div></section>${footerHTML}<a href="https://wa.me/${content.whatsapp}" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+
+        const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Manrope:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="height:90vh; background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('${content.img_hero1}'); background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding-top:80px;"><div class="container"><h1 style="font-size:4rem; margin-bottom:20px;">${content.hero_h1}</h1><p class="lead mb-5 fs-4">${content.hero_p1}</p></div></div><section style="padding:100px 5%"><div class="container text-center"><h2 style="color:${content.col_primary}; font-family:'Cinzel'; margin-bottom:30px;">Our Ecosystem</h2><p class="lead text-muted mx-auto" style="max-width:900px;">${content.about_text}</p></div></section><section style="padding:0 5% 100px 5%; background:#f8f9fa;"><div class="container"><h2 class="text-center mb-5" style="color:${content.col_primary}; font-family:'Cinzel'; padding-top:50px;">Business Verticals</h2><div class="row">${homeCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
 
         try {
             await uploadToGH('index.html', indexHTML);
             
-            // 3. GENERATE INDIVIDUAL PAGES LOOP
-            for (const v of content.ventures) {
+            // 2. GENERATE DEEP PAGES
+            for(const v of content.ventures) {
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
-                const list = v.features.split('\n').map(f => `<li><i class="fas fa-check" style="color:${content.col_accent}; margin-right:8px;"></i>${f}</li>`).join('');
-                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title} | ${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600&family=Montserrat&display=swap" rel="stylesheet">${commonCSS}</head><body>${navbar}<div class="page-header" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('${v.image}'); background-size:cover;"><h1>${v.title}</h1></div><section style="padding:80px 0"><div class="container"><div class="row"><div class="col-md-8"><h3 style="color:${content.col_primary}; border-bottom:2px solid ${content.col_accent}; padding-bottom:10px; margin-bottom:20px;">Overview</h3><p class="lead">${v.description}</p><h4 style="margin-top:40px; color:${content.col_primary}">Key Features</h4><ul style="list-style:none; padding:0; line-height:2.5; font-size:1.1rem;">${list}</ul></div><div class="col-md-4"><div style="background:#f9f9f9; padding:30px; border-radius:8px;"><h4>Interested?</h4><p>Contact us to discuss requirements.</p><a href="https://wa.me/${content.whatsapp}" class="btn btn-success w-100 mb-2"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a><a href="mailto:${content.email}" class="btn btn-outline-dark w-100"><i class="fas fa-envelope"></i> Send Email</a></div></div></div></div></section>${footerHTML}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+                const list = v.features.split('\n').map(f => `<li class="mb-3"><i class="fas fa-check-circle me-3" style="color:${content.col_accent}"></i>${f}</li>`).join('');
+                
+                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title} | ${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="padding:180px 0 100px 0; background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)),url('${v.image}'); background-size:cover; background-attachment:fixed; text-align:center; color:white;"><h1>${v.title}</h1><p class="lead mt-3" style="color:${content.col_accent}; font-weight:bold; letter-spacing:2px;">${v.tagline||''}</p></div><section style="padding:80px 5%"><div class="container"><div class="row g-5"><div class="col-lg-6"><h3 style="color:${content.col_primary}; border-bottom:3px solid ${content.col_accent}; padding-bottom:15px; margin-bottom:30px; display:inline-block;">Our Vision</h3><p class="lead" style="line-height:1.8;">${v.vision}</p><div class="mt-5 p-4" style="background:#f8fafc; border-left:5px solid ${content.col_primary}"><h5 style="color:${content.col_primary}">Strategic Approach</h5><p class="mb-0 text-muted">${v.strategy}</p></div></div><div class="col-lg-6"><div style="background:${content.col_primary}; color:white; padding:40px; border-radius:12px;"><h3 style="color:${content.col_accent}; margin-bottom:30px;">Core Capabilities</h3><ul class="list-unstyled fs-5">${list}</ul><div class="mt-5 pt-4 border-top border-secondary"><h5 style="color:${content.col_accent}">Market Impact</h5><p>${v.impact}</p></div></div></div></div></div></section><section style="padding:80px 0; background:#f1f5f9; text-align:center;"><div class="container"><h2>Ready to collaborate?</h2><p class="mb-4">Get in touch to discuss ${v.title} opportunities.</p><a href="https://wa.me/${content.whatsapp}" class="btn btn-gold">Connect on WhatsApp</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+                
                 await uploadToGH(slug, pageHTML);
-                await new Promise(r => setTimeout(r, 800)); // Delay to prevent errors
+                await new Promise(r => setTimeout(r, 500));
             }
 
             stat.innerText = "✅ ALL PAGES LIVE";
-            alert("Success! Check the 'Our Ventures' menu on your site.");
+            alert("Success! Check the 'Our Ventures' dropdown on your site.");
         } catch(e) { stat.innerText = "❌ ERROR"; alert("Error: " + e.message); }
     }
 
+    // UTILS
     function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
     async function uploadToGH(file, content) {
         const url = `https://api.github.com/repos/${auth.gh_username}/${auth.gh_repo}/contents/${file}`;
         const get = await fetch(url, { headers: { 'Authorization': `token ${auth.gh_token}` }});
         const sha = get.ok ? (await get.json()).sha : null;
         const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Update', content: utf8_to_b64(content), sha: sha }) });
-        if(!res.ok) throw new Error(`GitHub upload failed`);
+        if(!res.ok) throw new Error("GitHub rejected upload");
     }
-    
     async function uploadImage(input, targetID, index) {
         const file = input.files[0]; if(!file || !auth.gh_token) return;
         const reader = new FileReader(); reader.readAsDataURL(file);
@@ -225,10 +323,10 @@
             try {
                 document.getElementById('status-text').innerText = "Uploading...";
                 const url = `https://api.github.com/repos/${auth.gh_username}/${auth.gh_repo}/contents/${filename}`;
-                const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: `Img`, content: contentBase64 }) });
-                if(!res.ok) throw new Error('Failed');
+                await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: `Img`, content: contentBase64 }) });
                 const finalUrl = `https://${auth.gh_username}.github.io/${auth.gh_repo}/${filename}`;
-                if(targetID.startsWith('v_img')) { content.ventures[index].image = finalUrl; document.getElementById(targetID).value = finalUrl; } else { document.getElementById(targetID).value = finalUrl; }
+                if(targetID.startsWith('v_img')) { content.ventures[index].image = finalUrl; }
+                document.getElementById(targetID).value = finalUrl;
                 saveInternal(); document.getElementById('status-text').innerText = "Uploaded!";
             } catch(e) { alert('Upload Failed'); }
         };
