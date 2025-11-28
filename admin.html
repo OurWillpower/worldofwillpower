@@ -3,77 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v2.0</title>
+    <title>Willpower Command Center v3.0</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { background-color: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
         
-        /* Sidebar Styling */
+        /* Sidebar */
         .sidebar { width: 260px; height: 100vh; position: fixed; top: 0; left: 0; background: #1a1d21; color: #fff; padding: 20px; overflow-y: auto; z-index: 1000; }
-        .sidebar-brand { font-size: 1.2rem; font-weight: bold; padding-bottom: 20px; border-bottom: 1px solid #333; margin-bottom: 20px; color: #c5a059; text-transform: uppercase; letter-spacing: 1px; }
+        .sidebar-brand { font-size: 1.2rem; font-weight: bold; padding-bottom: 20px; border-bottom: 1px solid #333; margin-bottom: 20px; color: #c5a059; }
         
         .nav-btn { display: block; width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; background: transparent; border: none; color: #aaa; border-radius: 6px; transition: 0.2s; font-size: 0.95rem; }
         .nav-btn:hover { background: #333; color: #fff; }
         .nav-btn.active { background: #c5a059; color: #000; font-weight: 700; }
         .nav-btn i { width: 25px; }
 
-        /* Main Area */
-        .main-content { margin-left: 260px; padding: 40px; max-width: 1000px; }
-        .editor-section { display: none; animation: fadeIn 0.3s; }
-        .editor-section.active { display: block; }
+        /* Main Content */
+        .main-content { margin-left: 260px; padding: 40px 40px 100px 40px; max-width: 1100px; }
+        .editor-section { display: none; }
+        .editor-section.active { display: block; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Cards */
-        .card { border: none; box-shadow: 0 2px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border-radius: 10px; overflow: hidden; }
-        .card-header { background: #fff; border-bottom: 1px solid #eee; padding: 20px; font-weight: 700; color: #333; }
+        /* Styling */
+        .card { border: none; box-shadow: 0 2px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border-radius: 10px; }
+        .card-header { background: #fff; border-bottom: 1px solid #eee; padding: 20px; font-weight: 700; }
         .card-body { padding: 25px; }
+        
+        label { font-size: 0.85rem; font-weight: 600; color: #555; text-transform: uppercase; margin-top: 20px; display: block; margin-bottom: 5px; }
+        input[type="text"], textarea { width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 6px; }
+        input[type="color"] { width: 100%; height: 50px; border: none; padding: 0; cursor: pointer; }
 
-        /* Forms */
-        label { font-size: 0.85rem; font-weight: 600; color: #555; text-transform: uppercase; margin-top: 15px; display: block; margin-bottom: 5px; }
-        input[type="text"], input[type="number"], input[type="password"], textarea { width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 6px; font-size: 0.95rem; transition: border 0.3s; background: #fff; }
-        input:focus { border-color: #c5a059; outline: none; }
-        input[type="color"] { width: 100%; height: 50px; border: none; cursor: pointer; padding: 0; border-radius: 6px; overflow: hidden; }
+        /* Upload Button Style */
+        .upload-group { display: flex; gap: 10px; align-items: start; }
+        .upload-btn-wrapper { position: relative; overflow: hidden; display: inline-block; }
+        .btn-upload { border: 2px dashed #c5a059; color: #c5a059; background: white; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
+        .btn-upload:hover { background: #fffdf5; }
+        .upload-btn-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
 
         /* Action Bar */
         .action-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: #fff; padding: 15px 40px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; z-index: 900; }
-        .btn-save { background: #e9ecef; color: #333; border: none; padding: 10px 25px; font-weight: 600; border-radius: 5px; }
-        .btn-publish { background: #052b1e; color: #c5a059; border: none; padding: 10px 30px; font-weight: 700; border-radius: 5px; letter-spacing: 1px; }
+        .btn-publish { background: #052b1e; color: #c5a059; border: none; padding: 12px 30px; font-weight: 700; border-radius: 5px; letter-spacing: 1px; }
         .btn-publish:hover { background: #000; }
 
-        /* Console */
-        #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 300px; background: rgba(0,0,0,0.85); color: #0f0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.8rem; z-index: 2000; }
+        #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 350px; background: rgba(0,0,0,0.9); color: #0f0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.75rem; z-index: 2000; max-height: 300px; overflow: auto; }
     </style>
 </head>
 <body>
 
 <div class="sidebar">
-    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v2.0</div>
-    <button class="nav-btn active" onclick="showTab('settings')"><i class="fas fa-cog"></i> Setup & Config</button>
-    <button class="nav-btn" onclick="showTab('design')"><i class="fas fa-paint-brush"></i> Design & Colors</button>
-    <button class="nav-btn" onclick="showTab('images')"><i class="fas fa-images"></i> Image Manager</button>
-    <button class="nav-btn" onclick="showTab('home')"><i class="fas fa-home"></i> Text: Home Page</button>
-    <button class="nav-btn" onclick="showTab('ventures')"><i class="fas fa-briefcase"></i> Text: Ventures</button>
-    <button class="nav-btn" onclick="showTab('contact')"><i class="fas fa-address-book"></i> Text: Contact</button>
+    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v3.0</div>
+    <button class="nav-btn active" onclick="showTab('settings')"><i class="fas fa-cog"></i> 1. Setup</button>
+    <button class="nav-btn" onclick="showTab('design')"><i class="fas fa-paint-brush"></i> 2. Design & Colors</button>
+    <button class="nav-btn" onclick="showTab('images')"><i class="fas fa-images"></i> 3. Image Manager</button>
+    <button class="nav-btn" onclick="showTab('home')"><i class="fas fa-home"></i> 4. Home Page Text</button>
+    <button class="nav-btn" onclick="showTab('ventures')"><i class="fas fa-briefcase"></i> 5. Ventures</button>
+    <button class="nav-btn" onclick="showTab('contact')"><i class="fas fa-address-book"></i> 6. Contact & Footer</button>
 </div>
 
 <div class="main-content">
     
     <div id="settings" class="editor-section active">
         <div class="card">
-            <div class="card-header">GitHub Connection</div>
+            <div class="card-header">GitHub Connection (Required for Uploads)</div>
             <div class="card-body">
+                <div class="alert alert-warning">Enter details to enable the "Publish" and "Upload Image" features.</div>
                 <label>GitHub Username</label><input type="text" id="gh_username" placeholder="OurWillpower">
                 <label>Repository Name</label><input type="text" id="gh_repo" value="worldofwillpower">
-                <label>GitHub Access Token (Master Key)</label><input type="password" id="gh_token">
+                <label>GitHub Token (Master Key)</label><input type="password" id="gh_token" placeholder="ghp_...">
             </div>
         </div>
         <div class="card">
-            <div class="card-header">SEO & Analytics</div>
+            <div class="card-header">Analytics</div>
             <div class="card-body">
-                <label>Website Page Title</label><input type="text" id="seo_title" value="World of Willpower | Corporate">
                 <label>Google Analytics ID</label><input type="text" id="ga_id">
-                <label>Starting Visitor Count</label><input type="number" id="base_visits" value="1500">
+                <label>Visitor Count Start</label><input type="number" id="base_visits" value="1500">
             </div>
         </div>
     </div>
@@ -83,145 +86,194 @@
             <div class="card-header">Theme Colors</div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <label>Primary Color (Backgrounds/Footer)</label>
-                        <input type="color" id="col_primary" value="#052b1e">
-                    </div>
-                    <div class="col-md-6">
-                        <label>Accent Color (Gold/Text/Buttons)</label>
-                        <input type="color" id="col_accent" value="#c5a059">
-                    </div>
+                    <div class="col-md-6"><label>Primary Color (Footer/Nav)</label><input type="color" id="col_primary" value="#052b1e"></div>
+                    <div class="col-md-6"><label>Accent Color (Buttons/Text)</label><input type="color" id="col_accent" value="#c5a059"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="images" class="editor-section">
-        <div class="alert alert-info"><i class="fas fa-info-circle"></i> <strong>Tip:</strong> Use image addresses from Unsplash.com or right-click any image online and choose "Copy Image Address".</div>
+        <div class="alert alert-success"><i class="fas fa-magic"></i> <strong>New:</strong> Click "Upload Image" to send a file directly to your website.</div>
+        
         <div class="card">
-            <div class="card-header">Background Images</div>
+            <div class="card-header">Hero Slider Images</div>
             <div class="card-body">
-                <label>Hero Slide 1 (Leadership)</label><input type="text" id="img_hero1" value="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80">
-                <label>Hero Slide 2 (Factory/Product)</label><input type="text" id="img_hero2" value="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=80">
-                <label>Ventures Page Header</label><input type="text" id="img_header" value="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80">
+                <label>Slide 1 (Leadership)</label>
+                <div class="upload-group">
+                    <input type="text" id="img_hero1" placeholder="Image Link...">
+                    <div class="upload-btn-wrapper">
+                        <button class="btn-upload"><i class="fas fa-upload"></i> Upload</button>
+                        <input type="file" onchange="uploadImage(this, 'img_hero1')">
+                    </div>
+                </div>
+
+                <label>Slide 2 (Factory)</label>
+                <div class="upload-group">
+                    <input type="text" id="img_hero2" placeholder="Image Link...">
+                    <div class="upload-btn-wrapper">
+                        <button class="btn-upload"><i class="fas fa-upload"></i> Upload</button>
+                        <input type="file" onchange="uploadImage(this, 'img_hero2')">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="home" class="editor-section">
         <div class="card">
-            <div class="card-header">Hero Slideshow Text</div>
+            <div class="card-header">Main Text</div>
             <div class="card-body">
                 <label>Slide 1 Headline</label><input type="text" id="hero_h1" value="Forging Leaders.">
                 <label>Slide 1 Subtext</label><textarea id="hero_p1" rows="2">Strategic mentorship for the visionaries shaping tomorrow's economy.</textarea>
-                <hr>
-                <label>Slide 2 Headline</label><input type="text" id="hero_h2" value="Manufacturing Quality.">
-                <label>Slide 2 Subtext</label><textarea id="hero_p2" rows="2">Premium Dairy & Authentic Ayurvedic Standards.</textarea>
+                <label>About Description</label><textarea id="about_text" rows="4">World of Willpower is a diversified conglomerate...</textarea>
             </div>
         </div>
         <div class="card">
-            <div class="card-header">About Section</div>
+            <div class="card-header">Custom Content Area (Flexible)</div>
             <div class="card-body">
-                <label>About Description</label><textarea id="about_text" rows="4">World of Willpower is a diversified conglomerate acting as the bridge between intellectual leadership and industrial capability.</textarea>
+                <label>Extra Section Title</label><input type="text" id="custom_title" placeholder="e.g. Latest News">
+                <label>Extra Section Content</label><textarea id="custom_text" rows="3" placeholder="Type anything here..."></textarea>
             </div>
         </div>
     </div>
 
     <div id="ventures" class="editor-section">
-        <div class="row">
-            <div class="col-md-4"><div class="card"><div class="card-body"><h6>Venture 1</h6><label>Title</label><input type="text" id="v1_title" value="Mentoring"><label>Pt 1</label><input type="text" id="v1_f1" value="Coaching"><label>Pt 2</label><input type="text" id="v1_f2" value="Funding"><label>Pt 3</label><input type="text" id="v1_f3" value="Crisis"></div></div></div>
-            <div class="col-md-4"><div class="card"><div class="card-body"><h6>Venture 2</h6><label>Title</label><input type="text" id="v2_title" value="Dairy"><label>Pt 1</label><input type="text" id="v2_f1" value="Ghee"><label>Pt 2</label><input type="text" id="v2_f2" value="Paneer"><label>Pt 3</label><input type="text" id="v2_f3" value="Milk"></div></div></div>
-            <div class="col-md-4"><div class="card"><div class="card-body"><h6>Venture 3</h6><label>Title</label><input type="text" id="v3_title" value="Trading"><label>Pt 1</label><input type="text" id="v3_f1" value="Wholesale"><label>Pt 2</label><input type="text" id="v3_f2" value="Export"><label>Pt 3</label><input type="text" id="v3_f3" value="Logistics"></div></div></div>
-        </div>
+        <div class="card"><div class="card-body"><div class="row">
+            <div class="col-md-4"><h6>Venture 1</h6><label>Title</label><input type="text" id="v1_title" value="Mentoring"></div>
+            <div class="col-md-4"><h6>Venture 2</h6><label>Title</label><input type="text" id="v2_title" value="Dairy"></div>
+            <div class="col-md-4"><h6>Venture 3</h6><label>Title</label><input type="text" id="v3_title" value="Trading"></div>
+        </div></div></div>
     </div>
 
     <div id="contact" class="editor-section">
         <div class="card">
-            <div class="card-header">Contact Information</div>
+            <div class="card-header">Footer Details</div>
             <div class="card-body">
-                <label>Office Address</label><input type="text" id="address" value="123 Business Park, Pune">
-                <label>Email Address</label><input type="text" id="email" value="contact@worldofwillpower.com">
-                <label>WhatsApp Number (No +)</label><input type="text" id="whatsapp" value="919876543210">
+                <label>Address</label><input type="text" id="address" value="123 Business Park, Pune">
+                <label>Email</label><input type="text" id="email" value="contact@worldofwillpower.com">
+                <label>WhatsApp Number</label><input type="text" id="whatsapp" value="919876543210">
             </div>
         </div>
     </div>
+
 </div>
 
 <div class="action-bar">
-    <button class="btn-save" onclick="saveData()"><i class="fas fa-save me-2"></i> Save Draft</button>
-    <div id="status-text" style="color:#052b1e; font-weight:bold;"></div>
-    <button class="btn-publish" onclick="publishToGitHub()"><i class="fas fa-rocket me-2"></i> PUBLISH WEBSITE</button>
+    <button class="btn btn-secondary" onclick="saveData()">Save Draft</button>
+    <div id="status-text" style="font-weight:bold; color:#052b1e;"></div>
+    <button class="btn-publish" onclick="publishToGitHub()">PUBLISH WEBSITE</button>
 </div>
 
 <div id="debug-console"></div>
 
 <script>
-    const ids = ['gh_username','gh_repo','gh_token','seo_title','ga_id','base_visits','col_primary','col_accent','img_hero1','img_hero2','img_header','hero_h1','hero_p1','hero_h2','hero_p2','about_text','v1_title','v1_f1','v1_f2','v1_f3','v2_title','v2_f1','v2_f2','v2_f3','v3_title','v3_f1','v3_f2','v3_f3','address','email','whatsapp'];
+    // --- VARIABLES ---
+    const ids = ['gh_username','gh_repo','gh_token','ga_id','base_visits','col_primary','col_accent','img_hero1','img_hero2','hero_h1','hero_p1','about_text','custom_title','custom_text','v1_title','v2_title','v3_title','address','email','whatsapp'];
 
+    // --- UTILITIES ---
     function log(msg) {
-        const c = document.getElementById('debug-console');
-        c.style.display = 'block';
+        const c = document.getElementById('debug-console'); c.style.display='block';
         c.innerHTML = `> ${msg}<br>` + c.innerHTML;
-        setTimeout(() => c.style.display = 'none', 5000);
+        setTimeout(()=>c.style.display='none', 8000);
     }
-
     function showTab(id) {
         document.querySelectorAll('.editor-section').forEach(e=>e.classList.remove('active'));
         document.querySelectorAll('.nav-btn').forEach(e=>e.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        event.currentTarget.classList.add('active');
+        document.getElementById(id).classList.add('active'); event.currentTarget.classList.add('active');
     }
-    
     function saveData() {
-        const data = {}; ids.forEach(id => data[id] = document.getElementById(id).value);
-        localStorage.setItem('wp_data_v2', JSON.stringify(data));
+        const data = {}; ids.forEach(id => {
+            const el = document.getElementById(id);
+            if(el) data[id] = el.value;
+        });
+        localStorage.setItem('wp_data_v3', JSON.stringify(data));
         document.getElementById('status-text').innerText = "Draft Saved!";
-        setTimeout(() => document.getElementById('status-text').innerText = "", 2000);
     }
-
     window.onload = function() {
-        const d = JSON.parse(localStorage.getItem('wp_data_v2'));
+        const d = JSON.parse(localStorage.getItem('wp_data_v3'));
         if(d) for(let k in d) if(document.getElementById(k)) document.getElementById(k).value = d[k];
     }
-
     function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
 
+    // --- IMAGE UPLOAD LOGIC (NEW) ---
+    async function uploadImage(input, targetID) {
+        const file = input.files[0];
+        if(!file) return;
+        
+        saveData(); // Save token first
+        const d = JSON.parse(localStorage.getItem('wp_data_v3'));
+        if(!d.gh_token) { alert('Please enter GitHub Token in Setup first!'); return; }
+
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = async function() {
+            const content = reader.result.split(',')[1]; // Get Base64 part
+            const filename = 'uploads/' + Date.now() + '_' + file.name.replace(/\s/g, ''); // Unique name
+            
+            log(`Uploading ${file.name}...`);
+            
+            try {
+                const url = `https://api.github.com/repos/${d.gh_username}/${d.gh_repo}/contents/${filename}`;
+                const res = await fetch(url, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `token ${d.gh_token}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: `Upload image`, content: content })
+                });
+                
+                if(!res.ok) throw new Error('Upload Failed');
+                
+                // Construct the Live URL
+                const imageUrl = `https://${d.gh_username}.github.io/${d.gh_repo}/${filename}`;
+                document.getElementById(targetID).value = imageUrl;
+                log('Image Uploaded! Link generated.');
+                alert('Image Uploaded Successfully!');
+            } catch(e) {
+                log('Error uploading image: ' + e.message);
+                alert('Upload Failed. Check Token.');
+            }
+        };
+    }
+
+    // --- PUBLISH LOGIC ---
     async function publishToGitHub() {
         saveData();
-        const d = JSON.parse(localStorage.getItem('wp_data_v2'));
-        if(!d.gh_token) { alert('Enter GitHub Token in Setup Tab!'); return; }
+        const d = JSON.parse(localStorage.getItem('wp_data_v3'));
+        if(!d.gh_token) { alert('Missing Token'); return; }
         
         document.getElementById('status-text').innerText = "Publishing...";
         
-        // --- TEMPLATE GENERATION ---
-        // Common Head Style to inject Colors
-        const commonStyle = `<style>:root{--primary:${d.col_primary};--gold:${d.col_accent}}body{font-family:'Manrope',sans-serif;background:#f8f9fa;color:#333;overflow-x:hidden}h1,h2,h3,.navbar-brand{font-family:'Cinzel',serif}.navbar{background:var(--primary);padding:15px 0;border-bottom:3px solid var(--gold)}.corp-emblem{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;background:var(--primary);border:2px solid var(--gold);border-radius:50%;margin-right:15px}.corp-emblem i{color:var(--gold);font-size:1.6rem}.navbar-brand{color:var(--gold)!important;font-weight:700;font-size:1.4rem;text-transform:uppercase;display:flex;align-items:center}.nav-link{color:rgba(255,255,255,.8)!important;margin-left:15px;text-transform:uppercase;font-size:.85rem}.nav-link:hover{color:var(--gold)!important}.carousel-item{height:90vh;min-height:600px;background-size:cover;background-position:center}.carousel-caption{bottom:35%}.carousel-caption h1{font-size:4rem;color:var(--gold);text-shadow:2px 2px 10px rgba(0,0,0,.5)}.overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,.7),rgba(0,0,0,.4))}.btn-gold{background:var(--gold);color:var(--primary);padding:15px 40px;font-weight:800;text-decoration:none;display:inline-block;text-transform:uppercase}footer{background:#021a12;color:#ccc;padding:60px 0;text-align:center}.float-wa{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none} .page-header{background:linear-gradient(to bottom,rgba(0,0,0,.7),rgba(0,0,0,.7)),url('${d.img_header}');padding:150px 0 80px 0;text-align:center;color:white}.page-header h1{color:var(--gold);font-size:3.5rem}.venture-card{background:white;box-shadow:0 10px 30px rgba(0,0,0,.05);height:100%;transition:.3s}.venture-card:hover{transform:translateY(-10px)}.venture-body{padding:30px;position:relative}.venture-icon{position:absolute;top:-30px;right:30px;width:60px;height:60px;background:var(--gold);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;border-radius:50%}.venture-list{list-style:none;padding:0;margin-top:20px}.venture-list li i{color:var(--gold);margin-right:10px}</style>`;
-        
-        const footerHTML = `<footer id="contact"><div class="container"><div class="corp-emblem mx-auto mb-4"><i class="fas fa-crown"></i></div><h4 style="color:var(--gold)">World of Willpower</h4><p class="mb-4">${d.address}</p><div style="font-size:1.1rem"><p><i class="fab fa-whatsapp" style="color:#25d366;margin-right:8px;font-size:1.3rem"></i> +${d.whatsapp}</p><p><i class="fas fa-envelope" style="color:#f0ad4e;margin-right:8px"></i> ${d.email}</p></div><div style="margin-top:20px;color:var(--gold);border:1px solid var(--gold);display:inline-block;padding:5px 15px;border-radius:20px">Visitors: <span id="visit-count">...</span></div><p class="small mt-4">&copy; 2025 World of Willpower.</p></div></footer>`;
+        // 1. FOOTER FIXED (Compact + Color Variable)
+        const footerHTML = `<footer style="background-color:${d.col_primary}; color:#fff; padding:30px 0; text-align:center;"><div class="container"><div class="corp-emblem mx-auto mb-4" style="background:${d.col_primary}; border:2px solid ${d.col_accent}; width:50px; height:50px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%;"><i class="fas fa-crown" style="color:${d.col_accent}; font-size:1.6rem;"></i></div><h4 style="color:${d.col_accent}">World of Willpower</h4><p style="margin-bottom:10px">${d.address}</p><div style="font-size:1.1rem; margin-bottom:20px;"><span style="margin-right:15px"><i class="fab fa-whatsapp" style="color:#25d366"></i> +${d.whatsapp}</span><span><i class="fas fa-envelope" style="color:#f0ad4e"></i> ${d.email}</span></div><div style="font-size:0.8rem; border:1px solid ${d.col_accent}; display:inline-block; padding:2px 10px; border-radius:15px; color:${d.col_accent}">Visitors: <span id="visit-count">...</span></div><p class="small mt-3" style="opacity:0.7">&copy; 2025 World of Willpower.</p></div></footer>`;
 
-        const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${d.seo_title}</title><script async src="https://www.googletagmanager.com/gtag/js?id=${d.ga_id}"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${d.ga_id}');<\/script><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">${commonStyle}</head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html"><div class="corp-emblem"><i class="fas fa-crown"></i></div>World of Willpower</a><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="ventures.html">Our Ventures</a></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav><div class="carousel slide carousel-fade" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active" style="background-image:url('${d.img_hero1}')"><div class="overlay"></div><div class="carousel-caption" data-aos="fade-up"><h1>${d.hero_h1}</h1><p class="lead text-white mb-5">${d.hero_p1}</p><a href="ventures.html" class="btn-gold">Explore</a></div></div><div class="carousel-item" style="background-image:url('${d.img_hero2}')"><div class="overlay"></div><div class="carousel-caption"><h1>${d.hero_h2}</h1><p class="lead text-white mb-5">${d.hero_p2}</p><a href="ventures.html" class="btn-gold">Products</a></div></div></div></div><section style="padding:100px 0"><div class="container text-center" data-aos="fade-up"><h2 class="fw-bold text-uppercase mb-4" style="color:var(--primary)">The Ecosystem</h2><p class="lead text-muted" style="max-width:800px;margin:0 auto">${d.about_text}</p></div></section>${footerHTML}<a href="https://wa.me/${d.whatsapp}" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"><\/script><script>AOS.init({duration:1000,once:true});let v=localStorage.getItem('site_visits')||${d.base_visits};v++;localStorage.setItem('site_visits',v);document.getElementById('visit-count').innerText=v;<\/script></body></html>`;
-        
-        const venturesHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${d.seo_title}</title><script async src="https://www.googletagmanager.com/gtag/js?id=${d.ga_id}"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${d.ga_id}');<\/script><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">${commonStyle}</head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html"><div class="corp-emblem"><i class="fas fa-crown"></i></div>World of Willpower</a><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link active" href="ventures.html">Our Ventures</a></li></ul></div></div></nav><header class="page-header"><div class="container"><h1>Business Verticals</h1><p class="lead">A diversified portfolio.</p></div></header><section style="padding:80px 0"><div class="container"><div class="row g-4"><div class="col-lg-4"><div class="venture-card"><div style="height:200px;background:gray"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" style="width:100%;height:100%;object-fit:cover"></div><div class="venture-body"><div class="venture-icon"><i class="fas fa-brain"></i></div><h3>${d.v1_title}</h3><ul class="venture-list"><li><i class="fas fa-check"></i> ${d.v1_f1}</li><li><i class="fas fa-check"></i> ${d.v1_f2}</li><li><i class="fas fa-check"></i> ${d.v1_f3}</li></ul></div></div></div><div class="col-lg-4"><div class="venture-card"><div style="height:200px;background:gray"><img src="https://images.unsplash.com/photo-1600189020772-6a8802335103?auto=format&fit=crop&w=800&q=80" style="width:100%;height:100%;object-fit:cover"></div><div class="venture-body"><div class="venture-icon"><i class="fas fa-prescription-bottle-alt"></i></div><h3>${d.v2_title}</h3><ul class="venture-list"><li><i class="fas fa-check"></i> ${d.v2_f1}</li><li><i class="fas fa-check"></i> ${d.v2_f2}</li><li><i class="fas fa-check"></i> ${d.v2_f3}</li></ul></div></div></div><div class="col-lg-4"><div class="venture-card"><div style="height:200px;background:gray"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" style="width:100%;height:100%;object-fit:cover"></div><div class="venture-body"><div class="venture-icon"><i class="fas fa-shipping-fast"></i></div><h3>${d.v3_title}</h3><ul class="venture-list"><li><i class="fas fa-check"></i> ${d.v3_f1}</li><li><i class="fas fa-check"></i> ${d.v3_f2}</li><li><i class="fas fa-check"></i> ${d.v3_f3}</li></ul></div></div></div></div></div></section>${footerHTML}</body></html>`;
+        // 2. CUSTOM SECTION (Flexibility)
+        let customHTML = "";
+        if(d.custom_title && d.custom_text) {
+            customHTML = `<section style="padding:60px 0; background:#f9f9f9;"><div class="container text-center"><h3 style="color:${d.col_primary}">${d.custom_title}</h3><p>${d.custom_text}</p></div></section>`;
+        }
+
+        // 3. INDEX HTML GENERATION
+        const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>World of Willpower</title><script async src="https://www.googletagmanager.com/gtag/js?id=${d.ga_id}"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${d.ga_id}');<\/script><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet"><style>:root{--primary:${d.col_primary};--gold:${d.col_accent}}body{font-family:'Manrope',sans-serif;background:#fff;color:#333;overflow-x:hidden}h1,h2,h3,.navbar-brand{font-family:'Cinzel',serif}.navbar{background:var(--primary);padding:15px 0;border-bottom:3px solid var(--gold)}.corp-emblem{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;background:var(--primary);border:2px solid var(--gold);border-radius:50%;margin-right:15px}.corp-emblem i{color:var(--gold);font-size:1.6rem}.navbar-brand{color:var(--gold)!important;font-weight:700;font-size:1.4rem;text-transform:uppercase;display:flex;align-items:center}.nav-link{color:rgba(255,255,255,.8)!important;margin-left:15px;text-transform:uppercase;font-size:.85rem}.nav-link:hover{color:var(--gold)!important}.carousel-item{height:85vh;min-height:500px;background-size:cover;background-position:center}.carousel-caption{bottom:35%}.carousel-caption h1{font-size:3.5rem;color:var(--gold);text-shadow:2px 2px 10px rgba(0,0,0,.5)}.overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.3))}.btn-gold{background:var(--gold);color:var(--primary);padding:15px 40px;font-weight:800;text-decoration:none;display:inline-block;text-transform:uppercase}.float-wa{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none; z-index:999}</style></head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container"><a class="navbar-brand" href="index.html"><div class="corp-emblem"><i class="fas fa-crown"></i></div>World of Willpower</a><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="ventures.html">Our Ventures</a></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav><div class="carousel slide carousel-fade" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active" style="background-image:url('${d.img_hero1}')"><div class="overlay"></div><div class="carousel-caption" data-aos="fade-up"><h1>${d.hero_h1}</h1><p class="lead text-white mb-5">${d.hero_p1}</p><a href="ventures.html" class="btn-gold">Explore</a></div></div><div class="carousel-item" style="background-image:url('${d.img_hero2}')"><div class="overlay"></div><div class="carousel-caption"><h1>${d.hero_h2}</h1><p class="lead text-white mb-5">${d.hero_p2}</p><a href="ventures.html" class="btn-gold">Products</a></div></div></div></div><section style="padding:80px 0"><div class="container text-center" data-aos="fade-up"><h2 class="fw-bold text-uppercase mb-4" style="color:var(--primary)">The Ecosystem</h2><p class="lead text-muted" style="max-width:800px;margin:0 auto">${d.about_text}</p></div></section>${customHTML}${footerHTML}<a href="https://wa.me/${d.whatsapp}" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"><\/script><script>AOS.init({duration:1000,once:true});let v=localStorage.getItem('site_visits')||${d.base_visits};v++;localStorage.setItem('site_visits',v);document.getElementById('visit-count').innerText=v;<\/script></body></html>`;
 
         async function updateFile(filename, content) {
-            const url = `https://api.github.com/repos/${d.gh_username}/${d.gh_repo}/contents/${filename}`;
             try {
+                const url = `https://api.github.com/repos/${d.gh_username}/${d.gh_repo}/contents/${filename}`;
+                log(`Fetching ${filename}...`);
                 const getRes = await fetch(url, { headers: { 'Authorization': `token ${d.gh_token}` }});
                 if(!getRes.ok) throw new Error(getRes.status);
                 const getData = await getRes.json();
                 
+                log(`Uploading ${filename}...`);
                 const res = await fetch(url, {
                     method: 'PUT',
                     headers: { 'Authorization': `token ${d.gh_token}`, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: `Admin Update: ${filename}`, content: utf8_to_b64(content), sha: getData.sha })
+                    body: JSON.stringify({ message: `Admin v3 Update`, content: utf8_to_b64(content), sha: getData.sha })
                 });
                 if(res.ok) log(filename + " Updated.");
-                else throw new Error("Upload Failed");
-            } catch(e) { log("Error: " + e.message); }
+            } catch(e) { log("Error: " + e.message); alert(e.message); }
         }
 
         await updateFile('index.html', indexHTML);
-        await updateFile('ventures.html', venturesHTML);
         document.getElementById('status-text').innerText = "SUCCESS! SITE LIVE.";
     }
 </script>
