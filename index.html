@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World of Willpower | Corporate Home</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CORE BRAND COLORS */
+        :root { 
+            --primary: #052b1e;      /* Deep Green */
+            --secondary: #0a4f3a; 
+            --gold: #c5a059;         /* Corporate Gold */
+            --gold-light: #e5c585; 
+            --text-light: #f4f4f4; 
+        }
+
+        body { font-family: 'Manrope', sans-serif; background-color: #f8f9fa; color: #333; overflow-x: hidden; }
+        h1, h2, h3, h4, .navbar-brand { font-family: 'Cinzel', serif; }
+
+        /* --- NAVIGATION BAR & EMBLEM --- */
+        .navbar { background: var(--primary); padding: 15px 0; transition: all 0.4s ease; border-bottom: 3px solid var(--gold); }
+        
+        /* The CSS Emblem (The Golden Shield) */
+        .corp-emblem { 
+            display: inline-flex; align-items: center; justify-content: center; 
+            width: 50px; height: 50px; 
+            background: var(--primary); 
+            border: 2px solid var(--gold); 
+            border-radius: 50%; 
+            margin-right: 15px; 
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.3); 
+        }
+        .corp-emblem i { color: var(--gold); font-size: 1.6rem; }
+
+        .navbar-brand { color: var(--gold) !important; font-weight: 700; font-size: 1.4rem; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; }
+        
+        .nav-link { color: rgba(255,255,255,0.8) !important; font-weight: 500; margin-left: 15px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; position: relative; }
+        .nav-link:hover, .nav-link.active { color: var(--gold) !important; }
+
+        /* --- HERO SLIDESHOW --- */
+        .carousel-item { height: 90vh; min-height: 600px; background: no-repeat center center scroll; background-size: cover; }
+        .carousel-caption { bottom: 35%; z-index: 2; }
+        .carousel-caption h1 { font-size: 4rem; font-weight: 700; color: var(--gold); text-shadow: 2px 2px 10px rgba(0,0,0,0.5); margin-bottom: 20px; }
+        .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(5, 43, 30, 0.8), rgba(5, 43, 30, 0.5)); }
+        
+        .btn-gold { 
+            background: linear-gradient(45deg, var(--gold), var(--gold-light)); 
+            color: var(--primary); 
+            padding: 15px 40px; 
+            font-weight: 800; 
+            border: none; 
+            border-radius: 0; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            transition: all 0.3s; 
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.4); color: var(--primary); }
+
+        /* --- SECTIONS --- */
+        .section-padding { padding: 100px 0; }
+        
+        /* --- FOOTER --- */
+        footer { background: #021a12; color: rgba(255,255,255,0.7); padding: 60px 0 30px 0; text-align: center;}
+        footer a { color: var(--gold); text-decoration: none; margin: 0 10px;}
+        
+        /* Floating WhatsApp Button */
+        .float-wa { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
+        .float-wa:hover { transform: scale(1.1); color: white; background-color: #128C7E; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="corp-emblem"><i class="fas fa-crown"></i></div>
+                World of Willpower
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ventures.html">Our Ventures</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact-footer">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80')">
+                <div class="overlay"></div>
+                <div class="carousel-caption" data-aos="fade-up">
+                    <h1>Forging Leaders.</h1>
+                    <p class="lead text-white mb-5">Strategic mentorship for the visionaries shaping tomorrow's economy.</p>
+                    <a href="ventures.html" class="btn-gold">Explore Our Ventures</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=80')">
+                <div class="overlay"></div>
+                <div class="carousel-caption">
+                    <h1>Manufacturing Quality.</h1>
+                    <p class="lead text-white mb-5">Premium Dairy & Authentic Ayurvedic Standards.</p>
+                    <a href="ventures.html" class="btn-gold">View Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container text-center" data-aos="fade-up">
+            <h2 class="fw-bold text-uppercase mb-4" style="color: var(--primary);">The Willpower Ecosystem</h2>
+            <p class="lead text-muted" style="max-width: 800px; margin: 0 auto;">World of Willpower is a diversified conglomerate acting as the bridge between intellectual leadership and industrial capability.</p>
+            <div class="mt-5">
+                 <a href="ventures.html" class="btn btn-outline-dark rounded-0 px-5 py-3 text-uppercase fw-bold" style="letter-spacing: 2px;">View All Business Verticals</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact-footer">
+        <div class="container">
+            <div class="corp-emblem mx-auto mb-4"><i class="fas fa-crown"></i></div>
+            <h4 style="color: var(--gold);">World of Willpower</h4>
+            <p class="mb-4">123 Business Park, Pune, Maharashtra, India</p>
+            <p>P: +91 98765 43210 | E: contact@worldofwillpower.com</p>
+            <div class="mt-4">
+                <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1); margin-top: 30px;">
+            <p class="small mb-0">&copy; 2025 World of Willpower. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919876543210" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({duration: 1000, once: true});</script>
+</body>
+</html>
