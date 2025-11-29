@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v10.4</title>
+    <title>Willpower Command Center v10.5</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -22,14 +22,11 @@
         .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 40px; font-weight: 800; border-radius: 8px; cursor: pointer; letter-spacing: 1px; width: 100%; }
         .btn-publish:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         .venture-item { border: 1px solid #cbd5e1; background: #fff; margin-bottom: 30px; border-radius: 8px; overflow: hidden; position: relative; }
-        .venture-header { background: #f1f5f9; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         .btn-upload { border: 2px dashed #94a3b8; background: #fff; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
         .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
         .upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height: 100%; width: 100%; }
         .status-connected { background-color: #dcfce7; color: #166534; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
         .status-disconnected { background-color: #fee2e2; color: #991b1b; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
-        .slide-block { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .slide-label { color: #f59e0b; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
         .img-preview { height: 40px; border-radius: 4px; border: 1px solid #ddd; display: none; margin-left: 10px; vertical-align: middle; }
         #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 350px; background: rgba(15, 23, 42, 0.95); color: #4ade80; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 0.75rem; z-index: 2000; }
     </style>
@@ -37,10 +34,10 @@
 <body>
 
 <div class="sidebar">
-    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v10.4</h4>
+    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v10.5</h4>
     <button class="nav-btn active" onclick="switchTab('settings')">1. Setup</button>
-    <button class="nav-btn" onclick="switchTab('design')">2. Brand & Logo</button>
-    <button class="nav-btn" onclick="switchTab('home')">3. Hero Slider</button>
+    <button class="nav-btn" onclick="switchTab('design')">2. Brand & Style</button>
+    <button class="nav-btn" onclick="switchTab('home')">3. Home Page</button>
     <button class="nav-btn" onclick="switchTab('ventures')">4. Microsite Builder</button>
     <button class="nav-btn" onclick="switchTab('contact')">5. Contact</button>
     <button onclick="if(confirm('Logout?')) { localStorage.clear(); location.reload(); }" class="btn btn-sm btn-outline-danger w-100 mt-5">Logout</button>
@@ -60,7 +57,6 @@
 
     <div id="design" class="editor-section">
         <div class="card"><div class="card-header">Branding</div><div class="card-body">
-            <div class="alert alert-info">The Logo (if uploaded) will appear next to the Company Name.</div>
             <div class="row">
                 <div class="col-md-6"><label>Company Name</label><input type="text" id="brand_name"></div>
                 <div class="col-md-6"><label>Logo URL</label><div class="d-flex gap-2"><input type="text" id="brand_logo_url"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div>
@@ -73,24 +69,16 @@
     </div>
 
     <div id="home" class="editor-section">
-        <div class="card">
-            <div class="card-header">Hero Slider</div>
-            <div class="card-body">
-                <div class="slide-block"><span class="slide-label">Slide 1 (Main)</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero1"><img id="prev_img_hero1" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div><label>Title</label><input type="text" id="hero_h1"><label>Subtitle</label><input type="text" id="hero_p1"></div>
-                <div class="slide-block"><span class="slide-label">Slide 2</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero2"><img id="prev_img_hero2" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero2')"></div></div><label>Title</label><input type="text" id="hero_h2"><label>Subtitle</label><input type="text" id="hero_p2"></div>
-                <div class="slide-block"><span class="slide-label">Slide 3</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero3"><img id="prev_img_hero3" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero3')"></div></div><label>Title</label><input type="text" id="hero_h3"><label>Subtitle</label><input type="text" id="hero_p3"></div>
-                <div class="slide-block"><span class="slide-label">Slide 4</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero4"><img id="prev_img_hero4" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero4')"></div></div><label>Title</label><input type="text" id="hero_h4"><label>Subtitle</label><input type="text" id="hero_p4"></div>
-                <div class="slide-block"><span class="slide-label">Slide 5</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero5"><img id="prev_img_hero5" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero5')"></div></div><label>Title</label><input type="text" id="hero_h5"><label>Subtitle</label><input type="text" id="hero_p5"></div>
-            </div>
-        </div>
+        <div class="card"><div class="card-header">Hero Slider</div><div class="card-body">
+            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero1"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
+            <label>Title</label><input type="text" id="hero_h1"><label>Subtitle</label><input type="text" id="hero_p1">
+        </div></div>
         <div class="card"><div class="card-body"><label>About Text</label><textarea id="about_text" rows="4"></textarea></div></div>
     </div>
 
     <div id="ventures" class="editor-section">
         <div class="alert alert-primary">
-            <i class="fas fa-magic me-2"></i> <strong>Microsite Generator:</strong>
-            <br>1. <strong>Overview:</strong> Describes the business.
-            <br>2. <strong>Services:</strong> Enter each service on a new line (Creates Cards).
+            <i class="fas fa-magic me-2"></i> <strong>Microsite Generator:</strong> Creates a separate page for each business.
         </div>
         <div id="venture-container"></div>
         <button class="btn btn-dark w-100 mt-3 p-3" onclick="addVenture()">+ ADD NEW BUSINESS</button>
@@ -123,16 +111,16 @@
         about_text: 'World of Willpower is a diversified conglomerate...',
         address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
         email: 'care@worldofwillpower.com', whatsapp: '917039196489',
-        ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity You Can Trust.", overview: "Our Indian dairy plant represents the pinnacle of hygiene and quality.", features: "Ghee\nPaneer" }]
+        ventures: [{ title: "Dairy Manufacturing", image: "https://images.unsplash.com/photo-1600189020772-6a8802335103?auto=format&fit=crop&w=1200&q=80", tagline: "Purity You Can Trust.", overview: "Overview text...", features: "Ghee\nPaneer" }]
     };
 
     // --- STARTUP ---
     document.addEventListener('DOMContentLoaded', () => {
         const savedAuth = localStorage.getItem('wp_auth');
         if(savedAuth) { auth = JSON.parse(savedAuth); document.getElementById('gh_username').value = auth.gh_username; document.getElementById('gh_repo').value = auth.gh_repo; document.getElementById('gh_token').value = auth.gh_token; if(auth.gh_token) setConnectedUI(true); }
-        const savedContent = localStorage.getItem('wp_content_v10_4');
+        const savedContent = localStorage.getItem('wp_content_v10_5');
         if(savedContent) content = { ...content, ...JSON.parse(savedContent) };
-        const ids = ['col_primary','col_accent','brand_name','brand_font','brand_logo_url','about_text','address','email','whatsapp'];
+        const ids = ['col_primary','col_accent','brand_name','brand_font','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = content[id] || ''; if(id.includes('logo')) showPreview(id, content[id]); });
         for(let i=1; i<=5; i++) {
             if(document.getElementById(`img_hero${i}`)) document.getElementById(`img_hero${i}`).value = content[`img_hero${i}`] || '';
@@ -148,10 +136,15 @@
     function setConnectedUI(c) { document.getElementById('auth-status').className = c ? "status-connected" : "status-disconnected"; document.getElementById('auth-status').innerText = c ? "CONNECTED ✅" : "NOT CONNECTED ❌"; }
     function switchTab(id) { document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active')); document.getElementById(id).classList.add('active'); event.currentTarget.classList.add('active'); }
 
+    // --- VENTURE UI ---
     function renderVentures() {
         const c = document.getElementById('venture-container'); c.innerHTML = '';
         content.ventures.forEach((v, i) => {
-            c.innerHTML += `<div class="venture-item"><div class="venture-header"><h5 class="m-0">Business ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div><div class="venture-body"><div class="row mb-3"><div class="col-md-6"><label>Business Name</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div><div class="col-md-6"><label>Hero Image</label><div class="d-flex gap-2"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div></div><label>Tagline</label><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)"><label>Business Overview</label><textarea rows="4" oninput="updVenture(${i},'overview',this.value)">${v.overview||''}</textarea><label>Services (One per line)</label><textarea rows="5" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea></div></div>`;
+            c.innerHTML += `
+            <div class="venture-item">
+                <div class="venture-header"><h5 class="m-0">Business ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div>
+                <div class="venture-body">
+                    <div class="row mb-3"><div class="col-md-6"><label>Business Name</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div><div class="col-md-6"><label>Hero Image (1920x600)</label><div class="d-flex gap-2"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div></div><label>Tagline</label><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)"><label>Business Overview</label><textarea rows="4" oninput="updVenture(${i},'overview',this.value)">${v.overview||''}</textarea><label>Services</label><textarea rows="5" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea></div></div>`;
         });
     }
     function addVenture() { content.ventures.push({title:"New Business", image:"", features:"", overview:"", tagline:""}); renderVentures(); saveInternal(); }
@@ -165,9 +158,10 @@
             content[`hero_h${i}`] = document.getElementById(`hero_h${i}`).value;
             content[`hero_p${i}`] = document.getElementById(`hero_p${i}`).value;
         }
-        localStorage.setItem('wp_content_v10_4', JSON.stringify(content));
+        localStorage.setItem('wp_content_v10_5', JSON.stringify(content));
     }
 
+    // --- GENERATOR ENGINE ---
     async function publishToGitHub() {
         saveInternal();
         const stat = document.getElementById('status-box');
@@ -175,6 +169,7 @@
         const logBox = document.getElementById('debug-console'); logBox.style.display='block'; logBox.innerText="Starting Generator...";
 
         const commonCSS = `<style>:root{--primary:${content.col_primary};--gold:${content.col_accent}} body{font-family:'Manrope',sans-serif; overflow-x:hidden} .navbar{background:var(--primary);padding:15px 5%;border-bottom:3px solid var(--gold)} .navbar-brand{font-family:${content.brand_font}; color:var(--gold)!important; font-size:24px; font-weight:700} .nav-link{color:rgba(255,255,255,0.9)!important; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px; margin-left:20px} footer{background:var(--primary);color:#fff;padding:40px 5%;text-align:center} .btn-gold{background:var(--gold);color:var(--primary);padding:15px 35px;font-weight:800;text-decoration:none;display:inline-block;text-transform:uppercase} .float-wa{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999}</style>`;
+        
         const footer = `<footer><h4>${content.brand_name}</h4><p class="mt-3">${content.address}</p><div class="mt-3 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp}</div></footer>`;
         let dropdown = ''; content.ventures.forEach(v => { const slug=v.title.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.html'; dropdown+=`<li><a class="dropdown-item" href="${slug}">${v.title}</a></li>`; });
         let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px; margin-right:15px;">` : '';
@@ -192,23 +187,23 @@
                 }
             }
 
-            // 1. HOME CARDS (Fixed Linking)
+            // 1. HOME CARDS
             let homeCards = '';
             content.ventures.forEach(v => { const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html'; homeCards += `<div class="col-lg-4 col-md-6 mb-4"><a href="${slug}" style="text-decoration:none; color:inherit;"><div style="background:#fff; border-top:4px solid ${content.col_accent}; padding:30px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%; transition:0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'"><h3 style="color:${content.col_primary}; font-family:'Cinzel'; text-align:center;">${v.title}</h3><p class="text-muted mt-3 text-center">${v.tagline || 'Click to explore'}</p><div style="color:${content.col_accent}; font-weight:bold; margin-top:20px; text-align:center;">View Details &rarr;</div></div></a></div>`; });
             const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Manrope:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div id="hero" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">${slides}</div><button class="carousel-control-prev" type="button" data-bs-target="#hero" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" type="button" data-bs-target="#hero" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div><section style="padding:100px 5%"><div class="container text-center"><h2 style="color:${content.col_primary}; font-family:'Cinzel'; margin-bottom:30px;">Our Ecosystem</h2><p class="lead text-muted mx-auto" style="max-width:900px;">${content.about_text}</p></div></section><section style="padding:0 5% 100px 5%; background:#f8f9fa;"><div class="container"><h2 class="text-center mb-5" style="color:${content.col_primary}; font-family:'Cinzel'; padding-top:50px;">Business Verticals</h2><div class="row">${homeCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
             await uploadToGH('index.html', indexHTML);
 
-            // 2. MICROSITES (Centered Headings)
+            // 2. MICROSITES (FIXED CENTERING)
             for (const v of content.ventures) {
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
                 const features = v.features.split('\n').map(f => { if(!f.trim()) return ''; return `<div class="col-md-6 col-lg-4 mb-4"><div style="background:white; padding:25px; border-radius:8px; border-left:5px solid ${content.col_accent}; box-shadow:0 5px 15px rgba(0,0,0,0.05); height:100%"><h5 style="color:${content.col_primary}; margin-bottom:10px; text-align:center;">${f}</h5></div></div>`; }).join('');
                 
-                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="padding:150px 0 100px 0; background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)),url('${v.image}'); background-size:cover; text-align:center; color:white;"><h1>${v.title}</h1><p class="lead mt-3" style="color:${content.col_accent}; font-weight:bold; letter-spacing:2px;">${v.tagline||''}</p></div><section style="padding:80px 5%"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 style="color:${content.col_primary}; border-bottom:3px solid ${content.col_accent}; display:inline-block; padding-bottom:10px; margin-bottom:20px; text-align:center;">Business Overview</h2><p class="lead mt-4 mx-auto" style="max-width:800px; text-align:center;">${v.overview}</p></div></div><div class="row mt-4">${features}</div></div></section><section style="padding:60px 0; background:#f1f5f9; text-align:center;"><div class="container"><h3>Interested in ${v.title}?</h3><p class="mb-4">Contact us to discuss your requirements.</p><a href="https://wa.me/${content.whatsapp}" class="btn btn-gold">Connect on WhatsApp</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:450px; background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('${v.image}'); background-size:cover; background-position:center; padding-top:80px;"><h1 style="color:#fff; font-size:4rem; margin:0;">${v.title}</h1><p class="lead mt-3" style="color:${content.col_accent}; font-weight:bold; letter-spacing:2px; font-size:1.5rem;">${v.tagline||''}</p></div><section style="padding:80px 5%"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 style="color:${content.col_primary}; border-bottom:3px solid ${content.col_accent}; display:inline-block; padding-bottom:10px; margin-bottom:20px; text-align:center;">Business Overview</h2><p class="lead mt-4 mx-auto" style="max-width:800px; text-align:center;">${v.overview}</p></div></div><div class="row mt-4">${features}</div></div></section><section style="padding:60px 0; background:#f1f5f9; text-align:center;"><div class="container"><h3>Interested in ${v.title}?</h3><p class="mb-4">Contact us to discuss your requirements.</p><a href="https://wa.me/${content.whatsapp}" class="btn btn-gold">Connect on WhatsApp</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
                 await uploadToGH(slug, pageHTML);
                 await new Promise(r => setTimeout(r, 800));
             }
             stat.innerText = "✅ PUBLISHED!";
-            alert("Site Updated! Check Home Slider & Microsites.");
+            alert("Site Updated! All pages are now centered.");
         } catch(e) { alert("Error: " + e.message); }
     }
 
@@ -220,7 +215,6 @@
         const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Update', content: utf8_to_b64(content), sha: sha }) });
         if(!res.ok) throw new Error("GitHub rejected upload");
     }
-    
     async function uploadImage(input, targetID, index) {
         const file = input.files[0]; if(!file || !auth.gh_token) return;
         const reader = new FileReader(); reader.readAsDataURL(file);
