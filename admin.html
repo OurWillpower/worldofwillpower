@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v10.2</title>
+    <title>Willpower Command Center v10.3</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -35,9 +35,9 @@
 <body>
 
 <div class="sidebar">
-    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v10.2</h4>
+    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v10.3</h4>
     <button class="nav-btn active" onclick="switchTab('settings')">1. Setup</button>
-    <button class="nav-btn" onclick="switchTab('design')">2. Brand & Style</button>
+    <button class="nav-btn" onclick="switchTab('design')">2. Brand & Logo</button>
     <button class="nav-btn" onclick="switchTab('home')">3. Hero Slider</button>
     <button class="nav-btn" onclick="switchTab('ventures')">4. Microsite Builder</button>
     <button class="nav-btn" onclick="switchTab('contact')">5. Contact</button>
@@ -58,6 +58,7 @@
 
     <div id="design" class="editor-section">
         <div class="card"><div class="card-header">Branding</div><div class="card-body">
+            <div class="alert alert-info">The Logo (if uploaded) will appear next to the Company Name.</div>
             <div class="row">
                 <div class="col-md-6"><label>Company Name</label><input type="text" id="brand_name"></div>
                 <div class="col-md-6"><label>Logo URL</label><div class="d-flex gap-2"><input type="text" id="brand_logo_url"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div>
@@ -71,52 +72,16 @@
 
     <div id="home" class="editor-section">
         <div class="card">
-            <div class="card-header">Hero Slider (Fill as many as you need)</div>
+            <div class="card-header">Hero Slider</div>
             <div class="card-body">
-                
-                <div class="slide-block">
-                    <span class="slide-label">Slide 1 (Main)</span>
-                    <label>Image (1920x1080px)</label>
-                    <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero1"><img id="prev_img_hero1" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
-                    <label>Title</label><input type="text" id="hero_h1">
-                    <label>Subtitle</label><input type="text" id="hero_p1">
-                </div>
-
-                <div class="slide-block">
-                    <span class="slide-label">Slide 2</span>
-                    <label>Image</label>
-                    <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero2"><img id="prev_img_hero2" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero2')"></div></div>
-                    <label>Title</label><input type="text" id="hero_h2">
-                    <label>Subtitle</label><input type="text" id="hero_p2">
-                </div>
-
-                <div class="slide-block">
-                    <span class="slide-label">Slide 3</span>
-                    <label>Image</label>
-                    <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero3"><img id="prev_img_hero3" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero3')"></div></div>
-                    <label>Title</label><input type="text" id="hero_h3">
-                    <label>Subtitle</label><input type="text" id="hero_p3">
-                </div>
-
-                <div class="slide-block">
-                    <span class="slide-label">Slide 4</span>
-                    <label>Image</label>
-                    <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero4"><img id="prev_img_hero4" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero4')"></div></div>
-                    <label>Title</label><input type="text" id="hero_h4">
-                    <label>Subtitle</label><input type="text" id="hero_p4">
-                </div>
-
-                <div class="slide-block">
-                    <span class="slide-label">Slide 5</span>
-                    <label>Image</label>
-                    <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero5"><img id="prev_img_hero5" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero5')"></div></div>
-                    <label>Title</label><input type="text" id="hero_h5">
-                    <label>Subtitle</label><input type="text" id="hero_p5">
-                </div>
-
+                <div class="slide-block"><span class="slide-label">Slide 1 (Main)</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero1"><img id="prev_img_hero1" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div><label>Title</label><input type="text" id="hero_h1"><label>Subtitle</label><input type="text" id="hero_p1"></div>
+                <div class="slide-block"><span class="slide-label">Slide 2</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero2"><img id="prev_img_hero2" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero2')"></div></div><label>Title</label><input type="text" id="hero_h2"><label>Subtitle</label><input type="text" id="hero_p2"></div>
+                <div class="slide-block"><span class="slide-label">Slide 3</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero3"><img id="prev_img_hero3" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero3')"></div></div><label>Title</label><input type="text" id="hero_h3"><label>Subtitle</label><input type="text" id="hero_p3"></div>
+                <div class="slide-block"><span class="slide-label">Slide 4</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero4"><img id="prev_img_hero4" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero4')"></div></div><label>Title</label><input type="text" id="hero_h4"><label>Subtitle</label><input type="text" id="hero_p4"></div>
+                <div class="slide-block"><span class="slide-label">Slide 5</span><label>Image</label><div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero5"><img id="prev_img_hero5" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero5')"></div></div><label>Title</label><input type="text" id="hero_h5"><label>Subtitle</label><input type="text" id="hero_p5"></div>
             </div>
         </div>
-        <div class="card"><div class="card-body"><label>About Text (Below Slider)</label><textarea id="about_text" rows="4"></textarea></div></div>
+        <div class="card"><div class="card-body"><label>About Text</label><textarea id="about_text" rows="4"></textarea></div></div>
     </div>
 
     <div id="ventures" class="editor-section">
@@ -144,67 +109,49 @@
 <div id="debug-console"></div>
 
 <script>
-    // --- DEFAULT DATA ---
     let auth = { gh_username: '', gh_repo: 'worldofwillpower', gh_token: '' };
     let content = {
         col_primary: '#0f172a', col_accent: '#f59e0b',
         brand_name: 'World of Willpower', brand_font: "'Cinzel', serif", brand_logo_url: '',
-        
-        // MULTI SLIDE DATA
-        img_hero1: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80', hero_h1: 'Forging Leaders.', hero_p1: 'Strategic mentorship for visionaries.',
-        img_hero2: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=80', hero_h2: 'Manufacturing Quality.', hero_p2: 'Premium Dairy & Ayurvedic Standards.',
-        img_hero3: '', hero_h3: '', hero_p3: '',
-        img_hero4: '', hero_h4: '', hero_p4: '',
-        img_hero5: '', hero_h5: '', hero_p5: '',
-
+        img_hero1: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80',
+        hero_h1: 'Forging Leaders.', hero_p1: 'Strategic mentorship for visionaries.',
         about_text: 'World of Willpower is a diversified conglomerate...',
         address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
         email: 'care@worldofwillpower.com', whatsapp: '917039196489',
-        ventures: [ { title: "Dairy Manufacturing", image: "", tagline: "Purity.", overview: "Overview text...", features: "Ghee\nPaneer" } ]
+        ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity.", overview: "Overview text...", features: "Ghee\nPaneer" }]
     };
 
-    // --- STARTUP ---
     document.addEventListener('DOMContentLoaded', () => {
         const savedAuth = localStorage.getItem('wp_auth');
         if(savedAuth) { auth = JSON.parse(savedAuth); document.getElementById('gh_username').value = auth.gh_username; document.getElementById('gh_repo').value = auth.gh_repo; document.getElementById('gh_token').value = auth.gh_token; if(auth.gh_token) setConnectedUI(true); }
-        const savedContent = localStorage.getItem('wp_content_v10_2');
+        const savedContent = localStorage.getItem('wp_content_v10_3');
         if(savedContent) content = { ...content, ...JSON.parse(savedContent) };
-        
-        // Populate Loop
         const ids = ['col_primary','col_accent','brand_name','brand_font','brand_logo_url','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = content[id] || ''; if(id.includes('logo')) showPreview(id, content[id]); });
-        
-        // Loop for 5 Slides
         for(let i=1; i<=5; i++) {
             if(document.getElementById(`img_hero${i}`)) document.getElementById(`img_hero${i}`).value = content[`img_hero${i}`] || '';
             if(document.getElementById(`hero_h${i}`)) document.getElementById(`hero_h${i}`).value = content[`hero_h${i}`] || '';
             if(document.getElementById(`hero_p${i}`)) document.getElementById(`hero_p${i}`).value = content[`hero_p${i}`] || '';
             showPreview(`img_hero${i}`, content[`img_hero${i}`]);
         }
-
         renderVentures();
     });
 
     function showPreview(id, url) { const p = document.getElementById('prev_'+id); if(p && url) { p.src = url; p.style.display = 'inline-block'; } }
-
-    // --- LOGIC ---
-    function saveAuth() {
-        auth.gh_username = document.getElementById('gh_username').value; auth.gh_repo = document.getElementById('gh_repo').value; auth.gh_token = document.getElementById('gh_token').value;
-        localStorage.setItem('wp_auth', JSON.stringify(auth)); setConnectedUI(true); alert("Connected!");
-    }
+    function saveAuth() { auth.gh_username = document.getElementById('gh_username').value; auth.gh_repo = document.getElementById('gh_repo').value; auth.gh_token = document.getElementById('gh_token').value; localStorage.setItem('wp_auth', JSON.stringify(auth)); setConnectedUI(true); alert("Connected!"); }
     function setConnectedUI(c) { document.getElementById('auth-status').className = c ? "status-connected" : "status-disconnected"; document.getElementById('auth-status').innerText = c ? "CONNECTED ✅" : "NOT CONNECTED ❌"; }
     function switchTab(id) { document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active')); document.getElementById(id).classList.add('active'); event.currentTarget.classList.add('active'); }
 
-    // --- VENTURE UI ---
     function renderVentures() {
         const c = document.getElementById('venture-container'); c.innerHTML = '';
         content.ventures.forEach((v, i) => {
-            c.innerHTML += `<div class="venture-item"><div class="venture-header"><h5 class="m-0">Business ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div><div class="venture-body"><div class="row mb-3"><div class="col-md-6"><label>Name</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div><div class="col-md-6"><label>Image</label><div class="d-flex gap-2"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div></div><label>Tagline</label><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)"><label>Overview</label><textarea rows="4" oninput="updVenture(${i},'overview',this.value)">${v.overview||''}</textarea><label>Services</label><textarea rows="5" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea></div></div>`;
+            c.innerHTML += `<div class="venture-item"><div class="venture-header"><h5 class="m-0">Business ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div><div class="venture-body"><div class="row mb-3"><div class="col-md-6"><label>Business Name</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div><div class="col-md-6"><label>Hero Image</label><div class="d-flex gap-2"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div></div><label>Tagline</label><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)"><label>Business Overview</label><textarea rows="4" oninput="updVenture(${i},'overview',this.value)">${v.overview||''}</textarea><label>Services</label><textarea rows="5" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea></div></div>`;
         });
     }
     function addVenture() { content.ventures.push({title:"New Business", image:"", features:"", overview:"", tagline:""}); renderVentures(); saveInternal(); }
     function delVenture(i) { if(confirm("Delete?")) { content.ventures.splice(i,1); renderVentures(); saveInternal(); } }
     function updVenture(i, k, v) { content.ventures[i][k] = v; if(k==='image') content.ventures[i]['image']=v; saveInternal(); }
+    
     function saveInternal() {
         const ids = ['col_primary','col_accent','brand_name','brand_font','brand_logo_url','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) content[id] = document.getElementById(id).value; });
@@ -213,28 +160,32 @@
             content[`hero_h${i}`] = document.getElementById(`hero_h${i}`).value;
             content[`hero_p${i}`] = document.getElementById(`hero_p${i}`).value;
         }
-        localStorage.setItem('wp_content_v10_2', JSON.stringify(content));
+        localStorage.setItem('wp_content_v10_3', JSON.stringify(content));
     }
 
-    // --- GENERATOR ---
     async function publishToGitHub() {
         saveInternal();
         const stat = document.getElementById('status-box');
         if(!auth.gh_token) { alert("Not Connected!"); return; }
         const logBox = document.getElementById('debug-console'); logBox.style.display='block'; logBox.innerText="Starting Generator...";
 
-        // CSS
         const commonCSS = `<style>:root{--primary:${content.col_primary};--gold:${content.col_accent}} body{font-family:'Manrope',sans-serif; overflow-x:hidden} .navbar{background:var(--primary);padding:15px 5%;border-bottom:3px solid var(--gold)} .navbar-brand{font-family:${content.brand_font}; color:var(--gold)!important; font-size:24px; font-weight:700} .nav-link{color:rgba(255,255,255,0.9)!important; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px; margin-left:20px} footer{background:var(--primary);color:#fff;padding:40px 5%;text-align:center} .btn-gold{background:var(--gold);color:var(--primary);padding:15px 35px;font-weight:800;text-decoration:none;display:inline-block;text-transform:uppercase} .float-wa{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999}</style>`;
+        
         const footer = `<footer><h4>${content.brand_name}</h4><p class="mt-3">${content.address}</p><div class="mt-3 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp}</div></footer>`;
         let dropdown = ''; content.ventures.forEach(v => { const slug=v.title.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.html'; dropdown+=`<li><a class="dropdown-item" href="${slug}">${v.title}</a></li>`; });
-        let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px;">` : content.brand_name;
+        
+        // --- NEW LOGIC: SHOW LOGO AND NAME SIDE-BY-SIDE ---
+        let brandHTML = '';
+        if(content.brand_logo_url) {
+            brandHTML += `<img src="${content.brand_logo_url}" style="height:50px; margin-right:15px;">`;
+        }
+        brandHTML += `<span>${content.brand_name}</span>`;
+
         const navbar = `<nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container-fluid"><a class="navbar-brand" href="index.html">${brandHTML}</a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu">${dropdown}</ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav>`;
 
         try {
-            // SLIDES GENERATOR
-            let slides = '';
-            let indicators = '';
-            let activeSet = false;
+            // SLIDES
+            let slides = ''; let activeSet = false;
             for(let i=1; i<=5; i++) {
                 if(content[`img_hero${i}`]) {
                     const active = !activeSet ? 'active' : '';
@@ -258,7 +209,7 @@
                 await new Promise(r => setTimeout(r, 800));
             }
             stat.innerText = "✅ PUBLISHED!";
-            alert("Site Updated! Check Home Slider & Microsites.");
+            alert("Site Updated! Logo and Text should now appear together.");
         } catch(e) { alert("Error: " + e.message); }
     }
 
