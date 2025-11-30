@@ -94,6 +94,27 @@
       color: var(--gold);
     }
 
+    /* DROPDOWN STYLING */
+    .dropdown-menu {
+      background: #020a08;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      border-radius: 12px;
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+    }
+
+    .dropdown-item {
+      font-size: 0.82rem;
+      color: #e5e7eb;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(230, 179, 37, 0.12);
+      color: var(--gold);
+    }
+
     /* HERO */
     .hero {
       padding: 120px 0 70px;
@@ -364,16 +385,35 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="mainNav">
       <ul class="navbar-nav align-items-lg-center">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="mentoring.html">Maestros</a></li>
-        <li class="nav-item"><a class="nav-link" href="dairy.html">Dairy</a></li>
-        <li class="nav-item"><a class="nav-link" href="food-care.html">Food</a></li>
-        <li class="nav-item"><a class="nav-link" href="ayurveda.html">Ayurveda</a></li>
-        <li class="nav-item"><a class="nav-link" href="new-business.html">Tech</a></li>
-        <li class="nav-item"><a class="nav-link" href="ventures.html">WIN Club</a></li>
-        <li class="nav-item"><a class="nav-link" href="mentoring-strategy.html">Aggregators</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-item ms-lg-2"><a class="btn btn-sm btn-admin" href="admin.html"><i class="fas fa-terminal"></i> Admin Panel</a></li>
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+
+        <!-- RESTORED OUR VENTURES DROPDOWN -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="venturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Our Ventures
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="venturesDropdown">
+            <li><a class="dropdown-item" href="mentoring.html">Willpower Maestros</a></li>
+            <li><a class="dropdown-item" href="dairy.html">Willpower Dairy Care</a></li>
+            <li><a class="dropdown-item" href="food-care.html">Willpower Food Care</a></li>
+            <li><a class="dropdown-item" href="ayurveda.html">Willpower Health &amp; Skin Care</a></li>
+            <li><a class="dropdown-item" href="new-business.html">WillPro Technologies &amp; Systems</a></li>
+            <li><a class="dropdown-item" href="ventures.html">WIN Club (Investors Hub)</a></li>
+            <li><a class="dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-sm btn-admin" href="admin.html">
+            <i class="fas fa-terminal"></i> Admin Panel
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -426,7 +466,7 @@
   </div>
 </section>
 
-<!-- ABOUT WORLD OF WILLPOWER -->
+<!-- ABOUT WORLD OF WILLPOWER (ONLY ON HOME) -->
 <section class="about-section">
   <div class="container">
     <div class="row justify-content-center">
