@@ -41,7 +41,23 @@
     .info-icon i{color:var(--gold);}
 
     footer{background:#020617;border-top:1px solid rgba(148,163,184,.3);text-align:center;padding:40px 5%;}
-    .float-wa{position:fixed;bottom:26px;right:26px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 12px 30px rgba(0,0,0,.55);}
+    .float-wa{
+    position: fixed;
+    bottom: 110px;      /* ⬅ moved higher so it doesn’t sit on the footer */
+    right: 30px;
+    background: #25d366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+}
   </style>
 </head>
 <body>
