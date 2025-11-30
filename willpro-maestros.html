@@ -1,30 +1,614 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>WillPro Maestros</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Nunito:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;700&family=Raleway:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"><style>
-        :root{--primary:#290505;--gold:#f29c07} 
-        body{font-family:'Poppins', sans-serif; overflow-x:hidden; background:#fff; color:#333} 
-        .navbar{background:rgba(15, 23, 42, 0.98); padding:15px 5%; border-bottom:2px solid var(--gold)} 
-        .navbar-brand{font-family:'Poppins'; color:var(--gold)!important; font-size:24px; font-weight:700; display:flex; align-items:center; gap:15px} 
-        .nav-link{color:rgba(255,255,255,0.9)!important; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px; margin-left:25px; font-weight:600} 
-        .btn-gold{background:var(--gold); color:#fff; padding:15px 40px; font-weight:700; text-decoration:none; display:inline-block; text-transform:uppercase; letter-spacing:1px; border-radius:4px; transition:0.3s} 
-        
-        /* HERO */
-        .hero-section{height:100vh; background-size:cover; background-position:center; background-attachment:fixed; display:flex; align-items:center; justify-content:center; text-align:center; color:white; position:relative}
-        .hero-overlay{position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));}
-        .hero-content{position:relative; z-index:2; padding:20px}
-        .hero-title{font-size:4rem; font-weight:700; margin-bottom:20px; text-shadow:0 5px 15px rgba(0,0,0,0.5)}
-        
-        /* CARDS */
-        .venture-card{background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:0.4s; height:100%; position:relative; border:1px solid #f3f4f6; text-align: center;}
-        .venture-card:hover{transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.1); border-color:var(--gold)}
-        .vc-img{height:220px; background-size:cover; background-position:center}
-        .vc-body{padding:30px}
-        .vc-title{font-size:1.5rem; color:var(--primary); margin-bottom:10px; font-family:'Poppins'}
-        
-        /* FEATURES GRID (MICROSITE) */
-        .feature-card{background:#fff; padding:30px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.05); height:100%; border-left:4px solid var(--gold); transition:0.3s; text-align:center;}
-        .feature-title{font-size:1.2rem; font-weight:700; color:var(--primary); margin-bottom:5px}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WillPro Maestros – Mentoring & Strategic Consultation</title>
 
-        footer{background:var(--primary);color:#fff;padding:60px 5%;text-align:center}
-        .float-wa{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
-        </style></head><body><nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container-fluid"><a class="navbar-brand" href="index.html"><img src="https://OurWillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" style="height:50px;"><span style="margin-left:15px">World of Willpower</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="willpro-maestros.html">WillPro Maestros</a></li><li><a class="dropdown-item" href="willpower-dairy-food-care.html">Willpower Dairy & Food Care</a></li></ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav><div class="hero-section" style="height:60vh; background-image:url('https://OurWillpower.github.io/worldofwillpower/uploads/1764440203891_Mentoring_at_risk_youth_v_1_.55b0037ddcc99_1_.5e7bba1c9490f.webp'); text-align:center;"><div class="hero-overlay"></div><div class="hero-content container"><h1 class="hero-title" style="color:#fff;">WillPro Maestros</h1><p class="lead fs-3" style="color:#f29c07; font-weight:bold;">Empowering Visionaries!</p></div></div><section style="padding:100px 5%"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 style="font-family:'Poppins'; color:#290505; font-size:2.5rem;">Business Overview</h2><div style="width:60px; height:4px; background:#f29c07; margin:20px auto;"></div><p class="lead text-secondary mx-auto" style="max-width:900px; line-height:1.8; text-align:center;">1. Leadership Coaching
-2. Pitch Deck Creation
-3. Fundraising Strategy</p></div></div><div class="row mt-5"><div class="col-md-6 col-lg-4 mb-4"><div class="feature-card"><div class="feature-title">1. Leadership Coaching</div><div class="text-muted small">Premium quality service available.</div></div></div><div class="col-md-6 col-lg-4 mb-4"><div class="feature-card"><div class="feature-title">2. Pitch Deck Creation</div><div class="text-muted small">Premium quality service available.</div></div></div><div class="col-md-6 col-lg-4 mb-4"><div class="feature-card"><div class="feature-title">3. Fundraising Strategy</div><div class="text-muted small">Premium quality service available.</div></div></div></div></div></section><section style="padding:80px 5%; background:#290505; color:white; text-align:center"><div class="container"><h3>Ready to partner with our WillPro Maestros division?</h3><p class="mt-3 opacity-75">We are ready to scale with you.</p><a href="https://wa.me/917039196489" class="btn-gold mt-4">Start Conversation</a></div></section><footer id="contact"><div class="container"><h3>World of Willpower</h3><p class="mt-3 opacity-75">002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p><div class="mt-4 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +917039196489 <span class="mx-3 text-secondary">|</span> <i class="fas fa-envelope text-warning me-2"></i> care@worldofwillpower.com</div><p class="small mt-5 opacity-50">© 2025 World of Willpower</p></div></footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script></body></html>
+  <!-- Bootstrap & Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --primary: #0b1020;
+      --gold: #f29c07;
+      --muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR (same style as index.html) */
+    .navbar {
+      background: rgba(10, 15, 31, 0.98);
+      padding: 14px 5%;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      backdrop-filter: blur(18px);
+    }
+
+    .navbar-brand {
+      font-family: "Playfair Display", serif;
+      color: var(--gold) !important;
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .navbar-brand span {
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      color: rgba(226, 232, 240, 0.85) !important;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.11em;
+      margin-left: 24px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), #f97316);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .btn-outline-gold {
+      border-color: var(--gold);
+      color: var(--gold);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: #0b1020;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #f97316);
+      color: #0b1020;
+      padding: 12px 32px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.78rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .btn-gold i {
+      margin-left: 8px;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      color: #020617;
+    }
+
+    /* HERO */
+    .hero-wrapper {
+      min-height: 70vh;
+      padding-top: 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-image {
+      position: absolute;
+      inset: 0;
+      background-image: url("https://OurWillpower.github.io/worldofwillpower/uploads/1764440203891_Mentoring_at_risk_youth_v_1_.55b0037ddcc99_1_.5e7bba1c9490f.webp");
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.85),
+        rgba(15, 23, 42, 0.8)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 70px 5% 80px 5%;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 700;
+      color: #f9fafb;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      max-width: 640px;
+      color: #e5e7eb;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .hero-tagline {
+      font-style: italic;
+      color: var(--gold);
+      font-size: 0.96rem;
+      margin-bottom: 22px;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 5%;
+      background: #020617;
+    }
+
+    .section-alt {
+      background: radial-gradient(circle at top, #020617 0, #020617 45%, #000 100%);
+    }
+
+    .section-heading {
+      margin-bottom: 26px;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      color: #e5e7eb;
+    }
+
+    .gold-bar {
+      width: 60px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), #f97316);
+      margin-top: 10px;
+    }
+
+    .section-text {
+      color: #cbd5e1;
+      font-size: 0.96rem;
+      line-height: 1.9;
+    }
+
+    /* CARDS */
+    .info-card {
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.04), transparent 60%),
+        #020617;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      padding: 24px 22px;
+      height: 100%;
+    }
+
+    .info-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #e5e7eb;
+    }
+
+    .info-card p,
+    .info-card li {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    .info-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.16);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .info-icon i {
+      color: var(--gold);
+      font-size: 0.95rem;
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: linear-gradient(110deg, #0b1020, #111827);
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 32px 5%;
+      text-align: center;
+    }
+
+    .cta-strip h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+      color: #f9fafb;
+    }
+
+    .cta-strip p {
+      color: #cbd5e1;
+      margin-bottom: 18px;
+      font-size: 0.96rem;
+    }
+
+    /* FOOTER (same as index) */
+    footer {
+      background: #020617;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 40px 5% 26px 5%;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    footer h3 {
+      font-family: "Playfair Display", serif;
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    footer .contact-line {
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+
+    footer .contact-line i {
+      margin-right: 6px;
+    }
+
+    .float-wa {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      background: #25d366;
+      color: #fff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      z-index: 999;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      text-decoration: none;
+    }
+
+    .float-wa:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 575px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img
+          src="https://OurWillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png"
+          style="height: 46px"
+          alt="World of Willpower Logo"
+        />
+        <span>World of Willpower</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMain"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#top">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#ventures">Ventures</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">WillPro Maestros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a href="admin.html" class="btn btn-outline-gold btn-sm">
+              Admin Panel
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-wrapper">
+    <div class="hero-bg-image"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="hero-kicker">WillPro Maestros</div>
+          <h1 class="hero-title">Mentoring, Consultation & Strategic Training.</h1>
+          <p class="hero-tagline">
+            Empowering visionaries to think sharper, execute faster and build resilient businesses.
+          </p>
+          <p class="hero-subtitle">
+            WillPro Maestros is the mentoring and consulting vertical of World of Willpower, founded
+            by Mr. Jayant Bhat. We work closely with founders, CXOs and business owners to design
+            practical strategies, refine business models and build execution-ready roadmaps.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mt-3">
+            <a href="https://wa.me/917039196489" class="btn-gold">
+              Book a Mentoring Call <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="index.html#ventures" class="btn btn-outline-gold">
+              View All Ventures
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-start g-4">
+        <div class="col-lg-7">
+          <div class="section-heading">
+            <div class="section-kicker">About WillPro Maestros</div>
+            <h2 class="section-title">From Ideas to Executable Strategy.</h2>
+            <div class="gold-bar"></div>
+          </div>
+          <p class="section-text">
+            Every business founder carries a powerful story, but very few get structured guidance on
+            how to translate that story into a scalable, profitable enterprise. WillPro Maestros
+            fills that gap with highly customised mentoring sessions, diagnostic workshops and
+            business strategy consultations.
+            <br /><br />
+            The approach is practical, execution-focused and brutally honest when required. The aim
+            is simple – to stand with the entrepreneur as a thinking partner, sounding board and
+            accountability anchor.
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h4>Typical Outcomes</h4>
+            <ul class="mb-2">
+              <li>Clarity of vision and positioning</li>
+              <li>Refined business model & revenue mix</li>
+              <li>Sharper go-to-market and sales story</li>
+              <li>Actionable 90-day execution roadmap</li>
+              <li>Confidence in investor & stakeholder conversations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-heading text-center">
+        <div class="section-kicker">Core Services</div>
+        <h2 class="section-title">How We Engage With You.</h2>
+        <div class="gold-bar mx-auto"></div>
+      </div>
+
+      <div class="row g-4 mt-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h4>Founder & CXO Mentoring</h4>
+            <p>
+              One-to-one mentoring sessions focused on decision-making, prioritisation,
+              communication and leadership presence for founders and senior leaders.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-sitemap"></i>
+            </div>
+            <h4>Business Strategy Clinics</h4>
+            <p>
+              Deep-dive consultations covering business model, pricing, margins, market selection,
+              risk mapping and growth pathways – designed to create a clear game plan.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-person-chalkboard"></i>
+            </div>
+            <h4>Workshops & Trainings</h4>
+            <p>
+              High-impact programs for teams on sales effectiveness, pitch design, execution
+              discipline and entrepreneurial thinking – customised for each organisation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE WORK WITH -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <div class="section-kicker">Who We Work With</div>
+            <h2 class="section-title">Entrepreneurs at Critical Inflection Points.</h2>
+            <div class="gold-bar"></div>
+          </div>
+          <p class="section-text">
+            WillPro Maestros works with founders and organisations who are serious about change.
+            Typical engagements happen when:
+          </p>
+          <ul class="section-text">
+            <li>The business is ready to scale but systems and clarity are missing</li>
+            <li>A new vertical, brand or geography is being launched</li>
+            <li>The founder wants an experienced external brain to challenge their thinking</li>
+            <li>There is a need to communicate better with investors, bankers or partners</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h4>Engagement Models</h4>
+            <ul>
+              <li>1:1 mentoring retainers (monthly)</li>
+              <li>Short-term strategy sprints (4–6 weeks)</li>
+              <li>Quarterly strategic review and course-correction</li>
+              <li>Custom-designed workshops for leadership teams</li>
+            </ul>
+            <p class="mt-2" style="font-size:0.85rem; color:#9ca3af;">
+              Every engagement starts with a simple conversation to understand your current
+              situation and objectives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <div class="container">
+      <h3>Ready to speak with WillPro Maestros?</h3>
+      <p>
+        Share your current challenge or business idea over WhatsApp. We will respond with
+        possible engagement options and the next steps.
+      </p>
+      <a href="https://wa.me/917039196489" class="btn-gold">
+        Start a WhatsApp Conversation <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <h3>World of Willpower</h3>
+      <p class="mt-1">
+        002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204
+      </p>
+
+      <div class="contact-line">
+        <i class="fab fa-whatsapp" style="color:#22c55e"></i> +91&nbsp;7039196489
+        <span class="mx-3">|</span>
+        <i class="fas fa-envelope" style="color:#fbbf24"></i>
+        care@worldofwillpower.com
+      </div>
+
+      <p class="mt-3 mb-0" style="opacity:0.6">
+        © 2025 World of Willpower. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/917039196489" class="float-wa">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
