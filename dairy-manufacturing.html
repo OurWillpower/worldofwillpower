@@ -3,330 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Willpower Dairy Care – High-Purity Dairy Manufacturing</title>
+  <title>Willpower Dairy Care – Pure Dairy Manufacturing</title>
 
-  <!-- SEO -->
-  <meta name="description" content="Willpower Dairy Care by World of Willpower focuses on high-purity dairy manufacturing – ghee, paneer and other dairy products with strict quality benchmarks and disciplined processes." />
-  <meta name="keywords" content="Willpower Dairy Care, Willpower Dairy, World of Willpower, dairy manufacturing, cow ghee, paneer, milk products, private label, third party manufacturing, export ready dairy" />
-  <meta name="author" content="World of Willpower" />
+  <meta name="description" content="Willpower Dairy Care focuses on high-purity cow ghee and dairy manufacturing with strict quality benchmarks and export-ready standards." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Willpower Dairy Care – High-Purity Dairy Manufacturing" />
-  <meta property="og:description" content="Cow ghee and dairy manufacturing with strict quality benchmarks, disciplined processes and third-party manufacturing options for serious brands." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ourwillpower.github.io/worldofwillpower/dairy-manufacturing.html" />
-
-  <!-- CSS & ICONS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg-deep: #020807;
-      --bg-soft: #03130c;
-      --card: #020c08;
-      --card-soft: #03150d;
-      --gold: #E6B325;
-      --gold-soft: rgba(230, 179, 37, 0.18);
-      --border-soft: rgba(15, 23, 42, 0.9);
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-    }
+    /* same base styles as Maestros page */
+    :root{--bg-deep:#020807;--bg-soft:#03130c;--card:#020c08;--gold:#E6B325;--text-main:#f9fafb;--text-muted:#9ca3af;}
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:"Inter",sans-serif;background:
+      radial-gradient(circle at top left,#062516 0,transparent 55%),
+      radial-gradient(circle at bottom right,#02130b 0,#020507 60%);
+      color:var(--text-main);overflow-x:hidden;}
+    .navbar{background:rgba(2,8,7,.97);backdrop-filter:blur(18px);border-bottom:1px solid rgba(15,23,42,.85);}
+    .navbar-brand{display:flex;align-items:center;gap:10px;font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700;letter-spacing:.08em;color:var(--gold)!important;text-transform:uppercase;}
+    .navbar-brand img{height:44px;}
+    .nav-link{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(249,250,251,.78)!important;padding-inline:.9rem!important;}
+    .nav-link:hover,.nav-link.active{color:var(--gold)!important;}
+    .btn-admin{font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;border-radius:999px;padding:.45rem 1.2rem;border:1px solid rgba(249,250,251,.35);color:#e5e7eb;background:transparent;}
+    .btn-admin:hover{border-color:var(--gold);color:var(--gold);}
+    .dropdown-menu{background:#020a08;border:1px solid rgba(148,163,184,.4);border-radius:12px;padding:.4rem 0;}
+    .dropdown-item{font-size:.82rem;color:#e5e7eb;letter-spacing:.08em;text-transform:uppercase;}
+    .dropdown-item:hover{background:rgba(230,179,37,.12);color:var(--gold);}
 
-    * { box-sizing: border-box; }
+    .hero{padding:120px 0 60px;background:
+      radial-gradient(circle at top left,#062618 0,transparent 60%),
+      radial-gradient(circle at bottom right,#020807 0,#010409 65%);text-align:center;}
+    .hero-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.2em;color:var(--text-muted);}
+    .hero-title{font-family:"Playfair Display",serif;font-size:2.4rem;margin:1.4rem 0 .6rem;}
+    .hero-title span{color:var(--gold);}
+    .hero-sub{max-width:720px;margin:0 auto 1.8rem;color:var(--text-muted);font-size:.98rem;}
+    .btn-hero{border-radius:999px;padding:.9rem 1.9rem;font-size:.84rem;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(90deg,#f4c33b,#e6b325);color:#111827;font-weight:700;text-decoration:none;box-shadow:0 16px 40px rgba(0,0,0,.7);}
+    .btn-hero i{font-size:1.1rem;}
 
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(circle at top left, #062516 0, transparent 55%),
-        radial-gradient(circle at bottom right, #02130b 0, #020507 60%);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
+    .content-section{padding:50px 0 70px;background:
+      radial-gradient(circle at top right,#031f13 0,transparent 55%),
+      radial-gradient(circle at bottom left,#020708 0,#010409 70%);}
+    .content-card{background:
+      radial-gradient(circle at top left,#04140d 0,transparent 65%),
+      linear-gradient(145deg,#020b07,#020405);border-radius:22px;border:1px solid rgba(15,23,42,.95);box-shadow:0 18px 40px rgba(0,0,0,.75);padding:2rem;height:100%;}
+    .content-card h3{font-family:"Playfair Display",serif;font-size:1.4rem;margin-bottom:.8rem;}
+    .content-card p{color:var(--text-muted);font-size:.95rem;}
+    .content-card ul{color:var(--text-main);font-size:.92rem;}
+    .content-card li{margin-bottom:.4rem;}
 
-    /* NAVBAR – same system style */
-    .navbar {
-      background: rgba(2, 8, 7, 0.97);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.85);
-    }
+    .cta-section{padding:70px 0 80px;background:
+      radial-gradient(circle at top left,#052416 0,transparent 60%),
+      linear-gradient(160deg,#02050a,#020807);text-align:center;}
+    .cta-section h2{font-family:"Playfair Display",serif;font-size:2rem;margin-bottom:1rem;}
+    .cta-section p{max-width:600px;margin:0 auto 1.5rem;color:var(--text-muted);font-size:.95rem;}
 
-    .navbar-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: "Playfair Display", serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--gold) !important;
-      text-transform: uppercase;
-    }
-
-    .navbar-brand img {
-      height: 44px;
-    }
-
-    .nav-link {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(249, 250, 251, 0.78) !important;
-      padding-inline: 0.9rem !important;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--gold) !important;
-    }
-
-    .btn-admin {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      border-radius: 999px;
-      padding: 0.45rem 1.2rem;
-      border: 1px solid rgba(249, 250, 251, 0.35);
-      color: #e5e7eb;
-      background: transparent;
-    }
-
-    .btn-admin:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    /* HERO */
-    .hero {
-      padding: 120px 0 80px;
-      background:
-        radial-gradient(circle at top left, #062618 0, transparent 60%),
-        radial-gradient(circle at bottom right, #020807 0, #010409 65%);
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0.25rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(2, 10, 8, 0.95);
-      font-size: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #e5e7eb;
-    }
-
-    .hero-kicker span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
-    }
-
-    .hero-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.3rem, 3.2vw, 3rem);
-      margin-top: 1.8rem;
-      margin-bottom: 1rem;
-      max-width: 720px;
-    }
-
-    .hero-title span.highlight {
-      color: var(--gold);
-    }
-
-    .hero-sub {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      max-width: 640px;
-    }
-
-    .hero-rotator {
-      margin-top: 0.9rem;
-      font-size: 0.86rem;
-      letter-spacing: 0.18em;
-      color: var(--gold);
-      text-transform: uppercase;
-      transition: opacity 0.25s ease;
-    }
-
-    .btn-hero {
-      border-radius: 999px;
-      padding: 0.9rem 1.9rem;
-      font-size: 0.84rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: linear-gradient(90deg, #f4c33b, #e6b325);
-      color: #111827;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
-    }
-
-    .btn-hero i {
-      font-size: 1.1rem;
-    }
-
-    /* SIDE CARD */
-    .side-card {
-      background:
-        radial-gradient(circle at top left, #062617 0, transparent 70%),
-        linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.96));
-      border-radius: 22px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95);
-    }
-
-    /* SECTION */
-    .section {
-      padding: 40px 0 90px;
-      background:
-        radial-gradient(circle at top right, #031f13 0, transparent 55%),
-        radial-gradient(circle at bottom left, #020708 0, #010409 70%);
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.9rem;
-    }
-
-    .section-kicker {
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .section-sub {
-      max-width: 640px;
-      margin: 0.6rem auto 0;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* FEATURE CARDS */
-    .feature-card {
-      border-radius: 22px;
-      background:
-        radial-gradient(circle at top left, #04140d 0, transparent 65%),
-        linear-gradient(145deg, #020b07, #020405);
-      border: 1px solid rgba(15, 23, 42, 0.95);
-      padding: 1.6rem 1.7rem 1.5rem;
-      color: var(--text-main);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
-      min-height: 170px;
-    }
-
-    .feature-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--gold-soft);
-      color: var(--gold);
-      margin-bottom: 0.85rem;
-    }
-
-    .feature-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .feature-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* CTA SECTION */
-    .cta-section {
-      padding: 70px 0 80px;
-      background:
-        radial-gradient(circle at top left, #052416 0, transparent 60%),
-        linear-gradient(160deg, #02050a, #020807);
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-      max-width: 640px;
-      margin: 0 auto 1.5rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #020509;
-      border-top: 1px solid rgba(15, 23, 42, 0.9);
-      text-align: center;
-      padding: 30px 0;
-    }
-
-    footer h5 {
-      font-family: "Playfair Display", serif;
-      color: var(--gold);
-    }
-
-    footer p {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    footer .muted {
-      font-size: 0.78rem;
-      color: #6b7280;
-      margin-top: 0.8rem;
-    }
-
-    /* WHATSAPP FLOAT */
-    .float-wa {
-      position: fixed;
-      bottom: 26px;
-      right: 26px;
-      width: 52px;
-      height: 52px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #22c55e;
-      color: #020617;
-      font-size: 1.7rem;
-      text-decoration: none;
-      z-index: 999;
-      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.7);
-    }
-
-    @media (max-width: 767px) {
-      .hero {
-        padding-top: 96px;
-      }
-    }
+    footer{background:#020509;border-top:1px solid rgba(15,23,42,.9);text-align:center;padding:30px 0;}
+    footer h5{font-family:"Playfair Display",serif;color:var(--gold);}
+    footer p{color:var(--text-muted);font-size:.85rem;}
+    footer .muted{font-size:.78rem;color:#6b7280;margin-top:.8rem;}
+    .float-wa{position:fixed;bottom:26px;right:26px;width:52px;height:52px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:#22c55e;color:#020617;font-size:1.7rem;text-decoration:none;z-index:999;box-shadow:0 18px 40px rgba(22,163,74,.7);}
   </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (same as home) -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
     <a class="navbar-brand" href="index.html">
@@ -340,11 +80,34 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="mainNav">
       <ul class="navbar-nav align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="ventures.html">Ventures</a></li>
-        <li class="nav-item"><a class="nav-link active" href="dairy-manufacturing.html">Dairy Care</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-item ms-lg-2"><a class="btn btn-sm btn-admin" href="admin.html"><i class="fas fa-terminal"></i> Admin Panel</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="venturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Our Ventures
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="venturesDropdown">
+            <li><a class="dropdown-item" href="willpro-maestros.html">Willpower Maestros</a></li>
+            <li><a class="dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a></li>
+            <li><a class="dropdown-item" href="food-care.html">Willpower Food Care</a></li>
+            <li><a class="dropdown-item" href="ayurveda.html">Willpower Health &amp; Skin Care</a></li>
+            <li><a class="dropdown-item" href="new-business.html">WillPro Technologies &amp; Systems</a></li>
+            <li><a class="dropdown-item" href="ventures.html">WIN Club (Investors Hub)</a></li>
+            <li><a class="dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-sm btn-admin" href="admin.html">
+            <i class="fas fa-terminal"></i> Admin Panel
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -353,45 +116,45 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="row g-4 align-items-start">
-      <div class="col-lg-7">
+    <div class="hero-kicker">Willpower Dairy Care · Manufacturing</div>
+    <h1 class="hero-title">
+      High-Purity Dairy Manufacturing with <span>Strict Quality Benchmarks.</span>
+    </h1>
+    <p class="hero-sub">
+      From pure cow ghee to specialised dairy products, Willpower Dairy Care is built around discipline in
+      sourcing, processes and documentation – ready for Indian and export markets.
+    </p>
+    <a href="https://wa.me/917039196489" target="_blank" class="btn-hero">
+      Start Dairy Conversation <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</section>
 
-        <div class="hero-kicker">
-          <span class="dot"></span> Willpower Dairy Care · Manufacturing · Ghee · Third Party
+<!-- CONTENT -->
+<section class="content-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="content-card">
+          <h3>What We Typically Manufacture</h3>
+          <p>Product mix can be customised depending on brand needs and capacities.</p>
+          <ul class="mt-2">
+            <li>Pure cow ghee with lab-tested purity</li>
+            <li>Other dairy products (as per scope and approvals)</li>
+            <li>Private-label / third-party manufacturing</li>
+            <li>Support with basic packaging ideas and structures</li>
+          </ul>
         </div>
-
-        <h1 class="hero-title">
-          Interested in Building a <span class="highlight">Serious Dairy Brand</span>, Not Just a Product?
-        </h1>
-
-        <p class="hero-sub">
-          Willpower Dairy Care focuses on disciplined, high-purity dairy manufacturing – especially cow ghee –
-          for brands that want consistency, hygiene and long-term trust with their consumers.
-        </p>
-
-        <div class="hero-rotator">
-          <span id="rotating-line">High-purity cow ghee manufacturing</span>
-        </div>
-
-        <div class="mt-4 d-flex flex-column flex-sm-row align-items-center gap-3">
-          <a href="https://wa.me/917039196489" target="_blank" class="btn-hero">
-            Start Dairy Conversation <i class="fab fa-whatsapp"></i>
-          </a>
-        </div>
-
       </div>
-
-      <div class="col-lg-5">
-        <div class="side-card p-4">
-          <div class="small text-uppercase mb-3" style="letter-spacing: 0.18em; color: var(--text-muted);">
-            Typical Dairy Care Questions
-          </div>
-
-          <ul class="list-unstyled" style="color:#e5e7eb; font-size:0.92rem;">
-            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i>What capacity and product mix makes sense to start with?</li>
-            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i>How do we position our ghee or dairy products against existing brands?</li>
-            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i>What standards, testing and compliances should we plan for?</li>
-            <li><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i>Is third-party manufacturing better than setting up our own plant?</li>
+      <div class="col-lg-6">
+        <div class="content-card">
+          <h3>How We Look at Quality</h3>
+          <p>For us, quality is not a slogan; it is a daily discipline.</p>
+          <ul class="mt-2">
+            <li>Structured raw material checks and vendor discipline</li>
+            <li>Process control and hygiene at every stage</li>
+            <li>Documentation to support export-ready thinking</li>
+            <li>Practical approach to scale without losing basics</li>
           </ul>
         </div>
       </div>
@@ -399,90 +162,13 @@
   </div>
 </section>
 
-<!-- WHAT DAIRY CARE COVERS -->
-<section class="section">
-  <div class="container">
-    <div class="section-header text-center mb-5">
-      <div class="section-kicker">What Willpower Dairy Care Works On</div>
-      <h2 class="section-title">Manufacturing That Respects Purity, Process & Brand Trust.</h2>
-      <p class="section-sub">
-        The focus is on disciplined production, traceability and consistency – so your label truly stands for
-        what it promises on the pack.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-lg-4 col-md-6">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-droplet"></i></div>
-          <div class="feature-title">Cow Ghee Manufacturing</div>
-          <div class="feature-text">
-            Structured processes for high-purity cow ghee with focus on aroma, colour, grain and repeatable quality
-            batch after batch.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-cheese"></i></div>
-          <div class="feature-title">Paneer & Core Dairy Products</div>
-          <div class="feature-text">
-            Scope to extend into paneer and other core dairy products where hygiene, shelf-life and taste are non-negotiable.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-industry"></i></div>
-          <div class="feature-title">Third-Party & Private Label</div>
-          <div class="feature-text">
-            Manufacturing partnerships for serious brand owners who want a focused dairy partner rather than a generic job-worker.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
-          <div class="feature-title">Quality, Testing & Compliance</div>
-          <div class="feature-text">
-            Emphasis on standards, testing, documentation and compliance – so your brand can stand scrutiny in any market.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-box-open"></i></div>
-          <div class="feature-title">Packaging & Stability Thinking</div>
-          <div class="feature-text">
-            Guidance on pack formats, storage and stability so the product that reaches shelves is as good as it left the plant.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
-          <div class="feature-title">Brand & Portfolio Direction</div>
-          <div class="feature-text">
-            Conversations around which SKUs, price points and channels actually make sense for your stage and capital reality.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA SECTION -->
+<!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <h2>Ready to Explore Willpower Dairy Care Seriously?</h2>
+    <h2>Interested in Building a Serious Dairy Brand?</h2>
     <p>
-      If you are a brand owner or entrepreneur considering dairy, share a short note on WhatsApp – current stage,
-      products in mind and your geography – and we can see if there is a fit to take this forward.
+      Share your idea or existing brand details over WhatsApp and we can explore if there is alignment with
+      Willpower Dairy Care’s way of working.
     </p>
     <a href="https://wa.me/917039196489" target="_blank" class="btn-hero">
       Start Dairy Conversation <i class="fab fa-whatsapp"></i>
@@ -504,32 +190,8 @@
   </div>
 </footer>
 
-<a href="https://wa.me/917039196489" class="float-wa">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/917039196489" class="float-wa"><i class="fab fa-whatsapp"></i></a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- ROTATING SUBHEADLINE -->
-<script>
-  const lines = [
-    "High-purity cow ghee manufacturing",
-    "Dairy processes built around discipline & hygiene",
-    "Third-party manufacturing for serious brands",
-    "Benchmarks that respect quality and cash flow"
-  ];
-  let idx = 0;
-  const rotator = document.getElementById("rotating-line");
-
-  setInterval(() => {
-    idx = (idx + 1) % lines.length;
-    rotator.style.opacity = 0;
-    setTimeout(() => {
-      rotator.textContent = lines[idx];
-      rotator.style.opacity = 1;
-    }, 250);
-  }, 3200);
-</script>
-
 </body>
 </html>
