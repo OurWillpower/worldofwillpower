@@ -3,90 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v14.1</title>
+    <title>Willpower Command Center v15.1</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ADMIN INTERFACE STYLING */
-        body { background-color: #f1f5f9; font-family: 'Segoe UI', sans-serif; padding-bottom: 100px; }
-        .sidebar { width: 280px; height: 100vh; position: fixed; top: 0; left: 0; background: #111827; color: #fff; padding: 25px; overflow-y: auto; z-index: 1000; border-right: 1px solid #1f2937; }
-        .sidebar-brand { font-size: 1.4rem; font-weight: 800; padding-bottom: 25px; border-bottom: 1px solid #374151; margin-bottom: 25px; color: #fbbf24; letter-spacing: 1px; text-transform: uppercase; }
-        
-        .nav-btn { display: block; width: 100%; text-align: left; padding: 14px 20px; margin-bottom: 10px; background: transparent; border: none; color: #9ca3af; border-radius: 8px; transition: all 0.2s; font-weight: 600; cursor: pointer; }
-        .nav-btn:hover { background: #1f2937; color: #fff; transform: translateX(5px); }
-        .nav-btn.active { background: #fbbf24; color: #000; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2); }
-        
-        .main-content { margin-left: 280px; padding: 50px; max-width: 1200px; }
-        .editor-section { display: none; animation: slideIn 0.4s ease-out; }
+        /* ADMIN UI */
+        body { background-color: #f0f2f5; font-family: 'Segoe UI', sans-serif; padding-bottom: 100px; }
+        .sidebar { width: 260px; height: 100vh; position: fixed; top: 0; left: 0; background: #0f172a; color: #fff; padding: 20px; overflow-y: auto; z-index: 1000; border-right: 1px solid #1e293b; }
+        .nav-btn { display: block; width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; background: transparent; border: none; color: #94a3b8; border-radius: 6px; transition: 0.2s; font-weight: 500; cursor: pointer; }
+        .nav-btn:hover { background: #1e293b; color: #fff; }
+        .nav-btn.active { background: #f59e0b; color: #000; font-weight: 700; }
+        .main-content { margin-left: 260px; padding: 40px; max-width: 1200px; }
+        .editor-section { display: none; animation: fadeIn 0.3s; }
         .editor-section.active { display: block; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-
-        .card { border: none; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 30px; border-radius: 16px; background: #fff; overflow: hidden; }
-        .card-header { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 20px 30px; font-weight: 800; color: #1f2937; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .card-body { padding: 30px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 25px; border-radius: 12px; }
+        .card-header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 20px; font-weight: 700; color: #334155; }
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; margin-top: 5px; }
         
-        label { font-size: 0.75rem; font-weight: 800; color: #6b7280; text-transform: uppercase; margin-top: 25px; display: block; letter-spacing: 0.5px; margin-bottom: 8px; }
-        input, textarea, select { width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 0.95rem; transition: border 0.2s; background: #f9fafb; }
+        /* Venture Item UI */
+        .venture-item { border: 1px solid #cbd5e1; background: #fff; margin-bottom: 30px; border-radius: 8px; overflow: hidden; position: relative; }
+        .venture-header { background: #f1f5f9; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         
-        .btn-upload { border: 2px dashed #d1d5db; background: #f9fafb; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; color: #4b5563; transition: 0.2s; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+        /* Buttons */
+        .action-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: #fff; padding: 20px 40px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; z-index: 900; }
+        .btn-save { background: #6c757d; color: white; border: none; padding: 12px 30px; font-weight: 700; border-radius: 8px; cursor: pointer; margin-right: 10px; }
+        .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 30px; font-weight: 800; border-radius: 8px; cursor: pointer; letter-spacing: 1px; }
         
-        .venture-item { border: 1px solid #e5e7eb; background: #fff; margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .venture-header { background: #f8fafc; padding: 15px 25px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #374151; }
-        
-        .action-bar { position: fixed; bottom: 0; left: 280px; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 50px; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; z-index: 900; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); }
-        
-        .btn-save { background: #e5e7eb; color: #374151; border: none; padding: 12px 30px; font-weight: 700; border-radius: 10px; cursor: pointer; transition: 0.2s; }
-        .btn-publish { background: #000; color: #fbbf24; border: none; padding: 14px 40px; font-weight: 800; border-radius: 10px; cursor: pointer; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        
-        .status-connected { color: #059669; background: #ecfdf5; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; border: 1px solid #a7f3d0; }
-        .status-disconnected { color: #dc2626; background: #fef2f2; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; border: 1px solid #fecaca; }
-        
-        #debug-console { display: none; position: fixed; top: 30px; right: 30px; width: 400px; background: #111827; color: #4ade80; padding: 25px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.85rem; z-index: 2000; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid #374151; }
-        .img-preview { height: 50px; border-radius: 6px; border: 1px solid #e5e7eb; object-fit: cover; }
+        .btn-upload { border: 2px dashed #94a3b8; background: #fff; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
         .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
         .upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height: 100%; width: 100%; }
+        .status-connected { background-color: #dcfce7; color: #166534; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
+        .status-disconnected { background-color: #fee2e2; color: #991b1b; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
+        .img-preview { height: 40px; border-radius: 4px; border: 1px solid #ddd; display: none; margin-left: 10px; vertical-align: middle; }
+        
+        /* Slide Block UI */
+        .slide-block { background: #f8f9fa; padding: 20px; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 20px; }
+        .slide-badge { background: #0f172a; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+        
+        #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 350px; background: rgba(15, 23, 42, 0.95); color: #4ade80; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 0.75rem; z-index: 2000; }
     </style>
 </head>
 <body>
 
 <div class="sidebar">
-    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v14.1</div>
+    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v15.1</h4>
     <button class="nav-btn active" onclick="switchTab('settings')">1. Setup</button>
     <button class="nav-btn" onclick="switchTab('design')">2. Brand & Style</button>
     <button class="nav-btn" onclick="switchTab('home')">3. Home Page</button>
-    <button class="nav-btn" onclick="switchTab('ventures')">4. Page Factory</button>
+    <button class="nav-btn" onclick="switchTab('ventures')">4. Microsite Builder</button>
     <button class="nav-btn" onclick="switchTab('contact')">5. Contact</button>
-    <button onclick="if(confirm('Logout?')) { localStorage.clear(); location.reload(); }" class="btn btn-outline-secondary w-100 mt-5" style="border-color: #374151; color: #9ca3af;">Logout</button>
+    <button onclick="if(confirm('Logout?')) { localStorage.clear(); location.reload(); }" class="btn btn-sm btn-outline-danger w-100 mt-5">Logout</button>
 </div>
 
 <div class="main-content">
     
     <div id="settings" class="editor-section active">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold text-dark m-0">Connection Setup</h2>
-            <div id="auth-status" class="status-disconnected">Not Connected</div>
-        </div>
-        <div class="card"><div class="card-body">
-            <label>GitHub Username</label><input type="text" id="gh_username">
+        <div id="auth-status" class="status-disconnected">Not Connected</div>
+        <div class="card"><div class="card-header">GitHub Credentials</div><div class="card-body">
+            <label>Username</label><input type="text" id="gh_username">
             <label>Repo Name</label><input type="text" id="gh_repo" value="worldofwillpower">
             <label>Token</label><input type="password" id="gh_token" placeholder="Paste Token here">
-            <button onclick="saveAuth()" class="btn btn-success mt-4 w-100 py-3 fw-bold">CONNECT & REMEMBER</button>
+            <button onclick="saveAuth()" class="btn btn-success mt-3 w-100 fw-bold">CONNECT & REMEMBER</button>
         </div></div>
     </div>
 
     <div id="design" class="editor-section">
-        <h2 class="fw-bold text-dark mb-4">Global Branding</h2>
-        <div class="card"><div class="card-body">
+        <div class="card"><div class="card-header">Branding</div><div class="card-body">
             <div class="row">
                 <div class="col-md-6"><label>Company Name</label><input type="text" id="brand_name" oninput="saveInternal()"></div>
-                <div class="col-md-6">
-                    <label>Logo URL</label>
-                    <div class="d-flex gap-2 align-items-center">
-                        <input type="text" id="brand_logo_url" oninput="saveInternal()">
-                        <img id="prev_brand_logo_url" class="img-preview" style="display:none;">
-                        <div class="upload-wrapper"><button class="btn-upload"><i class="fas fa-upload"></i> Upload</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div>
-                    </div>
-                </div>
+                <div class="col-md-6"><label>Logo URL</label><div class="d-flex gap-2"><input type="text" id="brand_logo_url" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-6"><label>Font</label><select id="brand_font" onchange="saveInternal()"></select></div>
@@ -96,40 +82,62 @@
     </div>
 
     <div id="home" class="editor-section">
-        <h2 class="fw-bold text-dark mb-4">Home Page</h2>
-        <div class="card"><div class="card-header">Main Banner</div><div class="card-body">
-            <label>Hero Image (1920x1080)</label>
-            <div class="d-flex gap-2 align-items-center">
-                <input type="text" id="img_hero1" oninput="saveInternal()">
-                <img id="prev_img_hero1" class="img-preview" style="display:none;">
-                <div class="upload-wrapper"><button class="btn-upload"><i class="fas fa-upload"></i> Upload</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div>
-            </div>
-            <label>Headline</label><input type="text" id="hero_h1" oninput="saveInternal()">
-            <label>Sub-headline</label><input type="text" id="hero_p1" oninput="saveInternal()">
+        <div class="card"><div class="card-header">Hero Slider (Fill up to 5 slides)</div><div class="card-body">
             
-            <div class="mt-4 p-3 bg-light rounded border">
-                <small class="text-muted fw-bold">EXTRA SLIDES (Optional)</small>
-                <div class="row">
-                    <div class="col-md-6"><label>Slide 2 Image</label><input type="text" id="img_hero2" oninput="saveInternal()"></div>
-                    <div class="col-md-6"><label>Slide 2 Title</label><input type="text" id="hero_h2" oninput="saveInternal()"></div>
-                </div>
+            <div class="slide-block">
+                <span class="slide-badge">Slide 1</span>
+                <label>Image (1920x1080)</label>
+                <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero1" oninput="saveInternal()"><img id="prev_img_hero1" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
+                <label>Title</label><input type="text" id="hero_h1" oninput="saveInternal()">
+                <label>Subtitle</label><input type="text" id="hero_p1" oninput="saveInternal()">
             </div>
+
+            <div class="slide-block">
+                <span class="slide-badge">Slide 2</span>
+                <label>Image</label>
+                <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero2" oninput="saveInternal()"><img id="prev_img_hero2" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero2')"></div></div>
+                <label>Title</label><input type="text" id="hero_h2" oninput="saveInternal()">
+                <label>Subtitle</label><input type="text" id="hero_p2" oninput="saveInternal()">
+            </div>
+
+            <div class="slide-block">
+                <span class="slide-badge">Slide 3</span>
+                <label>Image</label>
+                <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero3" oninput="saveInternal()"><img id="prev_img_hero3" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero3')"></div></div>
+                <label>Title</label><input type="text" id="hero_h3" oninput="saveInternal()">
+                <label>Subtitle</label><input type="text" id="hero_p3" oninput="saveInternal()">
+            </div>
+
+            <div class="slide-block">
+                <span class="slide-badge">Slide 4</span>
+                <label>Image</label>
+                <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero4" oninput="saveInternal()"><img id="prev_img_hero4" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero4')"></div></div>
+                <label>Title</label><input type="text" id="hero_h4" oninput="saveInternal()">
+                <label>Subtitle</label><input type="text" id="hero_p4" oninput="saveInternal()">
+            </div>
+
+            <div class="slide-block">
+                <span class="slide-badge">Slide 5</span>
+                <label>Image</label>
+                <div class="d-flex gap-2 align-items-center"><input type="text" id="img_hero5" oninput="saveInternal()"><img id="prev_img_hero5" class="img-preview"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero5')"></div></div>
+                <label>Title</label><input type="text" id="hero_h5" oninput="saveInternal()">
+                <label>Subtitle</label><input type="text" id="hero_p5" oninput="saveInternal()">
+            </div>
+
         </div></div>
-        <div class="card"><div class="card-body"><label>About Text</label><textarea id="about_text" rows="5" oninput="saveInternal()"></textarea></div></div>
+        <div class="card"><div class="card-body"><label>About Text</label><textarea id="about_text" rows="4" oninput="saveInternal()"></textarea></div></div>
     </div>
 
     <div id="ventures" class="editor-section">
-        <h2 class="fw-bold text-dark mb-4">Page Factory</h2>
-        <div class="alert alert-info border-0 shadow-sm mb-4" style="background:#e0f2fe; color:#0369a1;">
-            <i class="fas fa-magic me-2"></i> <strong>Auto-Generator:</strong> Overview = Top Section. Services = Grid Cards.
+        <div class="alert alert-primary">
+            <strong>Microsite Generator:</strong> Overview = Top Section. Services = Grid Cards.
         </div>
         <div id="venture-container"></div>
-        <button class="btn btn-dark w-100 py-3 fw-bold" onclick="addVenture()"><i class="fas fa-plus me-2"></i> ADD NEW BUSINESS PAGE</button>
+        <button class="btn btn-dark w-100 mt-3 p-3" onclick="addVenture()">+ ADD NEW BUSINESS</button>
     </div>
 
     <div id="contact" class="editor-section">
-        <h2 class="fw-bold text-dark mb-4">Contact Info</h2>
-        <div class="card"><div class="card-body">
+        <div class="card"><div class="card-header">Contact</div><div class="card-body">
             <label>Address</label><input type="text" id="address" oninput="saveInternal()">
             <label>Email</label><input type="text" id="email" oninput="saveInternal()">
             <label>WhatsApp</label><input type="text" id="whatsapp" oninput="saveInternal()">
@@ -138,17 +146,20 @@
 </div>
 
 <div class="action-bar">
-    <div class="d-flex align-items-center gap-3">
-        <span id="autosave-indicator" class="text-success fw-bold small"></span>
-        <button onclick="saveInternal(true)" class="btn-save"><i class="fas fa-save me-2"></i> SAVE DRAFT</button>
+    <div id="status-box" style="margin-right:20px; font-weight:bold; color:#6c757d;"></div>
+    <div>
+        <button onclick="saveInternal(true)" class="btn-save"><i class="fas fa-save"></i> SAVE DRAFT</button>
+        <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket"></i> GENERATE & PUBLISH</button>
     </div>
-    <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket me-2"></i> GENERATE & PUBLISH</button>
 </div>
 
 <div id="debug-console"></div>
 
 <script>
+    // --- FONT LIST ---
     const FONTS = ["Roboto", "Open Sans", "Lato", "Montserrat", "Poppins", "Playfair Display", "Merriweather", "Cinzel", "Raleway", "Nunito"];
+
+    // --- DEFAULT DATA ---
     let auth = { gh_username: '', gh_repo: 'worldofwillpower', gh_token: '' };
     let content = {
         col_primary: '#0f172a', col_accent: '#f59e0b',
@@ -158,12 +169,14 @@
         about_text: 'World of Willpower is a diversified conglomerate...',
         address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
         email: 'care@worldofwillpower.com', whatsapp: '917039196489',
-        ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity You Can Trust.", overview: "Overview text...", features: "Ghee\nPaneer" }]
+        ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity You Can Trust.", overview: "Our Indian dairy plant represents the pinnacle of hygiene and quality...", features: "Ghee\nPaneer" }]
     };
 
+    // --- INIT ---
     document.addEventListener('DOMContentLoaded', () => {
         const savedAuth = localStorage.getItem('willpower_master_auth');
         if(savedAuth) { auth = JSON.parse(savedAuth); document.getElementById('gh_username').value = auth.gh_username; document.getElementById('gh_repo').value = auth.gh_repo; document.getElementById('gh_token').value = auth.gh_token; if(auth.gh_token) setConnectedUI(true); }
+        
         const savedContent = localStorage.getItem('willpower_master_data');
         if(savedContent) content = { ...content, ...JSON.parse(savedContent) }; 
         
@@ -178,8 +191,20 @@
 
     function populateFields() {
         const ids = ['col_primary','col_accent','brand_name','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
-        ids.forEach(id => { if(document.getElementById(id)) { document.getElementById(id).value = content[id] || ''; if(id.includes('logo') || id.includes('img')) showPreview(id, content[id]); } });
-        for(let i=1; i<=5; i++) { if(content[`img_hero${i}`] && document.getElementById(`img_hero${i}`)) document.getElementById(`img_hero${i}`).value = content[`img_hero${i}`]; }
+        ids.forEach(id => { 
+            if(document.getElementById(id)) {
+                document.getElementById(id).value = content[id] || ''; 
+                if(id.includes('logo') || id.includes('img')) showPreview(id, content[id]);
+            }
+        });
+        
+        // POPULATE ALL 5 SLIDES
+        for(let i=1; i<=5; i++) {
+            if(document.getElementById(`img_hero${i}`)) document.getElementById(`img_hero${i}`).value = content[`img_hero${i}`] || '';
+            if(document.getElementById(`hero_h${i}`)) document.getElementById(`hero_h${i}`).value = content[`hero_h${i}`] || '';
+            if(document.getElementById(`hero_p${i}`)) document.getElementById(`hero_p${i}`).value = content[`hero_p${i}`] || '';
+            showPreview(`img_hero${i}`, content[`img_hero${i}`]);
+        }
     }
 
     function showPreview(id, url) { const p = document.getElementById('prev_'+id); if(p && url) { p.src = url; p.style.display = 'inline-block'; } }
@@ -187,32 +212,41 @@
     function setConnectedUI(c) { document.getElementById('auth-status').className = c ? "status-connected" : "status-disconnected"; document.getElementById('auth-status').innerText = c ? "CONNECTED ✅" : "NOT CONNECTED ❌"; }
     function switchTab(id) { document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active')); document.getElementById(id).classList.add('active'); event.currentTarget.classList.add('active'); }
 
+    // --- VENTURE UI ---
     function renderVentures() {
         const c = document.getElementById('venture-container'); c.innerHTML = '';
         content.ventures.forEach((v, i) => {
             c.innerHTML += `
             <div class="venture-item">
-                <div class="venture-header"><h5 class="m-0">Page ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div>
+                <div class="venture-header"><h5 class="m-0">Business ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div>
                 <div class="venture-body">
-                    <div class="row mb-3"><div class="col-md-6"><label>Page Title</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div><div class="col-md-6"><label>Hero Image</label><div class="d-flex gap-2 align-items-center"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><img id="prev_v_img_${i}" class="img-preview" src="${v.image}" style="${v.image?'display:block':'display:none'}"><div style="position:relative;overflow:hidden;display:inline-block"><button class="btn-upload">Up</button><input type="file" style="position:absolute;left:0;top:0;opacity:0;cursor:pointer;width:100%;height:100%" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div></div>
+                    <div class="row mb-3"><div class="col-md-6"><label>Name</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div><div class="col-md-6"><label>Image</label><div class="d-flex gap-2"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div></div>
                     <label>Tagline (Subtitle)</label><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)">
-                    <label>Business Overview</label><textarea rows="4" oninput="updVenture(${i},'overview',this.value)">${v.overview||''}</textarea>
-                    <label>Services (These become cards - One per line)</label><textarea rows="5" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea>
+                    <label>Business Overview (Centered Text)</label><textarea rows="4" oninput="updVenture(${i},'overview',this.value)">${v.overview||''}</textarea>
+                    <label>Services (Creates Cards - One per line)</label><textarea rows="5" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea>
                 </div>
             </div>`;
         });
     }
-    function addVenture() { content.ventures.push({title:"New Venture", image:"", features:"", overview:"", tagline:""}); renderVentures(); saveInternal(); }
+    function addVenture() { content.ventures.push({title:"New Business", image:"", features:"", overview:"", tagline:""}); renderVentures(); saveInternal(); }
     function delVenture(i) { if(confirm("Delete?")) { content.ventures.splice(i,1); renderVentures(); saveInternal(); } }
-    function updVenture(i, k, v) { content.ventures[i][k] = v; if(k=='image') showPreview(`v_img_${i}`, v); saveInternal(); }
+    function updVenture(i, k, v) { content.ventures[i][k] = v; saveInternal(); }
     
+    // --- MASTER SAVE ---
     function saveInternal(manual) {
-        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
+        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) content[id] = document.getElementById(id).value; });
-        for(let i=2; i<=5; i++) { if(document.getElementById(`img_hero${i}`)) content[`img_hero${i}`] = document.getElementById(`img_hero${i}`).value; }
+        
+        // SAVE ALL 5 SLIDES
+        for(let i=1; i<=5; i++) {
+            if(document.getElementById(`img_hero${i}`)) content[`img_hero${i}`] = document.getElementById(`img_hero${i}`).value;
+            if(document.getElementById(`hero_h${i}`)) content[`hero_h${i}`] = document.getElementById(`hero_h${i}`).value;
+            if(document.getElementById(`hero_p${i}`)) content[`hero_p${i}`] = document.getElementById(`hero_p${i}`).value;
+        }
+
         localStorage.setItem('willpower_master_data', JSON.stringify(content));
-        const now = new Date(); document.getElementById('autosave-indicator').innerText = "Saved " + now.toLocaleTimeString();
-        if(manual) alert("Draft Saved!");
+        const now = new Date(); document.getElementById('status-box').innerText = "Saved: " + now.toLocaleTimeString();
+        if(manual) alert("Draft Saved Successfully!");
     }
 
     function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
@@ -221,10 +255,9 @@
     async function publishToGitHub() {
         saveInternal(false);
         if(!auth.gh_token) { alert("Not Connected!"); return; }
-        const logBox = document.getElementById('debug-console'); logBox.style.display='block'; logBox.innerText="Generating Premium Site...";
+        const logBox = document.getElementById('debug-console'); logBox.style.display='block'; logBox.innerText="Generating Styles...";
 
-        // 1. DEFINE STYLES HERE (GLOBAL SCOPE for the function)
-        const fontLink = `<link href="https://fonts.googleapis.com/css2?family=${content.brand_font.replace(' ','+')}:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">`;
+        const fontLink = `<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Nunito:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;700&family=Raleway:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">`;
         
         const commonCSS = `<style>
         :root{--primary:${content.col_primary};--gold:${content.col_accent}} 
@@ -233,7 +266,6 @@
         .navbar-brand{font-family:'${content.brand_font}'; color:var(--gold)!important; font-size:24px; font-weight:700; display:flex; align-items:center; gap:15px} 
         .nav-link{color:rgba(255,255,255,0.9)!important; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px; margin-left:25px; font-weight:600} 
         .btn-gold{background:var(--gold); color:#fff; padding:15px 40px; font-weight:700; text-decoration:none; display:inline-block; text-transform:uppercase; letter-spacing:1px; border-radius:4px; transition:0.3s} 
-        .btn-gold:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,0.15)}
         
         /* HERO */
         .hero-section{height:100vh; background-size:cover; background-position:center; background-attachment:fixed; display:flex; align-items:center; justify-content:center; text-align:center; color:white; position:relative}
@@ -242,15 +274,14 @@
         .hero-title{font-size:4rem; font-weight:700; margin-bottom:20px; text-shadow:0 5px 15px rgba(0,0,0,0.5)}
         
         /* CARDS */
-        .venture-card{background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:0.4s; height:100%; position:relative; border:1px solid #f3f4f6}
+        .venture-card{background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:0.4s; height:100%; position:relative; border:1px solid #f3f4f6; text-align: center;}
         .venture-card:hover{transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.1); border-color:var(--gold)}
         .vc-img{height:220px; background-size:cover; background-position:center}
         .vc-body{padding:30px}
         .vc-title{font-size:1.5rem; color:var(--primary); margin-bottom:10px; font-family:'${content.brand_font}'}
         
         /* FEATURES GRID (MICROSITE) */
-        .feature-card{background:#fff; padding:30px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.05); height:100%; border-left:4px solid var(--gold); transition:0.3s}
-        .feature-card:hover{transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.1)}
+        .feature-card{background:#fff; padding:30px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.05); height:100%; border-left:4px solid var(--gold); transition:0.3s; text-align:center;}
         .feature-title{font-size:1.2rem; font-weight:700; color:var(--primary); margin-bottom:5px}
 
         footer{background:var(--primary);color:#fff;padding:60px 5%;text-align:center}
@@ -260,12 +291,25 @@
         const footer = `<footer id="contact"><div class="container"><h3>${content.brand_name}</h3><p class="mt-3 opacity-75">${content.address}</p><div class="mt-4 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp} <span class="mx-3 text-secondary">|</span> <i class="fas fa-envelope text-warning me-2"></i> ${content.email}</div><p class="small mt-5 opacity-50">© 2025 ${content.brand_name}</p></div></footer>`;
         
         let dropdown = ''; content.ventures.forEach(v => { const slug=v.title.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.html'; dropdown+=`<li><a class="dropdown-item" href="${slug}">${v.title}</a></li>`; });
-        let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px;">` : '';
-        brandHTML += `<span style="margin-left:10px">${content.brand_name}</span>`;
+        
+        // LOGO + TEXT LOGIC
+        let brandHTML = '';
+        if(content.brand_logo_url) brandHTML += `<img src="${content.brand_logo_url}" style="height:50px;">`;
+        brandHTML += `<span style="margin-left:15px">${content.brand_name}</span>`;
+        
         const navbar = `<nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container-fluid"><a class="navbar-brand" href="index.html">${brandHTML}</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu">${dropdown}</ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav>`;
 
         try {
-            // 2. INDEX PAGE GENERATION
+            // INDEX PAGE (LOOPING 5 SLIDES)
+            let slides = ''; let activeSet = false;
+            for(let i=1; i<=5; i++) {
+                if(content[`img_hero${i}`]) {
+                    const active = !activeSet ? 'active' : '';
+                    slides += `<div class="carousel-item ${active}" style="background-image:url('${content[`img_hero${i}`]}'); height:100vh; background-size:cover; background-position:center;"><div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);"></div><div class="carousel-caption" style="bottom:30%; left:0; right:0;"><h1 style="font-family:'${content.brand_font}'; font-size:5rem;">${content[`hero_h${i}`]}</h1><p style="font-size:1.5rem; margin-top:20px;">${content[`hero_p${i}`]}</p></div></div>`;
+                    activeSet = true;
+                }
+            }
+
             let homeCards = '';
             content.ventures.forEach(v => { 
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html'; 
@@ -285,11 +329,10 @@
                 </div>`;
             });
 
-            const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${fontLink}${commonCSS}</head><body>${navbar}<div class="hero-section" style="background-image:url('${content.img_hero1}')"><div class="hero-overlay"></div><div class="hero-content container"><h1 class="hero-title">${content.hero_h1}</h1><p class="lead fs-3">${content.hero_p1}</p></div></div><section style="padding:100px 5%"><div class="container"><div class="row align-items-center"><div class="col-lg-6 mb-4"><h2 style="font-family:'${content.brand_font}'; color:${content.col_primary}; font-size:3rem;">Who We Are</h2><div style="width:80px; height:4px; background:${content.col_accent}; margin:20px 0;"></div><p class="lead text-secondary" style="line-height:1.8">${content.about_text}</p></div><div class="col-lg-6"><div style="background:#f8fafc; padding:40px; border-radius:20px;"><h4 class="mb-4">Our Vision</h4><p class="text-muted">To be the global benchmark in quality and leadership.</p><h4 class="mb-4 mt-5">Our Mission</h4><p class="text-muted">Empowering growth through diversified excellence.</p></div></div></div></div></section><section style="padding:100px 5%; background:#f9fafb"><div class="container"><div class="text-center mb-5"><h2 style="color:${content.col_primary}; font-family:'${content.brand_font}'; font-size:2.5rem;">Business Verticals</h2><p class="text-muted">Our diversified portfolio of companies.</p></div><div class="row">${homeCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
-            
+            const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">${fontLink}${commonCSS}</head><body>${navbar}<div id="hero" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">${slides}</div><button class="carousel-control-prev" type="button" data-bs-target="#hero" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" type="button" data-bs-target="#hero" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div><section style="padding:100px 5%"><div class="container text-center"><h2 style="font-family:'${content.brand_font}'; color:${content.col_primary}; font-size:3rem; margin-bottom:30px;">Who We Are</h2><div style="width:80px; height:4px; background:${content.col_accent}; margin:20px auto;"></div><p class="lead text-secondary mx-auto" style="max-width:900px; line-height:1.8">${content.about_text}</p></div></section><section style="padding:0 5% 100px 5%; background:#f9fafb"><div class="container"><h2 class="text-center mb-5" style="color:${content.col_primary}; font-family:'${content.brand_font}'; font-size:2.5rem; padding-top:50px;">Business Verticals</h2><div class="row">${homeCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
             await uploadToGH('index.html', indexHTML);
 
-            // 3. VENTURE PAGE GENERATION
+            // 2. VENTURE PAGES (CENTERED HEADERS FIXED)
             for (const v of content.ventures) {
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
                 
@@ -298,24 +341,27 @@
                     return `<div class="col-md-6 col-lg-4 mb-4"><div class="feature-card"><div class="feature-title">${f}</div><div class="text-muted small">Premium quality service available.</div></div></div>`;
                 }).join('');
                 
-                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${fontLink}${commonCSS}</head><body>${navbar}<div class="hero-section" style="height:60vh; background-image:url('${v.image}')"><div class="hero-overlay"></div><div class="hero-content container"><h1 class="hero-title">${v.title}</h1><p class="lead fs-3" style="color:${content.col_accent}; font-weight:bold;">${v.tagline||''}</p></div></div><section style="padding:100px 5%"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 style="font-family:'${content.brand_font}'; color:${content.col_primary}; font-size:2.5rem;">Business Overview</h2><div style="width:60px; height:4px; background:${content.col_accent}; margin:20px auto;"></div><p class="lead text-secondary mx-auto" style="max-width:900px; line-height:1.8;">${v.overview}</p></div></div><div class="row mt-5">${featuresHTML}</div></div></section><section style="padding:80px 5%; background:${content.col_primary}; color:white; text-align:center"><div class="container"><h3>Ready to partner with our ${v.title} division?</h3><p class="mt-3 opacity-75">We are ready to scale with you.</p><a href="https://wa.me/${content.whatsapp}" class="btn-gold mt-4">Start Conversation</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+                // Forced Text-Align Center on Hero & Overview
+                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">${fontLink}${commonCSS}</head><body>${navbar}<div class="hero-section" style="height:60vh; background-image:url('${v.image}'); text-align:center;"><div class="hero-overlay"></div><div class="hero-content container"><h1 class="hero-title" style="color:#fff;">${v.title}</h1><p class="lead fs-3" style="color:${content.col_accent}; font-weight:bold;">${v.tagline||''}</p></div></div><section style="padding:100px 5%"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 style="font-family:'${content.brand_font}'; color:${content.col_primary}; font-size:2.5rem;">Business Overview</h2><div style="width:60px; height:4px; background:${content.col_accent}; margin:20px auto;"></div><p class="lead text-secondary mx-auto" style="max-width:900px; line-height:1.8; text-align:center;">${v.overview}</p></div></div><div class="row mt-5">${featuresHTML}</div></div></section><section style="padding:80px 5%; background:${content.col_primary}; color:white; text-align:center"><div class="container"><h3>Ready to partner with our ${v.title} division?</h3><p class="mt-3 opacity-75">We are ready to scale with you.</p><a href="https://wa.me/${content.whatsapp}" class="btn-gold mt-4">Start Conversation</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
                 
                 await uploadToGH(slug, pageHTML);
                 await new Promise(r => setTimeout(r, 800));
             }
 
             logBox.innerText = "SUCCESS! SITE LIVE.";
-            alert("Agency-Grade Website Published!");
+            alert("Website Updated! Check the centered headings & logo.");
         } catch(e) { alert("Error: " + e.message); }
     }
 
+    function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
     async function uploadToGH(file, content) {
         const url = `https://api.github.com/repos/${auth.gh_username}/${auth.gh_repo}/contents/${file}`;
         const get = await fetch(url, { headers: { 'Authorization': `token ${auth.gh_token}` }});
         const sha = get.ok ? (await get.json()).sha : null;
-        await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Update', content: utf8_to_b64(content), sha: sha }) });
+        const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Update', content: utf8_to_b64(content), sha: sha }) });
+        if(!res.ok) throw new Error("GitHub rejected upload");
     }
-    function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
+    
     async function uploadImage(input, targetID, index) {
         const file = input.files[0]; if(!file || !auth.gh_token) return;
         const reader = new FileReader(); reader.readAsDataURL(file);
