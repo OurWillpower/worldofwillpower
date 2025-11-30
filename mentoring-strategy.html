@@ -3,177 +3,564 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WillPro Aggregators – E-commerce & Logistics Aligned Models</title>
+  <title>WillPro Aggregators – E-commerce & Logistics</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap & Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root { --primary:#020617; --gold:#fbbf24; --muted:#94a3b8; }
-    body{font-family:"Poppins",sans-serif;background:#020617;color:#e5e7eb;overflow-x:hidden;}
-    .navbar{background:rgba(10,15,31,.98);padding:14px 5%;border-bottom:1px solid rgba(148,163,184,.3);backdrop-filter:blur(18px);}
-    .navbar-brand{font-family:"Playfair Display",serif;color:var(--gold)!important;display:flex;align-items:center;gap:12px;font-size:1.4rem;}
-    .navbar-brand img{height:46px;}
-    .nav-link{color:rgba(226,232,240,.85)!important;text-transform:uppercase;font-size:.78rem;letter-spacing:.12em;margin-left:24px;position:relative;}
-    .nav-link::after{content:"";position:absolute;width:0;height:2px;bottom:-6px;left:0;background:linear-gradient(90deg,var(--gold),#f97316);transition:.25s;}
-    .nav-link:hover::after,.nav-link.active::after{width:100%;}
-    .btn-gold{background:linear-gradient(135deg,var(--gold),#f97316);color:#020617;padding:12px 32px;font-weight:700;border-radius:999px;text-transform:uppercase;letter-spacing:.12em;border:none;box-shadow:0 16px 40px rgba(0,0,0,.35);}
-    .btn-gold i{margin-left:8px;}
-    .btn-outline-gold{border-color:var(--gold);color:var(--gold);text-transform:uppercase;font-size:.78rem;}
+    :root {
+      --bg-deep: #020617;
+      --bg-card: #020b17;
+      --bg-soft: #030712;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.12);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-soft: #1f2937;
+    }
 
-    .hero-wrapper{min-height:70vh;padding-top:90px;position:relative;}
-    .hero-bg{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=1600&q=80");background-size:cover;background-position:center;filter:brightness(.35);}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(145deg,rgba(10,15,31,.9),rgba(10,15,31,.85));}
-    .hero-content{position:relative;z-index:2;padding:90px 5%;}
-    .hero-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);}
-    .hero-title{font-family:"Playfair Display",serif;font-size:clamp(2.4rem,4vw,3.4rem);margin:10px 0;color:#f9fafb;}
-    .hero-sub{font-size:1rem;line-height:1.8;max-width:780px;color:#d1d5db;}
+    * {
+      box-sizing: border-box;
+    }
 
-    .section{padding:80px 5%;}
-    .section-kicker{font-size:.75rem;text-transform:uppercase;color:var(--muted);letter-spacing:.18em;}
-    .section-title{font-family:"Playfair Display",serif;font-size:1.8rem;}
-    .gold-bar{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),#f97316);border-radius:999px;margin-top:10px;}
-    .section-text{color:#cbd5e1;font-size:.95rem;line-height:1.9;}
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #0b1120 0, #020617 45%, #020617 100%);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
 
-    .info-card{border:1px solid rgba(148,163,184,.35);border-radius:14px;padding:24px;background:#020617;box-shadow:0 12px 32px rgba(0,0,0,.45);height:100%;}
-    .info-icon{width:40px;height:40px;border-radius:50%;background:rgba(148,163,184,.1);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
-    .info-icon i{color:var(--gold);}
+    /* NAVBAR */
+    .navbar {
+      background: rgba(2, 6, 23, 0.98);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      backdrop-filter: blur(14px);
+    }
 
-    footer{background:#020617;border-top:1px solid rgba(148,163,184,.3);text-align:center;padding:40px 5%;}
-    .float-wa{position:fixed;bottom:26px;right:26px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 12px 30px rgba(0,0,0,.55);}
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 1.25rem;
+      color: #facc15 !important;
+    }
+
+    .navbar-brand img {
+      height: 46px;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(249, 250, 251, 0.7) !important;
+      padding-inline: 0.9rem !important;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+      color: #f97316 !important;
+    }
+
+    .nav-link-pill {
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem !important;
+      border: 1px solid transparent;
+    }
+
+    .nav-link-pill.active {
+      background: rgba(249, 115, 22, 0.08);
+      border-color: rgba(249, 115, 22, 0.4);
+    }
+
+    .btn-admin {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 999px;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid rgba(248, 250, 252, 0.28);
+      color: #e5e7eb;
+    }
+
+    .btn-admin:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: #f97316;
+      border-color: rgba(249, 115, 22, 0.5);
+    }
+
+    /* HERO SECTION – same family as Tech page */
+    .hero {
+      padding: 120px 0 70px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .hero-kicker span.badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 3.4vw, 2.8rem);
+      line-height: 1.2;
+      margin: 1.7rem 0 1rem;
+      max-width: 620px;
+    }
+
+    .hero-title span.highlight {
+      color: #fbbf24;
+    }
+
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 640px;
+    }
+
+    .hero-pill {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 1.9rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f97316, #ea580c);
+      color: #111827;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero-pill i {
+      font-size: 1rem;
+    }
+
+    .hero-pill:hover {
+      filter: brightness(1.05);
+      color: #020617;
+    }
+
+    .hero-meta {
+      margin-top: 1.3rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+    }
+
+    /* LEFT QUESTIONS BLOCK – like Tech page style */
+    .questions-card {
+      border-radius: 22px;
+      background: radial-gradient(circle at top left, #111827 0, #020617 60%);
+      border: 1px solid rgba(55, 65, 81, 0.85);
+      padding: 1.7rem 1.8rem;
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.85);
+    }
+
+    .questions-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 0.6rem;
+    }
+
+    .questions-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .questions-card li {
+      display: flex;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 0.6rem;
+    }
+
+    .questions-card li i {
+      color: #f97316;
+      margin-top: 0.1rem;
+    }
+
+    /* MID SECTION – SHORT, like Tech */
+    .mid-section {
+      padding: 0 0 85px;
+    }
+
+    .mid-card {
+      border-radius: 22px;
+      background: linear-gradient(135deg, #020617 0, #030712 50%, #020617 100%);
+      border: 1px solid rgba(55, 65, 81, 0.7);
+      padding: 2rem;
+    }
+
+    .mid-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+
+    .mid-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .mid-text {
+      font-size: 0.92rem;
+      color: #d1d5db;
+      margin-bottom: 1.1rem;
+    }
+
+    .check-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .check-list i {
+      color: #22c55e;
+      margin-top: 0.1rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      background: #020617;
+      padding: 28px 0 32px;
+      text-align: center;
+    }
+
+    footer h5 {
+      font-family: "Playfair Display", serif;
+      color: #facc15;
+      margin-bottom: 0.25rem;
+    }
+
+    footer p {
+      margin: 0.25rem 0;
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    footer .contact-line {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    footer .contact-line i {
+      margin-right: 0.35rem;
+    }
+
+    footer .muted {
+      font-size: 0.78rem;
+      color: #6b7280;
+      margin-top: 0.8rem;
+    }
+
+    /* FLOATING WHATSAPP */
+    .float-wa {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #22c55e;
+      color: #020617;
+      font-size: 1.7rem;
+      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.6);
+      text-decoration: none;
+      z-index: 999;
+    }
+
+    .float-wa:hover {
+      filter: brightness(1.08);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 991px) {
+      .hero {
+        padding-top: 96px;
+      }
+
+      .mid-section {
+        padding-bottom: 70px;
+      }
+
+      .questions-card {
+        margin-top: 1.8rem;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-pill {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .float-wa {
+        bottom: 18px;
+        right: 18px;
+      }
+    }
   </style>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="https://OurWillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" alt="World of Willpower logo">
-      <span>World of Willpower</span>
-    </a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#ventures">Ventures</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#">WillPro Aggregators</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<header class="hero-wrapper">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-kicker">WillPro Aggregators</div>
-    <h1 class="hero-title">E-commerce and logistics aligned models for serious brands.</h1>
-    <p class="hero-sub">
-      WillPro Aggregators is the umbrella for projects that connect <strong>products, digital presence and last-mile logistics</strong>.
-      The idea is to create practical aggregation models – not just another marketplace – around carefully chosen themes.
-    </p>
-    <div class="d-flex mt-4 gap-3 flex-wrap">
-      <a href="https://wa.me/917039196489" class="btn-gold">
-        Discuss Aggregator Ideas <i class="fab fa-whatsapp"></i>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img
+          src="https://ourwillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png"
+          alt="Willpower logo"
+        />
+        <span>World of Willpower</span>
       </a>
-      <a href="index.html#ventures" class="btn btn-outline-gold">
-        Back to Ventures
-      </a>
-    </div>
-  </div>
-</header>
 
-<section class="section">
-  <div class="container">
-    <div class="section-kicker">Concept</div>
-    <h2 class="section-title">Bringing Products & Channels Together.</h2>
-    <div class="gold-bar"></div>
-    <p class="mt-3 section-text" style="max-width:840px;">
-      Instead of trying to compete with giant marketplaces, WillPro Aggregators focuses on <strong>niche, curated and
-      relationship-driven aggregation models</strong> – where product quality, brand ethics and fulfilment reliability are the
-      main filters.
-    </p>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="row mt-4 g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-store"></i></div>
-          <h4>Themed Stores</h4>
-          <p>Digital shelves and microsites around focused themes such as health foods, Ayurveda or regional specialties.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-truck-fast"></i></div>
-          <h4>Logistics Alignment</h4>
-          <p>Working with logistics partners and internal systems to ensure realistic delivery commitments and costs.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-hand-holding-heart"></i></div>
-          <h4>Brand Partnerships</h4>
-          <p>Collaborating with manufacturers and brand owners who are aligned on quality and service, not just volume.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:#020b19;">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div class="section-kicker">For Manufacturers & Brands</div>
-        <h2 class="section-title">Who Should Connect With WillPro Aggregators?</h2>
-        <div class="gold-bar"></div>
-        <ul class="section-text mt-3">
-          <li>Manufacturers who want structured, long-term online sales channels – not random orders</li>
-          <li>Brands that value service quality, packaging, response time and communication</li>
-          <li>Entrepreneurs interested in co-creating specialised aggregator concepts</li>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ventures.html">Ventures</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-pill active" href="mentoring-strategy.html">
+              WillPro Aggregators
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a class="btn btn-sm btn-admin" href="admin.html">
+              <i class="fas fa-terminal me-1"></i> Admin Panel
+            </a>
+          </li>
         </ul>
       </div>
-      <div class="col-lg-6">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-circle-info"></i></div>
-          <h4>Work in Progress</h4>
-          <p class="section-text">
-            Many aggregator concepts are in <strong>development and pilot stages</strong>. This page is meant as a directional
-            overview so that the right partners can reach out early and explore structured models with us.
+    </div>
+  </nav>
+
+  <!-- HERO (like Tech layout) -->
+  <section class="hero">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <!-- LEFT: Questions card -->
+        <div class="col-lg-5">
+          <div class="questions-card">
+            <div class="questions-title">Before We Talk Aggregators</div>
+            <ul>
+              <li>
+                <i class="fas fa-circle-question"></i>
+                <span>Are your products already doing well in offline, institutional or regional markets?</span>
+              </li>
+              <li>
+                <i class="fas fa-circle-question"></i>
+                <span>
+                  Do you feel marketplace, e-commerce and logistics conversations have become
+                  noisy – with everyone offering a “quick fix”?
+                </span>
+              </li>
+              <li>
+                <i class="fas fa-circle-question"></i>
+                <span>
+                  Would you prefer a calmer, structured approach where brand, margins and
+                  operations are respected first?
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RIGHT: Main hero text -->
+        <div class="col-lg-7">
+          <div class="hero-kicker">
+            <span class="badge-dot"></span>
+            WillPro Aggregators – E-commerce & Logistics
+          </div>
+
+          <h1 class="hero-title">
+            Interested in Being Part of an <span class="highlight">Aggregator Story</span> that Respects Business Reality?
+          </h1>
+
+          <p class="hero-sub">
+            If you are a manufacturer, brand owner or logistics ally who resonates with this
+            thinking, we can explore how to design an aggregator / e-commerce model that does
+            not disturb your base business – but strengthens it.
           </p>
+
+          <a
+            href="https://wa.me/917039196489"
+            class="hero-pill"
+            target="_blank"
+            rel="noopener"
+          >
+            Start Aggregator Conversation
+            <i class="fab fa-whatsapp"></i>
+          </a>
+
+          <div class="hero-meta">
+            Listings • Fulfilment • Channel structure • Practical operating playbooks
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section text-center">
-  <h2 class="section-title">Interested in Being Part of an Aggregator Story?</h2>
-  <p class="mt-3 section-text" style="max-width:720px;margin:auto;">
-    If you are a manufacturer, brand owner or logistics ally who resonates with this thinking, let’s start a simple
-    conversation and see if there is a fit.
-  </p>
-  <a href="https://wa.me/917039196489" class="btn-gold mt-4">
-    Start Aggregator Conversation <i class="fab fa-whatsapp"></i>
+  <!-- MID SECTION (short, like Tech page) -->
+  <section class="mid-section">
+    <div class="container">
+      <div class="mid-card">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-6">
+            <div class="mid-label">Engagement Philosophy</div>
+            <h3 class="mid-heading">
+              E-commerce and logistics are extensions of your operating system – not a side show.
+            </h3>
+            <p class="mid-text">
+              WillPro Aggregators looks at your plant, warehouses, current partners and working
+              capital first. Only then do we speak of listings, portals, dark stores, last-mile or
+              any other buzzword.
+            </p>
+            <ul class="check-list">
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span>Channel map that respects existing distributors and institutional buyers.</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span>Clear definition of who owns inventory, billing and customer experience.</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span>Simple review rhythm so numbers and service levels are visible to founders.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="mid-label">What We Can Co-Create</div>
+            <p class="mid-text">
+              Depending on where you are today, the work can start small – one category, one
+              platform, one city – and then expand. The intent is to build something that your
+              team can run daily without chaos.
+            </p>
+            <ul class="check-list">
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span>Aggregator-style models for dairy, food, Ayurveda and allied categories.</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span>Logistics and fulfilment structures that match your realities – not theory.</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span>Partnership structures where roles, responsibilities and rewards are written down.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <h5>World of Willpower</h5>
+      <p>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
+      <p class="contact-line">
+        <i class="fab fa-whatsapp text-success"></i> +91 7039196489
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <i class="fas fa-envelope text-warning"></i> care@worldofwillpower.com
+      </p>
+      <p class="muted">© 2025 World of Willpower</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a
+    href="https://wa.me/917039196489"
+    class="float-wa"
+    target="_blank"
+    rel="noopener"
+  >
+    <i class="fab fa-whatsapp"></i>
   </a>
-</section>
 
-<footer>
-  <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.4rem;">World of Willpower</h3>
-  <p class="mt-1">002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
-  <div class="mt-2">
-    <i class="fab fa-whatsapp" style="color:#22c55e"></i> +91&nbsp;7039196489
-    <span class="mx-3">|</span>
-    <i class="fas fa-envelope" style="color:#fbbf24"></i> care@worldofwillpower.com
-  </div>
-  <p class="mt-3" style="opacity:.6">&copy; 2025 World of Willpower</p>
-</footer>
-
-<a href="https://wa.me/917039196489" class="float-wa"><i class="fab fa-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
