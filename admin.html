@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v12.3</title>
+    <title>Willpower Command Center v12.4</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,8 +13,8 @@
         .nav-btn:hover { background: #1e293b; color: #fff; }
         .nav-btn.active { background: #f59e0b; color: #000; font-weight: 700; }
         .main-content { margin-left: 260px; padding: 40px; max-width: 1200px; }
-        .editor-section { display: none; animation: fadeIn 0.3s; }
-        .editor-section.active { display: block; }
+        .editor-section { display: none; }
+        .editor-section.active { display: block; animation: fadeIn 0.3s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
         .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 25px; border-radius: 12px; }
@@ -32,7 +32,7 @@
         input, textarea, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; }
         input[type="color"] { height: 50px; padding: 0; border: none; cursor: pointer; }
 
-        /* FIXED ACTION BAR */
+        /* ACTION BAR */
         .action-bar { 
             position: fixed; bottom: 0; left: 260px; right: 0; 
             background: #fff; padding: 15px 40px; border-top: 1px solid #ddd; 
@@ -40,7 +40,6 @@
         }
         .btn-group-actions { display: flex; gap: 15px; }
         .btn-save { background: #6c757d; color: white; border: none; padding: 12px 25px; font-weight: 700; border-radius: 8px; cursor: pointer; white-space: nowrap; }
-        .btn-save:hover { background: #5a6268; }
         .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 30px; font-weight: 800; border-radius: 8px; cursor: pointer; letter-spacing: 1px; white-space: nowrap; }
         .btn-publish:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
@@ -61,10 +60,10 @@
 <body>
 
 <div class="sidebar">
-    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v12.3</h4>
+    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v12.4</h4>
     <button class="nav-btn active" onclick="switchTab('settings')">1. Setup</button>
     <button class="nav-btn" onclick="switchTab('design')">2. Brand & Style</button>
-    <button class="nav-btn" onclick="switchTab('home')">3. Home Page</button>
+    <button class="nav-btn" onclick="switchTab('home')">3. Hero Slider</button>
     <button class="nav-btn" onclick="switchTab('ventures')">4. Microsite Builder</button>
     <button class="nav-btn" onclick="switchTab('contact')">5. Contact</button>
     <button onclick="if(confirm('Logout?')) { localStorage.clear(); location.reload(); }" class="btn btn-sm btn-outline-danger w-100 mt-5">Logout</button>
@@ -96,11 +95,35 @@
     </div>
 
     <div id="home" class="editor-section">
-        <div class="card"><div class="card-header">Hero Slider</div><div class="card-body">
+        
+        <div class="card"><div class="card-header">Slide 1 (Main)</div><div class="card-body">
             <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero1" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
-            
             <label>Title</label><div id="tool_hero_h1"></div><input type="text" id="hero_h1" class="styled-input" oninput="saveInternal()">
             <label>Subtitle</label><div id="tool_hero_p1"></div><input type="text" id="hero_p1" class="styled-input" oninput="saveInternal()">
+        </div></div>
+
+        <div class="card"><div class="card-header">Slide 2</div><div class="card-body">
+            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero2" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero2')"></div></div>
+            <label>Title</label><div id="tool_hero_h2"></div><input type="text" id="hero_h2" class="styled-input" oninput="saveInternal()">
+            <label>Subtitle</label><div id="tool_hero_p2"></div><input type="text" id="hero_p2" class="styled-input" oninput="saveInternal()">
+        </div></div>
+
+        <div class="card"><div class="card-header">Slide 3</div><div class="card-body">
+            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero3" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero3')"></div></div>
+            <label>Title</label><div id="tool_hero_h3"></div><input type="text" id="hero_h3" class="styled-input" oninput="saveInternal()">
+            <label>Subtitle</label><div id="tool_hero_p3"></div><input type="text" id="hero_p3" class="styled-input" oninput="saveInternal()">
+        </div></div>
+
+        <div class="card"><div class="card-header">Slide 4</div><div class="card-body">
+            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero4" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero4')"></div></div>
+            <label>Title</label><div id="tool_hero_h4"></div><input type="text" id="hero_h4" class="styled-input" oninput="saveInternal()">
+            <label>Subtitle</label><div id="tool_hero_p4"></div><input type="text" id="hero_p4" class="styled-input" oninput="saveInternal()">
+        </div></div>
+
+        <div class="card"><div class="card-header">Slide 5</div><div class="card-body">
+            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero5" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero5')"></div></div>
+            <label>Title</label><div id="tool_hero_h5"></div><input type="text" id="hero_h5" class="styled-input" oninput="saveInternal()">
+            <label>Subtitle</label><div id="tool_hero_p5"></div><input type="text" id="hero_p5" class="styled-input" oninput="saveInternal()">
         </div></div>
 
         <div class="card"><div class="card-body">
@@ -128,8 +151,8 @@
 <div class="action-bar">
     <div id="status-box" id="autosave-indicator"></div>
     <div class="btn-group-actions">
-        <button onclick="saveInternal(true)" class="btn-save"><i class="fas fa-save me-2"></i> SAVE DRAFT</button>
-        <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket me-2"></i> PUBLISH</button>
+        <button onclick="saveInternal(true)" class="btn-save btn btn-secondary"><i class="fas fa-save"></i> SAVE DRAFT</button>
+        <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket"></i> GENERATE & PUBLISH</button>
     </div>
 </div>
 
@@ -150,11 +173,6 @@
         address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
         email: 'care@worldofwillpower.com', whatsapp: '917039196489',
         ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity.", overview: "Overview text...", features: "Ghee\nPaneer" }],
-        
-        // DEFAULT STYLES
-        style_hero_h1: { font: 'Cinzel', size: '64', align: 'center', b: true, i: false, u: false },
-        style_hero_p1: { font: 'Montserrat', size: '24', align: 'center', b: false, i: false, u: false },
-        style_about_text: { font: 'Roboto', size: '18', align: 'center', b: false, i: false, u: false }
     };
 
     // --- INIT ---
@@ -170,7 +188,13 @@
         brandSel.innerHTML = FONTS.map(f => `<option value="${f}">${f}</option>`).join('');
         if(content.brand_font) brandSel.value = content.brand_font;
 
-        renderToolbar('hero_h1'); renderToolbar('hero_p1'); renderToolbar('about_text');
+        // Render Toolbars for Slider
+        for(let i=1; i<=5; i++) {
+            renderToolbar(`hero_h${i}`);
+            renderToolbar(`hero_p${i}`);
+        }
+        renderToolbar('about_text');
+        
         populateFields();
         renderVentures();
         setInterval(() => { saveInternal(false); }, 5000);
@@ -200,13 +224,14 @@
     function toggleStyle(id, key) { content[`style_${id}`][key] = !content[`style_${id}`][key]; renderToolbar(id); saveInternal(); }
 
     function populateFields() {
-        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
-        ids.forEach(id => { 
-            if(document.getElementById(id)) {
-                document.getElementById(id).value = content[id] || ''; 
-                if(id.includes('logo') || id.includes('img')) showPreview(id, content[id]);
-            }
-        });
+        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','about_text','address','email','whatsapp'];
+        ids.forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = content[id] || ''; });
+        
+        for(let i=1; i<=5; i++) {
+            if(document.getElementById(`img_hero${i}`)) document.getElementById(`img_hero${i}`).value = content[`img_hero${i}`] || '';
+            if(document.getElementById(`hero_h${i}`)) document.getElementById(`hero_h${i}`).value = content[`hero_h${i}`] || '';
+            if(document.getElementById(`hero_p${i}`)) document.getElementById(`hero_p${i}`).value = content[`hero_p${i}`] || '';
+        }
     }
 
     function showPreview(id, url) { const p = document.getElementById('prev_'+id); if(p && url) { p.src = url; p.style.display = 'inline-block'; } }
@@ -218,11 +243,6 @@
     function renderVentures() {
         const c = document.getElementById('venture-container'); c.innerHTML = '';
         content.ventures.forEach((v, i) => {
-            if(!content[`style_v_title_${i}`]) content[`style_v_title_${i}`] = { font: 'Cinzel', size: '48', align: 'center', b: true, i: false, u: false };
-            if(!content[`style_v_tagline_${i}`]) content[`style_v_tagline_${i}`] = { font: 'Montserrat', size: '24', align: 'center', b: false, i: false, u: false };
-            if(!content[`style_v_overview_${i}`]) content[`style_v_overview_${i}`] = { font: 'Open Sans', size: '18', align: 'center', b: false, i: false, u: false };
-            if(!content[`style_v_features_${i}`]) content[`style_v_features_${i}`] = { font: 'Roboto', size: '16', align: 'left', b: false, i: false, u: false };
-
             c.innerHTML += `
             <div class="venture-item">
                 <div class="venture-header"><h5 class="m-0">Business ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div>
@@ -242,13 +262,17 @@
     function delVenture(i) { if(confirm("Delete?")) { content.ventures.splice(i,1); renderVentures(); saveInternal(); } }
     function updVenture(i, k, v) { content.ventures[i][k] = v; saveInternal(); }
     
+    // --- MASTER SAVE ---
     function saveInternal(manual) {
-        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
+        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) content[id] = document.getElementById(id).value; });
+        for(let i=1; i<=5; i++) {
+            if(document.getElementById(`img_hero${i}`)) content[`img_hero${i}`] = document.getElementById(`img_hero${i}`).value;
+            if(document.getElementById(`hero_h${i}`)) content[`hero_h${i}`] = document.getElementById(`hero_h${i}`).value;
+            if(document.getElementById(`hero_p${i}`)) content[`hero_p${i}`] = document.getElementById(`hero_p${i}`).value;
+        }
         localStorage.setItem('willpower_master_data', JSON.stringify(content));
-        
-        const now = new Date();
-        document.getElementById('status-box').innerText = "Saved: " + now.toLocaleTimeString();
+        const now = new Date(); document.getElementById('status-box').innerText = "Saved: " + now.toLocaleTimeString();
         if(manual) alert("Draft Saved Successfully!");
     }
 
@@ -272,16 +296,26 @@
         const navbar = `<nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container-fluid"><a class="navbar-brand" href="index.html">${brandHTML}</a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu">${dropdown}</ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav>`;
 
         try {
+            // INDEX
+            let slides = ''; let activeSet = false;
+            for(let i=1; i<=5; i++) {
+                if(content[`img_hero${i}`]) {
+                    const active = !activeSet ? 'active' : '';
+                    const hStyle = getStyleString(content[`style_hero_h${i}`]);
+                    const pStyle = getStyleString(content[`style_hero_p${i}`]);
+                    slides += `<div class="carousel-item ${active}" style="background-image:url('${content[`img_hero${i}`]}'); height:90vh; background-size:cover; background-position:center;"><div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);"></div><div class="carousel-caption" style="bottom:30%; left:0; right:0;"><h1 style="${hStyle}">${content[`hero_h${i}`]}</h1><p style="${pStyle} margin-top:20px;">${content[`hero_p${i}`]}</p></div></div>`;
+                    activeSet = true;
+                }
+            }
+
             let homeCards = '';
             content.ventures.forEach(v => { const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html'; homeCards += `<div class="col-lg-4 col-md-6 mb-4"><a href="${slug}" style="text-decoration:none; color:inherit;"><div style="background:#fff; border-top:4px solid ${content.col_accent}; padding:30px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%; transition:0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'"><h3 style="color:${content.col_primary}; font-family:'Cinzel'; text-align:center;">${v.title}</h3><p class="text-muted mt-3 text-center">${v.tagline || 'Click to explore'}</p><div style="color:${content.col_accent}; font-weight:bold; margin-top:20px; text-align:center;">View Details &rarr;</div></div></a></div>`; });
-            
-            const heroH1Style = getStyleString(content.style_hero_h1);
-            const heroP1Style = getStyleString(content.style_hero_p1);
             const aboutStyle = getStyleString(content.style_about_text);
 
-            const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">${fontLink}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="height:90vh; background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('${content.img_hero1}'); background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding-top:80px;"><div class="container"><h1 style="${heroH1Style}">${content.hero_h1}</h1><p style="${heroP1Style} margin-top:20px;">${content.hero_p1}</p></div></div><section style="padding:100px 5%"><div class="container"><div style="${aboutStyle} max-width:900px; margin:0 auto;">${content.about_text}</div></div></section><section style="padding:0 5% 100px 5%; background:#f8f9fa;"><div class="container"><h2 class="text-center mb-5" style="color:${content.col_primary}; font-family:'${content.brand_font}'; padding-top:50px;">Business Verticals</h2><div class="row">${homeCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+            const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">${fontLink}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div id="hero" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">${slides}</div><button class="carousel-control-prev" type="button" data-bs-target="#hero" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" type="button" data-bs-target="#hero" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div><section style="padding:100px 5%"><div class="container"><div style="${aboutStyle} max-width:900px; margin:0 auto;">${content.about_text}</div></div></section><section style="padding:0 5% 100px 5%; background:#f8f9fa;"><div class="container"><h2 class="text-center mb-5" style="color:${content.col_primary}; font-family:'${content.brand_font}'; padding-top:50px;">Business Verticals</h2><div class="row">${homeCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
             await uploadToGH('index.html', indexHTML);
 
+            // MICROSITES
             for (let i = 0; i < content.ventures.length; i++) {
                 const v = content.ventures[i];
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
@@ -290,12 +324,11 @@
                 const overS = getStyleString(content[`style_v_overview_${i}`]);
                 const featS = getStyleString(content[`style_v_features_${i}`]);
                 const features = v.features.split('\n').map(f => { if(!f.trim()) return ''; return `<div class="col-md-6 col-lg-4 mb-4"><div style="background:white; padding:25px; border-radius:8px; border-left:5px solid ${content.col_accent}; box-shadow:0 5px 15px rgba(0,0,0,0.05); height:100%"><h5 style="${featS} color:${content.col_primary}; margin-bottom:10px;">${f}</h5></div></div>`; }).join('');
-                
                 const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">${fontLink}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="padding:150px 0 100px 0; background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)),url('${v.image}'); background-size:cover; text-align:center; color:white;"><h1 style="${titleS} color:white !important;">${v.title}</h1><p style="${tagS} color:${content.col_accent} !important; margin-top:20px;">${v.tagline||''}</p></div><section style="padding:80px 5%"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 style="color:${content.col_primary}; border-bottom:3px solid ${content.col_accent}; display:inline-block; padding-bottom:10px; margin-bottom:20px; text-align:center;">Business Overview</h2><div style="${overS} max-width:900px; margin:0 auto;">${v.overview}</div></div></div><div class="row mt-4">${features}</div></div></section><section style="padding:60px 0; background:#f1f5f9; text-align:center;"><div class="container"><h3>Interested in ${v.title}?</h3><p class="mb-4">Contact us to discuss your requirements.</p><a href="https://wa.me/${content.whatsapp}" class="btn btn-gold">Connect on WhatsApp</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
                 await uploadToGH(slug, pageHTML);
                 await new Promise(r => setTimeout(r, 800));
             }
-            alert("Site Updated! All text is now styled.");
+            alert("Site Updated! All 5 Slides & Styles Active.");
         } catch(e) { alert("Error: " + e.message); }
     }
 
