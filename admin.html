@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v12.4</title>
+    <title>Willpower Command Center v13.0</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Nunito:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;700&family=Raleway:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,8 +16,8 @@
         .nav-btn:hover { background: #1e293b; color: #fff; }
         .nav-btn.active { background: #f59e0b; color: #000; font-weight: 700; }
         .main-content { margin-left: 260px; padding: 40px; max-width: 1200px; }
-        .editor-section { display: none; }
-        .editor-section.active { display: block; animation: fadeIn 0.3s; }
+        .editor-section { display: none; animation: fadeIn 0.3s; }
+        .editor-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
         .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 25px; border-radius: 12px; }
@@ -22,9 +25,13 @@
         
         /* STYLE TOOLBAR */
         .style-toolbar { background: #f1f5f9; padding: 8px; border: 1px solid #cbd5e1; border-bottom: none; border-radius: 8px 8px 0 0; display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 5px; }
-        .style-toolbar select { width: auto; padding: 4px; font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; margin: 0;}
-        .style-toolbar input[type="number"] { width: 55px; padding: 4px; font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; margin: 0; }
-        .style-btn { border: 1px solid #cbd5e1; background: #fff; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; min-width: 30px; }
+        
+        /* FONT PREVIEW DROPDOWN */
+        .style-toolbar select, #brand_font { width: auto; padding: 6px; font-size: 1rem; border: 1px solid #cbd5e1; border-radius: 4px; margin: 0; cursor: pointer;}
+        .style-toolbar select option { padding: 10px; font-size: 1.1rem; }
+
+        .style-toolbar input[type="number"] { width: 65px; padding: 6px; font-size: 0.9rem; border: 1px solid #cbd5e1; border-radius: 4px; margin: 0; }
+        .style-btn { border: 1px solid #cbd5e1; background: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; min-width: 35px; }
         .style-btn.active { background: #0f172a; color: white; border-color: #0f172a; }
         .styled-input { border-radius: 0 0 8px 8px; border-top: 1px solid #cbd5e1; margin-top: 0 !important; }
 
@@ -32,23 +39,21 @@
         input, textarea, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; }
         input[type="color"] { height: 50px; padding: 0; border: none; cursor: pointer; }
 
-        /* ACTION BAR */
-        .action-bar { 
-            position: fixed; bottom: 0; left: 260px; right: 0; 
-            background: #fff; padding: 15px 40px; border-top: 1px solid #ddd; 
-            display: flex; justify-content: space-between; align-items: center; z-index: 900; 
-        }
+        .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 40px; font-weight: 800; border-radius: 8px; cursor: pointer; letter-spacing: 1px; width: 100%; }
+        
+        /* Action Bar & Status */
+        .action-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: #fff; padding: 15px 40px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; z-index: 900; }
         .btn-group-actions { display: flex; gap: 15px; }
         .btn-save { background: #6c757d; color: white; border: none; padding: 12px 25px; font-weight: 700; border-radius: 8px; cursor: pointer; white-space: nowrap; }
-        .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 30px; font-weight: 800; border-radius: 8px; cursor: pointer; letter-spacing: 1px; white-space: nowrap; }
+        .btn-save:hover { background: #5a6268; }
         .btn-publish:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
+        
         .venture-item { border: 1px solid #cbd5e1; background: #fff; margin-bottom: 30px; border-radius: 8px; overflow: hidden; position: relative; }
         .venture-header { background: #f8fafc; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
         .venture-body { padding: 20px; }
         
-        .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
         .btn-upload { border: 2px dashed #94a3b8; background: #fff; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+        .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
         .upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height: 100%; width: 100%; }
         .status-connected { background-color: #dcfce7; color: #166534; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
         .status-disconnected { background-color: #fee2e2; color: #991b1b; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
@@ -60,10 +65,10 @@
 <body>
 
 <div class="sidebar">
-    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v12.4</h4>
+    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v13.0</h4>
     <button class="nav-btn active" onclick="switchTab('settings')">1. Setup</button>
     <button class="nav-btn" onclick="switchTab('design')">2. Brand & Style</button>
-    <button class="nav-btn" onclick="switchTab('home')">3. Hero Slider</button>
+    <button class="nav-btn" onclick="switchTab('home')">3. Home Page</button>
     <button class="nav-btn" onclick="switchTab('ventures')">4. Microsite Builder</button>
     <button class="nav-btn" onclick="switchTab('contact')">5. Contact</button>
     <button onclick="if(confirm('Logout?')) { localStorage.clear(); location.reload(); }" class="btn btn-sm btn-outline-danger w-100 mt-5">Logout</button>
@@ -88,42 +93,23 @@
                 <div class="col-md-6"><label>Logo URL</label><div class="d-flex gap-2"><input type="text" id="brand_logo_url" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-6"><label>Font</label><select id="brand_font" onchange="saveInternal()"></select></div>
+                <div class="col-md-6">
+                    <label>Global Font (Brand)</label>
+                    <select id="brand_font" onchange="saveInternal()"></select>
+                </div>
                 <div class="col-md-6"><label>Colors</label><div class="d-flex gap-3"><input type="color" id="col_primary" oninput="saveInternal()"><input type="color" id="col_accent" oninput="saveInternal()"></div></div>
             </div>
         </div></div>
     </div>
 
     <div id="home" class="editor-section">
-        
-        <div class="card"><div class="card-header">Slide 1 (Main)</div><div class="card-body">
+        <div class="card"><div class="card-header">Hero Slider</div><div class="card-body">
             <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero1" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
+            
             <label>Title</label><div id="tool_hero_h1"></div><input type="text" id="hero_h1" class="styled-input" oninput="saveInternal()">
             <label>Subtitle</label><div id="tool_hero_p1"></div><input type="text" id="hero_p1" class="styled-input" oninput="saveInternal()">
-        </div></div>
-
-        <div class="card"><div class="card-header">Slide 2</div><div class="card-body">
-            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero2" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero2')"></div></div>
-            <label>Title</label><div id="tool_hero_h2"></div><input type="text" id="hero_h2" class="styled-input" oninput="saveInternal()">
-            <label>Subtitle</label><div id="tool_hero_p2"></div><input type="text" id="hero_p2" class="styled-input" oninput="saveInternal()">
-        </div></div>
-
-        <div class="card"><div class="card-header">Slide 3</div><div class="card-body">
-            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero3" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero3')"></div></div>
-            <label>Title</label><div id="tool_hero_h3"></div><input type="text" id="hero_h3" class="styled-input" oninput="saveInternal()">
-            <label>Subtitle</label><div id="tool_hero_p3"></div><input type="text" id="hero_p3" class="styled-input" oninput="saveInternal()">
-        </div></div>
-
-        <div class="card"><div class="card-header">Slide 4</div><div class="card-body">
-            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero4" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero4')"></div></div>
-            <label>Title</label><div id="tool_hero_h4"></div><input type="text" id="hero_h4" class="styled-input" oninput="saveInternal()">
-            <label>Subtitle</label><div id="tool_hero_p4"></div><input type="text" id="hero_p4" class="styled-input" oninput="saveInternal()">
-        </div></div>
-
-        <div class="card"><div class="card-header">Slide 5</div><div class="card-body">
-            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero5" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero5')"></div></div>
-            <label>Title</label><div id="tool_hero_h5"></div><input type="text" id="hero_h5" class="styled-input" oninput="saveInternal()">
-            <label>Subtitle</label><div id="tool_hero_p5"></div><input type="text" id="hero_p5" class="styled-input" oninput="saveInternal()">
+            
+            <div class="mt-3 text-muted small">* Add images for Slides 2-5 in logic or expand fields as needed.</div>
         </div></div>
 
         <div class="card"><div class="card-body">
@@ -133,7 +119,7 @@
 
     <div id="ventures" class="editor-section">
         <div class="alert alert-primary">
-            <strong>Microsite Studio:</strong> Every field has full font control.
+            <strong>Microsite Studio:</strong> Full font control for every section.
         </div>
         <div id="venture-container"></div>
         <button class="btn btn-dark w-100 mt-3 p-3" onclick="addVenture()">+ ADD NEW BUSINESS</button>
@@ -173,6 +159,11 @@
         address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
         email: 'care@worldofwillpower.com', whatsapp: '917039196489',
         ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity.", overview: "Overview text...", features: "Ghee\nPaneer" }],
+        
+        // DEFAULT STYLES
+        style_hero_h1: { font: 'Cinzel', size: '64', align: 'center', b: true, i: false, u: false },
+        style_hero_p1: { font: 'Montserrat', size: '24', align: 'center', b: false, i: false, u: false },
+        style_about_text: { font: 'Roboto', size: '18', align: 'center', b: false, i: false, u: false }
     };
 
     // --- INIT ---
@@ -183,33 +174,30 @@
         const savedContent = localStorage.getItem('willpower_master_data');
         if(savedContent) content = { ...content, ...JSON.parse(savedContent) }; 
         
-        // POPULATE BRAND FONT SELECT
+        // VISUAL FONT OPTIONS FOR BRAND
         const brandSel = document.getElementById('brand_font');
-        brandSel.innerHTML = FONTS.map(f => `<option value="${f}">${f}</option>`).join('');
+        brandSel.innerHTML = FONTS.map(f => `<option value="${f}" style="font-family:'${f}', sans-serif; font-size:16px;">${f}</option>`).join('');
         if(content.brand_font) brandSel.value = content.brand_font;
 
-        // Render Toolbars for Slider
-        for(let i=1; i<=5; i++) {
-            renderToolbar(`hero_h${i}`);
-            renderToolbar(`hero_p${i}`);
-        }
-        renderToolbar('about_text');
-        
+        renderToolbar('hero_h1'); renderToolbar('hero_p1'); renderToolbar('about_text');
         populateFields();
         renderVentures();
         setInterval(() => { saveInternal(false); }, 5000);
     });
 
-    // --- TOOLBAR ENGINE ---
+    // --- TOOLBAR ENGINE (VISUAL FONTS) ---
     function renderToolbar(id) {
         const container = document.getElementById('tool_' + id);
         if(!container) return;
         if(!content[`style_${id}`]) content[`style_${id}`] = { font: 'Roboto', size: '16', align: 'left', b: false, i: false, u: false };
         const s = content[`style_${id}`];
-        const fontOptions = FONTS.map(f => `<option value="${f}" ${s.font===f?'selected':''}>${f}</option>`).join('');
+        
+        // Generate Options with INLINE STYLES for preview
+        const fontOptions = FONTS.map(f => `<option value="${f}" style="font-family:'${f}', sans-serif;" ${s.font===f?'selected':''}>${f}</option>`).join('');
+        
         container.innerHTML = `
         <div class="style-toolbar">
-            <select onchange="updateStyle('${id}', 'font', this.value)">${fontOptions}</select>
+            <select onchange="updateStyle('${id}', 'font', this.value)" style="font-family:'${s.font}', sans-serif">${fontOptions}</select>
             <input type="number" value="${s.size}" onchange="updateStyle('${id}', 'size', this.value)" title="Size (px)">
             <button class="style-btn ${s.b?'active':''}" onclick="toggleStyle('${id}', 'b')"><b>B</b></button>
             <button class="style-btn ${s.i?'active':''}" onclick="toggleStyle('${id}', 'i')"><i>I</i></button>
@@ -224,13 +212,17 @@
     function toggleStyle(id, key) { content[`style_${id}`][key] = !content[`style_${id}`][key]; renderToolbar(id); saveInternal(); }
 
     function populateFields() {
-        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','about_text','address','email','whatsapp'];
-        ids.forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = content[id] || ''; });
+        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
+        ids.forEach(id => { 
+            if(document.getElementById(id)) {
+                document.getElementById(id).value = content[id] || ''; 
+                if(id.includes('logo') || id.includes('img')) showPreview(id, content[id]);
+            }
+        });
         
+        // Load extra slides if exist (hidden in UI to save space but logic exists)
         for(let i=1; i<=5; i++) {
-            if(document.getElementById(`img_hero${i}`)) document.getElementById(`img_hero${i}`).value = content[`img_hero${i}`] || '';
-            if(document.getElementById(`hero_h${i}`)) document.getElementById(`hero_h${i}`).value = content[`hero_h${i}`] || '';
-            if(document.getElementById(`hero_p${i}`)) document.getElementById(`hero_p${i}`).value = content[`hero_p${i}`] || '';
+             if(content[`img_hero${i}`] && document.getElementById(`img_hero${i}`)) document.getElementById(`img_hero${i}`).value = content[`img_hero${i}`];
         }
     }
 
@@ -243,6 +235,12 @@
     function renderVentures() {
         const c = document.getElementById('venture-container'); c.innerHTML = '';
         content.ventures.forEach((v, i) => {
+            // Defaults for sub-styles
+            if(!content[`style_v_title_${i}`]) content[`style_v_title_${i}`] = { font: 'Cinzel', size: '48', align: 'center', b: true, i: false, u: false };
+            if(!content[`style_v_tagline_${i}`]) content[`style_v_tagline_${i}`] = { font: 'Montserrat', size: '24', align: 'center', b: false, i: false, u: false };
+            if(!content[`style_v_overview_${i}`]) content[`style_v_overview_${i}`] = { font: 'Open Sans', size: '18', align: 'center', b: false, i: false, u: false };
+            if(!content[`style_v_features_${i}`]) content[`style_v_features_${i}`] = { font: 'Roboto', size: '16', align: 'left', b: false, i: false, u: false };
+
             c.innerHTML += `
             <div class="venture-item">
                 <div class="venture-header"><h5 class="m-0">Business ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div>
@@ -264,7 +262,7 @@
     
     // --- MASTER SAVE ---
     function saveInternal(manual) {
-        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','about_text','address','email','whatsapp'];
+        const ids = ['col_primary','col_accent','brand_name','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) content[id] = document.getElementById(id).value; });
         for(let i=1; i<=5; i++) {
             if(document.getElementById(`img_hero${i}`)) content[`img_hero${i}`] = document.getElementById(`img_hero${i}`).value;
@@ -307,7 +305,7 @@
                     activeSet = true;
                 }
             }
-
+            
             let homeCards = '';
             content.ventures.forEach(v => { const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html'; homeCards += `<div class="col-lg-4 col-md-6 mb-4"><a href="${slug}" style="text-decoration:none; color:inherit;"><div style="background:#fff; border-top:4px solid ${content.col_accent}; padding:30px; box-shadow:0 10px 30px rgba(0,0,0,0.05); height:100%; transition:0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'"><h3 style="color:${content.col_primary}; font-family:'Cinzel'; text-align:center;">${v.title}</h3><p class="text-muted mt-3 text-center">${v.tagline || 'Click to explore'}</p><div style="color:${content.col_accent}; font-weight:bold; margin-top:20px; text-align:center;">View Details &rarr;</div></div></a></div>`; });
             const aboutStyle = getStyleString(content.style_about_text);
@@ -328,7 +326,7 @@
                 await uploadToGH(slug, pageHTML);
                 await new Promise(r => setTimeout(r, 800));
             }
-            alert("Site Updated! All 5 Slides & Styles Active.");
+            alert("Site Updated! Visual styles applied.");
         } catch(e) { alert("Error: " + e.message); }
     }
 
