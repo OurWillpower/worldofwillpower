@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v14.0 (Agency Mode)</title>
+    <title>Willpower Command Center v14.1</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,8 +15,7 @@
         .nav-btn { display: block; width: 100%; text-align: left; padding: 14px 20px; margin-bottom: 10px; background: transparent; border: none; color: #9ca3af; border-radius: 8px; transition: all 0.2s; font-weight: 600; cursor: pointer; }
         .nav-btn:hover { background: #1f2937; color: #fff; transform: translateX(5px); }
         .nav-btn.active { background: #fbbf24; color: #000; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2); }
-        .nav-btn i { width: 25px; margin-right: 10px; }
-
+        
         .main-content { margin-left: 280px; padding: 50px; max-width: 1200px; }
         .editor-section { display: none; animation: slideIn 0.4s ease-out; }
         .editor-section.active { display: block; }
@@ -28,34 +27,30 @@
         
         label { font-size: 0.75rem; font-weight: 800; color: #6b7280; text-transform: uppercase; margin-top: 25px; display: block; letter-spacing: 0.5px; margin-bottom: 8px; }
         input, textarea, select { width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 0.95rem; transition: border 0.2s; background: #f9fafb; }
-        input:focus, textarea:focus { outline: none; border-color: #fbbf24; background: #fff; box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1); }
         
         .btn-upload { border: 2px dashed #d1d5db; background: #f9fafb; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; color: #4b5563; transition: 0.2s; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-        .btn-upload:hover { border-color: #fbbf24; color: #d97706; background: #fff; }
         
-        .venture-item { border: 1px solid #e5e7eb; background: #fff; margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: transform 0.2s; }
-        .venture-item:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+        .venture-item { border: 1px solid #e5e7eb; background: #fff; margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .venture-header { background: #f8fafc; padding: 15px 25px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #374151; }
         
         .action-bar { position: fixed; bottom: 0; left: 280px; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 50px; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; z-index: 900; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); }
         
         .btn-save { background: #e5e7eb; color: #374151; border: none; padding: 12px 30px; font-weight: 700; border-radius: 10px; cursor: pointer; transition: 0.2s; }
-        .btn-save:hover { background: #d1d5db; }
+        .btn-publish { background: #000; color: #fbbf24; border: none; padding: 14px 40px; font-weight: 800; border-radius: 10px; cursor: pointer; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         
-        .btn-publish { background: #000; color: #fbbf24; border: none; padding: 14px 40px; font-weight: 800; border-radius: 10px; cursor: pointer; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.2s; }
-        .btn-publish:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
-
         .status-connected { color: #059669; background: #ecfdf5; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; border: 1px solid #a7f3d0; }
         .status-disconnected { color: #dc2626; background: #fef2f2; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; border: 1px solid #fecaca; }
         
         #debug-console { display: none; position: fixed; top: 30px; right: 30px; width: 400px; background: #111827; color: #4ade80; padding: 25px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.85rem; z-index: 2000; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid #374151; }
         .img-preview { height: 50px; border-radius: 6px; border: 1px solid #e5e7eb; object-fit: cover; }
+        .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
+        .upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height: 100%; width: 100%; }
     </style>
 </head>
 <body>
 
 <div class="sidebar">
-    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v14.0</div>
+    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v14.1</div>
     <button class="nav-btn active" onclick="switchTab('settings')">1. Setup</button>
     <button class="nav-btn" onclick="switchTab('design')">2. Brand & Style</button>
     <button class="nav-btn" onclick="switchTab('home')">3. Home Page</button>
@@ -89,10 +84,7 @@
                     <div class="d-flex gap-2 align-items-center">
                         <input type="text" id="brand_logo_url" oninput="saveInternal()">
                         <img id="prev_brand_logo_url" class="img-preview" style="display:none;">
-                        <div style="position:relative; overflow:hidden; display:inline-block;">
-                            <button class="btn-upload"><i class="fas fa-upload"></i> Upload</button>
-                            <input type="file" style="position:absolute; left:0; top:0; opacity:0; cursor:pointer; height:100%; width:100%;" onchange="uploadImage(this, 'brand_logo_url')">
-                        </div>
+                        <div class="upload-wrapper"><button class="btn-upload"><i class="fas fa-upload"></i> Upload</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div>
                     </div>
                 </div>
             </div>
@@ -110,10 +102,7 @@
             <div class="d-flex gap-2 align-items-center">
                 <input type="text" id="img_hero1" oninput="saveInternal()">
                 <img id="prev_img_hero1" class="img-preview" style="display:none;">
-                <div style="position:relative; overflow:hidden; display:inline-block;">
-                    <button class="btn-upload"><i class="fas fa-upload"></i> Upload</button>
-                    <input type="file" style="position:absolute; left:0; top:0; opacity:0; cursor:pointer; height:100%; width:100%;" onchange="uploadImage(this, 'img_hero1')">
-                </div>
+                <div class="upload-wrapper"><button class="btn-upload"><i class="fas fa-upload"></i> Upload</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div>
             </div>
             <label>Headline</label><input type="text" id="hero_h1" oninput="saveInternal()">
             <label>Sub-headline</label><input type="text" id="hero_p1" oninput="saveInternal()">
@@ -124,7 +113,7 @@
                     <div class="col-md-6"><label>Slide 2 Image</label><input type="text" id="img_hero2" oninput="saveInternal()"></div>
                     <div class="col-md-6"><label>Slide 2 Title</label><input type="text" id="hero_h2" oninput="saveInternal()"></div>
                 </div>
-                </div>
+            </div>
         </div></div>
         <div class="card"><div class="card-body"><label>About Text</label><textarea id="about_text" rows="5" oninput="saveInternal()"></textarea></div></div>
     </div>
@@ -132,11 +121,7 @@
     <div id="ventures" class="editor-section">
         <h2 class="fw-bold text-dark mb-4">Page Factory</h2>
         <div class="alert alert-info border-0 shadow-sm mb-4" style="background:#e0f2fe; color:#0369a1;">
-            <i class="fas fa-magic me-2"></i> <strong>Auto-Generator:</strong>
-            <ul class="mb-0 mt-2 small">
-                <li><strong>Overview:</strong> A detailed paragraph describing the business.</li>
-                <li><strong>Services:</strong> Enter short points on new lines. These become <strong>Visual Cards</strong> on the new page.</li>
-            </ul>
+            <i class="fas fa-magic me-2"></i> <strong>Auto-Generator:</strong> Overview = Top Section. Services = Grid Cards.
         </div>
         <div id="venture-container"></div>
         <button class="btn btn-dark w-100 py-3 fw-bold" onclick="addVenture()"><i class="fas fa-plus me-2"></i> ADD NEW BUSINESS PAGE</button>
@@ -173,7 +158,7 @@
         about_text: 'World of Willpower is a diversified conglomerate...',
         address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
         email: 'care@worldofwillpower.com', whatsapp: '917039196489',
-        ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity You Can Trust.", overview: "Our Indian dairy plant represents the pinnacle of hygiene and quality.", features: "Ghee\nPaneer" }]
+        ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity You Can Trust.", overview: "Overview text...", features: "Ghee\nPaneer" }]
     };
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -232,19 +217,22 @@
 
     function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
 
+    // --- PUBLISH ENGINE ---
     async function publishToGitHub() {
         saveInternal(false);
         if(!auth.gh_token) { alert("Not Connected!"); return; }
         const logBox = document.getElementById('debug-console'); logBox.style.display='block'; logBox.innerText="Generating Premium Site...";
 
-        // PREMIUM CSS GENERATOR
-        const css = `<style>
+        // 1. DEFINE STYLES HERE (GLOBAL SCOPE for the function)
+        const fontLink = `<link href="https://fonts.googleapis.com/css2?family=${content.brand_font.replace(' ','+')}:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">`;
+        
+        const commonCSS = `<style>
         :root{--primary:${content.col_primary};--gold:${content.col_accent}} 
         body{font-family:'${content.brand_font}', sans-serif; overflow-x:hidden; background:#fff; color:#333} 
         .navbar{background:rgba(15, 23, 42, 0.98); padding:15px 5%; border-bottom:2px solid var(--gold)} 
         .navbar-brand{font-family:'${content.brand_font}'; color:var(--gold)!important; font-size:24px; font-weight:700; display:flex; align-items:center; gap:15px} 
         .nav-link{color:rgba(255,255,255,0.9)!important; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px; margin-left:25px; font-weight:600} 
-        .btn-gold{background:var(--gold); color:#fff; padding:15px 35px; font-weight:700; text-decoration:none; display:inline-block; text-transform:uppercase; letter-spacing:1px; border-radius:4px; transition:0.3s} 
+        .btn-gold{background:var(--gold); color:#fff; padding:15px 40px; font-weight:700; text-decoration:none; display:inline-block; text-transform:uppercase; letter-spacing:1px; border-radius:4px; transition:0.3s} 
         .btn-gold:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,0.15)}
         
         /* HERO */
@@ -269,24 +257,18 @@
         .float-wa{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
         </style>`;
 
-        const fontLink = `<link href="https://fonts.googleapis.com/css2?family=${content.brand_font.replace(' ','+')}:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">`;
-        
-        // HTML PARTS
-        let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px;">` : '';
-        brandHTML += `<span style="margin-left:10px">${content.brand_name}</span>`;
+        const footer = `<footer id="contact"><div class="container"><h3>${content.brand_name}</h3><p class="mt-3 opacity-75">${content.address}</p><div class="mt-4 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp} <span class="mx-3 text-secondary">|</span> <i class="fas fa-envelope text-warning me-2"></i> ${content.email}</div><p class="small mt-5 opacity-50">© 2025 ${content.brand_name}</p></div></footer>`;
         
         let dropdown = ''; content.ventures.forEach(v => { const slug=v.title.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.html'; dropdown+=`<li><a class="dropdown-item" href="${slug}">${v.title}</a></li>`; });
-        
-        const navbar = `<nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container-fluid"><a class="navbar-brand" href="index.html">${brandHTML}</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu dropdown-menu-end">${dropdown}</ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav>`;
-        
-        const footer = `<footer id="contact"><div class="container"><h3>${content.brand_name}</h3><p class="mt-3 opacity-75">${content.address}</p><div class="mt-4 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp} <span class="mx-3 text-secondary">|</span> <i class="fas fa-envelope text-warning me-2"></i> ${content.email}</div><p class="small mt-5 opacity-50">© 2025 ${content.brand_name}</p></div></footer>`;
+        let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px;">` : '';
+        brandHTML += `<span style="margin-left:10px">${content.brand_name}</span>`;
+        const navbar = `<nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container-fluid"><a class="navbar-brand" href="index.html">${brandHTML}</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu">${dropdown}</ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav>`;
 
         try {
-            // 1. INDEX PAGE (Premium Cards)
+            // 2. INDEX PAGE GENERATION
             let homeCards = '';
             content.ventures.forEach(v => { 
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html'; 
-                // Use hero image for card, fallback to gray
                 const bg = v.image ? `background-image:url('${v.image}')` : 'background:#eee';
                 homeCards += `
                 <div class="col-lg-4 col-md-6 mb-5">
@@ -307,11 +289,10 @@
             
             await uploadToGH('index.html', indexHTML);
 
-            // 2. VENTURE PAGES (Rich Layout)
+            // 3. VENTURE PAGE GENERATION
             for (const v of content.ventures) {
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
                 
-                // Convert newlines to Grid Cards
                 const featuresHTML = v.features.split('\n').map(f => {
                     if(!f.trim()) return '';
                     return `<div class="col-md-6 col-lg-4 mb-4"><div class="feature-card"><div class="feature-title">${f}</div><div class="text-muted small">Premium quality service available.</div></div></div>`;
