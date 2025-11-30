@@ -1,179 +1,681 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WillPro Technologies & Systems – Software & Digital Solutions</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WillPro Technologies & Systems – Business-First Software</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <style>
-    :root { --primary:#020617; --gold:#fbbf24; --muted:#94a3b8; }
-    body{font-family:"Poppins",sans-serif;background:#020617;color:#e5e7eb;overflow-x:hidden;}
-    .navbar{background:rgba(10,15,31,.98);padding:14px 5%;border-bottom:1px solid rgba(148,163,184,.3);backdrop-filter:blur(18px);}
-    .navbar-brand{font-family:"Playfair Display",serif;color:var(--gold)!important;display:flex;align-items:center;gap:12px;font-size:1.4rem;}
-    .navbar-brand img{height:46px;}
-    .nav-link{color:rgba(226,232,240,.85)!important;text-transform:uppercase;font-size:.78rem;letter-spacing:.12em;margin-left:24px;position:relative;}
-    .nav-link::after{content:"";position:absolute;width:0;height:2px;bottom:-6px;left:0;background:linear-gradient(90deg,var(--gold),#f97316);transition:.25s;}
-    .nav-link:hover::after,.nav-link.active::after{width:100%;}
-    .btn-gold{background:linear-gradient(135deg,var(--gold),#f97316);color:#020617;padding:12px 32px;font-weight:700;border-radius:999px;text-transform:uppercase;letter-spacing:.12em;border:none;box-shadow:0 16px 40px rgba(0,0,0,.35);}
-    .btn-gold i{margin-left:8px;}
-    .btn-outline-gold{border-color:var(--gold);color:var(--gold);text-transform:uppercase;font-size:.78rem;}
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    .hero-wrapper{min-height:70vh;padding-top:90px;position:relative;}
-    .hero-bg{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80");background-size:cover;background-position:center;filter:brightness(.35);}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(145deg,rgba(10,15,31,.9),rgba(10,15,31,.8));}
-    .hero-content{position:relative;z-index:2;padding:90px 5%;}
-    .hero-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);}
-    .hero-title{font-family:"Playfair Display",serif;font-size:clamp(2.4rem,4vw,3.4rem);margin:10px 0;color:#f9fafb;}
-    .hero-sub{font-size:1rem;line-height:1.8;max-width:780px;color:#d1d5db;}
+    <style>
+        :root {
+            --bg-deep: #020617;
+            --bg-card: #020b17;
+            --bg-soft: #030712;
+            --accent: #f97316;
+            --accent-soft: rgba(249, 115, 22, 0.12);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-soft: #1f2937;
+        }
 
-    .section{padding:80px 5%;}
-    .section-kicker{font-size:.75rem;text-transform:uppercase;color:var(--muted);letter-spacing:.18em;}
-    .section-title{font-family:"Playfair Display",serif;font-size:1.8rem;}
-    .gold-bar{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),#f97316);border-radius:999px;margin-top:10px;}
-    .section-text{color:#cbd5e1;font-size:.95rem;line-height:1.9;}
+        * {
+            box-sizing: border-box;
+        }
 
-    .info-card{border:1px solid rgba(148,163,184,.35);border-radius:14px;padding:24px;background:#020617;box-shadow:0 12px 32px rgba(0,0,0,.45);height:100%;}
-    .info-icon{width:40px;height:40px;border-radius:50%;background:rgba(148,163,184,.1);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
-    .info-icon i{color:var(--gold);}
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top left, #0b1120 0, #020617 45%, #020617 100%);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
 
-    footer{background:#020617;border-top:1px solid rgba(148,163,184,.3);text-align:center;padding:40px 5%;}
-    .float-wa{position:fixed;bottom:26px;right:26px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 12px 30px rgba(0,0,0,.55);}
-  </style>
+        /* NAVBAR */
+        .navbar {
+            background: rgba(2, 6, 23, 0.98);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+            backdrop-filter: blur(14px);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            font-size: 1.25rem;
+            color: #facc15 !important;
+        }
+
+        .navbar-brand img {
+            height: 46px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(249, 250, 251, 0.7) !important;
+            padding-inline: 0.9rem !important;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: #f97316 !important;
+        }
+
+        .nav-link-pill {
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem !important;
+            border: 1px solid transparent;
+        }
+
+        .nav-link-pill.active {
+            background: rgba(249, 115, 22, 0.08);
+            border-color: rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-admin {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border-radius: 999px;
+            padding: 0.45rem 1.1rem;
+            border: 1px solid rgba(248, 250, 252, 0.28);
+            color: #e5e7eb;
+        }
+
+        .btn-admin:hover {
+            background: rgba(15, 23, 42, 0.9);
+            color: #f97316;
+            border-color: rgba(249, 115, 22, 0.5);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 120px 0 40px;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #e5e7eb;
+        }
+
+        .hero-kicker span.badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+        }
+
+        .hero-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.3rem, 3.4vw, 3rem);
+            line-height: 1.2;
+            margin: 1.7rem 0 1rem;
+        }
+
+        .hero-title span.highlight {
+            color: #fbbf24;
+        }
+
+        .hero-sub {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 620px;
+        }
+
+        .hero-pill {
+            margin-top: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.9rem 1.6rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #f97316, #ea580c);
+            color: #111827;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .hero-pill i {
+            font-size: 1rem;
+        }
+
+        .hero-pill:hover {
+            filter: brightness(1.05);
+            color: #020617;
+        }
+
+        .hero-meta {
+            margin-top: 1.4rem;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #6b7280;
+        }
+
+        /* LEFT COLUMN BLOCKS */
+        .pill-grid {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .pill-card {
+            background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+            border-radius: 18px;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(55, 65, 81, 0.7);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+        }
+
+        .pill-card-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .pill-card p {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            margin: 0;
+        }
+
+        /* RIGHT COLUMN CARD */
+        .hero-card {
+            background: radial-gradient(circle at top left, #0b1120 0, #020617 55%);
+            border-radius: 26px;
+            border: 1px solid rgba(55, 65, 81, 0.8);
+            padding: 2rem;
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.85);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-card h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.45rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-card p {
+            font-size: 0.92rem;
+            color: #d1d5db;
+        }
+
+        .tag-row {
+            margin-top: 1.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: #9ca3af;
+        }
+
+        .hero-card-orbit {
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at top, rgba(248, 250, 252, 0.08) 0, transparent 60%);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* MID SECTION */
+        .section-mid {
+            padding: 40px 0 80px;
+        }
+
+        .mid-card {
+            border-radius: 22px;
+            background: linear-gradient(135deg, #020617 0, #030712 50%, #020617 100%);
+            border: 1px solid rgba(55, 65, 81, 0.7);
+            padding: 2rem;
+        }
+
+        .mid-title {
+            font-size: 0.85rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 0.7rem;
+        }
+
+        .mid-heading {
+            font-family: "Playfair Display", serif;
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .mid-text {
+            font-size: 0.92rem;
+            color: #d1d5db;
+            margin-bottom: 1.2rem;
+        }
+
+        .check-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.55rem;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+        }
+
+        .check-list i {
+            color: #22c55e;
+            margin-top: 0.1rem;
+        }
+
+        /* CTA BLOCK (BOTTOM) */
+        .cta-strip {
+            padding: 80px 0 60px;
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            margin-top: 10px;
+        }
+
+        .cta-heading {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.7rem, 3vw, 2rem);
+            text-align: center;
+            margin-bottom: 0.9rem;
+        }
+
+        .cta-text {
+            text-align: center;
+            color: #9ca3af;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            font-size: 0.95rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 1.9rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #f97316, #ea580c);
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .cta-pill i {
+            font-size: 1rem;
+        }
+
+        .cta-pill:hover {
+            filter: brightness(1.05);
+            color: #020617;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            background: #020617;
+            padding: 28px 0 32px;
+            text-align: center;
+        }
+
+        footer h5 {
+            font-family: "Playfair Display", serif;
+            color: #facc15;
+            margin-bottom: 0.25rem;
+        }
+
+        footer p {
+            margin: 0.25rem 0;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+
+        footer .contact-line {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        footer .contact-line i {
+            margin-right: 0.35rem;
+        }
+
+        footer .muted {
+            font-size: 0.78rem;
+            color: #6b7280;
+            margin-top: 0.8rem;
+        }
+
+        /* FLOATING WHATSAPP */
+        .float-wa {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #22c55e;
+            color: #020617;
+            font-size: 1.7rem;
+            box-shadow: 0 18px 40px rgba(22, 163, 74, 0.6);
+            text-decoration: none;
+            z-index: 999;
+        }
+
+        .float-wa:hover {
+            filter: brightness(1.08);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .hero {
+                padding-top: 96px;
+            }
+
+            .hero-card {
+                margin-top: 2.2rem;
+            }
+
+            .cta-strip {
+                padding-top: 60px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-pill,
+            .cta-pill {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .float-wa {
+                bottom: 18px;
+                right: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://ourwillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" alt="Willpower logo" />
+                <span>World of Willpower</span>
+            </a>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="https://OurWillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" alt="World of Willpower logo">
-      <span>World of Willpower</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                <ul class="navbar-nav align-items-lg-center gap-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#ventures">Ventures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-pill active" href="new-business.html">Technology &amp; Systems</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-sm btn-admin" href="admin.html">
+                            <i class="fas fa-terminal me-1"></i> Admin Panel
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-start g-4">
+                <!-- LEFT -->
+                <div class="col-lg-6">
+                    <div class="hero-kicker">
+                        <span class="badge-dot"></span>
+                        WillPro Technologies &amp; Systems
+                    </div>
+
+                    <h1 class="hero-title">
+                        Software &amp; Systems Designed <span class="highlight">Around Your Business.</span><br />
+                        Let’s Build Tech That Serves Business.
+                    </h1>
+
+                    <p class="hero-sub">
+                        You don’t need “fancy tech” – you need systems that quietly make your
+                        business faster, clearer and more profitable. WillPro focuses on practical,
+                        business-first solutions instead of jargon-heavy experiments.
+                    </p>
+
+                    <a href="https://wa.me/917039196489" class="hero-pill" target="_blank" rel="noopener">
+                        Start Tech Conversation
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                    <div class="hero-meta">
+                        Web & portals • Internal tools • Automations • Dashboards
+                    </div>
+
+                    <div class="pill-grid">
+                        <div class="pill-card">
+                            <div class="pill-card-title">Focus Areas</div>
+                            <p>
+                                Business websites, client portals, CRM-lite tools, order & inventory
+                                tracking, workflow automation and reporting dashboards.
+                            </p>
+                        </div>
+                        <div class="pill-card">
+                            <div class="pill-card-title">Ideal Partners</div>
+                            <p>
+                                Non-technical founders, SMEs and teams who want clarity, speed and
+                                reliability – not complicated, fragile systems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="col-lg-6">
+                    <div class="hero-card">
+                        <div class="hero-card-orbit"></div>
+                        <div class="hero-card-label">Where We Typically Add Value</div>
+                        <h2>From “we manage on Excel & WhatsApp” to a simple, working system.</h2>
+                        <p>
+                            Many businesses somehow run on scattered spreadsheets, inboxes and chats.
+                            Our goal is to convert that chaos into a clear, trackable flow – without
+                            forcing you into a giant expensive platform you don’t need.
+                        </p>
+
+                        <ul class="check-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mapping your real-world process before writing a single line of code.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Prioritising what must be digitised now vs. what can wait for phase two.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Creating systems that your existing team can actually use and maintain.</span>
+                            </li>
+                        </ul>
+
+                        <div class="tag-row">
+                            <span class="tag">Web Portals</span>
+                            <span class="tag">Internal Tools</span>
+                            <span class="tag">Process Automation</span>
+                            <span class="tag">Dashboards & Reports</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MIDDLE SECTION -->
+    <section class="section-mid">
+        <div class="container">
+            <div class="mid-card">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-6">
+                        <div class="mid-title">Engagement Philosophy</div>
+                        <h3 class="mid-heading">We start from your business reality, not from a tech catalogue.</h3>
+                        <p class="mid-text">
+                            We spend more time understanding how your business actually works today –
+                            who does what, where delays occur and what you are already using – before
+                            suggesting any system or stack.
+                        </p>
+
+                        <ul class="check-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>No pressure to build “big platforms” when a focused tool will do.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Preference for step-by-step upgrades over risky, overnight migrations.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Transparent scope – what we will build, what we won’t, and why.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mid-title">What We Can Co-Create</div>
+                        <p class="mid-text">
+                            Depending on your stage and comfort level, we can stay sharply focused on
+                            one module or help you design a broader roadmap for technology in your
+                            business.
+                        </p>
+
+                        <ul class="check-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Your main business website or product portal with clear messaging.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Simple tools that track enquiries, orders, deliveries or support tickets.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Basic automation between the tools you already use – instead of replacing everything.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="cta-strip">
+        <div class="container">
+            <h2 class="cta-heading">
+                Software &amp; Systems Designed Around Your Business.
+            </h2>
+            <p class="cta-text">
+                If you feel your current way of working is too dependent on people and memory,
+                let’s explore whether a simple, well-thought-out system can free your time and
+                give you better control. We’ll keep the language business-first, tech-second.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/917039196489" class="cta-pill" target="_blank" rel="noopener">
+                    Start Tech Conversation
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <h5>World of Willpower</h5>
+            <p>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
+            <p class="contact-line">
+                <i class="fab fa-whatsapp text-success"></i> +91 7039196489
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <i class="fas fa-envelope text-warning"></i> care@worldofwillpower.com
+            </p>
+            <p class="muted">© 2025 World of Willpower</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/917039196489" class="float-wa" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
     </a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#ventures">Ventures</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#">Tech & Systems</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<header class="hero-wrapper">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-kicker">WillPro Technologies & Systems</div>
-    <h1 class="hero-title">Software, web and digital systems for ambitious businesses.</h1>
-    <p class="hero-sub">
-      WillPro Technologies & Systems exists to translate business logic into <strong>practical, scalable digital products</strong>.
-      From corporate websites to custom tools, our lens is always business-first, not “feature-first”.
-    </p>
-    <div class="d-flex mt-4 gap-3 flex-wrap">
-      <a href="https://wa.me/917039196489" class="btn-gold">
-        Discuss a Tech Requirement <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="index.html#ventures" class="btn btn-outline-gold">
-        Back to Ventures
-      </a>
-    </div>
-  </div>
-</header>
-
-<section class="section">
-  <div class="container">
-    <div class="section-kicker">What We Like Building</div>
-    <h2 class="section-title">Digital Work That Fits Your Business.</h2>
-    <div class="gold-bar"></div>
-
-    <div class="row mt-4 g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-globe"></i></div>
-          <h4>Corporate & Product Websites</h4>
-          <p>Clean, premium websites that explain your brand clearly and make it easier for customers and investors to trust you.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-diagram-project"></i></div>
-          <h4>Internal Tools & Dashboards</h4>
-          <p>Simple, focused tools that help you track operations, documents or communication – without unnecessary complexity.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-code"></i></div>
-          <h4>Prototypes & MVPs</h4>
-          <p>Helping founders translate ideas into working MVPs that can be tested with early customers or investors.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:#020b19;">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div class="section-kicker">Approach</div>
-        <h2 class="section-title">Business Before Technology.</h2>
-        <div class="gold-bar"></div>
-        <p class="mt-3 section-text">
-          Because WillPro is part of World of Willpower, every technology discussion starts with:
-        </p>
-        <ul class="section-text">
-          <li>What business problem are we solving?</li>
-          <li>How will this actually be used daily or weekly?</li>
-          <li>Is there a simpler way to achieve the same outcome?</li>
-          <li>Can this be phased so that cash flow is respected?</li>
-        </ul>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-users-gear"></i></div>
-          <h4>Ideal Clients</h4>
-          <p class="section-text">
-            Growing SMEs, serious startups and entrepreneurs who need a thinking partner – not just a coder. We prefer
-            long-term relationships where we gradually build your digital backbone.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section text-center">
-  <h2 class="section-title">Need a Tech Partner Who Speaks Business?</h2>
-  <p class="mt-3 section-text" style="max-width:720px;margin:auto;">
-    Share your idea, challenge or current digital confusion. We can explore if WillPro is the right fit to build or
-    simplify your systems.
-  </p>
-  <a href="https://wa.me/917039196489" class="btn-gold mt-4">
-    Start Tech Conversation <i class="fab fa-whatsapp"></i>
-  </a>
-</section>
-
-<footer>
-  <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.4rem;">World of Willpower</h3>
-  <p class="mt-1">002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
-  <div class="mt-2">
-    <i class="fab fa-whatsapp" style="color:#22c55e"></i> +91&nbsp;7039196489
-    <span class="mx-3">|</span>
-    <i class="fas fa-envelope" style="color:#fbbf24"></i> care@worldofwillpower.com
-  </div>
-  <p class="mt-3" style="opacity:.6">&copy; 2025 World of Willpower</p>
-</footer>
-
-<a href="https://wa.me/917039196489" class="float-wa"><i class="fab fa-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
