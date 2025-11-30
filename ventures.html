@@ -1,181 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WIN Club – WillPro Investors Node</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WIN Club – WillPro Investors Node Club</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <style>
-    :root { --primary:#020617; --gold:#fbbf24; --muted:#94a3b8; }
-    body{font-family:"Poppins",sans-serif;background:#020617;color:#e5e7eb;overflow-x:hidden;}
-    .navbar{background:rgba(10,15,31,.98);padding:14px 5%;border-bottom:1px solid rgba(148,163,184,.3);backdrop-filter:blur(18px);}
-    .navbar-brand{font-family:"Playfair Display",serif;color:var(--gold)!important;display:flex;align-items:center;gap:12px;font-size:1.4rem;}
-    .navbar-brand img{height:46px;}
-    .nav-link{color:rgba(226,232,240,.85)!important;text-transform:uppercase;font-size:.78rem;letter-spacing:.12em;margin-left:24px;position:relative;}
-    .nav-link::after{content:"";position:absolute;width:0;height:2px;bottom:-6px;left:0;background:linear-gradient(90deg,var(--gold),#f97316);transition:.25s;}
-    .nav-link:hover::after,.nav-link.active::after{width:100%;}
-    .btn-gold{background:linear-gradient(135deg,var(--gold),#f97316);color:#020617;padding:12px 32px;font-weight:700;border-radius:999px;text-transform:uppercase;letter-spacing:.12em;border:none;box-shadow:0 16px 40px rgba(0,0,0,.35);}
-    .btn-gold i{margin-left:8px;}
-    .btn-outline-gold{border-color:var(--gold);color:var(--gold);text-transform:uppercase;font-size:.78rem;}
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    .hero-wrapper{min-height:70vh;padding-top:90px;position:relative;}
-    .hero-bg{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1523287562758-66c7fc58967a?auto=format&fit=crop&w=1600&q=80");background-size:cover;background-position:center;filter:brightness(.35);}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(145deg,rgba(10,15,31,.9),rgba(10,15,31,.85));}
-    .hero-content{position:relative;z-index:2;padding:90px 5%;}
-    .hero-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);}
-    .hero-title{font-family:"Playfair Display",serif;font-size:clamp(2.4rem,4vw,3.4rem);margin:10px 0;color:#f9fafb;}
-    .hero-sub{font-size:1rem;line-height:1.8;max-width:780px;color:#d1d5db;}
+    <style>
+        :root {
+            --bg-deep: #020617;
+            --bg-card: #020b17;
+            --bg-soft: #030712;
+            --accent: #f97316;
+            --accent-soft: rgba(249, 115, 22, 0.12);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-soft: #1f2937;
+        }
 
-    .section{padding:80px 5%;}
-    .section-kicker{font-size:.75rem;text-transform:uppercase;color:var(--muted);letter-spacing:.18em;}
-    .section-title{font-family:"Playfair Display",serif;font-size:1.8rem;}
-    .gold-bar{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),#f97316);border-radius:999px;margin-top:10px;}
-    .section-text{color:#cbd5e1;font-size:.95rem;line-height:1.9;}
+        * {
+            box-sizing: border-box;
+        }
 
-    .info-card{border:1px solid rgba(148,163,184,.35);border-radius:14px;padding:24px;background:#020617;box-shadow:0 12px 32px rgba(0,0,0,.45);height:100%;}
-    .info-icon{width:40px;height:40px;border-radius:50%;background:rgba(148,163,184,.1);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
-    .info-icon i{color:var(--gold);}
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top left, #0b1120 0, #020617 45%, #020617 100%);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
 
-    footer{background:#020617;border-top:1px solid rgba(148,163,184,.3);text-align:center;padding:40px 5%;}
-    .float-wa{position:fixed;bottom:26px;right:26px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 12px 30px rgba(0,0,0,.55);}
-  </style>
+        /* NAVBAR */
+        .navbar {
+            background: rgba(2, 6, 23, 0.98);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+            backdrop-filter: blur(14px);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            font-size: 1.25rem;
+            color: #facc15 !important;
+        }
+
+        .navbar-brand img {
+            height: 46px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(249, 250, 251, 0.7) !important;
+            padding-inline: 0.9rem !important;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: #f97316 !important;
+        }
+
+        .nav-link-pill {
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem !important;
+            border: 1px solid transparent;
+        }
+
+        .nav-link-pill.active {
+            background: rgba(249, 115, 22, 0.08);
+            border-color: rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-admin {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border-radius: 999px;
+            padding: 0.45rem 1.1rem;
+            border: 1px solid rgba(248, 250, 252, 0.28);
+            color: #e5e7eb;
+        }
+
+        .btn-admin:hover {
+            background: rgba(15, 23, 42, 0.9);
+            color: #f97316;
+            border-color: rgba(249, 115, 22, 0.5);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 120px 0 40px;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #e5e7eb;
+        }
+
+        .hero-kicker span.badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+        }
+
+        .hero-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.3rem, 3.4vw, 3rem);
+            line-height: 1.2;
+            margin: 1.7rem 0 1rem;
+        }
+
+        .hero-title span.highlight {
+            color: #fbbf24;
+        }
+
+        .hero-sub {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 620px;
+        }
+
+        .hero-pill {
+            margin-top: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.9rem 1.6rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #f97316, #ea580c);
+            color: #111827;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .hero-pill i {
+            font-size: 1rem;
+        }
+
+        .hero-pill:hover {
+            filter: brightness(1.05);
+            color: #020617;
+        }
+
+        .hero-meta {
+            margin-top: 1.4rem;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #6b7280;
+        }
+
+        /* LEFT COLUMN BLOCKS */
+        .pill-grid {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .pill-card {
+            background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+            border-radius: 18px;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(55, 65, 81, 0.7);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+        }
+
+        .pill-card-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .pill-card p {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            margin: 0;
+        }
+
+        /* RIGHT COLUMN CARD */
+        .hero-card {
+            background: radial-gradient(circle at top left, #0b1120 0, #020617 55%);
+            border-radius: 26px;
+            border: 1px solid rgba(55, 65, 81, 0.8);
+            padding: 2rem;
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.85);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-card h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.45rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-card p {
+            font-size: 0.92rem;
+            color: #d1d5db;
+        }
+
+        .tag-row {
+            margin-top: 1.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: #9ca3af;
+        }
+
+        .hero-card-orbit {
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at top, rgba(248, 250, 252, 0.08) 0, transparent 60%);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* MID SECTION */
+        .section-mid {
+            padding: 40px 0 80px;
+        }
+
+        .mid-card {
+            border-radius: 22px;
+            background: linear-gradient(135deg, #020617 0, #030712 50%, #020617 100%);
+            border: 1px solid rgba(55, 65, 81, 0.7);
+            padding: 2rem;
+        }
+
+        .mid-title {
+            font-size: 0.85rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 0.7rem;
+        }
+
+        .mid-heading {
+            font-family: "Playfair Display", serif;
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .mid-text {
+            font-size: 0.92rem;
+            color: #d1d5db;
+            margin-bottom: 1.2rem;
+        }
+
+        .check-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.55rem;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+        }
+
+        .check-list i {
+            color: #22c55e;
+            margin-top: 0.1rem;
+        }
+
+        /* CTA BLOCK (BOTTOM) */
+        .cta-strip {
+            padding: 80px 0 60px;
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            margin-top: 10px;
+        }
+
+        .cta-heading {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.7rem, 3vw, 2rem);
+            text-align: center;
+            margin-bottom: 0.9rem;
+        }
+
+        .cta-text {
+            text-align: center;
+            color: #9ca3af;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            font-size: 0.95rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 1.9rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #f97316, #ea580c);
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .cta-pill i {
+            font-size: 1rem;
+        }
+
+        .cta-pill:hover {
+            filter: brightness(1.05);
+            color: #020617;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            background: #020617;
+            padding: 28px 0 32px;
+            text-align: center;
+        }
+
+        footer h5 {
+            font-family: "Playfair Display", serif;
+            color: #facc15;
+            margin-bottom: 0.25rem;
+        }
+
+        footer p {
+            margin: 0.25rem 0;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+
+        footer .contact-line {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        footer .contact-line i {
+            margin-right: 0.35rem;
+        }
+
+        footer .muted {
+            font-size: 0.78rem;
+            color: #6b7280;
+            margin-top: 0.8rem;
+        }
+
+        /* FLOATING WHATSAPP */
+        .float-wa {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #22c55e;
+            color: #020617;
+            font-size: 1.7rem;
+            box-shadow: 0 18px 40px rgba(22, 163, 74, 0.6);
+            text-decoration: none;
+            z-index: 999;
+        }
+
+        .float-wa:hover {
+            filter: brightness(1.08);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .hero {
+                padding-top: 96px;
+            }
+
+            .hero-card {
+                margin-top: 2.2rem;
+            }
+
+            .cta-strip {
+                padding-top: 60px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-pill,
+            .cta-pill {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .float-wa {
+                bottom: 18px;
+                right: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://ourwillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" alt="Willpower logo" />
+                <span>World of Willpower</span>
+            </a>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="https://OurWillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" alt="World of Willpower logo">
-      <span>World of Willpower</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                <ul class="navbar-nav align-items-lg-center gap-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#ventures">Ventures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-pill active" href="ventures.html">WIN Club / Investors Hub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-sm btn-admin" href="admin.html">
+                            <i class="fas fa-terminal me-1"></i> Admin Panel
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-start g-4">
+                <!-- LEFT -->
+                <div class="col-lg-6">
+                    <div class="hero-kicker">
+                        <span class="badge-dot"></span>
+                        WIN Club – WillPro Investors Node Club
+                    </div>
+
+                    <h1 class="hero-title">
+                        An investor circle for <span class="highlight">real, working businesses</span> – not just pitch decks.
+                    </h1>
+
+                    <p class="hero-sub">
+                        WIN Club is a quiet, selective space where investors can look at
+                        grounded opportunities across dairy, food, Ayurveda, technology and
+                        e-commerce – with a strong bias for real operations and disciplined execution.
+                    </p>
+
+                    <a href="https://wa.me/917039196489" class="hero-pill" target="_blank" rel="noopener">
+                        Start Investor Conversation
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                    <div class="hero-meta">
+                        Real assets • Operating brands • Clear roles & expectations
+                    </div>
+
+                    <div class="pill-grid">
+                        <div class="pill-card">
+                            <div class="pill-card-title">Who Typically Joins</div>
+                            <p>
+                                Business owners, CXOs and serious professionals who prefer clarity,
+                                governance and real visibility into what they are funding.
+                            </p>
+                        </div>
+                        <div class="pill-card">
+                            <div class="pill-card-title">What WIN Club Is Not</div>
+                            <p>
+                                Not a trading group, not a tip community and not a place for
+                                speculative “quick flips”. The lens is long-term and fundamentals-driven.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="col-lg-6">
+                    <div class="hero-card">
+                        <div class="hero-card-orbit"></div>
+                        <div class="hero-card-label">Where We Typically Add Value</div>
+                        <h2>Connecting patient capital with operators who actually run the businesses.</h2>
+                        <p>
+                            World of Willpower is involved in multiple verticals – dairy, food, Ayurveda,
+                            technology and aggregators. WIN Club conversations are about aligning
+                            expectations: risk, horizon, role and reporting – before discussing numbers.
+                        </p>
+
+                        <ul class="check-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Filtering opportunities where there is a clear, operational backbone.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Structuring engagement – equity, revenue-share or specific project participation.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Creating a cadence for updates and review that respects everyone’s time.</span>
+                            </li>
+                        </ul>
+
+                        <div class="tag-row">
+                            <span class="tag">Dairy & Food</span>
+                            <span class="tag">Ayurveda & Wellness</span>
+                            <span class="tag">Technology & Systems</span>
+                            <span class="tag">E-commerce & Aggregators</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MIDDLE SECTION -->
+    <section class="section-mid">
+        <div class="container">
+            <div class="mid-card">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-6">
+                        <div class="mid-title">Engagement Philosophy</div>
+                        <h3 class="mid-heading">Transparent about what we know – and equally clear about what we don’t promise.</h3>
+                        <p class="mid-text">
+                            Every business has its own journey. We avoid glossy promises and instead
+                            focus on what is actually in place – products, processes, teams, and
+                            realistic next steps.
+                        </p>
+
+                        <ul class="check-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Clarity on use of funds and how progress will be measured.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Acknowledging risks upfront – market, execution and regulatory aspects.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Respect for the investor’s time – structured conversations, not endless meetings.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mid-title">What We Can Explore Together</div>
+                        <p class="mid-text">
+                            Depending on interest and suitability, conversations may be around single-vertical
+                            exposure or a curated participation in a basket of initiatives.
+                        </p>
+
+                        <ul class="check-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Specific project funding – e.g. a new plant line, product range or tech build-out.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Partnership structures where value creation and risk are shared sensibly.</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Longer-term relationships that evolve as the Willpower ecosystem grows.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="cta-strip">
+        <div class="container">
+            <h2 class="cta-heading">
+                Interested in Exploring WIN Club as an Investor?
+            </h2>
+            <p class="cta-text">
+                If you resonate more with thoughtful, grounded opportunities than with noise and hype,
+                we can start with a simple conversation. No pressure, no rush – just clarity on whether
+                there is a fit between your expectations and the Willpower ecosystem.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/917039196489" class="cta-pill" target="_blank" rel="noopener">
+                    Start Investor Conversation
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <h5>World of Willpower</h5>
+            <p>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
+            <p class="contact-line">
+                <i class="fab fa-whatsapp text-success"></i> +91 7039196489
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <i class="fas fa-envelope text-warning"></i> care@worldofwillpower.com
+            </p>
+            <p class="muted">© 2025 World of Willpower</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/917039196489" class="float-wa" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
     </a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#ventures">Ventures</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#">WIN Club</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<header class="hero-wrapper">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-kicker">WIN Club – WillPro Investors Node</div>
-    <h1 class="hero-title">A focused investors hub for curated Willpower opportunities.</h1>
-    <p class="hero-sub">
-      WIN Club is not a “public investment scheme”. It is a <strong>structured, invitation-based investors node</strong>
-      created to explore specific opportunities in the World of Willpower ecosystem – across dairy, foods, Ayurveda,
-      technology and more.
-    </p>
-    <div class="d-flex mt-4 gap-3 flex-wrap">
-      <a href="https://wa.me/917039196489" class="btn-gold">
-        Express Investor Interest <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="index.html#ventures" class="btn btn-outline-gold">
-        Back to Ventures
-      </a>
-    </div>
-  </div>
-</header>
-
-<section class="section">
-  <div class="container">
-    <div class="section-kicker">Philosophy</div>
-    <h2 class="section-title">Capital with Clarity, Not Noise.</h2>
-    <div class="gold-bar"></div>
-    <p class="mt-3 section-text" style="max-width:840px;">
-      WIN Club exists so that investors who understand risk, time horizons and real operations can connect with structured,
-      documented opportunities. The idea is to stay away from hype and focus on <strong>cash-flowing, execution-backed ventures</strong>.
-    </p>
-
-    <div class="row mt-4 g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-layer-group"></i></div>
-          <h4>Diversified Themes</h4>
-          <p>Access to opportunities across dairy, foods, Ayurveda, technology and aggregation models under one umbrella.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-          <h4>Documented Structures</h4>
-          <p>Every live opportunity is accompanied by clear structures, assumptions and risk views – not vague promises.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-user-shield"></i></div>
-          <h4>Select Investors</h4>
-          <p>Designed for investors who are comfortable with business risk and prefer transparency to exaggeration.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:#020b19;">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div class="section-kicker">How It Works</div>
-        <h2 class="section-title">From Conversation to Commitment.</h2>
-        <div class="gold-bar"></div>
-        <ul class="section-text mt-3">
-          <li>Initial conversation to understand investor profile, risk comfort and expectations</li>
-          <li>Sharing of specific opportunity notes, when available and relevant</li>
-          <li>Detailed Q&A, clarifications and adjustments as required</li>
-          <li>Formal documentation and execution only after full understanding</li>
-        </ul>
-      </div>
-      <div class="col-lg-6">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-scale-balanced"></i></div>
-          <h4>Important Note</h4>
-          <p class="section-text">
-            This page is <strong>not</strong> a public offer, advertisement or promise of returns. It is a conceptual
-            introduction for investors who may wish to explore privately discussed structures in the World of Willpower
-            ecosystem.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section text-center">
-  <h2 class="section-title">Want to Explore WIN Club Privately?</h2>
-  <p class="mt-3 section-text" style="max-width:720px;margin:auto;">
-    If you are a serious investor and resonate with this philosophy, send a brief introduction over WhatsApp and we can
-    decide jointly whether to proceed further.
-  </p>
-  <a href="https://wa.me/917039196489" class="btn-gold mt-4">
-    Initiate WIN Club Conversation <i class="fab fa-whatsapp"></i>
-  </a>
-</section>
-
-<footer>
-  <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.4rem;">World of Willpower</h3>
-  <p class="mt-1">002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
-  <div class="mt-2">
-    <i class="fab fa-whatsapp" style="color:#22c55e"></i> +91&nbsp;7039196489
-    <span class="mx-3">|</span>
-    <i class="fas fa-envelope" style="color:#fbbf24"></i> care@worldofwillpower.com
-  </div>
-  <p class="mt-3" style="opacity:.6">&copy; 2025 World of Willpower</p>
-</footer>
-
-<a href="https://wa.me/917039196489" class="float-wa"><i class="fab fa-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
