@@ -29,9 +29,7 @@
       --accent: #22c55e;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -43,18 +41,14 @@
       min-height: 100vh;
     }
 
-    a {
-      text-decoration: none;
-    }
+    a { text-decoration: none; }
 
     /* NAVBAR */
-
     .custom-navbar {
       background: rgba(1, 10, 7, 0.97);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(230, 179, 37, 0.35);
     }
-
     .navbar-brand span {
       font-family: "Playfair Display", serif;
       letter-spacing: 0.08em;
@@ -62,45 +56,37 @@
       text-transform: uppercase;
       color: var(--gold);
     }
-
     .navbar-brand img {
       height: 40px;
       margin-right: 10px;
     }
-
     .nav-link {
       font-size: 0.8rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: rgba(232, 245, 238, 0.76) !important;
     }
-
     .nav-link:hover,
     .nav-link:focus {
       color: var(--gold) !important;
     }
-
     .nav-link.active {
       color: var(--gold) !important;
     }
-
     .dropdown-menu-dark {
       background: #020c08;
       border: 1px solid rgba(230, 179, 37, 0.2);
     }
-
     .dropdown-item {
       font-size: 0.78rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: rgba(232, 245, 238, 0.85);
     }
-
     .dropdown-item:hover {
       background: var(--gold-soft);
       color: var(--gold);
     }
-
     .btn-admin {
       border-radius: 999px;
       border: 1px solid rgba(230, 179, 37, 0.5);
@@ -111,21 +97,18 @@
       color: var(--gold);
       background: transparent;
     }
-
     .btn-admin:hover {
       background: var(--gold-soft);
       color: var(--gold);
     }
 
     /* HERO */
-
     .hero-wrapper {
       padding: 130px 0 80px;
       background:
         radial-gradient(circle at top left, #0f3a28 0, transparent 60%),
         linear-gradient(to bottom, #020c08 10%, #010706 100%);
     }
-
     .hero-pill {
       display: inline-flex;
       align-items: center;
@@ -139,7 +122,6 @@
       text-transform: uppercase;
       color: rgba(232, 245, 238, 0.85);
     }
-
     .hero-pill-dot {
       width: 9px;
       height: 9px;
@@ -147,26 +129,28 @@
       background: var(--accent);
       box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.22);
     }
-
     .hero-title {
       font-family: "Playfair Display", serif;
       font-size: clamp(2.3rem, 3.6vw, 3.1rem);
       line-height: 1.15;
       margin-top: 20px;
-      margin-bottom: 14px;
+      margin-bottom: 6px;
     }
-
     .hero-title span.highlight {
       color: var(--gold);
     }
-
+    .hero-rotator {
+      font-size: 0.9rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
     .hero-sub {
       font-size: 1.03rem;
       color: var(--text-soft);
       max-width: 540px;
       line-height: 1.7;
     }
-
     .hero-meta {
       margin-top: 16px;
       font-size: 0.78rem;
@@ -174,7 +158,6 @@
       text-transform: uppercase;
       color: rgba(232, 245, 238, 0.7);
     }
-
     .hero-cta {
       margin-top: 30px;
       display: flex;
@@ -182,7 +165,6 @@
       gap: 12px;
       align-items: center;
     }
-
     .btn-gold-primary {
       border-radius: 999px;
       border: none;
@@ -195,22 +177,18 @@
       color: #111827;
       box-shadow: 0 22px 55px rgba(0, 0, 0, 0.6);
     }
-
     .btn-gold-primary i {
       margin-left: 6px;
       font-size: 0.9rem;
     }
-
     .btn-gold-primary:hover {
       background: #f1c341;
       color: #050816;
     }
-
     .hero-note {
       font-size: 0.8rem;
       color: rgba(190, 217, 207, 0.85);
     }
-
     .hero-note span {
       color: var(--gold);
       font-weight: 500;
@@ -223,7 +201,6 @@
       border: 1px solid var(--outline);
       box-shadow: 0 26px 70px rgba(0, 0, 0, 0.75);
     }
-
     .hero-card-label {
       font-size: 0.75rem;
       letter-spacing: 0.22em;
@@ -231,7 +208,6 @@
       color: rgba(232, 245, 238, 0.7);
       margin-bottom: 14px;
     }
-
     .hero-card-title {
       font-size: 0.95rem;
       font-weight: 600;
@@ -240,13 +216,11 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
-
     .hero-card ul {
       list-style: none;
       padding-left: 0;
       margin-bottom: 0;
     }
-
     .hero-card li {
       display: flex;
       align-items: flex-start;
@@ -255,13 +229,11 @@
       color: var(--text-soft);
       margin-bottom: 10px;
     }
-
     .hero-card li i {
       margin-top: 2px;
       color: var(--gold);
       font-size: 0.85rem;
     }
-
     .hero-card-footer {
       margin-top: 18px;
       font-size: 0.78rem;
@@ -269,20 +241,17 @@
     }
 
     /* CTA STRIP */
-
     .cta-strip {
       padding: 70px 0 80px;
       background: #020906;
       border-top: 1px solid rgba(230, 179, 37, 0.18);
       border-bottom: 1px solid rgba(230, 179, 37, 0.18);
     }
-
     .cta-strip h2 {
       font-family: "Playfair Display", serif;
       font-size: 1.8rem;
       margin-bottom: 10px;
     }
-
     .cta-strip p {
       color: var(--text-soft);
       max-width: 640px;
@@ -290,7 +259,6 @@
     }
 
     /* FOOTER */
-
     footer {
       padding: 45px 0 30px;
       background: #020805;
@@ -298,7 +266,6 @@
       text-align: center;
       font-size: 0.9rem;
     }
-
     footer h5 {
       font-family: "Playfair Display", serif;
       letter-spacing: 0.12em;
@@ -306,22 +273,18 @@
       color: var(--gold);
       margin-bottom: 10px;
     }
-
     footer .divider {
       width: 52px;
       height: 1px;
       background: rgba(230, 179, 37, 0.6);
       margin: 12px auto 18px;
     }
-
     footer a {
       color: rgba(232, 245, 238, 0.86);
     }
-
     footer a:hover {
       color: var(--gold);
     }
-
     .footer-meta {
       font-size: 0.78rem;
       color: rgba(156, 175, 167, 0.9);
@@ -329,7 +292,6 @@
     }
 
     /* WHATSAPP FLOAT */
-
     .whatsapp-float {
       position: fixed;
       right: 22px;
@@ -346,20 +308,14 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
       z-index: 999;
     }
-
     .whatsapp-float:hover {
       background: #3be27a;
       color: #fff;
     }
 
     @media (max-width: 991.98px) {
-      .hero-wrapper {
-        padding-top: 110px;
-      }
-
-      .hero-card {
-        margin-top: 32px;
-      }
+      .hero-wrapper { padding-top: 110px; }
+      .hero-card { margin-top: 32px; }
     }
   </style>
 </head>
@@ -428,6 +384,8 @@
             Ready for a <span class="highlight">Serious Conversation</span>,
             Not Motivation?
           </h1>
+
+          <div class="hero-rotator" id="hero-rotator"></div>
 
           <p class="hero-sub">
             Willpower Maestros is for founders and professionals who want
@@ -532,5 +490,24 @@
   </a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Rotating sub-headlines
+    const lines = [
+      "Serious mentoring for serious work.",
+      "Space to think, not just react.",
+      "Business, behaviour and numbers in one room.",
+      "From confusion to calm strategic direction.",
+      "Conversations that respect your time and reality."
+    ];
+    let idx = 0;
+    const rotator = document.getElementById("hero-rotator");
+    function showLine() {
+      if (!rotator) return;
+      rotator.textContent = lines[idx];
+      idx = (idx + 1) % lines.length;
+    }
+    showLine();
+    setInterval(showLine, 4000);
+  </script>
 </body>
 </html>
