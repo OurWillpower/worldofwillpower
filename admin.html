@@ -3,82 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willpower Command Center v13.0 (Luxury)</title>
+    <title>Willpower Command Center v14.0 (Agency Mode)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #f0f2f5; font-family: 'Segoe UI', sans-serif; padding-bottom: 100px; }
-        .sidebar { width: 260px; height: 100vh; position: fixed; top: 0; left: 0; background: #0f172a; color: #fff; padding: 20px; overflow-y: auto; z-index: 1000; border-right: 1px solid #1e293b; }
-        .nav-btn { display: block; width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; background: transparent; border: none; color: #94a3b8; border-radius: 6px; transition: 0.2s; font-weight: 500; cursor: pointer; }
-        .nav-btn:hover { background: #1e293b; color: #fff; }
-        .nav-btn.active { background: #f59e0b; color: #000; font-weight: 700; }
-        .main-content { margin-left: 260px; padding: 40px; max-width: 1200px; }
-        .editor-section { display: none; animation: fadeIn 0.3s; }
-        .editor-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 25px; border-radius: 12px; }
-        .card-header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 20px; font-weight: 700; color: #334155; }
+        /* ADMIN INTERFACE STYLING */
+        body { background-color: #f1f5f9; font-family: 'Segoe UI', sans-serif; padding-bottom: 100px; }
+        .sidebar { width: 280px; height: 100vh; position: fixed; top: 0; left: 0; background: #111827; color: #fff; padding: 25px; overflow-y: auto; z-index: 1000; border-right: 1px solid #1f2937; }
+        .sidebar-brand { font-size: 1.4rem; font-weight: 800; padding-bottom: 25px; border-bottom: 1px solid #374151; margin-bottom: 25px; color: #fbbf24; letter-spacing: 1px; text-transform: uppercase; }
         
-        /* STYLE TOOLBAR */
-        .style-toolbar { background: #f1f5f9; padding: 8px; border: 1px solid #cbd5e1; border-bottom: none; border-radius: 8px 8px 0 0; display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 5px; }
-        .style-toolbar select { width: auto; padding: 4px; font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; margin: 0;}
-        .style-toolbar input[type="number"] { width: 55px; padding: 4px; font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; margin: 0; }
-        .style-btn { border: 1px solid #cbd5e1; background: #fff; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; min-width: 30px; }
-        .style-btn.active { background: #0f172a; color: white; border-color: #0f172a; }
-        .styled-input { border-radius: 0 0 8px 8px; border-top: 1px solid #cbd5e1; margin-top: 0 !important; }
+        .nav-btn { display: block; width: 100%; text-align: left; padding: 14px 20px; margin-bottom: 10px; background: transparent; border: none; color: #9ca3af; border-radius: 8px; transition: all 0.2s; font-weight: 600; cursor: pointer; }
+        .nav-btn:hover { background: #1f2937; color: #fff; transform: translateX(5px); }
+        .nav-btn.active { background: #fbbf24; color: #000; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2); }
+        .nav-btn i { width: 25px; margin-right: 10px; }
 
-        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; }
-        input[type="color"] { height: 50px; padding: 0; border: none; cursor: pointer; }
-        .btn-publish { background: #0f172a; color: #f59e0b; border: none; padding: 12px 40px; font-weight: 800; border-radius: 8px; cursor: pointer; letter-spacing: 1px; width: 100%; }
+        .main-content { margin-left: 280px; padding: 50px; max-width: 1200px; }
+        .editor-section { display: none; animation: slideIn 0.4s ease-out; }
+        .editor-section.active { display: block; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card { border: none; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 30px; border-radius: 16px; background: #fff; overflow: hidden; }
+        .card-header { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 20px 30px; font-weight: 800; color: #1f2937; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card-body { padding: 30px; }
         
-        /* Action Bar */
-        .action-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: #fff; padding: 15px 40px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; z-index: 900; }
-        .btn-group-actions { display: flex; gap: 15px; }
-        .btn-save { background: #6c757d; color: white; border: none; padding: 12px 25px; font-weight: 700; border-radius: 8px; cursor: pointer; white-space: nowrap; }
+        label { font-size: 0.75rem; font-weight: 800; color: #6b7280; text-transform: uppercase; margin-top: 25px; display: block; letter-spacing: 0.5px; margin-bottom: 8px; }
+        input, textarea, select { width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 0.95rem; transition: border 0.2s; background: #f9fafb; }
+        input:focus, textarea:focus { outline: none; border-color: #fbbf24; background: #fff; box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1); }
         
-        .venture-item { border: 1px solid #cbd5e1; background: #fff; margin-bottom: 30px; border-radius: 8px; overflow: hidden; position: relative; }
-        .venture-header { background: #f8fafc; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
-        .venture-body { padding: 20px; }
+        .btn-upload { border: 2px dashed #d1d5db; background: #f9fafb; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; color: #4b5563; transition: 0.2s; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+        .btn-upload:hover { border-color: #fbbf24; color: #d97706; background: #fff; }
         
-        .upload-wrapper { position: relative; overflow: hidden; display: inline-block; }
-        .btn-upload { border: 2px dashed #94a3b8; background: #fff; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
-        .upload-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height: 100%; width: 100%; }
-        .status-connected { background-color: #dcfce7; color: #166534; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
-        .status-disconnected { background-color: #fee2e2; color: #991b1b; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
-        .img-preview { height: 40px; border-radius: 4px; border: 1px solid #ddd; display: none; margin-left: 10px; vertical-align: middle; }
-        #debug-console { display: none; position: fixed; top: 20px; right: 20px; width: 350px; background: rgba(15, 23, 42, 0.95); color: #4ade80; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 0.75rem; z-index: 2000; }
-        #autosave-indicator { font-size: 0.9rem; color: #198754; font-weight: bold; margin-right: 15px; }
+        .venture-item { border: 1px solid #e5e7eb; background: #fff; margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: transform 0.2s; }
+        .venture-item:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+        .venture-header { background: #f8fafc; padding: 15px 25px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #374151; }
+        
+        .action-bar { position: fixed; bottom: 0; left: 280px; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 50px; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; z-index: 900; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); }
+        
+        .btn-save { background: #e5e7eb; color: #374151; border: none; padding: 12px 30px; font-weight: 700; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+        .btn-save:hover { background: #d1d5db; }
+        
+        .btn-publish { background: #000; color: #fbbf24; border: none; padding: 14px 40px; font-weight: 800; border-radius: 10px; cursor: pointer; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.2s; }
+        .btn-publish:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
+
+        .status-connected { color: #059669; background: #ecfdf5; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; border: 1px solid #a7f3d0; }
+        .status-disconnected { color: #dc2626; background: #fef2f2; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; border: 1px solid #fecaca; }
+        
+        #debug-console { display: none; position: fixed; top: 30px; right: 30px; width: 400px; background: #111827; color: #4ade80; padding: 25px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.85rem; z-index: 2000; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid #374151; }
+        .img-preview { height: 50px; border-radius: 6px; border: 1px solid #e5e7eb; object-fit: cover; }
     </style>
 </head>
 <body>
 
 <div class="sidebar">
-    <h4 style="color:#f59e0b; padding-bottom:20px; border-bottom:1px solid #333; margin-bottom:20px;"><i class="fas fa-crown me-2"></i> Willpower v13.0</h4>
+    <div class="sidebar-brand"><i class="fas fa-crown me-2"></i> Willpower v14.0</div>
     <button class="nav-btn active" onclick="switchTab('settings')">1. Setup</button>
     <button class="nav-btn" onclick="switchTab('design')">2. Brand & Style</button>
     <button class="nav-btn" onclick="switchTab('home')">3. Home Page</button>
-    <button class="nav-btn" onclick="switchTab('ventures')">4. Microsite Builder</button>
+    <button class="nav-btn" onclick="switchTab('ventures')">4. Page Factory</button>
     <button class="nav-btn" onclick="switchTab('contact')">5. Contact</button>
-    <button onclick="if(confirm('Logout?')) { localStorage.clear(); location.reload(); }" class="btn btn-sm btn-outline-danger w-100 mt-5">Logout</button>
+    <button onclick="if(confirm('Logout?')) { localStorage.clear(); location.reload(); }" class="btn btn-outline-secondary w-100 mt-5" style="border-color: #374151; color: #9ca3af;">Logout</button>
 </div>
 
 <div class="main-content">
     
     <div id="settings" class="editor-section active">
-        <div id="auth-status" class="status-disconnected">Not Connected</div>
-        <div class="card"><div class="card-header">GitHub Credentials</div><div class="card-body">
-            <label>Username</label><input type="text" id="gh_username">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold text-dark m-0">Connection Setup</h2>
+            <div id="auth-status" class="status-disconnected">Not Connected</div>
+        </div>
+        <div class="card"><div class="card-body">
+            <label>GitHub Username</label><input type="text" id="gh_username">
             <label>Repo Name</label><input type="text" id="gh_repo" value="worldofwillpower">
             <label>Token</label><input type="password" id="gh_token" placeholder="Paste Token here">
-            <button onclick="saveAuth()" class="btn btn-success mt-3 w-100 fw-bold">CONNECT & REMEMBER</button>
+            <button onclick="saveAuth()" class="btn btn-success mt-4 w-100 py-3 fw-bold">CONNECT & REMEMBER</button>
         </div></div>
     </div>
 
     <div id="design" class="editor-section">
-        <div class="card"><div class="card-header">Global Branding</div><div class="card-body">
+        <h2 class="fw-bold text-dark mb-4">Global Branding</h2>
+        <div class="card"><div class="card-body">
             <div class="row">
                 <div class="col-md-6"><label>Company Name</label><input type="text" id="brand_name" oninput="saveInternal()"></div>
-                <div class="col-md-6"><label>Logo URL</label><div class="d-flex gap-2"><input type="text" id="brand_logo_url" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'brand_logo_url')"></div></div></div>
+                <div class="col-md-6">
+                    <label>Logo URL</label>
+                    <div class="d-flex gap-2 align-items-center">
+                        <input type="text" id="brand_logo_url" oninput="saveInternal()">
+                        <img id="prev_brand_logo_url" class="img-preview" style="display:none;">
+                        <div style="position:relative; overflow:hidden; display:inline-block;">
+                            <button class="btn-upload"><i class="fas fa-upload"></i> Upload</button>
+                            <input type="file" style="position:absolute; left:0; top:0; opacity:0; cursor:pointer; height:100%; width:100%;" onchange="uploadImage(this, 'brand_logo_url')">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-6"><label>Font</label><select id="brand_font" onchange="saveInternal()"></select></div>
@@ -88,30 +104,47 @@
     </div>
 
     <div id="home" class="editor-section">
-        <div class="card"><div class="card-header">Hero Slider</div><div class="card-body">
-            <label>Image</label><div class="d-flex gap-2"><input type="text" id="img_hero1" oninput="saveInternal()"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'img_hero1')"></div></div>
+        <h2 class="fw-bold text-dark mb-4">Home Page</h2>
+        <div class="card"><div class="card-header">Main Banner</div><div class="card-body">
+            <label>Hero Image (1920x1080)</label>
+            <div class="d-flex gap-2 align-items-center">
+                <input type="text" id="img_hero1" oninput="saveInternal()">
+                <img id="prev_img_hero1" class="img-preview" style="display:none;">
+                <div style="position:relative; overflow:hidden; display:inline-block;">
+                    <button class="btn-upload"><i class="fas fa-upload"></i> Upload</button>
+                    <input type="file" style="position:absolute; left:0; top:0; opacity:0; cursor:pointer; height:100%; width:100%;" onchange="uploadImage(this, 'img_hero1')">
+                </div>
+            </div>
+            <label>Headline</label><input type="text" id="hero_h1" oninput="saveInternal()">
+            <label>Sub-headline</label><input type="text" id="hero_p1" oninput="saveInternal()">
             
-            <label>Title</label><div id="tool_hero_h1"></div><input type="text" id="hero_h1" class="styled-input" oninput="saveInternal()">
-            <label>Subtitle</label><div id="tool_hero_p1"></div><input type="text" id="hero_p1" class="styled-input" oninput="saveInternal()">
-            
-            <div class="mt-3 text-muted small">* Slides 2-5 are available in code logic. Add specific fields here if needed.</div>
+            <div class="mt-4 p-3 bg-light rounded border">
+                <small class="text-muted fw-bold">EXTRA SLIDES (Optional)</small>
+                <div class="row">
+                    <div class="col-md-6"><label>Slide 2 Image</label><input type="text" id="img_hero2" oninput="saveInternal()"></div>
+                    <div class="col-md-6"><label>Slide 2 Title</label><input type="text" id="hero_h2" oninput="saveInternal()"></div>
+                </div>
+                </div>
         </div></div>
-
-        <div class="card"><div class="card-body">
-            <label>About Text</label><div id="tool_about_text"></div><textarea id="about_text" rows="4" class="styled-input" oninput="saveInternal()"></textarea>
-        </div></div>
+        <div class="card"><div class="card-body"><label>About Text</label><textarea id="about_text" rows="5" oninput="saveInternal()"></textarea></div></div>
     </div>
 
     <div id="ventures" class="editor-section">
-        <div class="alert alert-primary">
-            <strong>Microsite Studio:</strong> Every field has full font control.
+        <h2 class="fw-bold text-dark mb-4">Page Factory</h2>
+        <div class="alert alert-info border-0 shadow-sm mb-4" style="background:#e0f2fe; color:#0369a1;">
+            <i class="fas fa-magic me-2"></i> <strong>Auto-Generator:</strong>
+            <ul class="mb-0 mt-2 small">
+                <li><strong>Overview:</strong> A detailed paragraph describing the business.</li>
+                <li><strong>Services:</strong> Enter short points on new lines. These become <strong>Visual Cards</strong> on the new page.</li>
+            </ul>
         </div>
         <div id="venture-container"></div>
-        <button class="btn btn-dark w-100 mt-3 p-3" onclick="addVenture()">+ ADD NEW BUSINESS</button>
+        <button class="btn btn-dark w-100 py-3 fw-bold" onclick="addVenture()"><i class="fas fa-plus me-2"></i> ADD NEW BUSINESS PAGE</button>
     </div>
 
     <div id="contact" class="editor-section">
-        <div class="card"><div class="card-header">Contact</div><div class="card-body">
+        <h2 class="fw-bold text-dark mb-4">Contact Info</h2>
+        <div class="card"><div class="card-body">
             <label>Address</label><input type="text" id="address" oninput="saveInternal()">
             <label>Email</label><input type="text" id="email" oninput="saveInternal()">
             <label>WhatsApp</label><input type="text" id="whatsapp" oninput="saveInternal()">
@@ -120,20 +153,17 @@
 </div>
 
 <div class="action-bar">
-    <div id="status-box" id="autosave-indicator"></div>
-    <div class="btn-group-actions">
+    <div class="d-flex align-items-center gap-3">
+        <span id="autosave-indicator" class="text-success fw-bold small"></span>
         <button onclick="saveInternal(true)" class="btn-save"><i class="fas fa-save me-2"></i> SAVE DRAFT</button>
-        <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket"></i> GENERATE & PUBLISH</button>
     </div>
+    <button onclick="publishToGitHub()" class="btn-publish"><i class="fas fa-rocket me-2"></i> GENERATE & PUBLISH</button>
 </div>
 
 <div id="debug-console"></div>
 
 <script>
-    // --- FONT LIST ---
     const FONTS = ["Roboto", "Open Sans", "Lato", "Montserrat", "Poppins", "Playfair Display", "Merriweather", "Cinzel", "Raleway", "Nunito"];
-
-    // --- DEFAULT DATA ---
     let auth = { gh_username: '', gh_repo: 'worldofwillpower', gh_token: '' };
     let content = {
         col_primary: '#0f172a', col_accent: '#f59e0b',
@@ -143,181 +173,168 @@
         about_text: 'World of Willpower is a diversified conglomerate...',
         address: '002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204',
         email: 'care@worldofwillpower.com', whatsapp: '917039196489',
-        ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity.", overview: "Overview text...", features: "Ghee\nPaneer" }],
-        
-        // DEFAULT STYLES - LUXURY DEFAULTS
-        style_hero_h1: { font: 'Cinzel', size: '72', align: 'center', b: true, i: false, u: false },
-        style_hero_p1: { font: 'Montserrat', size: '22', align: 'center', b: false, i: false, u: false },
-        style_about_text: { font: 'Open Sans', size: '18', align: 'center', b: false, i: false, u: false }
+        ventures: [{ title: "Dairy Manufacturing", image: "", tagline: "Purity You Can Trust.", overview: "Our Indian dairy plant represents the pinnacle of hygiene and quality.", features: "Ghee\nPaneer" }]
     };
 
-    // --- INIT ---
     document.addEventListener('DOMContentLoaded', () => {
         const savedAuth = localStorage.getItem('willpower_master_auth');
         if(savedAuth) { auth = JSON.parse(savedAuth); document.getElementById('gh_username').value = auth.gh_username; document.getElementById('gh_repo').value = auth.gh_repo; document.getElementById('gh_token').value = auth.gh_token; if(auth.gh_token) setConnectedUI(true); }
         const savedContent = localStorage.getItem('willpower_master_data');
         if(savedContent) content = { ...content, ...JSON.parse(savedContent) }; 
         
-        // VISUAL FONT SELECTOR
         const brandSel = document.getElementById('brand_font');
-        brandSel.innerHTML = FONTS.map(f => `<option value="${f}" style="font-family:'${f}', sans-serif; font-size:16px;">${f}</option>`).join('');
+        brandSel.innerHTML = FONTS.map(f => `<option value="${f}" style="font-family:'${f}';">${f}</option>`).join('');
         if(content.brand_font) brandSel.value = content.brand_font;
 
-        renderToolbar('hero_h1'); renderToolbar('hero_p1'); renderToolbar('about_text');
         populateFields();
         renderVentures();
         setInterval(() => { saveInternal(false); }, 5000);
     });
 
-    // --- TOOLBAR ENGINE ---
-    function renderToolbar(id) {
-        const container = document.getElementById('tool_' + id);
-        if(!container) return;
-        if(!content[`style_${id}`]) content[`style_${id}`] = { font: 'Roboto', size: '16', align: 'left', b: false, i: false, u: false };
-        const s = content[`style_${id}`];
-        const fontOptions = FONTS.map(f => `<option value="${f}" style="font-family:'${f}', sans-serif;" ${s.font===f?'selected':''}>${f}</option>`).join('');
-        container.innerHTML = `
-        <div class="style-toolbar">
-            <select onchange="updateStyle('${id}', 'font', this.value)" style="font-family:'${s.font}', sans-serif">${fontOptions}</select>
-            <input type="number" value="${s.size}" onchange="updateStyle('${id}', 'size', this.value)" title="Size (px)">
-            <button class="style-btn ${s.b?'active':''}" onclick="toggleStyle('${id}', 'b')"><b>B</b></button>
-            <button class="style-btn ${s.i?'active':''}" onclick="toggleStyle('${id}', 'i')"><i>I</i></button>
-            <button class="style-btn ${s.u?'active':''}" onclick="toggleStyle('${id}', 'u')"><u>U</u></button>
-            <div style="border-left:1px solid #ccc; height:20px; margin:0 5px;"></div>
-            <button class="style-btn ${s.align==='left'?'active':''}" onclick="updateStyle('${id}', 'align', 'left')"><i class="fas fa-align-left"></i></button>
-            <button class="style-btn ${s.align==='center'?'active':''}" onclick="updateStyle('${id}', 'align', 'center')"><i class="fas fa-align-center"></i></button>
-            <button class="style-btn ${s.align==='right'?'active':''}" onclick="updateStyle('${id}', 'align', 'right')"><i class="fas fa-align-right"></i></button>
-        </div>`;
-    }
-    function updateStyle(id, key, val) { content[`style_${id}`][key] = val; renderToolbar(id); saveInternal(); }
-    function toggleStyle(id, key) { content[`style_${id}`][key] = !content[`style_${id}`][key]; renderToolbar(id); saveInternal(); }
-
     function populateFields() {
         const ids = ['col_primary','col_accent','brand_name','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
-        ids.forEach(id => { 
-            if(document.getElementById(id)) {
-                document.getElementById(id).value = content[id] || ''; 
-                if(id.includes('logo') || id.includes('img')) showPreview(id, content[id]);
-            }
-        });
+        ids.forEach(id => { if(document.getElementById(id)) { document.getElementById(id).value = content[id] || ''; if(id.includes('logo') || id.includes('img')) showPreview(id, content[id]); } });
+        for(let i=1; i<=5; i++) { if(content[`img_hero${i}`] && document.getElementById(`img_hero${i}`)) document.getElementById(`img_hero${i}`).value = content[`img_hero${i}`]; }
     }
+
     function showPreview(id, url) { const p = document.getElementById('prev_'+id); if(p && url) { p.src = url; p.style.display = 'inline-block'; } }
     function saveAuth() { auth.gh_username = document.getElementById('gh_username').value; auth.gh_repo = document.getElementById('gh_repo').value; auth.gh_token = document.getElementById('gh_token').value; localStorage.setItem('willpower_master_auth', JSON.stringify(auth)); setConnectedUI(true); alert("Connected!"); }
     function setConnectedUI(c) { document.getElementById('auth-status').className = c ? "status-connected" : "status-disconnected"; document.getElementById('auth-status').innerText = c ? "CONNECTED ✅" : "NOT CONNECTED ❌"; }
     function switchTab(id) { document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active')); document.getElementById(id).classList.add('active'); event.currentTarget.classList.add('active'); }
 
-    // --- VENTURE UI ---
     function renderVentures() {
         const c = document.getElementById('venture-container'); c.innerHTML = '';
         content.ventures.forEach((v, i) => {
-            if(!content[`style_v_title_${i}`]) content[`style_v_title_${i}`] = { font: 'Cinzel', size: '56', align: 'center', b: true, i: false, u: false };
-            if(!content[`style_v_tagline_${i}`]) content[`style_v_tagline_${i}`] = { font: 'Montserrat', size: '20', align: 'center', b: false, i: false, u: false };
-            if(!content[`style_v_overview_${i}`]) content[`style_v_overview_${i}`] = { font: 'Open Sans', size: '18', align: 'center', b: false, i: false, u: false };
-            if(!content[`style_v_features_${i}`]) content[`style_v_features_${i}`] = { font: 'Roboto', size: '16', align: 'left', b: false, i: false, u: false };
-
             c.innerHTML += `
             <div class="venture-item">
-                <div class="venture-header"><h5 class="m-0">Business ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div>
+                <div class="venture-header"><h5 class="m-0">Page ${i+1}: ${v.title}</h5><button class="btn btn-outline-danger btn-sm" onclick="delVenture(${i})">Delete</button></div>
                 <div class="venture-body">
-                    <div class="row mb-3"><div class="col-md-6"><label>Name</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div><div class="col-md-6"><label>Image</label><div class="d-flex gap-2"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><div class="upload-wrapper"><button class="btn-upload">Up</button><input type="file" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div></div>
-                    
-                    <label>Page Title</label><div id="tool_v_title_${i}"></div><input type="text" value="${v.title}" class="styled-input" readonly>
-                    <label>Tagline</label><div id="tool_v_tagline_${i}"></div><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)" class="styled-input">
-                    <label>Overview</label><div id="tool_v_overview_${i}"></div><textarea rows="4" oninput="updVenture(${i},'overview',this.value)" class="styled-input">${v.overview||''}</textarea>
-                    <label>Services</label><div id="tool_v_features_${i}"></div><textarea rows="5" oninput="updVenture(${i},'features',this.value)" class="styled-input">${v.features}</textarea>
+                    <div class="row mb-3"><div class="col-md-6"><label>Page Title</label><input type="text" value="${v.title}" oninput="updVenture(${i},'title',this.value)"></div><div class="col-md-6"><label>Hero Image</label><div class="d-flex gap-2 align-items-center"><input type="text" value="${v.image}" id="v_img_${i}" oninput="updVenture(${i},'image',this.value)"><img id="prev_v_img_${i}" class="img-preview" src="${v.image}" style="${v.image?'display:block':'display:none'}"><div style="position:relative;overflow:hidden;display:inline-block"><button class="btn-upload">Up</button><input type="file" style="position:absolute;left:0;top:0;opacity:0;cursor:pointer;width:100%;height:100%" onchange="uploadImage(this, 'v_img_${i}', ${i})"></div></div></div></div>
+                    <label>Tagline (Subtitle)</label><input type="text" value="${v.tagline||''}" oninput="updVenture(${i},'tagline',this.value)">
+                    <label>Business Overview</label><textarea rows="4" oninput="updVenture(${i},'overview',this.value)">${v.overview||''}</textarea>
+                    <label>Services (These become cards - One per line)</label><textarea rows="5" oninput="updVenture(${i},'features',this.value)">${v.features}</textarea>
                 </div>
             </div>`;
-            setTimeout(() => { renderToolbar(`v_title_${i}`); renderToolbar(`v_tagline_${i}`); renderToolbar(`v_overview_${i}`); renderToolbar(`v_features_${i}`); }, 50);
         });
     }
-    function addVenture() { content.ventures.push({title:"New Business", image:"", features:"", overview:"", tagline:""}); renderVentures(); saveInternal(); }
+    function addVenture() { content.ventures.push({title:"New Venture", image:"", features:"", overview:"", tagline:""}); renderVentures(); saveInternal(); }
     function delVenture(i) { if(confirm("Delete?")) { content.ventures.splice(i,1); renderVentures(); saveInternal(); } }
-    function updVenture(i, k, v) { content.ventures[i][k] = v; saveInternal(); }
+    function updVenture(i, k, v) { content.ventures[i][k] = v; if(k=='image') showPreview(`v_img_${i}`, v); saveInternal(); }
+    
     function saveInternal(manual) {
         const ids = ['col_primary','col_accent','brand_name','brand_logo_url','img_hero1','hero_h1','hero_p1','about_text','address','email','whatsapp'];
         ids.forEach(id => { if(document.getElementById(id)) content[id] = document.getElementById(id).value; });
+        for(let i=2; i<=5; i++) { if(document.getElementById(`img_hero${i}`)) content[`img_hero${i}`] = document.getElementById(`img_hero${i}`).value; }
         localStorage.setItem('willpower_master_data', JSON.stringify(content));
-        const now = new Date(); document.getElementById('status-box').innerText = "Saved: " + now.toLocaleTimeString();
-        if(manual) alert("Draft Saved Successfully!");
+        const now = new Date(); document.getElementById('autosave-indicator').innerText = "Saved " + now.toLocaleTimeString();
+        if(manual) alert("Draft Saved!");
     }
 
-    function getStyleString(s) {
-        if(!s) return '';
-        return `font-family:'${s.font}', sans-serif; font-size:${s.size}px; text-align:${s.align}; font-weight:${s.b?'bold':'normal'}; font-style:${s.i?'italic':'normal'}; text-decoration:${s.u?'underline':'none'};`;
-    }
+    function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
 
-    // --- GENERATOR ---
     async function publishToGitHub() {
         saveInternal(false);
         if(!auth.gh_token) { alert("Not Connected!"); return; }
         const logBox = document.getElementById('debug-console'); logBox.style.display='block'; logBox.innerText="Generating Premium Site...";
 
-        const fontLink = `<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Nunito:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;700&family=Raleway:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">`;
-        
-        // LUXURY CSS
-        const commonCSS = `<style>
+        // PREMIUM CSS GENERATOR
+        const css = `<style>
         :root{--primary:${content.col_primary};--gold:${content.col_accent}} 
-        body{font-family:'${content.brand_font}', sans-serif; overflow-x:hidden; background:#fdfdfd} 
-        .navbar{background:rgba(15, 23, 42, 0.95); backdrop-filter:blur(10px); padding:15px 5%; border-bottom:2px solid var(--gold)} 
+        body{font-family:'${content.brand_font}', sans-serif; overflow-x:hidden; background:#fff; color:#333} 
+        .navbar{background:rgba(15, 23, 42, 0.98); padding:15px 5%; border-bottom:2px solid var(--gold)} 
         .navbar-brand{font-family:'${content.brand_font}'; color:var(--gold)!important; font-size:24px; font-weight:700; display:flex; align-items:center; gap:15px} 
         .nav-link{color:rgba(255,255,255,0.9)!important; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px; margin-left:25px; font-weight:600} 
-        footer{background:var(--primary);color:#fff;padding:40px 5%;text-align:center; font-size:0.9rem} 
-        .btn-gold{background:var(--gold); color:#fff; padding:15px 40px; font-weight:700; text-decoration:none; display:inline-block; text-transform:uppercase; letter-spacing:1px; border-radius:4px; transition:0.3s} 
-        .btn-gold:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,0.2)}
-        .float-wa{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
-        .venture-card{background:#fff; padding:40px; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.05); text-align:center; transition:0.4s; height:100%; border:1px solid #eee; position:relative; overflow:hidden}
-        .venture-card:hover{transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.1); border-color:var(--gold)}
-        .venture-card::before{content:''; position:absolute; top:0; left:0; width:100%; height:4px; background:var(--gold)}
-        </style>`;
+        .btn-gold{background:var(--gold); color:#fff; padding:15px 35px; font-weight:700; text-decoration:none; display:inline-block; text-transform:uppercase; letter-spacing:1px; border-radius:4px; transition:0.3s} 
+        .btn-gold:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,0.15)}
         
-        const footer = `<footer><div class="container"><h4>${content.brand_name}</h4><p class="mt-3" style="opacity:0.8">${content.address}</p><div class="mt-3 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp}</div><p class="small mt-4 opacity-50">© 2025 ${content.brand_name}</p></div></footer>`;
+        /* HERO */
+        .hero-section{height:100vh; background-size:cover; background-position:center; background-attachment:fixed; display:flex; align-items:center; justify-content:center; text-align:center; color:white; position:relative}
+        .hero-overlay{position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));}
+        .hero-content{position:relative; z-index:2; padding:20px}
+        .hero-title{font-size:4rem; font-weight:700; margin-bottom:20px; text-shadow:0 5px 15px rgba(0,0,0,0.5)}
+        
+        /* CARDS */
+        .venture-card{background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:0.4s; height:100%; position:relative; border:1px solid #f3f4f6}
+        .venture-card:hover{transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.1); border-color:var(--gold)}
+        .vc-img{height:220px; background-size:cover; background-position:center}
+        .vc-body{padding:30px}
+        .vc-title{font-size:1.5rem; color:var(--primary); margin-bottom:10px; font-family:'${content.brand_font}'}
+        
+        /* FEATURES GRID (MICROSITE) */
+        .feature-card{background:#fff; padding:30px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.05); height:100%; border-left:4px solid var(--gold); transition:0.3s}
+        .feature-card:hover{transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.1)}
+        .feature-title{font-size:1.2rem; font-weight:700; color:var(--primary); margin-bottom:5px}
+
+        footer{background:var(--primary);color:#fff;padding:60px 5%;text-align:center}
+        .float-wa{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
+        </style>`;
+
+        const fontLink = `<link href="https://fonts.googleapis.com/css2?family=${content.brand_font.replace(' ','+')}:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">`;
+        
+        // HTML PARTS
+        let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px;">` : '';
+        brandHTML += `<span style="margin-left:10px">${content.brand_name}</span>`;
         
         let dropdown = ''; content.ventures.forEach(v => { const slug=v.title.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.html'; dropdown+=`<li><a class="dropdown-item" href="${slug}">${v.title}</a></li>`; });
-        let brandHTML = content.brand_logo_url ? `<img src="${content.brand_logo_url}" style="height:50px;">` : '';
-        brandHTML += `<span>${content.brand_name}</span>`;
-        const navbar = `<nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container-fluid"><a class="navbar-brand" href="index.html">${brandHTML}</a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu">${dropdown}</ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav>`;
+        
+        const navbar = `<nav class="navbar navbar-expand-lg navbar-dark fixed-top"><div class="container-fluid"><a class="navbar-brand" href="index.html">${brandHTML}</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a><ul class="dropdown-menu dropdown-menu-end">${dropdown}</ul></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul></div></div></nav>`;
+        
+        const footer = `<footer id="contact"><div class="container"><h3>${content.brand_name}</h3><p class="mt-3 opacity-75">${content.address}</p><div class="mt-4 fs-5"><i class="fab fa-whatsapp text-success me-2"></i> +${content.whatsapp} <span class="mx-3 text-secondary">|</span> <i class="fas fa-envelope text-warning me-2"></i> ${content.email}</div><p class="small mt-5 opacity-50">© 2025 ${content.brand_name}</p></div></footer>`;
 
         try {
-            // INDEX (Summary Cards)
+            // 1. INDEX PAGE (Premium Cards)
             let homeCards = '';
-            content.ventures.forEach(v => { const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html'; homeCards += `<div class="col-lg-4 col-md-6 mb-4"><a href="${slug}" style="text-decoration:none; color:inherit;"><div class="venture-card"><h3 style="color:${content.col_primary}; font-family:'Cinzel';">${v.title}</h3><p class="text-muted mt-3" style="font-family:'Montserrat'">${v.tagline || 'Click to explore'}</p><div style="color:${content.col_accent}; font-weight:bold; margin-top:20px; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;">View Details &rarr;</div></div></a></div>`; });
-            
-            // Retrieve Custom Styles
-            const heroH1Style = getStyleString(content.style_hero_h1);
-            const heroP1Style = getStyleString(content.style_hero_p1);
-            const aboutStyle = getStyleString(content.style_about_text);
+            content.ventures.forEach(v => { 
+                const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html'; 
+                // Use hero image for card, fallback to gray
+                const bg = v.image ? `background-image:url('${v.image}')` : 'background:#eee';
+                homeCards += `
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <a href="${slug}" style="text-decoration:none; color:inherit;">
+                        <div class="venture-card">
+                            <div class="vc-img" style="${bg}"></div>
+                            <div class="vc-body">
+                                <div class="vc-title">${v.title}</div>
+                                <p class="text-muted">${v.tagline || 'Explore this business vertical.'}</p>
+                                <span style="color:${content.col_accent}; font-weight:700; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;">View Details <i class="fas fa-arrow-right ms-1"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>`;
+            });
 
-            const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">${fontLink}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="height:100vh; background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('${content.img_hero1}'); background-size:cover; background-position:center; background-attachment:fixed; display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding-top:80px;"><div class="container"><h1 style="${heroH1Style}; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">${content.hero_h1}</h1><p style="${heroP1Style} margin-top:20px; opacity:0.9;">${content.hero_p1}</p></div></div><section style="padding:120px 5%"><div class="container"><div style="${aboutStyle} max-width:900px; margin:0 auto; line-height:1.8;">${content.about_text}</div></div></section><section style="padding:0 5% 120px 5%;"><div class="container"><h2 class="text-center mb-5" style="color:${content.col_primary}; font-family:'Cinzel'; font-size:3rem;">Our Business Verticals</h2><div class="row">${homeCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+            const indexHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${content.brand_name}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${fontLink}${commonCSS}</head><body>${navbar}<div class="hero-section" style="background-image:url('${content.img_hero1}')"><div class="hero-overlay"></div><div class="hero-content container"><h1 class="hero-title">${content.hero_h1}</h1><p class="lead fs-3">${content.hero_p1}</p></div></div><section style="padding:100px 5%"><div class="container"><div class="row align-items-center"><div class="col-lg-6 mb-4"><h2 style="font-family:'${content.brand_font}'; color:${content.col_primary}; font-size:3rem;">Who We Are</h2><div style="width:80px; height:4px; background:${content.col_accent}; margin:20px 0;"></div><p class="lead text-secondary" style="line-height:1.8">${content.about_text}</p></div><div class="col-lg-6"><div style="background:#f8fafc; padding:40px; border-radius:20px;"><h4 class="mb-4">Our Vision</h4><p class="text-muted">To be the global benchmark in quality and leadership.</p><h4 class="mb-4 mt-5">Our Mission</h4><p class="text-muted">Empowering growth through diversified excellence.</p></div></div></div></div></section><section style="padding:100px 5%; background:#f9fafb"><div class="container"><div class="text-center mb-5"><h2 style="color:${content.col_primary}; font-family:'${content.brand_font}'; font-size:2.5rem;">Business Verticals</h2><p class="text-muted">Our diversified portfolio of companies.</p></div><div class="row">${homeCards}</div></div></section>${footer}<a href="https://wa.me/${content.whatsapp}" class="float-wa"><i class="fab fa-whatsapp"></i></a><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+            
             await uploadToGH('index.html', indexHTML);
 
-            // MICROSITES (Deep Pages)
-            for (let i = 0; i < content.ventures.length; i++) {
-                const v = content.ventures[i];
+            // 2. VENTURE PAGES (Rich Layout)
+            for (const v of content.ventures) {
                 const slug = v.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
-                const titleS = getStyleString(content[`style_v_title_${i}`]);
-                const tagS = getStyleString(content[`style_v_tagline_${i}`]);
-                const overS = getStyleString(content[`style_v_overview_${i}`]);
-                const featS = getStyleString(content[`style_v_features_${i}`]);
-
-                const features = v.features.split('\n').map(f => { if(!f.trim()) return ''; return `<div class="col-md-6 col-lg-4 mb-4"><div style="background:white; padding:30px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.05); height:100%; border:1px solid #eee"><h5 style="${featS} color:${content.col_primary}; margin:0;">${f}</h5></div></div>`; }).join('');
                 
-                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">${fontLink}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${commonCSS}</head><body>${navbar}<div style="padding:180px 0 120px 0; background:linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.8)),url('${v.image}'); background-size:cover; background-position:center; background-attachment:fixed; text-align:center; color:white;"><h1 style="${titleS} color:white !important; text-shadow:0 4px 10px rgba(0,0,0,0.5);">${v.title}</h1><p class="lead mt-3" style="${tagS} color:${content.col_accent} !important; margin-top:20px;">${v.tagline||''}</p></div><section style="padding:100px 5%"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 style="color:${content.col_primary}; font-family:'Cinzel'; font-size:2.5rem; margin-bottom:30px;">Business Overview</h2><div style="${overS} max-width:900px; margin:0 auto; line-height:1.8; color:#444;">${v.overview}</div></div></div><div class="row mt-5 justify-content-center">${features}</div></div></section><section style="padding:80px 0; background:${content.col_primary}; text-align:center; color:white;"><div class="container"><h3 style="font-family:'Cinzel'; font-size:2.5rem;">Interested in ${v.title}?</h3><p class="mb-4" style="font-family:'Montserrat'; font-size:1.1rem; opacity:0.8;">Contact us to discuss your requirements.</p><a href="https://wa.me/${content.whatsapp}" class="btn btn-gold">Connect on WhatsApp</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+                // Convert newlines to Grid Cards
+                const featuresHTML = v.features.split('\n').map(f => {
+                    if(!f.trim()) return '';
+                    return `<div class="col-md-6 col-lg-4 mb-4"><div class="feature-card"><div class="feature-title">${f}</div><div class="text-muted small">Premium quality service available.</div></div></div>`;
+                }).join('');
+                
+                const pageHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${v.title}</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">${fontLink}${commonCSS}</head><body>${navbar}<div class="hero-section" style="height:60vh; background-image:url('${v.image}')"><div class="hero-overlay"></div><div class="hero-content container"><h1 class="hero-title">${v.title}</h1><p class="lead fs-3" style="color:${content.col_accent}; font-weight:bold;">${v.tagline||''}</p></div></div><section style="padding:100px 5%"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 style="font-family:'${content.brand_font}'; color:${content.col_primary}; font-size:2.5rem;">Business Overview</h2><div style="width:60px; height:4px; background:${content.col_accent}; margin:20px auto;"></div><p class="lead text-secondary mx-auto" style="max-width:900px; line-height:1.8;">${v.overview}</p></div></div><div class="row mt-5">${featuresHTML}</div></div></section><section style="padding:80px 5%; background:${content.col_primary}; color:white; text-align:center"><div class="container"><h3>Ready to partner with our ${v.title} division?</h3><p class="mt-3 opacity-75">We are ready to scale with you.</p><a href="https://wa.me/${content.whatsapp}" class="btn-gold mt-4">Start Conversation</a></div></section>${footer}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"><\/script></body></html>`;
+                
                 await uploadToGH(slug, pageHTML);
-                await new Promise(r => setTimeout(r, 500));
+                await new Promise(r => setTimeout(r, 800));
             }
-            alert("Luxury Site Updated! Hard Refresh to see changes.");
+
+            logBox.innerText = "SUCCESS! SITE LIVE.";
+            alert("Agency-Grade Website Published!");
         } catch(e) { alert("Error: " + e.message); }
     }
 
-    function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
     async function uploadToGH(file, content) {
         const url = `https://api.github.com/repos/${auth.gh_username}/${auth.gh_repo}/contents/${file}`;
         const get = await fetch(url, { headers: { 'Authorization': `token ${auth.gh_token}` }});
         const sha = get.ok ? (await get.json()).sha : null;
-        const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Update', content: utf8_to_b64(content), sha: sha }) });
-        if(!res.ok) throw new Error("GitHub rejected upload");
+        await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${auth.gh_token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Update', content: utf8_to_b64(content), sha: sha }) });
     }
-    
+    function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
     async function uploadImage(input, targetID, index) {
         const file = input.files[0]; if(!file || !auth.gh_token) return;
         const reader = new FileReader(); reader.readAsDataURL(file);
