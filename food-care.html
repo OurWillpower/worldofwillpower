@@ -3,407 +3,211 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Willpower Food Care – Masalas, RTE Foods, Agro Products & Beverages</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <title>Willpower Food Care – Masalas, RTE, Agro Products & Beverages</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #0b1020;
-      --gold: #f29c07;
-      --muted: #94a3b8;
+      --bg:#020617;
+      --accent:#f97316;
+      --accent-soft:#fed7aa;
+      --text-main:#e5e7eb;
+      --text-muted:#9ca3af;
     }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      background: #020617;
-      color: #e5e7eb;
-      overflow-x: hidden;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top left,#082f49 0,#020617 40%,#000 100%);
+      color:var(--text-main);
+      padding-bottom:140px;
     }
+    a{ color:inherit; text-decoration:none; }
 
-    .navbar {
-      background: rgba(10, 15, 31, 0.98);
-      padding: 14px 5%;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-      backdrop-filter: blur(18px);
-    }
-
-    .navbar-brand {
-      font-family: "Playfair Display", serif;
-      color: var(--gold) !important;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1.4rem;
-    }
-
-    .nav-link {
-      color: rgba(226, 232, 240, 0.85) !important;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      margin-left: 24px;
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -6px;
-      left: 0;
-      background: linear-gradient(90deg, var(--gold), #f97316);
-      transition: 0.25s;
-    }
-
+    .top-nav{ position:sticky; top:0; z-index:50; background:rgba(2,6,23,0.96); backdrop-filter:blur(14px); border-bottom:1px solid rgba(148,163,184,0.15); }
+    .nav-inner{ max-width:1120px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:0.9rem; }
+    .brand img{ height:40px; border-radius:4px; }
+    .brand span{ font-family:"Playfair Display",serif; font-size:1.2rem; color:#fbbf24; }
+    .nav-links{ display:flex; align-items:center; gap:22px; font-size:0.9rem; }
+    .nav-link{ position:relative; text-transform:uppercase; letter-spacing:0.08em; font-weight:500; color:rgba(248,250,252,0.8); font-size:0.75rem; }
     .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
+    .nav-link.active::after{ content:""; position:absolute; left:0; right:0; bottom:-6px; margin:0 auto; width:24px; height:2px; background:var(--accent); border-radius:999px; }
+
+    .page{ max-width:1120px; margin:0 auto; padding:40px 20px 60px; }
+    .section-label{ text-transform:uppercase; letter-spacing:0.18em; font-size:0.7rem; color:var(--accent-soft); }
+    .hero-title{ font-family:"Playfair Display",serif; font-size:2.4rem; margin:6px 0 10px; }
+    .hero-sub{ color:var(--text-muted); font-size:0.95rem; max-width:720px; }
+
+    .hero{
+      border-radius:26px;
+      padding:34px 26px 30px;
+      background:
+        radial-gradient(circle at top left,rgba(248,250,252,0.14),transparent 60%),
+        linear-gradient(145deg,#020617,#020617);
+      border:1px solid rgba(148,163,184,0.35);
+      box-shadow:0 26px 70px rgba(15,23,42,1);
+      margin-top:26px;
     }
 
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold), #f97316);
-      color: #0b1020;
-      padding: 12px 32px;
-      font-weight: 700;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-      border: none;
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      margin-top:26px;
     }
-
-    .btn-gold i { margin-left: 8px; }
-
-    .btn-outline-gold {
-      border-color: var(--gold);
-      color: var(--gold);
-      text-transform: uppercase;
-      font-size: 0.78rem;
+    .card{
+      border-radius:20px;
+      padding:18px 16px;
+      background:radial-gradient(circle at top left,rgba(15,23,42,0.95),rgba(15,23,42,1));
+      border:1px solid rgba(30,41,59,0.9);
+      box-shadow:0 16px 40px rgba(15,23,42,1);
+      font-size:0.84rem;
+      color:var(--text-muted);
     }
+    .card h3{ margin:0 0 8px; font-size:0.98rem; color:var(--text-main); }
+    .card ul{ margin:8px 0 0; padding-left:18px; }
+    .card ul li{ margin-bottom:4px; }
 
-    .hero-wrapper {
-      min-height: 70vh;
-      padding-top: 90px;
-      position: relative;
+    .cta-strip{
+      margin-top:32px;
+      border-radius:20px;
+      padding:18px 18px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:radial-gradient(circle at top left,rgba(251,191,36,0.12),transparent 60%);
+      font-size:0.9rem;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:14px;
+      justify-content:space-between;
     }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.45);
+    .btn-primary{
+      padding:11px 22px;
+      border-radius:999px;
+      border:none;
+      background:radial-gradient(circle at top left,#f97316,#ea580c);
+      color:#111827;
+      font-weight:600;
+      font-size:0.8rem;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      cursor:pointer;
     }
+    .btn-primary:hover{ box-shadow:0 18px 45px rgba(248,113,22,0.45); transform:translateY(-1px); }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(145deg, rgba(10,15,31,0.9), rgba(10,15,31,0.78));
+    .footer{ max-width:1120px; margin:40px auto 0; padding:18px 20px 0; border-top:1px solid rgba(30,41,59,0.85); font-size:0.78rem; color:var(--text-muted); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; }
+    .footer strong{ color:var(--accent-soft); }
+
+    .float-wa{
+      position:fixed;
+      bottom:110px;
+      right:30px;
+      width:56px;
+      height:56px;
+      border-radius:999px;
+      background:radial-gradient(circle at top left,#22c55e,#16a34a);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#022c22;
+      font-size:1.8rem;
+      box-shadow:0 18px 40px rgba(22,163,74,0.6);
+      z-index:60;
     }
+    .float-wa:hover{ transform:translateY(-2px); box-shadow:0 24px 55px rgba(22,163,74,0.8); }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 90px 5%;
+    @media (max-width:900px){
+      .grid-4{ grid-template-columns:repeat(2,minmax(0,1fr)); }
     }
-
-    .hero-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-    }
-
-    .hero-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.4rem, 4vw, 3.5rem);
-      font-weight: 700;
-      margin: 10px 0;
-      color: #f8fafc;
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      line-height: 1.8;
-      max-width: 760px;
-      color: #d1d5db;
-    }
-
-    .section {
-      padding: 80px 5%;
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.8rem;
-    }
-
-    .section-kicker {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--muted);
-      letter-spacing: 0.18em;
-    }
-
-    .gold-bar {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold), #f97316);
-      border-radius: 999px;
-      margin-top: 10px;
-    }
-
-    .section-text {
-      color: #cbd5e1;
-      font-size: 0.95rem;
-      line-height: 1.9;
-    }
-
-    .info-card {
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      border-radius: 14px;
-      padding: 25px;
-      background: #020617;
-      height: 100%;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
-    }
-
-    .info-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(148,163,184,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 12px;
-    }
-
-    .info-icon i { color: var(--gold); }
-
-    footer {
-      background: #020617;
-      border-top: 1px solid rgba(148,163,184,0.3);
-      text-align: center;
-      padding: 40px 5%;
-    }
-
-    .float-wa {
-      position: fixed;
-      bottom: 26px;
-      right: 26px;
-      background: #25d366;
-      color: white;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+    @media (max-width:640px){
+      .nav-inner{ flex-direction:column; align-items:flex-start; }
+      .grid-4{ grid-template-columns:minmax(0,1fr); }
+      .float-wa{ right:18px; bottom:95px; }
     }
   </style>
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="https://OurWillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" style="height:46px;" alt="World of Willpower Logo">
-      <span>World of Willpower</span>
-    </a>
-
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#ventures">Ventures</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#">Food Care</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero-wrapper">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-
-  <div class="hero-content">
-    <div class="hero-kicker">Willpower Food Care</div>
-    <h1 class="hero-title">Masalas, Ready-to-Eat Foods, Agro Products & Beverages.</h1>
-    <p class="hero-sub">
-      Willpower Food Care is the foods and nutraceuticals vertical of World of Willpower.
-      From core kitchen staples to modern functional foods, we support brands in India and global
-      markets with quality-driven, scalable manufacturing.
-    </p>
-
-    <div class="d-flex mt-4 gap-3 flex-wrap">
-      <a href="https://wa.me/917039196489" class="btn-gold">
-        Discuss Your Food Project <i class="fab fa-whatsapp"></i>
+  <header class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="uploads/1764438907969_willpower.png" alt="Willpower logo">
+        <span>World of Willpower</span>
       </a>
-      <a href="index.html#ventures" class="btn btn-outline-gold">
-        Back to Ventures
-      </a>
+      <nav class="nav-links">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#ventures">Ventures</a>
+        <a class="nav-link active" href="food-care.html">Food Care</a>
+        <a class="nav-link" href="index.html#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- OVERVIEW -->
-<section class="section">
-  <div class="container">
-    <div class="section-kicker">What We Do</div>
-    <h2 class="section-title">A Complete Foods & Nutraceuticals Ecosystem.</h2>
-    <div class="gold-bar"></div>
+  <main class="page">
+    <section class="hero">
+      <div class="section-label">Willpower Food Care</div>
+      <h1 class="hero-title">Ready to Build or Expand Your Food Brand?</h1>
+      <p class="hero-sub">
+        Willpower Food Care focuses on structured, scalable food products – from spice
+        blends to ready-to-eat lines – with an emphasis on clarity of formulation,
+        packaging and positioning.
+      </p>
 
-    <p class="mt-3 section-text" style="max-width:850px;">
-      The Willpower Food Care ecosystem has been designed to support brand owners across:
-      <strong>spice blends, ready-to-eat concepts, agro-based staples, beverages and select
-      nutraceutical-oriented food products.</strong>
-      <br><br>
-      Our objective is to combine purity, taste and functionality so that your brand stands out on
-      the shelf and in the consumer’s mind.
-    </p>
-  </div>
-</section>
+      <div class="grid-4">
+        <article class="card">
+          <h3>Masala Powders</h3>
+          <ul>
+            <li>Everyday masalas – kitchen staples with consistent flavour.</li>
+            <li>Speciality regional blends crafted to brief.</li>
+            <li>Scope for low-oil, clean-label or Ayurvedic-inspired variants.</li>
+          </ul>
+        </article>
 
-<!-- CORE CATEGORIES -->
-<section class="section" style="background:#010b17;">
-  <div class="container">
-    <div class="section-kicker text-center">Core Categories</div>
-    <h2 class="section-title text-center">Key Food Lines We Can Build With You.</h2>
-    <div class="gold-bar mx-auto"></div>
+        <article class="card">
+          <h3>Ready-to-Eat / Ready-to-Cook</h3>
+          <ul>
+            <li>Snack and meal concepts for modern urban consumers.</li>
+            <li>Heat-and-eat or quick-cook formats for retail and HoReCa.</li>
+            <li>Packaging and portioning designed for realistic shelf-life.</li>
+          </ul>
+        </article>
 
-    <div class="row mt-5 g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-pepper-hot"></i></div>
-          <h4>Masala Powders</h4>
-          <p>
-            Regional and national masala blends, single-spice powders and special curated mixes
-            aligned to your brand’s flavour story.
-          </p>
+        <article class="card">
+          <h3>Agro-based Products</h3>
+          <ul>
+            <li>Agro and farm-linked products aligned with your sourcing.</li>
+            <li>Possibility of integrating with our dairy / Ayurvedic lines.</li>
+            <li>Support in designing SKUs for both Indian and export markets.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Beverages</h3>
+          <ul>
+            <li>Ayurveda-inspired and functional beverages (non-alcoholic).</li>
+            <li>Breakfast, health and on-the-go drink formats.</li>
+            <li>Scope for co-branding with existing Willpower formulations.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="cta-strip">
+        <div>
+          <strong>Have a food idea, existing range or white-label requirement?</strong><br />
+          Share your current status and target market – we can explore whether
+          Willpower Food Care is the right manufacturing or strategic partner.
         </div>
+        <a href="https://wa.me/917039196489" class="btn-primary" target="_blank">
+          Start WhatsApp conversation
+        </a>
       </div>
+    </section>
 
-      <div class="col-md-6 col-lg-3">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-bowl-food"></i></div>
-          <h4>Ready-to-Eat Foods</h4>
-          <p>
-            Heat-and-eat and ready-to-eat concepts for modern, convenience-driven consumers –
-            designed to travel well and retain taste.
-          </p>
-        </div>
-      </div>
+    <footer class="footer">
+      <div>© 2025 <strong>World of Willpower</strong>. Willpower Food Care.</div>
+      <div>Masalas • RTE • Agro products • Beverages.</div>
+    </footer>
+  </main>
 
-      <div class="col-md-6 col-lg-3">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-wheat-awn"></i></div>
-          <h4>Agro Products</h4>
-          <p>
-            Selected agro products and staples that can be packed under your label for domestic or
-            export channels.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-mug-hot"></i></div>
-          <h4>Beverages</h4>
-          <p>
-            Health-oriented and speciality beverages that can complement your food or nutraceutical
-            positioning.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRIVATE LABEL & NUTRACEUTICAL NOTE -->
-<section class="section">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div class="section-kicker">Private Label & 3rd Party</div>
-        <h2 class="section-title">Your Brand. Our Food Manufacturing Base.</h2>
-        <div class="gold-bar"></div>
-        <p class="mt-3 section-text">
-          We partner with startups, D2C brands, supermarkets, distributors and export houses that
-          want reliable, quality-oriented food manufacturing without building their own plant.
-        </p>
-        <ul class="section-text">
-          <li>Confidential & non-competing private label relationships</li>
-          <li>Support for multi-category portfolios under one umbrella</li>
-          <li>Guidance on basic compliance and packaging declarations</li>
-          <li>Practical batch sizes suitable for growing brands</li>
-        </ul>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="info-card">
-          <div class="info-icon"><i class="fas fa-leaf"></i></div>
-          <h4>Nutraceutical & Functional Food Focus</h4>
-          <p class="section-text">
-            Where required, we also work on select functional or nutraceutical-style products
-            aligned with the broader Willpower Health & Skin Care philosophy – always with clarity
-            on regulatory positioning and communication.
-          </p>
-          <p class="mt-2" style="font-size:0.85rem; color:#9ca3af;">
-            Exact product formulations and claims are finalised only after detailed discussion,
-            feasibility checks and regulatory review from your side.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="section text-center" style="background:#0b1020;">
-  <h2 class="section-title">Ready to Build or Expand Your Food Brand?</h2>
-  <p class="mt-3 section-text" style="max-width:700px; margin:auto;">
-    Share your product ideas – masalas, RTE foods, agro products or beverages – and we can explore
-    how to bring them to market in a structured, scalable way.
-  </p>
-
-  <a href="https://wa.me/917039196489" class="btn-gold mt-4">
-    Start WhatsApp Conversation <i class="fab fa-whatsapp"></i>
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <h3 style="font-family:'Playfair Display',serif; color:var(--gold); font-size:1.4rem;">World of Willpower</h3>
-  <p class="mt-1">002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
-
-  <div class="mt-2">
-    <i class="fab fa-whatsapp" style="color:#22c55e"></i> +91&nbsp;7039196489
-    <span class="mx-3">|</span>
-    <i class="fas fa-envelope" style="color:#fbbf24"></i> care@worldofwillpower.com
-  </div>
-
-  <p class="mt-3" style="opacity:0.6">&copy; 2025 World of Willpower</p>
-</footer>
-
-<a href="https://wa.me/917039196489" class="float-wa"><i class="fab fa-whatsapp"></i></a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+  <a href="https://wa.me/917039196489" class="float-wa" target="_blank" aria-label="Chat on WhatsApp">🟢</a>
 </body>
 </html>
