@@ -207,6 +207,13 @@
       margin-top: 20px;
     }
 
+    .venture-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      height: 100%;
+    }
+
     .venture-card {
       background: radial-gradient(circle at top left, #0b1120, #020617);
       border-radius: 22px;
@@ -219,6 +226,7 @@
       justify-content: space-between;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .venture-card::before {
@@ -230,7 +238,7 @@
       transition: opacity 0.25s ease;
     }
 
-    .venture-card:hover::before {
+    .venture-card-link:hover .venture-card::before {
       opacity: 1;
     }
 
@@ -263,20 +271,21 @@
       margin-bottom: 14px;
     }
 
-    .venture-link {
+    .venture-link-label {
       font-size: 0.8rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--primary);
-      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
     }
 
-    .venture-link i {
+    .venture-link-label i {
       margin-left: 6px;
       font-size: 0.7rem;
     }
 
-    .venture-link:hover {
+    .venture-card-link:hover .venture-link-label {
       color: #facc15;
     }
 
@@ -440,7 +449,7 @@
           Every venture under World of Willpower is built with:
         </p>
         <ul class="section-text">
-          <li>Clear focus on **real value** for customers and partners</li>
+          <li>Clear focus on <strong>real value</strong> for customers and partners</li>
           <li>Premium positioning with honest, execution–backed promises</li>
           <li>Ability to think like both an entrepreneur and an operator</li>
           <li>Long–term relationship mindset over transactional deals</li>
@@ -462,143 +471,156 @@
     <div class="row ventures-wrap g-4">
       <!-- Willpower Maestros -->
       <div class="col-md-6 col-lg-4">
-        <div class="venture-card">
-          <div>
-            <div class="venture-icon">
-              <i class="fas fa-chalkboard-teacher"></i>
+        <a href="willpro-maestros.html" class="venture-card-link">
+          <div class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <div class="venture-title">Willpower Maestros</div>
+              <div class="venture-text">
+                Mentoring, consultations and high–impact training for founders & leaders.
+              </div>
             </div>
-            <div class="venture-title">Willpower Maestros</div>
-            <div class="venture-text">
-              Mentoring, consultations and high–impact training for founders & leaders.
+            <div>
+              <span class="venture-link-label">
+                VIEW DIVISION <i class="fas fa-arrow-right"></i>
+              </span>
             </div>
           </div>
-          <div>
-            <a class="venture-link" href="willpro-maestros.html">
-              View Division <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
 
       <!-- Willpower Dairy Care -->
       <div class="col-md-6 col-lg-4">
-        <div class="venture-card">
-          <div>
-            <div class="venture-icon">
-              <i class="fas fa-cow"></i>
+        <a href="dairy-manufacturing.html" class="venture-card-link">
+          <div class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-cow"></i>
+              </div>
+              <div class="venture-title">Willpower Dairy Care</div>
+              <div class="venture-text">
+                High–purity dairy manufacturing with strong focus on quality and consistency.
+              </div>
             </div>
-            <div class="venture-title">Willpower Dairy Care</div>
-            <div class="venture-text">
-              High–purity dairy manufacturing with strong focus on quality and consistency.
+            <div>
+              <span class="venture-link-label">
+                VIEW DIVISION <i class="fas fa-arrow-right"></i>
+              </span>
             </div>
           </div>
-          <div>
-            <a class="venture-link" href="dairy-manufacturing.html">
-              View Division <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
 
       <!-- Willpower Food Care -->
       <div class="col-md-6 col-lg-4">
-        <div class="venture-card">
-          <div>
-            <div class="venture-icon">
-              <i class="fas fa-utensils"></i>
+        <a href="food-care.html" class="venture-card-link">
+          <div class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="venture-title">Willpower Food Care</div>
+              <div class="venture-text">
+                Masala powders, ready–to–eat foods, agro products and beverages for modern consumers.
+              </div>
             </div>
-            <div class="venture-title">Willpower Food Care</div>
-            <div class="venture-text">
-              Masala powders, ready–to–eat foods, agro products and beverages for modern consumers.
+            <div>
+              <span class="venture-link-label">
+                VIEW DIVISION <i class="fas fa-arrow-right"></i>
+              </span>
             </div>
           </div>
-          <div>
-            <!-- ✅ Correct link to the new page -->
-            <a class="venture-link" href="food-care.html">
-              View Division <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
 
       <!-- Health & Skin Care -->
       <div class="col-md-6 col-lg-4">
-        <div class="venture-card">
-          <div>
-            <div class="venture-icon">
-              <i class="fas fa-leaf"></i>
+        <a href="ayurveda.html" class="venture-card-link">
+          <div class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div class="venture-title">Willpower Health & Skin Care</div>
+              <div class="venture-text">
+                Proprietary Ayurvedic and herbal formulations for holistic health & skincare.
+              </div>
             </div>
-            <div class="venture-title">Willpower Health & Skin Care</div>
-            <div class="venture-text">
-              Proprietary Ayurvedic and herbal formulations for holistic health & skincare.
+            <div>
+              <span class="venture-link-label">
+                VIEW DIVISION <i class="fas fa-arrow-right"></i>
+              </span>
             </div>
           </div>
-          <div>
-            <a class="venture-link" href="ayurveda.html">
-              View Division <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
 
       <!-- WillPro Technologies & Systems -->
       <div class="col-md-6 col-lg-4">
-        <div class="venture-card">
-          <div>
-            <div class="venture-icon">
-              <i class="fas fa-code"></i>
+        <a href="new-business.html" class="venture-card-link">
+          <div class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="venture-title">WillPro Technologies & Systems</div>
+              <div class="venture-text">
+                Software, web and digital solutions designed for ambitious businesses.
+              </div>
             </div>
-            <div class="venture-title">WillPro Technologies & Systems</div>
-            <div class="venture-text">
-              Software, web and digital solutions designed for ambitious businesses.
+            <div>
+              <span class="venture-link-label">
+                VIEW DIVISION <i class="fas fa-arrow-right"></i>
+              </span>
             </div>
           </div>
-          <div>
-            <a class="venture-link" href="new-business.html">
-              View Division <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
 
       <!-- WIN Club -->
       <div class="col-md-6 col-lg-4">
-        <div class="venture-card">
-          <div>
-            <div class="venture-icon">
-              <i class="fas fa-coins"></i>
+        <a href="ventures.html" class="venture-card-link">
+          <div class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-coins"></i>
+              </div>
+              <div class="venture-title">WIN Club (WillPro Investors Node)</div>
+              <div class="venture-text">
+                A focused investors hub for curated, structured Willpower opportunities.
+              </div>
             </div>
-            <div class="venture-title">WIN Club (WillPro Investors Node)</div>
-            <div class="venture-text">
-              A focused investors hub for curated, structured Willpower opportunities.
+            <div>
+              <span class="venture-link-label">
+                VIEW DIVISION <i class="fas fa-arrow-right"></i>
+              </span>
             </div>
           </div>
-          <div>
-            <a class="venture-link" href="ventures.html">
-              View Division <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
 
       <!-- WillPro Aggregators -->
       <div class="col-md-6 col-lg-4">
-        <div class="venture-card">
-          <div>
-            <div class="venture-icon">
-              <i class="fas fa-truck-fast"></i>
+        <a href="mentoring-strategy.html" class="venture-card-link">
+          <div class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-truck-fast"></i>
+              </div>
+              <div class="venture-title">WillPro Aggregators</div>
+              <div class="venture-text">
+                E–commerce and logistics–aligned aggregation models for products and brands.
+              </div>
             </div>
-            <div class="venture-title">WillPro Aggregators</div>
-            <div class="venture-text">
-              E–commerce and logistics–aligned aggregation models for products and brands.
+            <div>
+              <span class="venture-link-label">
+                VIEW DIVISION <i class="fas fa-arrow-right"></i>
+              </span>
             </div>
           </div>
-          <div>
-            <a class="venture-link" href="mentoring-strategy.html">
-              View Division <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
