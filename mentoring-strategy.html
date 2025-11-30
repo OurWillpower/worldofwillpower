@@ -5,562 +5,419 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WillPro Aggregators – E-commerce & Logistics</title>
 
-  <!-- Bootstrap & Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <!-- SEO -->
+  <meta name="description" content="WillPro Aggregators looks at e-commerce, marketplaces and logistics as one system – offers, pricing, COD, partners and dashboards – for founders who want structure, not chaos." />
+  <meta name="keywords" content="WillPro Aggregators, World of Willpower, ecommerce, logistics, aggregators, marketplaces, shipping, COD, pricing, offers, dashboards" />
+  <meta name="author" content="World of Willpower" />
 
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Open Graph -->
+  <meta property="og:title" content="WillPro Aggregators – E-commerce & Logistics" />
+  <meta property="og:description" content="Calm thinking around ecommerce, marketplaces and logistics – from offers and COD to partners and dashboards." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ourwillpower.github.io/worldofwillpower/mentoring-strategy.html" />
+
+  <!-- CSS & ICONS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg-deep: #020617;
-      --bg-card: #020b17;
-      --bg-soft: #030712;
-      --accent: #f97316;
-      --accent-soft: rgba(249, 115, 22, 0.12);
+      --bg-deep: #020807;
+      --bg-soft: #03130c;
+      --card: #020c08;
+      --card-soft: #03150d;
+      --gold: #E6B325;
+      --gold-soft: rgba(230, 179, 37, 0.18);
+      --border-soft: rgba(15, 23, 42, 0.9);
       --text-main: #f9fafb;
       --text-muted: #9ca3af;
-      --border-soft: #1f2937;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top left, #0b1120 0, #020617 45%, #020617 100%);
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, #062516 0, transparent 55%),
+        radial-gradient(circle at bottom right, #02130b 0, #020507 60%);
       color: var(--text-main);
       overflow-x: hidden;
     }
 
-    /* NAVBAR */
     .navbar {
-      background: rgba(2, 6, 23, 0.98);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
-      backdrop-filter: blur(14px);
+      background: rgba(2, 8, 7, 0.97);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.85);
+    }
+    .navbar-brand{
+      display:flex;align-items:center;gap:10px;
+      font-family:"Playfair Display",serif;
+      font-size:1.25rem;font-weight:700;
+      letter-spacing:0.08em;color:var(--gold)!important;
+      text-transform:uppercase;
+    }
+    .navbar-brand img{height:44px;}
+    .nav-link{
+      font-size:0.85rem;text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:rgba(249,250,251,0.78)!important;
+      padding-inline:0.9rem!important;
+    }
+    .nav-link:hover,.nav-link.active{color:var(--gold)!important;}
+    .btn-admin{
+      font-size:0.78rem;text-transform:uppercase;
+      letter-spacing:0.16em;border-radius:999px;
+      padding:0.45rem 1.2rem;
+      border:1px solid rgba(249,250,251,0.35);
+      color:#e5e7eb;background:transparent;
+    }
+    .btn-admin:hover{border-color:var(--gold);color:var(--gold);}
+
+    .hero{
+      padding:120px 0 80px;
+      background:
+        radial-gradient(circle at top left,#062618 0,transparent 60%),
+        radial-gradient(circle at bottom right,#020807 0,#010409 65%);
+    }
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:0.25rem 0.85rem;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      background:rgba(2,10,8,0.95);
+      font-size:0.75rem;letter-spacing:0.16em;
+      text-transform:uppercase;color:#e5e7eb;
+    }
+    .hero-kicker span.dot{
+      width:7px;height:7px;border-radius:999px;
+      background:#22c55e;box-shadow:0 0 0 6px rgba(34,197,94,0.25);
+    }
+    .hero-title{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(2.3rem,3.2vw,3rem);
+      margin-top:1.8rem;margin-bottom:1rem;
+      max-width:720px;
+    }
+    .hero-title span.highlight{color:var(--gold);}
+    .hero-sub{
+      font-size:0.98rem;color:var(--text-muted);
+      max-width:640px;
+    }
+    .hero-rotator{
+      margin-top:0.9rem;font-size:0.86rem;
+      letter-spacing:0.18em;color:var(--gold);
+      text-transform:uppercase;transition:opacity 0.25s ease;
+    }
+    .btn-hero{
+      border-radius:999px;padding:0.9rem 1.9rem;
+      font-size:0.84rem;letter-spacing:0.18em;
+      text-transform:uppercase;display:inline-flex;
+      align-items:center;gap:0.6rem;
+      background:linear-gradient(90deg,#f4c33b,#e6b325);
+      color:#111827;font-weight:700;text-decoration:none;
+      box-shadow:0 16px 40px rgba(0,0,0,0.7);
+    }
+    .btn-hero i{font-size:1.1rem;}
+
+    .side-card{
+      background:
+        radial-gradient(circle at top left,#062617 0,transparent 70%),
+        linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.96));
+      border-radius:22px;
+      border:1px solid rgba(148,163,184,0.4);
+      box-shadow:0 24px 60px rgba(0,0,0,0.95);
     }
 
-    .navbar-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: "Playfair Display", serif;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      font-size: 1.25rem;
-      color: #facc15 !important;
+    .section{
+      padding:40px 0 90px;
+      background:
+        radial-gradient(circle at top right,#031f13 0,transparent 55%),
+        radial-gradient(circle at bottom left,#020708 0,#010409 70%);
+    }
+    .section-title{
+      font-family:"Playfair Display",serif;
+      font-size:1.9rem;
+    }
+    .section-kicker{
+      font-size:0.78rem;letter-spacing:0.2em;
+      text-transform:uppercase;color:var(--text-muted);
+      margin-bottom:0.4rem;
+    }
+    .section-sub{
+      max-width:640px;margin:0.6rem auto 0;
+      color:var(--text-muted);font-size:0.9rem;
     }
 
-    .navbar-brand img {
-      height: 46px;
+    .feature-card{
+      border-radius:22px;
+      background:
+        radial-gradient(circle at top left,#04140d 0,transparent 65%),
+        linear-gradient(145deg,#020b07,#020405);
+      border:1px solid rgba(15,23,42,0.95);
+      padding:1.6rem 1.7rem 1.5rem;
+      color:var(--text-main);
+      box-shadow:0 18px 40px rgba(0,0,0,0.75);
+      min-height:170px;
+    }
+    .feature-icon{
+      width:38px;height:38px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--gold-soft);color:var(--gold);
+      margin-bottom:0.85rem;
+    }
+    .feature-title{
+      font-size:1rem;font-weight:600;margin-bottom:0.35rem;
+    }
+    .feature-text{
+      font-size:0.9rem;color:var(--text-muted);
     }
 
-    .nav-link {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(249, 250, 251, 0.7) !important;
-      padding-inline: 0.9rem !important;
+    .cta-section{
+      padding:70px 0 80px;
+      background:
+        radial-gradient(circle at top left,#052416 0,transparent 60%),
+        linear-gradient(160deg,#02050a,#020807);
+      text-align:center;
+    }
+    .cta-section h2{
+      font-family:"Playfair Display",serif;
+      font-size:2rem;margin-bottom:1rem;
+    }
+    .cta-section p{
+      max-width:640px;margin:0 auto 1.5rem;
+      color:var(--text-muted);font-size:0.95rem;
     }
 
-    .nav-link.active,
-    .nav-link:hover {
-      color: #f97316 !important;
+    footer{
+      background:#020509;
+      border-top:1px solid rgba(15,23,42,0.9);
+      text-align:center;padding:30px 0;
+    }
+    footer h5{
+      font-family:"Playfair Display",serif;
+      color:var(--gold);
+    }
+    footer p{
+      color:var(--text-muted);font-size:0.85rem;
+    }
+    footer .muted{
+      font-size:0.78rem;color:#6b7280;margin-top:0.8rem;
     }
 
-    .nav-link-pill {
-      border-radius: 999px;
-      padding: 0.35rem 0.9rem !important;
-      border: 1px solid transparent;
+    .float-wa{
+      position:fixed;bottom:26px;right:26px;
+      width:52px;height:52px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      background:#22c55e;color:#020617;
+      font-size:1.7rem;text-decoration:none;
+      z-index:999;box-shadow:0 18px 40px rgba(22,163,74,0.7);
     }
 
-    .nav-link-pill.active {
-      background: rgba(249, 115, 22, 0.08);
-      border-color: rgba(249, 115, 22, 0.4);
-    }
-
-    .btn-admin {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      border-radius: 999px;
-      padding: 0.45rem 1.1rem;
-      border: 1px solid rgba(248, 250, 252, 0.28);
-      color: #e5e7eb;
-    }
-
-    .btn-admin:hover {
-      background: rgba(15, 23, 42, 0.9);
-      color: #f97316;
-      border-color: rgba(249, 115, 22, 0.5);
-    }
-
-    /* HERO SECTION – same family as Tech page */
-    .hero {
-      padding: 120px 0 70px;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0.25rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #e5e7eb;
-    }
-
-    .hero-kicker span.badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
-    }
-
-    .hero-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.1rem, 3.4vw, 2.8rem);
-      line-height: 1.2;
-      margin: 1.7rem 0 1rem;
-      max-width: 620px;
-    }
-
-    .hero-title span.highlight {
-      color: #fbbf24;
-    }
-
-    .hero-sub {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      max-width: 640px;
-    }
-
-    .hero-pill {
-      margin-top: 2rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.9rem 1.9rem;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #f97316, #ea580c);
-      color: #111827;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .hero-pill i {
-      font-size: 1rem;
-    }
-
-    .hero-pill:hover {
-      filter: brightness(1.05);
-      color: #020617;
-    }
-
-    .hero-meta {
-      margin-top: 1.3rem;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-    }
-
-    /* LEFT QUESTIONS BLOCK – like Tech page style */
-    .questions-card {
-      border-radius: 22px;
-      background: radial-gradient(circle at top left, #111827 0, #020617 60%);
-      border: 1px solid rgba(55, 65, 81, 0.85);
-      padding: 1.7rem 1.8rem;
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.85);
-    }
-
-    .questions-title {
-      font-size: 0.85rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #9ca3af;
-      margin-bottom: 0.6rem;
-    }
-
-    .questions-card ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .questions-card li {
-      display: flex;
-      gap: 0.6rem;
-      font-size: 0.9rem;
-      color: #e5e7eb;
-      margin-bottom: 0.6rem;
-    }
-
-    .questions-card li i {
-      color: #f97316;
-      margin-top: 0.1rem;
-    }
-
-    /* MID SECTION – SHORT, like Tech */
-    .mid-section {
-      padding: 0 0 85px;
-    }
-
-    .mid-card {
-      border-radius: 22px;
-      background: linear-gradient(135deg, #020617 0, #030712 50%, #020617 100%);
-      border: 1px solid rgba(55, 65, 81, 0.7);
-      padding: 2rem;
-    }
-
-    .mid-label {
-      font-size: 0.85rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #9ca3af;
-      margin-bottom: 0.5rem;
-    }
-
-    .mid-heading {
-      font-family: "Playfair Display", serif;
-      font-size: 1.35rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .mid-text {
-      font-size: 0.92rem;
-      color: #d1d5db;
-      margin-bottom: 1.1rem;
-    }
-
-    .check-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .check-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.55rem;
-      margin-bottom: 0.55rem;
-      font-size: 0.9rem;
-      color: #e5e7eb;
-    }
-
-    .check-list i {
-      color: #22c55e;
-      margin-top: 0.1rem;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      background: #020617;
-      padding: 28px 0 32px;
-      text-align: center;
-    }
-
-    footer h5 {
-      font-family: "Playfair Display", serif;
-      color: #facc15;
-      margin-bottom: 0.25rem;
-    }
-
-    footer p {
-      margin: 0.25rem 0;
-      color: #9ca3af;
-      font-size: 0.85rem;
-    }
-
-    footer .contact-line {
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.85rem;
-    }
-
-    footer .contact-line i {
-      margin-right: 0.35rem;
-    }
-
-    footer .muted {
-      font-size: 0.78rem;
-      color: #6b7280;
-      margin-top: 0.8rem;
-    }
-
-    /* FLOATING WHATSAPP */
-    .float-wa {
-      position: fixed;
-      bottom: 26px;
-      right: 26px;
-      width: 52px;
-      height: 52px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #22c55e;
-      color: #020617;
-      font-size: 1.7rem;
-      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.6);
-      text-decoration: none;
-      z-index: 999;
-    }
-
-    .float-wa:hover {
-      filter: brightness(1.08);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 991px) {
-      .hero {
-        padding-top: 96px;
-      }
-
-      .mid-section {
-        padding-bottom: 70px;
-      }
-
-      .questions-card {
-        margin-top: 1.8rem;
-      }
-    }
-
-    @media (max-width: 575px) {
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      .hero-pill {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .float-wa {
-        bottom: 18px;
-        right: 18px;
-      }
+    @media(max-width:767px){
+      .hero{padding-top:96px;}
     }
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img
-          src="https://ourwillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png"
-          alt="Willpower logo"
-        />
-        <span>World of Willpower</span>
-      </a>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mainNav"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="https://ourwillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" />
+      <span>World of Willpower</span>
+    </a>
 
-      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-        <ul class="navbar-nav align-items-lg-center gap-lg-1">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="ventures.html">Ventures</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-link-pill active" href="mentoring-strategy.html">
-              WillPro Aggregators
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#contact">Contact</a>
-          </li>
-          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-sm btn-admin" href="admin.html">
-              <i class="fas fa-terminal me-1"></i> Admin Panel
-            </a>
-          </li>
-        </ul>
-      </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+      <ul class="navbar-nav align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="ventures.html">WIN Club</a></li>
+        <li class="nav-item"><a class="nav-link" href="new-business.html">Tech</a></li>
+        <li class="nav-item"><a class="nav-link active" href="mentoring-strategy.html">Aggregators</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn btn-sm btn-admin" href="admin.html"><i class="fas fa-terminal"></i> Admin Panel</a></li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- HERO (like Tech layout) -->
-  <section class="hero">
-    <div class="container">
-      <div class="row g-4 align-items-start">
-        <!-- LEFT: Questions card -->
-        <div class="col-lg-5">
-          <div class="questions-card">
-            <div class="questions-title">Before We Talk Aggregators</div>
-            <ul>
-              <li>
-                <i class="fas fa-circle-question"></i>
-                <span>Are your products already doing well in offline, institutional or regional markets?</span>
-              </li>
-              <li>
-                <i class="fas fa-circle-question"></i>
-                <span>
-                  Do you feel marketplace, e-commerce and logistics conversations have become
-                  noisy – with everyone offering a “quick fix”?
-                </span>
-              </li>
-              <li>
-                <i class="fas fa-circle-question"></i>
-                <span>
-                  Would you prefer a calmer, structured approach where brand, margins and
-                  operations are respected first?
-                </span>
-              </li>
-            </ul>
-          </div>
+<section class="hero">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-7">
+        <div class="hero-kicker">
+          <span class="dot"></span> WillPro Aggregators · E-commerce &amp; Logistics
         </div>
 
-        <!-- RIGHT: Main hero text -->
-        <div class="col-lg-7">
-          <div class="hero-kicker">
-            <span class="badge-dot"></span>
-            WillPro Aggregators – E-commerce & Logistics
-          </div>
+        <h1 class="hero-title">
+          Want Your <span class="highlight">E-commerce &amp; Logistics</span> to Behave Like One System, Not Ten Different Vendors?
+        </h1>
 
-          <h1 class="hero-title">
-            Interested in Being Part of an <span class="highlight">Aggregator Story</span> that Respects Business Reality?
-          </h1>
+        <p class="hero-sub">
+          WillPro Aggregators looks at marketplaces, offers, COD, logistics partners and dashboards together –
+          so the entire chain from click to delivery is understood as one flow, not fragmented tasks.
+        </p>
 
-          <p class="hero-sub">
-            If you are a manufacturer, brand owner or logistics ally who resonates with this
-            thinking, we can explore how to design an aggregator / e-commerce model that does
-            not disturb your base business – but strengthens it.
-          </p>
+        <div class="hero-rotator">
+          <span id="rotating-line">Clarity around offers, COD and partners</span>
+        </div>
 
-          <a
-            href="https://wa.me/917039196489"
-            class="hero-pill"
-            target="_blank"
-            rel="noopener"
-          >
-            Start Aggregator Conversation
-            <i class="fab fa-whatsapp"></i>
+        <div class="mt-4 d-flex flex-column flex-sm-row align-items-center gap-3">
+          <a href="https://wa.me/917039196489" target="_blank" class="btn-hero">
+            Start Aggregators Conversation <i class="fab fa-whatsapp"></i>
           </a>
+        </div>
+      </div>
 
-          <div class="hero-meta">
-            Listings • Fulfilment • Channel structure • Practical operating playbooks
+      <div class="col-lg-5">
+        <div class="side-card p-4">
+          <div class="small text-uppercase mb-3" style="letter-spacing:0.18em;color:var(--text-muted);">
+            Typical Aggregators Questions
           </div>
+          <ul class="list-unstyled" style="color:#e5e7eb;font-size:0.92rem;">
+            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i>Which marketplaces should we really be on at this stage?</li>
+            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i>How do we structure offers and discounts without killing margins?</li>
+            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i>How do we handle COD, returns and fake orders sensibly?</li>
+            <li><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i>Which logistics &amp; tech partners fit our current scale?</li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- MID SECTION (short, like Tech page) -->
-  <section class="mid-section">
-    <div class="container">
-      <div class="mid-card">
-        <div class="row g-4 align-items-start">
-          <div class="col-lg-6">
-            <div class="mid-label">Engagement Philosophy</div>
-            <h3 class="mid-heading">
-              E-commerce and logistics are extensions of your operating system – not a side show.
-            </h3>
-            <p class="mid-text">
-              WillPro Aggregators looks at your plant, warehouses, current partners and working
-              capital first. Only then do we speak of listings, portals, dark stores, last-mile or
-              any other buzzword.
-            </p>
-            <ul class="check-list">
-              <li>
-                <i class="fas fa-check-circle"></i>
-                <span>Channel map that respects existing distributors and institutional buyers.</span>
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i>
-                <span>Clear definition of who owns inventory, billing and customer experience.</span>
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i>
-                <span>Simple review rhythm so numbers and service levels are visible to founders.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="mid-label">What We Can Co-Create</div>
-            <p class="mid-text">
-              Depending on where you are today, the work can start small – one category, one
-              platform, one city – and then expand. The intent is to build something that your
-              team can run daily without chaos.
-            </p>
-            <ul class="check-list">
-              <li>
-                <i class="fas fa-check-circle"></i>
-                <span>Aggregator-style models for dairy, food, Ayurveda and allied categories.</span>
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i>
-                <span>Logistics and fulfilment structures that match your realities – not theory.</span>
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i>
-                <span>Partnership structures where roles, responsibilities and rewards are written down.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contact">
-    <div class="container">
-      <h5>World of Willpower</h5>
-      <p>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
-      <p class="contact-line">
-        <i class="fab fa-whatsapp text-success"></i> +91 7039196489
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <i class="fas fa-envelope text-warning"></i> care@worldofwillpower.com
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <div class="section-kicker">What WillPro Aggregators Looks At</div>
+      <h2 class="section-title">From Listings to Delivery – Treated as One Story.</h2>
+      <p class="section-sub">
+        The objective is to give founders a clear picture of how product, pricing, promotion, platform rules
+        and logistics all talk to each other – instead of firefighting one issue at a time.
       </p>
-      <p class="muted">© 2025 World of Willpower</p>
     </div>
-  </footer>
 
-  <!-- Floating WhatsApp -->
-  <a
-    href="https://wa.me/917039196489"
-    class="float-wa"
-    target="_blank"
-    rel="noopener"
-  >
-    <i class="fab fa-whatsapp"></i>
-  </a>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-store"></i></div>
+          <div class="feature-title">Marketplace &amp; Channel Choice</div>
+          <div class="feature-text">
+            Selecting which marketplaces, own site and offline pieces make sense for your product, price and team capacity.
+          </div>
+        </div>
+      </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-tags"></i></div>
+          <div class="feature-title">Pricing, Offers &amp; Positioning</div>
+          <div class="feature-text">
+            Thinking through base price, promotions, bundles and visibility so brand and margins are both protected.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-boxes-packing"></i></div>
+          <div class="feature-title">Inventory &amp; Dispatch Thinking</div>
+          <div class="feature-text">
+            Where to keep stock, how often to replenish and what to do when platforms push conflicting requirements.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+          <div class="feature-title">Logistics &amp; Partners</div>
+          <div class="feature-text">
+            Choosing logistics partners and service levels that balance customer expectations with your cash flow reality.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-money-check-alt"></i></div>
+          <div class="feature-title">COD, Returns &amp; Risk</div>
+          <div class="feature-text">
+            Understanding how COD, returns, fake orders and penalties impact profitability – and what levers you actually have.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="feature-title">Dashboards &amp; Numbers</div>
+          <div class="feature-text">
+            Setting up simple ways to see orders, performance and leaks – without drowning you in dashboards you never open.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Look at E-commerce Calmly?</h2>
+    <p>
+      If you are already selling or planning to sell via marketplaces or aggregators, share a short note on WhatsApp –
+      current sales, channels and pain points – and we can see how WillPro Aggregators can help.
+    </p>
+    <a href="https://wa.me/917039196489" target="_blank" class="btn-hero">
+      Start Aggregators Conversation <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <h5>World of Willpower</h5>
+    <p>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
+    <p>
+      <i class="fab fa-whatsapp text-success"></i> +91 7039196489
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <i class="fas fa-envelope text-warning"></i> care@worldofwillpower.com
+    </p>
+    <p class="muted">© 2025 World of Willpower</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/917039196489" class="float-wa">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const aggLines = [
+    "Clarity around offers, COD and partners",
+    "Marketplaces, own site and logistics as one flow",
+    "Numbers and dashboards that you actually use",
+    "E-commerce structures that respect margins"
+  ];
+  let aggIdx = 0;
+  const aggRotator = document.getElementById("rotating-line");
+
+  setInterval(() => {
+    aggIdx = (aggIdx + 1) % aggLines.length;
+    aggRotator.style.opacity = 0;
+    setTimeout(() => {
+      aggRotator.textContent = aggLines[aggIdx];
+      aggRotator.style.opacity = 1;
+    }, 250);
+  }, 3200);
+</script>
+
 </body>
 </html>
