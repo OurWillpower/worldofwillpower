@@ -2,24 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World of Willpower</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>World of Willpower – Mentoring, Dairy, Ayurveda, Tech & WIN Club</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <!-- SEO META -->
+  <meta
+    name="description"
+    content="World of Willpower is a boutique group led by Jayant Bhat – mentoring founders, crafting dairy & food brands, Ayurveda health & skin care, tech & systems, investors WIN Club and WillPro Aggregators."
+  />
+  <meta
+    name="keywords"
+    content="World of Willpower, Jayant Bhat, mentoring, business consulting, dairy manufacturing, food brands, Ayurveda, herbal skincare, software development, tech systems, investors club, aggregators"
+  />
+  <meta name="author" content="World of Willpower" />
+
+  <!-- SOCIAL PREVIEW (basic) -->
+  <meta property="og:title" content="World of Willpower – Strategic Ventures & Mentoring" />
+  <meta
+    property="og:description"
+    content="Mentoring, dairy & food manufacturing, Ayurveda, tech, WIN Club and WillPro Aggregators – one ecosystem led by World of Willpower."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ourwillpower.github.io/worldofwillpower/index.html" />
+
+  <!-- CSS & ICONS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- FONTS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     :root {
-      --bg: #020617;
-      --bg-soft: #020818;
-      --card: #020818;
-      --card-soft: #020a1f;
-      --accent: #f97316;
-      --accent-soft: #fed7aa;
-      --accent-alt: #22c55e;
-      --text-main: #e5e7eb;
+      /* DARK GREEN + REAL GOLD PALETTE */
+      --bg-deep: #020a07;
+      --bg-soft: #03110c;
+      --bg-card: #041910;
+      --bg-card-soft: #051f15;
+      --border-soft: #113322;
+      --gold: #d4af37; /* real gold tone */
+      --gold-soft: rgba(212, 175, 55, 0.2);
+      --accent: #f59e0b;
+      --text-main: #f9fafb;
       --text-muted: #9ca3af;
-      --border-subtle: #111827;
     }
 
     * {
@@ -28,820 +65,658 @@
 
     body {
       margin: 0;
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, #082f49 0, #020617 40%, #000 100%);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #0b1f16 0, #020807 48%, #010503 100%);
       color: var(--text-main);
-      padding-bottom: 140px; /* space so WhatsApp button never hides footer */
+      overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    /* NAVBAR */
+    .navbar {
+      background: rgba(2, 8, 7, 0.96);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      backdrop-filter: blur(16px);
     }
 
-    /* ================= NAVBAR ================ */
-
-    .top-nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(2, 6, 23, 0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
-    }
-
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
+    .navbar-brand {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .brand img {
-      height: 40px;
-      border-radius: 4px;
-    }
-
-    .brand span {
       font-family: "Playfair Display", serif;
-      font-size: 1.2rem;
-      color: #fbbf24;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--gold) !important;
+      text-transform: uppercase;
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      font-size: 0.9rem;
+    .navbar-brand img {
+      height: 44px;
     }
 
     .nav-link {
-      position: relative;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 500;
-      color: rgba(248, 250, 252, 0.8);
-      font-size: 0.75rem;
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -6px;
-      margin: 0 auto;
-      width: 24px;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 999px;
-    }
-
-    .nav-cta {
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(248, 250, 252, 0.2);
-      font-size: 0.7rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--accent-soft);
-      background: rgba(15, 23, 42, 0.8);
+      color: rgba(249, 250, 251, 0.75) !important;
+      padding-inline: 0.9rem !important;
     }
 
-    .nav-cta:hover {
-      border-color: var(--accent-soft);
-      background: rgba(30, 64, 175, 0.9);
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold) !important;
     }
 
-    /* ================= LAYOUT UTILITIES ================ */
-
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
-    }
-
-    .section-label {
+    .btn-admin {
+      font-size: 0.78rem;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
+      border-radius: 999px;
+      padding: 0.45rem 1.2rem;
+      border: 1px solid rgba(249, 250, 251, 0.3);
+      color: #e5e7eb;
+    }
+
+    .btn-admin:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 120px 0 80px;
+      background: radial-gradient(circle at top left, #052917 0, #020807 55%);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(3, 15, 10, 0.9);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .hero-kicker span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 3.6vw, 3.1rem);
+      line-height: 1.2;
+      margin-top: 1.7rem;
+      margin-bottom: 1rem;
+      max-width: 620px;
+    }
+
+    .hero-title span.highlight {
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    /* ROTATING SUBLINE */
+    .hero-rotator {
+      margin-top: 0.8rem;
+      font-size: 0.86rem;
       letter-spacing: 0.18em;
-      font-size: 0.7rem;
-      color: var(--accent-soft);
-      font-weight: 500;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .hero-rotator span {
+      color: var(--gold);
+    }
+
+    .hero-cta-row {
+      margin-top: 1.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-hero {
+      border-radius: 999px;
+      padding: 0.9rem 1.9rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(90deg, #fbbf24, #d97706);
+      color: #111827;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .btn-hero i {
+      font-size: 1.1rem;
+    }
+
+    .btn-hero:hover {
+      filter: brightness(1.04);
+      color: #020617;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .hero-note i {
+      color: #22c55e;
+      margin-right: 0.25rem;
+    }
+
+    /* CARDS SECTION */
+    .section {
+      padding: 40px 0 90px;
+      background: radial-gradient(circle at top right, #031710 0, #020807 55%);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9ca3af;
     }
 
     .section-title {
       font-family: "Playfair Display", serif;
-      font-size: 2.4rem;
-      margin: 12px 0 8px;
+      font-size: 1.9rem;
+      margin-top: 0.6rem;
     }
 
-    .section-subtitle {
-      font-size: 0.97rem;
+    .section-sub {
       color: var(--text-muted);
-      max-width: 640px;
-    }
-
-    /* ================= HERO ================ */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.9fr);
-      gap: 40px;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-    }
-
-    .hero-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-soft);
-    }
-
-    .hero-badge {
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(249, 115, 22, 0.4);
-      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.08), transparent);
-    }
-
-    .hero-heading {
-      font-family: "Playfair Display", serif;
-      font-size: 3rem;
-      line-height: 1.1;
-      margin: 4px 0 12px;
-    }
-
-    .hero-heading span {
-      color: var(--accent-soft);
-    }
-
-    .hero-text {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      max-width: 520px;
-      line-height: 1.7;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 26px;
-      font-size: 0.78rem;
-    }
-
-    .hero-pill {
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.2));
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: rgba(248, 250, 252, 0.85);
-    }
-
-    .hero-pill span.icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: radial-gradient(circle at top left, #22c55e, #15803d);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      color: #022c22;
-    }
-
-    .hero-cta-row {
-      margin-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .btn-primary {
-      padding: 11px 22px;
-      border-radius: 999px;
-      border: none;
-      background: radial-gradient(circle at top left, #f97316, #ea580c);
-      color: #111827;
-      font-weight: 600;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 18px 45px rgba(248, 113, 22, 0.45);
-      transform: translateY(-1px);
-    }
-
-    .hero-note {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-    }
-
-    .hero-showcase {
-      border-radius: 24px;
-      padding: 18px 18px 20px;
-      background:
-        radial-gradient(circle at top left, rgba(248, 250, 252, 0.14), transparent 65%),
-        linear-gradient(145deg, #020617, #020617);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      box-shadow:
-        0 20px 60px rgba(15, 23, 42, 0.9),
-        inset 0 0 0 1px rgba(15, 23, 42, 0.8);
-    }
-
-    .hero-showcase-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-
-    .hero-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent-soft);
-    }
-
-    .mini-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      justify-content: flex-end;
-    }
-
-    .mini-pill {
-      font-size: 0.68rem;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      color: rgba(248, 250, 252, 0.9);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .venture-cards-small {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .vc-mini {
-      border-radius: 16px;
-      padding: 10px 12px;
-      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.22), rgba(15, 23, 42, 0.95));
-      border: 1px solid rgba(30, 64, 175, 0.5);
-      font-size: 0.78rem;
-    }
-
-    .vc-mini h4 {
-      margin: 0 0 4px;
-      font-size: 0.82rem;
-    }
-
-    .vc-mini p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.72rem;
-    }
-
-    .vc-mini span {
-      display: inline-block;
-      margin-bottom: 4px;
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-soft);
-    }
-
-    /* ================= VENTURES GRID ================ */
-
-    .ventures-section {
-      margin-top: 34px;
-    }
-
-    .ventures-grid {
-      margin-top: 22px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      font-size: 0.92rem;
+      max-width: 620px;
+      margin: 0.6rem auto 0;
     }
 
     .venture-card {
       border-radius: 22px;
-      padding: 22px 18px 20px;
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.96));
-      border: 1px solid rgba(30, 41, 59, 0.9);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      background: radial-gradient(circle at top left, #051c13 0, #020807 70%);
+      border: 1px solid rgba(31, 41, 55, 0.85);
+      padding: 1.6rem 1.7rem;
       position: relative;
-      overflow: hidden;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease,
+        background 0.25s ease;
+      text-decoration: none;
+      color: inherit;
     }
 
-    .venture-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.075), transparent 55%);
-      opacity: 1;
-      pointer-events: none;
+    .venture-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(3, 7, 18, 0.9);
+      border-color: var(--gold);
+      background: radial-gradient(circle at top left, #06291a 0, #020807 75%);
     }
 
     .venture-icon {
       width: 40px;
       height: 40px;
       border-radius: 999px;
-      display: inline-flex;
+      background: rgba(15, 118, 110, 0.35);
+      display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
-      background: radial-gradient(circle at top left, #f97316, #c2410c);
-      color: #0f172a;
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 1.1rem;
+      color: var(--gold);
     }
 
     .venture-title {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      margin: 0 0 6px;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 0.35rem;
     }
 
     .venture-text {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
-      min-height: 48px;
+      margin-bottom: 0.9rem;
     }
 
     .venture-link {
-      position: relative;
-      z-index: 1;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--accent-soft);
-    }
-
-    .venture-link span.arrow {
-      font-size: 0.9rem;
-    }
-
-    .venture-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(249, 115, 22, 0.6);
-      box-shadow: 0 26px 60px rgba(15, 23, 42, 1);
-    }
-
-    /* ================= ABOUT & CONTACT ================ */
-
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
-      gap: 32px;
-      margin-top: 24px;
-    }
-
-    .about-card,
-    .contact-card {
-      border-radius: 22px;
-      padding: 22px 20px;
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1));
-      border: 1px solid rgba(30, 41, 59, 0.9);
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 1);
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .about-card h3,
-    .contact-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-      color: var(--text-main);
-    }
-
-    .about-card p {
-      margin: 0 0 10px;
-      line-height: 1.7;
-    }
-
-    .contact-list {
-      list-style: none;
-      padding: 0;
-      margin: 8px 0 0;
-      font-size: 0.86rem;
-    }
-
-    .contact-list li {
-      margin-bottom: 6px;
-    }
-
-    .contact-label {
-      display: block;
       font-size: 0.78rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-soft);
-      margin-bottom: 4px;
+      color: var(--gold);
     }
 
-    .footer {
-      max-width: 1120px;
-      margin: 40px auto 0;
-      padding: 18px 20px 0;
-      border-top: 1px solid rgba(30, 41, 59, 0.85);
-      font-size: 0.78rem;
+    .venture-link i {
+      font-size: 0.8rem;
+      margin-left: 0.2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      background: #020807;
+      padding: 28px 0 32px;
+      text-align: center;
+    }
+
+    footer h5 {
+      font-family: "Playfair Display", serif;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    footer p {
+      margin: 0.25rem 0;
       color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+      font-size: 0.85rem;
     }
 
-    .footer strong {
-      color: var(--accent-soft);
-      font-weight: 500;
+    footer .contact-line {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
     }
 
-    /* ================= WHATSAPP FLOAT ================ */
+    footer .contact-line i {
+      margin-right: 0.35rem;
+    }
 
+    footer .muted {
+      font-size: 0.78rem;
+      color: #6b7280;
+      margin-top: 0.8rem;
+    }
+
+    /* FLOAT WHATSAPP */
     .float-wa {
       position: fixed;
-      bottom: 110px; /* Raised so it does not overlap footer */
-      right: 30px;
-      width: 56px;
-      height: 56px;
+      bottom: 26px;
+      right: 26px;
+      width: 52px;
+      height: 52px;
       border-radius: 999px;
-      background: radial-gradient(circle at top left, #22c55e, #16a34a);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #022c22;
-      font-size: 1.8rem;
-      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.6);
-      z-index: 60;
+      background: #22c55e;
+      color: #020617;
+      font-size: 1.7rem;
+      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.7);
+      text-decoration: none;
+      z-index: 999;
     }
 
     .float-wa:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 55px rgba(22, 163, 74, 0.8);
+      filter: brightness(1.06);
     }
 
-    /* ================= RESPONSIVE ================ */
-
-    @media (max-width: 900px) {
+    @media (max-width: 991px) {
       .hero {
-        grid-template-columns: minmax(0, 1fr);
+        padding-top: 100px;
       }
 
-      .hero-showcase {
-        order: -1;
+      .hero-title {
+        font-size: 2.2rem;
       }
 
-      .hero-heading {
-        font-size: 2.4rem;
-      }
-
-      .ventures-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .two-column {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-inner {
+      .hero-cta-row {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 12px;
+      .btn-hero {
+        width: 100%;
+        justify-content: center;
       }
+    }
 
-      .page {
-        padding-top: 26px;
-      }
-
-      .ventures-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
+    @media (max-width: 575px) {
       .float-wa {
+        bottom: 18px;
         right: 18px;
-        bottom: 95px;
       }
     }
   </style>
 </head>
 <body>
   <!-- NAVBAR -->
-  <header class="top-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="brand">
-        <img src="uploads/1764438907969_willpower.png" alt="Willpower logo" />
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img
+          src="https://ourwillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png"
+          alt="Willpower logo"
+        />
         <span>World of Willpower</span>
       </a>
-      <nav class="nav-links">
-        <a class="nav-link active" href="index.html">Home</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#ventures">Ventures</a>
-        <a class="nav-link" href="#contact">Contact</a>
-        <a class="nav-cta" href="admin.html">Admin Panel</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="page">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
-        <div class="hero-badge-row">
-          <span class="hero-badge">Multi-venture business group</span>
-          <span>Mentoring • Dairy • Foods • Ayurveda • Tech • Investments</span>
-        </div>
-        <h1 id="hero-title" class="hero-heading">
-          When You Want <span>Nothing but the Best</span>.
-        </h1>
-        <p class="hero-text">
-          World of Willpower is a founder–led group of ventures built around one idea:
-          <strong>clarity + quality + execution</strong>.  
-          From mentoring and manufacturing to technology and investor partnerships,
-          every vertical is designed to create long-term, profitable brands.
-        </p>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="hero-grid">
-          <div class="hero-pill">
-            <span class="icon">M</span>
-            Boardroom-level mentoring & strategy
-          </div>
-          <div class="hero-pill">
-            <span class="icon">D</span>
-            Integrated dairy & food manufacturing
-          </div>
-          <div class="hero-pill">
-            <span class="icon">A</span>
-            Ayurveda-driven health & skincare brands
-          </div>
-          <div class="hero-pill">
-            <span class="icon">T</span>
-            Tech, e-commerce & WIN Club for investors
-          </div>
-        </div>
-
-        <div class="hero-cta-row">
-          <a href="#ventures" class="btn-primary">Explore business verticals</a>
-          <span class="hero-note">Personally anchored by Jayant Vishnu Bhat since 2012.</span>
-        </div>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ventures.html">Ventures</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a class="btn btn-sm btn-admin" href="admin.html">
+              <i class="fas fa-terminal me-1"></i> Admin Panel
+            </a>
+          </li>
+        </ul>
       </div>
+    </div>
+  </nav>
 
-      <aside class="hero-showcase" aria-label="Highlighted ventures">
-        <div class="hero-showcase-top">
-          <div>
-            <div class="hero-tag">Flagship Verticals</div>
-            <div style="font-size:0.86rem;margin-top:4px;color:var(--text-muted);">
-              A controlled portfolio of synergistic businesses.
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-7">
+          <div class="hero-kicker">
+            <span class="dot"></span>
+            World of Willpower · Since 2012
+          </div>
+
+          <h1 class="hero-title">
+            When You Want <span class="highlight">Nothing but the Best</span>, You Will Find Willpower.
+          </h1>
+
+          <p class="hero-sub">
+            A focused group led by Jayant Bhat – mentoring founders, building dairy & food brands,
+            Ayurveda health & skin care, software & systems, investor opportunities and
+            structured aggregator models.
+          </p>
+
+          <div class="hero-rotator">
+            Strategic focus:
+            <span id="rotating-line">Mentoring & Strategic Conversations</span>
+          </div>
+
+          <div class="hero-cta-row">
+            <a
+              href="https://wa.me/917039196489"
+              class="btn-hero"
+              target="_blank"
+              rel="noopener"
+            >
+              Start a WhatsApp Conversation
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <div class="hero-note">
+              <i class="fas fa-lock"></i> Private, one-to-one conversations only.
             </div>
           </div>
-          <div class="mini-pills">
-            <span class="mini-pill">Founder-driven</span>
-            <span class="mini-pill">Made in India</span>
-            <span class="mini-pill">Quality-first</span>
-          </div>
         </div>
 
-        <div class="venture-cards-small">
-          <div class="vc-mini">
-            <span>Mentoring</span>
-            <h4>Willpower Maestros</h4>
-            <p>Deep, practical mentoring for founders, boards and leadership teams.</p>
-          </div>
-          <div class="vc-mini">
-            <span>Dairy & Foods</span>
-            <h4>Willpower Dairy & Food Care</h4>
-            <p>High-quality, export-ready dairy and food products with strong compliance.</p>
-          </div>
-          <div class="vc-mini">
-            <span>Ayurveda</span>
-            <h4>Willpower Health & Skin Care</h4>
-            <p>Proprietary formulations rooted in classical Ayurveda, tuned for today.</p>
-          </div>
-          <div class="vc-mini">
-            <span>Tech & Capital</span>
-            <h4>WillPro Tech, WIN Club, Aggregators</h4>
-            <p>Technology, investor capital and e-commerce aggregation under one roof.</p>
+        <div class="col-lg-5">
+          <div class="questions-card border rounded-4 p-3 p-lg-4" style="
+              background: radial-gradient(circle at top left, #041910 0, #020807 70%);
+              border-color: rgba(55, 65, 81, 0.9);
+              box-shadow: 0 24px 60px rgba(3, 7, 18, 0.9);
+            ">
+            <div
+              class="small text-uppercase mb-3"
+              style="letter-spacing: 0.18em; color: #9ca3af;"
+            >
+              How Willpower Thinks
+            </div>
+            <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #e5e7eb;">
+              <li class="mb-2">
+                <i class="fas fa-check-circle me-2" style="color: var(--gold);"></i>
+                Clarity before speed – we first understand your present reality.
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-check-circle me-2" style="color: var(--gold);"></i>
+                Structured, written thinking – not motivational noise.
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-check-circle me-2" style="color: var(--gold);"></i>
+                Long-term relationships across mentoring, manufacturing and capital.
+              </li>
+              <li>
+                <i class="fas fa-check-circle me-2" style="color: var(--gold);"></i>
+                WhatsApp-first conversations for serious, action-oriented founders.
+              </li>
+            </ul>
           </div>
         </div>
-      </aside>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- VENTURES GRID -->
-    <section id="ventures" class="ventures-section" aria-labelledby="ventures-title">
-      <div class="section-label">Business Verticals</div>
-      <h2 id="ventures-title" class="section-title">The World of Willpower</h2>
-      <p class="section-subtitle">
-        Each vertical is independent yet connected — allowing us to mentor, manufacture,
-        distribute and fund ideas in a tightly controlled way.
-      </p>
+  <!-- BUSINESS VERTICALS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Business Verticals</div>
+        <h2 class="section-title">One Ecosystem. Multiple Specialist Verticals.</h2>
+        <p class="section-sub">
+          All ventures are connected through one philosophy – clarity of thought, quality of
+          execution and long-term relationships.
+        </p>
+      </div>
 
-      <div class="ventures-grid">
+      <div class="row g-4">
         <!-- Maestros -->
-        <a href="willpro-maestros.html" class="venture-card">
-          <div class="venture-icon">🎧</div>
-          <h3 class="venture-title">Willpower Maestros</h3>
-          <p class="venture-text">
-            Mentoring, consultations and high-impact training for founders & leaders.
-          </p>
-          <div class="venture-link">
-            <span>View division</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
+        <div class="col-lg-4 col-md-6">
+          <a href="willpro-maestros.html" class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-microphone-lines"></i>
+              </div>
+              <div class="venture-title">Willpower Maestros</div>
+              <div class="venture-text">
+                Mentoring, consultations and high-impact training for founders & leaders.
+              </div>
+            </div>
+            <div class="venture-link">
+              View Division <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
 
         <!-- Dairy -->
-        <a href="dairy-manufacturing.html" class="venture-card">
-          <div class="venture-icon">🥛</div>
-          <h3 class="venture-title">Willpower Dairy Care</h3>
-          <p class="venture-text">
-            High-purity dairy manufacturing with strong focus on quality and consistency.
-          </p>
-          <div class="venture-link">
-            <span>View division</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
+        <div class="col-lg-4 col-md-6">
+          <a href="dairy-manufacturing.html" class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-cow"></i>
+              </div>
+              <div class="venture-title">Willpower Dairy Care</div>
+              <div class="venture-text">
+                High-purity dairy manufacturing with strong focus on quality and consistency.
+              </div>
+            </div>
+            <div class="venture-link">
+              View Division <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
 
         <!-- Food -->
-        <a href="food-care.html" class="venture-card">
-          <div class="venture-icon">🍲</div>
-          <h3 class="venture-title">Willpower Food Care</h3>
-          <p class="venture-text">
-            Masalas, RTE foods, agro products & beverages built for modern consumers.
-          </p>
-          <div class="venture-link">
-            <span>View division</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
+        <div class="col-lg-4 col-md-6">
+          <a href="food-care.html" class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="venture-title">Willpower Food Care</div>
+              <div class="venture-text">
+                Masala powders, ready-to-eat foods, agro products and beverages built with discipline.
+              </div>
+            </div>
+            <div class="venture-link">
+              View Division <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
 
         <!-- Ayurveda -->
-        <a href="ayurveda.html" class="venture-card">
-          <div class="venture-icon">🌿</div>
-          <h3 class="venture-title">Willpower Health & Skin Care</h3>
-          <p class="venture-text">
-            Proprietary Ayurvedic and herbal formulations for holistic health & skincare.
-          </p>
-          <div class="venture-link">
-            <span>View division</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
+        <div class="col-lg-4 col-md-6">
+          <a href="ayurveda.html" class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div class="venture-title">Willpower Health & Skin Care</div>
+              <div class="venture-text">
+                Proprietary Ayurvedic and herbal formulations for holistic health & skincare.
+              </div>
+            </div>
+            <div class="venture-link">
+              View Division <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
 
         <!-- Tech -->
-        <a href="new-business.html" class="venture-card">
-          <div class="venture-icon">💻</div>
-          <h3 class="venture-title">WillPro Technologies & Systems</h3>
-          <p class="venture-text">
-            Software, web and digital solutions for ambitious businesses that need clarity.
-          </p>
-          <div class="venture-link">
-            <span>View division</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
+        <div class="col-lg-4 col-md-6">
+          <a href="new-business.html" class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="venture-title">WillPro Technologies & Systems</div>
+              <div class="venture-text">
+                Software, web and digital solutions designed around your business reality.
+              </div>
+            </div>
+            <div class="venture-link">
+              View Division <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
 
         <!-- WIN Club -->
-        <a href="ventures.html" class="venture-card">
-          <div class="venture-icon">💼</div>
-          <h3 class="venture-title">WIN Club (WillPro Investors Node)</h3>
-          <p class="venture-text">
-            A focused investors hub for curated, well-structured Willpower opportunities.
-          </p>
-          <div class="venture-link">
-            <span>View division</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
+        <div class="col-lg-4 col-md-6">
+          <a href="ventures.html" class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <div class="venture-title">WIN Club (WillPro Investors Node)</div>
+              <div class="venture-text">
+                A focused investors hub for curated, structured Willpower opportunities.
+              </div>
+            </div>
+            <div class="venture-link">
+              View Division <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
 
         <!-- Aggregators -->
-        <a href="mentoring-strategy.html" class="venture-card">
-          <div class="venture-icon">🚚</div>
-          <h3 class="venture-title">WillPro Aggregators</h3>
-          <p class="venture-text">
-            E-commerce & logistics aggregation for manufacturers and brand owners.
-          </p>
-          <div class="venture-link">
-            <span>View division</span>
-            <span class="arrow">↗</span>
-          </div>
-        </a>
+        <div class="col-lg-4 col-md-6">
+          <a href="mentoring-strategy.html" class="venture-card">
+            <div>
+              <div class="venture-icon">
+                <i class="fas fa-diagram-project"></i>
+              </div>
+              <div class="venture-title">WillPro Aggregators</div>
+              <div class="venture-text">
+                E-commerce & logistics models that respect existing business and channel reality.
+              </div>
+            </div>
+            <div class="venture-link">
+              View Division <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ABOUT + CONTACT -->
-    <section id="about" style="margin-top:40px;">
-      <div class="section-label">About the group</div>
-      <h2 class="section-title">Built on Clarity, Not Hype</h2>
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <h5>World of Willpower</h5>
+      <p>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</p>
+      <p class="contact-line">
+        <i class="fab fa-whatsapp text-success"></i> +91 7039196489
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <i class="fas fa-envelope text-warning"></i> care@worldofwillpower.com
+      </p>
+      <p class="muted">© 2025 World of Willpower</p>
+    </div>
+  </footer>
 
-      <div class="two-column">
-        <article class="about-card">
-          <h3>From one founder to many brands</h3>
-          <p>
-            World of Willpower started in 2012 when
-            <strong>Jayant Vishnu Bhat</strong> began mentoring founders who wanted more than
-            motivational speeches. The work naturally expanded into
-            <strong>setting up plants, brands and go-to-market systems</strong>.
-          </p>
-          <p>
-            Today, the group spans mentoring, dairy, food, Ayurveda, technology, investor
-            partnerships and aggregators — but the spine is the same:
-            <strong>clean thinking, practical design and disciplined execution.</strong>
-          </p>
-          <p>
-            Every vertical is run with a “boardroom + shop-floor” mindset — understanding
-            strategy at the top and reality at the ground.
-          </p>
-        </article>
-
-        <aside class="contact-card" id="contact">
-          <h3>Connect with World of Willpower</h3>
-          <p>
-            If you see alignment with any of these verticals — as a founder, brand owner,
-            manufacturer or investor — the best way to begin is a
-            <strong>focused conversation over WhatsApp or email.</strong>
-          </p>
-
-          <ul class="contact-list">
-            <li>
-              <span class="contact-label">Address</span>
-              002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204
-            </li>
-            <li>
-              <span class="contact-label">WhatsApp</span>
-              +91 7039196489
-            </li>
-            <li>
-              <span class="contact-label">Email</span>
-              care@worldofwillpower.com
-            </li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div>© 2025 <strong>World of Willpower</strong>. All rights reserved.</div>
-      <div>Mentoring • Dairy • Foods • Ayurveda • Tech • WIN Club • Aggregators</div>
-    </footer>
-  </main>
-
-  <!-- FLOATING WHATSAPP -->
+  <!-- Floating WhatsApp -->
   <a
     href="https://wa.me/917039196489"
     class="float-wa"
-    aria-label="Chat on WhatsApp"
     target="_blank"
+    rel="noopener"
   >
-    🟢
+    <i class="fab fa-whatsapp"></i>
   </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ROTATING SUBHEADLINE SCRIPT -->
+  <script>
+    const lines = [
+      "Mentoring & Strategic Conversations",
+      "Dairy & Food Manufacturing Partnerships",
+      "Ayurvedic Health & Skin Care",
+      "Software & Systems Designed Around Business",
+      "Investors WIN Club & Aggregator Models"
+    ];
+
+    let index = 0;
+    const el = document.getElementById("rotating-line");
+
+    function rotateLine() {
+      index = (index + 1) % lines.length;
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.textContent = lines[index];
+        el.style.opacity = 1;
+      }, 220);
+    }
+
+    setInterval(rotateLine, 3200);
+  </script>
 </body>
 </html>
