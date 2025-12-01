@@ -1,476 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WillPro Money – Financial Planning & Money Decisions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WillPro Money | Practical Financial Planning & Instruments</title>
 
-  <meta name="description" content="WillPro Money helps individuals and businesses design grounded financial plans – across investments, insurance, loans, stock market exposure and structured money decisions." />
+    <!-- SEO & Social -->
+    <meta name="description" content="WillPro Money helps people design practical financial plans and choose suitable instruments across mutual funds, insurance, loans, ventures and market participation.">
+    <link rel="canonical" href="https://www.worldofwillpower.com/willpro-money.html">
+    <meta name="robots" content="index, follow">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WillPro Money | Practical Financial Planning & Instruments">
+    <meta property="og:description" content="Financial planning, investment instruments and protection options designed around real life goals and risk appetite.">
+    <meta property="og:url" content="https://www.worldofwillpower.com/willpro-money.html">
+    <meta property="og:image" content="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
-  <style>
-    :root {
-      --bg: #020b07;
-      --bg-soft: #04110d;
-      --accent: #E6B325;
-      --accent-soft: rgba(230,179,37,0.12);
-      --text-main: #f8fafc;
-      --text-soft: #cbd5f5;
-      --border-soft: #133224;
-      --card-radius: 18px;
-    }
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WillPro Money | Practical Financial Planning & Instruments">
+    <meta name="twitter:description" content="From mutual funds and insurance to loans, ventures and stock market participation — with clear conversation first.">
+    <meta name="twitter:image" content="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #062217, #020b07 55%, #000 100%);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
+    <!-- CSS / Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    .navbar {
-      background: rgba(2, 11, 7, 0.97);
-      border-bottom: 1px solid rgba(230,179,37,0.25);
-      backdrop-filter: blur(16px);
-    }
-    .navbar-brand {
-      display:flex;
-      align-items:center;
-      font-weight:600;
-      letter-spacing:0.05em;
-      text-transform:uppercase;
-      color:var(--accent);
-      font-size:1.05rem;
-    }
-    .navbar-brand span { margin-left:10px; }
-    .nav-link {
-      color:rgba(248,250,252,0.82)!important;
-      font-size:0.9rem;
-      letter-spacing:0.06em;
-      text-transform:uppercase;
-    }
-    .nav-link.active { color:var(--accent)!important; }
-    .dropdown-menu {
-      background:#020d08;
-      border-radius:12px;
-      border:1px solid rgba(230,179,37,0.25);
-      padding:0.4rem 0;
-      min-width:260px;
-    }
-    .dropdown-item {
-      font-size:0.9rem;
-      color:var(--text-soft);
-      padding:0.45rem 0.9rem;
-    }
-    .dropdown-item:hover {
-      background:rgba(230,179,37,0.08);
-      color:var(--accent);
-    }
-    .btn-admin {
-      border-radius:999px;
-      border:1px solid rgba(230,179,37,0.6);
-      color:var(--accent);
-      font-size:0.8rem;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      padding:0.45rem 0.9rem;
-    }
-    .btn-admin i { margin-right:4px; }
+    <style>
+        :root {
+            --bg:#02170f;
+            --bg-soft:#062219;
+            --card:#041d15;
+            --border:#0b2b1f;
+            --gold:#E6B325;
+            --gold-soft:#f5d887;
+            --text:#f8fafc;
+            --muted:#9ca3af;
+        }
+        *{box-sizing:border-box;}
+        body{
+            margin:0;
+            font-family:'Manrope',sans-serif;
+            background:radial-gradient(circle at top left,#063826 0,#02170f 55%,#010b07 100%);
+            color:var(--text);
+            overflow-x:hidden;
+        }
+        .navbar{
+            background:rgba(2,15,10,0.96);
+            border-bottom:1px solid rgba(230,179,37,0.2);
+            padding:0.7rem 4%;
+        }
+        .navbar-brand{
+            font-family:'Playfair Display',serif;
+            font-weight:600;
+            letter-spacing:1px;
+            color:var(--gold)!important;
+            display:flex;
+            align-items:center;
+            gap:.75rem;
+        }
+        .navbar-brand img{height:44px;}
+        .nav-link{
+            color:rgba(249,250,251,0.85)!important;
+            font-size:.9rem;
+            letter-spacing:.08em;
+            text-transform:uppercase;
+            margin:0 .6rem;
+        }
+        .nav-link.active{color:var(--gold)!important;}
+        .btn-admin{
+            border-radius:999px;
+            border:1px solid rgba(230,179,37,0.5);
+            padding:.4rem 1.2rem;
+            font-size:.8rem;
+            letter-spacing:.12em;
+            text-transform:uppercase;
+            color:var(--gold);
+            background:transparent;
+        }
+        .btn-admin:hover{background:rgba(230,179,37,0.1);color:var(--gold);}
 
-    main { padding-top: 90px; }
+        .hero-wrap{
+            padding:110px 4% 40px;
+        }
+        .hero-badge{
+            display:inline-flex;
+            align-items:center;
+            gap:.4rem;
+            border-radius:999px;
+            padding:.25rem .9rem;
+            border:1px solid rgba(148,163,184,.4);
+            background:rgba(3,24,17,.8);
+            color:var(--muted);
+            font-size:.8rem;
+            letter-spacing:.15em;
+            text-transform:uppercase;
+        }
+        .hero-badge-dot{
+            width:9px;height:9px;border-radius:50%;
+            background:radial-gradient(circle,var(--gold),#f97316);
+            box-shadow:0 0 0 4px rgba(230,179,37,0.25);
+        }
+        .hero-title{
+            margin-top:1.6rem;
+            font-family:'Playfair Display',serif;
+            font-size:2.6rem;
+            line-height:1.2;
+        }
+        .hero-title span{color:var(--gold);}
+        .hero-sub{
+            margin-top:1rem;
+            color:var(--muted);
+            max-width:640px;
+            font-size:.98rem;
+        }
+        .hero-rotator{
+            margin-top:.9rem;
+            font-size:.92rem;
+            color:var(--gold-soft);
+            font-weight:500;
+        }
+        .hero-rotator span{
+            border-bottom:1px dotted rgba(230,179,37,0.5);
+        }
 
-    /* HERO */
-    .hero-wrapper {
-      padding: 60px 0 40px;
-    }
-    .hero-badge {
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:6px 14px;
-      border-radius:999px;
-      border:1px solid rgba(230,179,37,0.45);
-      background:rgba(4,27,16,0.9);
-      font-size:0.8rem;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      color:var(--text-soft);
-      margin-bottom:26px;
-    }
-    .hero-badge-dot {
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:radial-gradient(circle at 30% 30%,#6bffb7,#12b981 60%,#064e3b);
-      box-shadow:0 0 0 4px rgba(16,185,129,0.22);
-    }
-    .hero-grid {
-      display:grid;
-      grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
-      gap:40px;
-      align-items:stretch;
-    }
-    .hero-heading {
-      font-family:"Georgia","Times New Roman",serif;
-      font-size:clamp(2.4rem,3.4vw+1.3rem,3.6rem);
-      line-height:1.12;
-      margin-bottom:18px;
-      color:var(--text-main);
-    }
-    .hero-heading span { color:var(--accent); }
-    .hero-rotating {
-      font-size:1.02rem;
-      color:var(--text-soft);
-      margin-bottom:22px;
-      min-height:1.4em;
-    }
-    .hero-rotating span { color:#fbbf24; font-weight:500; }
-    .hero-text {
-      font-size:0.98rem;
-      color:var(--text-soft);
-      max-width:640px;
-      line-height:1.8;
-      margin-bottom:28px;
-    }
-    .hero-pill-row {
-      font-size:0.8rem;
-      text-transform:uppercase;
-      letter-spacing:0.22em;
-      color:rgba(226,232,240,0.7);
-      margin-bottom:28px;
-    }
-    .hero-pill-row span { color:var(--accent); }
+        .section-dark{
+            background:radial-gradient(circle at top,#041c13,#010806);
+            border-top:1px solid rgba(15,23,42,.8);
+            padding:40px 4% 60px;
+        }
+        .sec-title{
+            font-family:'Playfair Display',serif;
+            font-size:1.7rem;
+            margin-bottom:.6rem;
+        }
+        .sec-sub{
+            color:var(--muted);
+            max-width:760px;
+        }
+        .feature-card{
+            background:radial-gradient(circle at top left,#052217,#020f0a);
+            border-radius:22px;
+            padding:1.4rem 1.5rem;
+            border:1px solid rgba(15,118,110,0.35);
+            box-shadow:0 16px 40px rgba(0,0,0,.7);
+            height:100%;
+        }
+        .feature-tag{
+            font-size:.78rem;
+            text-transform:uppercase;
+            letter-spacing:.16em;
+            color:var(--gold-soft);
+        }
+        .feature-title{
+            margin-top:.6rem;
+            font-size:1.05rem;
+            font-weight:600;
+        }
+        .feature-text{
+            margin-top:.35rem;
+            color:var(--muted);
+            font-size:.9rem;
+        }
 
-    .btn-hero {
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      border-radius:999px;
-      padding:0.85rem 1.6rem;
-      border:none;
-      background:linear-gradient(135deg,#E6B325,#facc6b);
-      color:#1f2933;
-      font-weight:600;
-      font-size:0.92rem;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      box-shadow:0 16px 35px rgba(0,0,0,0.45);
-      text-decoration:none;
-    }
-    .btn-hero i { font-size:1rem; }
-    .btn-hero-sub {
-      font-size:0.8rem;
-      color:rgba(226,232,240,0.85);
-      margin-top:10px;
-    }
-
-    .hero-panel {
-      border-radius:26px;
-      border:1px solid rgba(148,163,184,0.42);
-      background:radial-gradient(circle at top left,#0b2e1e,#020b07 55%);
-      padding:26px 26px 24px;
-      box-shadow:0 20px 45px rgba(0,0,0,0.55);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-    .hero-panel-title {
-      font-size:0.8rem;
-      letter-spacing:0.22em;
-      text-transform:uppercase;
-      color:rgba(148,163,184,0.9);
-      margin-bottom:16px;
-    }
-    .hero-panel-title span { color:var(--accent); }
-    .hero-panel-list {
-      list-style:none;
-      padding:0;
-      margin:0 0 16px;
-      font-size:0.9rem;
-      color:rgba(226,232,240,0.92);
-    }
-    .hero-panel-list li {
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      margin-bottom:10px;
-    }
-    .hero-panel-list i {
-      margin-top:4px;
-      color:#22c55e;
-    }
-    .hero-panel-foot {
-      font-size:0.78rem;
-      color:rgba(148,163,184,0.9);
-      border-top:1px dashed rgba(148,163,184,0.45);
-      padding-top:10px;
-    }
-
-    /* CONTENT SECTION */
-    .content-section {
-      padding:40px 0 80px;
-    }
-    .content-card {
-      border-radius:18px;
-      background:radial-gradient(circle at top left,#071e14,#020c08 55%);
-      border:1px solid var(--border-soft);
-      padding:24px 22px;
-      height:100%;
-    }
-    .content-title {
-      font-size:0.86rem;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:rgba(148,163,184,0.9);
-      margin-bottom:10px;
-    }
-    .content-heading {
-      font-size:1.2rem;
-      font-weight:600;
-      margin-bottom:10px;
-      color:var(--accent);
-    }
-    .content-text {
-      font-size:0.95rem;
-      color:var(--text-soft);
-    }
-    .list-unstyled li {
-      margin-bottom:6px;
-    }
-
-    footer {
-      border-top:1px solid rgba(15,118,110,0.7);
-      background:#010806;
-      padding:26px 0 20px;
-      font-size:0.86rem;
-      color:rgba(203,213,225,0.86);
-      text-align:center;
-    }
-    footer h5 {
-      font-size:1rem;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--accent);
-      margin-bottom:10px;
-    }
-    footer .contact-line { margin-top:6px; }
-    footer .contact-line span { margin:0 8px; }
-
-    .float-wa {
-      position:fixed;
-      bottom:24px;
-      right:24px;
-      width:56px;
-      height:56px;
-      border-radius:50%;
-      background:#22c55e;
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:28px;
-      box-shadow:0 14px 30px rgba(0,0,0,0.75);
-      z-index:50;
-      text-decoration:none;
-    }
-
-    @media (max-width:992px) {
-      main { padding-top:80px; }
-      .hero-grid {
-        grid-template-columns:minmax(0,1fr);
-        gap:26px;
-      }
-    }
-  </style>
+        footer{
+            border-top:1px solid rgba(15,23,42,.9);
+            background:#010806;
+            padding:35px 4% 28px;
+            font-size:.85rem;
+            color:var(--muted);
+        }
+        footer h5{
+            font-family:'Playfair Display',serif;
+            color:var(--gold);
+            margin-bottom:.4rem;
+        }
+        .wa-float{
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            width:56px;height:56px;
+            border-radius:50%;
+            background:#25d366;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            box-shadow:0 18px 40px rgba(0,0,0,.7);
+            z-index:999;
+        }
+        .wa-float img{width:28px;height:28px;}
+        @media(max-width:991px){
+            .hero-wrap{padding:96px 4% 40px;}
+            .hero-title{font-size:2.15rem;}
+        }
+    </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid px-4 px-md-5">
-      <a class="navbar-brand" href="index.html">
-        <img src="https://OurWillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" alt="Willpower" style="height:42px;">
-        <span>WORLD OF WILLPOWER</span>
-      </a>
-      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="venturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Our Ventures
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="venturesDropdown">
-              <li><a class="dropdown-item" href="willpro-maestros.html">Willpower Maestros</a></li>
-              <li><a class="dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a></li>
-              <li><a class="dropdown-item" href="food-care.html">Willpower Food Care</a></li>
-              <li><a class="dropdown-item" href="ayurveda.html">Willpower Health &amp; Skin Care</a></li>
-              <li><a class="dropdown-item" href="new-business.html">WillPro Technologies &amp; Systems</a></li>
-              <li><a class="dropdown-item" href="ventures.html">WIN Club (WillPro Investors Node)</a></li>
-              <li><a class="dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a></li>
-              <li><a class="dropdown-item" href="willpro-money.html">WillPro Money</a></li>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid px-0">
+        <a class="navbar-brand" href="index.html">
+            <img src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
+            <span>WORLD OF WILLPOWER</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+            <ul class="navbar-nav align-items-lg-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Our Ventures</a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="willpro-maestros.html">Willpower Maestros</a></li>
+                        <li><a class="dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a></li>
+                        <li><a class="dropdown-item" href="food-care.html">Willpower Food Care</a></li>
+                        <li><a class="dropdown-item" href="ayurveda.html">Willpower Health &amp; Skin Care</a></li>
+                        <li><a class="dropdown-item" href="new-business.html">WillPro Technologies &amp; Systems</a></li>
+                        <li><a class="dropdown-item" href="ventures.html">WIN Club (WillPro Investors Node)</a></li>
+                        <li><a class="dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a></li>
+                        <li><a class="dropdown-item active" href="willpro-money.html">WillPro Money</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a class="btn btn-sm btn-admin" href="admin.html">↗ Admin Panel</a>
+                </li>
             </ul>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#contact">Contact</a>
-          </li>
-
-          <li class="nav-item ms-lg-3">
-            <a class="btn btn-outline-warning btn-admin" href="admin.html">
-              <i class="fas fa-sliders-h"></i> Admin Panel
-            </a>
-          </li>
-        </ul>
-      </div>
+        </div>
     </div>
-  </nav>
+</nav>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero-wrapper">
-      <div class="container px-4 px-md-5">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          WILLPRO MONEY · FINANCIAL PLANNING &amp; MONEY DECISIONS
-        </div>
-
-        <div class="hero-grid">
-          <div>
-            <h1 class="hero-heading">
-              Money Decisions <span>Designed Around Your Life &amp; Business.</span>
-            </h1>
-
-            <div class="hero-rotating">
-              <span id="money-rotating">From confusion to a clear, written money plan.</span>
-            </div>
-
-            <p class="hero-text">
-              WillPro Money helps individuals and businesses design grounded financial plans – across mutual funds, insurance, loans,
-              stock-market exposure and cash-flow discipline. The focus is simple: protect the downside, structure risk and respect
-              long-term goals, not market noise.
-            </p>
-
-            <div class="hero-pill-row">
-              FROM <span>PLANNING &amp; PROTECTION</span> TO <span>GROWTH, CASH-FLOW &amp; RISK</span>
-            </div>
-
-            <a href="https://wa.me/917039196489" class="btn-hero" target="_blank" rel="noopener">
-              <span>Start a WillPro Money Conversation</span>
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <div class="btn-hero-sub">
-              Share your current situation and goals over WhatsApp. We can see if WillPro Money is the right fit.
-            </div>
-          </div>
-
-          <aside class="hero-panel">
-            <div>
-              <div class="hero-panel-title">
-                WHEN PEOPLE USUALLY REACH OUT TO <span>WILLPRO MONEY</span>
-              </div>
-              <ul class="hero-panel-list">
-                <li><i class="fas fa-check-circle"></i><span>When money decisions feel scattered – multiple policies, funds and loans with no single view.</span></li>
-                <li><i class="fas fa-check-circle"></i><span>When you want a clear plan for goals – children, home, retirement, business expansion or exit.</span></li>
-                <li><i class="fas fa-check-circle"></i><span>When you want to review existing mutual funds, stocks and insurance instead of adding more clutter.</span></li>
-                <li><i class="fas fa-check-circle"></i><span>When you need support structuring loans and credit so that cash flow is respected.</span></li>
-                <li><i class="fas fa-check-circle"></i><span>When you want a practical bridge between business risk and personal financial safety.</span></li>
-              </ul>
-            </div>
-            <div class="hero-panel-foot">
-              WillPro Money does not promise “tips” or shortcuts – only structured discussions, documentation and transparent options,
-              aligned with your risk profile and reality.
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTENT -->
-    <section class="content-section">
-      <div class="container px-4 px-md-5">
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="content-card">
-              <div class="content-title">PLANNING &amp; PROTECTION</div>
-              <div class="content-heading">Structuring Your Financial Safety Net</div>
-              <div class="content-text">
-                <p>Before chasing returns, WillPro Money focuses on protection and clarity:</p>
-                <ul class="list-unstyled mb-1">
-                  <li>• Life Insurance planning – adequate cover with sensible premium outgo.</li>
-                  <li>• Health &amp; Critical Illness cover – for individuals, families and key people in business.</li>
-                  <li>• Credit &amp; Loan protection – so liabilities are not passed on to loved ones or partners.</li>
-                  <li>• Fire, asset and business risk covers – for property, plant, stock and operations.</li>
-                  <li>• Review of existing policies – keeping what is useful, exiting what is unnecessary.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="content-card">
-              <div class="content-title">GROWTH, LOANS &amp; MARKETS</div>
-              <div class="content-heading">Designing Growth &amp; Opportunity</div>
-              <div class="content-text">
-                <p>Once the base is protected, conversations can move towards structured growth:</p>
-                <ul class="list-unstyled mb-1">
-                  <li>• Mutual Funds – goal-based allocation, SIPs and disciplined reviews.</li>
-                  <li>• Equity &amp; Stock-Market Exposure – education, training and risk-aware participation.</li>
-                  <li>• Loans – personal, home and business loans structured to respect cash flow.</li>
-                  <li>• Capital for Ventures or Property – calibrated leverage for expansion or acquisitions.</li>
-                  <li>• Periodic reviews – to ensure the plan moves with your life and business reality.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <h5>WORLD OF WILLPOWER</h5>
-      <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
-      <div class="contact-line">
-        <span><i class="fab fa-whatsapp text-success"></i> +91 7039196489</span>
-        <span>|</span>
-        <span><i class="fas fa-envelope text-warning"></i> care@worldofwillpower.com</span>
-      </div>
-      <div class="mt-2" style="opacity:0.7;">© 2025 World of Willpower.</div>
+<section class="hero-wrap">
+    <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>WILLPRO MONEY · FINANCIAL PLANNING</span>
     </div>
-  </footer>
+    <h1 class="hero-title">
+        Money Decisions<br>
+        <span>Aligned With Life, Not Just Products.</span>
+    </h1>
+    <p class="hero-sub">
+        WillPro Money helps people think through their financial life calmly —
+        goals, responsibilities, risks and opportunities — and then choose
+        instruments that actually fit that picture.
+    </p>
+    <div class="hero-rotator">
+        <span id="money-rotator"></span>
+    </div>
+</section>
 
-  <a href="https://wa.me/917039196489" class="float-wa" target="_blank" rel="noopener">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+<section class="section-dark">
+    <div class="mb-4">
+        <h2 class="sec-title">Key Money Conversations</h2>
+        <p class="sec-sub">
+            Instead of pushing isolated products, the focus is on building an
+            overall view — protection, growth, liquidity and behaviour — so that
+            each decision makes sense in context.
+        </p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-tag">1 · INVESTMENTS &amp; PROTECTION</div>
+                <div class="feature-title">Mutual Funds &amp; Insurance</div>
+                <div class="feature-text">
+                    Working through mutual funds, life insurance, health cover,
+                    accident and credit protection — to ensure that risk and
+                    growth are handled with some discipline, not guesswork.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-tag">2 · LOANS &amp; LIABILITIES</div>
+                <div class="feature-title">Personal, Home &amp; Business Loans</div>
+                <div class="feature-text">
+                    Thinking clearly about loans: when they help, when they
+                    hurt, and how to structure them around income, stability
+                    and real repayment capacity.
+                </div>
+            </div>
+        </div>
+        <div class="col-md4 col-md-4">
+            <div class="feature-card">
+                <div class="feature-tag">3 · VENTURES &amp; MARKETS</div>
+                <div class="feature-title">Ventures &amp; Market Participation</div>
+                <div class="feature-text">
+                    Looking at opportunities in ventures, property, stock market
+                    trading and training — with honest discussions on risk,
+                    behaviour and time horizons.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const moneyLines = [
-      "From confusion to a clear, written money plan.",
-      "Balancing protection, cash-flow and growth – in that order.",
-      "One view of all your policies, funds, loans and risks.",
-      "Helping founders separate business risk from family safety.",
-      "Creating money decisions you can explain calmly to yourself."
+<footer id="contact">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+        <div>
+            <h5>World of Willpower</h5>
+            <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
+        </div>
+        <div>
+            <div>📞 +91 7039196489</div>
+            <div>✉️ care@worldofwillpower.com</div>
+        </div>
+        <div>
+            <div>© 2025 World of Willpower.</div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/917039196489" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function () {
+    const lines = [
+        "For people who want money decisions linked to life, not fashion.",
+        "For families that need both protection and growth, not just products.",
+        "For professionals who want clarity on loans, EMIs and leverage.",
+        "For those curious about markets and ventures, with eyes open.",
+        "For anyone who prefers honest numbers over aggressive sales pitches."
     ];
-    let mIndex = 0;
-    const mEl = document.getElementById("money-rotating");
-    setInterval(() => {
-      mIndex = (mIndex + 1) % moneyLines.length;
-      mEl.style.opacity = 0;
-      setTimeout(() => {
-        mEl.textContent = moneyLines[mIndex];
-        mEl.style.opacity = 1;
-      }, 220);
-    }, 3800);
-  </script>
+    let i = 0;
+    const el = document.getElementById('money-rotator');
+    if (!el) return;
+    function update() {
+        el.textContent = lines[i];
+        i = (i + 1) % lines.length;
+    }
+    update();
+    setInterval(update, 3500);
+})();
+</script>
 </body>
 </html>
