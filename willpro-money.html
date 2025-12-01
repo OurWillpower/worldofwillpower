@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WillPro Money – Calm, Structured Financial Planning</title>
+
+  <!-- SEO -->
+  <meta name="description" content="WillPro Money helps customers choose calm, structured financial plans across mutual funds, insurance, loans, stock markets and investments – based on real goals and protection needs." />
+  <meta name="keywords" content="WillPro Money, financial planning, mutual funds, life insurance, health insurance, loans, stock market, investments, World of Willpower" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-deep: #020c08;
+      --bg-soft: #041913;
+      --card: #071f16;
+      --outline: rgba(230, 179, 37, 0.35);
+      --gold: #e6b325;
+      --gold-soft: rgba(230, 179, 37, 0.12);
+      --text-main: #e8f5ee;
+      --text-soft: #bed9cf;
+      --accent: #22c55e;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left,#0b3b29 0,transparent 55%),
+        radial-gradient(circle at bottom right,#04130f 0,#010705 65%);
+      color:var(--text-main);
+      min-height:100vh;
+    }
+    a{text-decoration:none;}
+
+    /* NAVBAR */
+    .custom-navbar{
+      background:rgba(1,10,7,0.97);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(230,179,37,0.35);
+    }
+    .navbar-brand span{
+      font-family:"Playfair Display",serif;
+      letter-spacing:.08em;
+      font-size:1.1rem;
+      text-transform:uppercase;
+      color:var(--gold);
+    }
+    .navbar-brand img{height:40px;margin-right:10px;}
+    .nav-link{
+      font-size:.8rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(232,245,238,.76)!important;
+    }
+    .nav-link:hover,.nav-link:focus{color:var(--gold)!important;}
+    .nav-link.active{color:var(--gold)!important;}
+
+    .dropdown-menu-dark{
+      background:#020c08;
+      border:1px solid rgba(230,179,37,0.2);
+    }
+    .dropdown-item{
+      font-size:.78rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(232,245,238,.85);
+    }
+    .dropdown-item:hover{
+      background:var(--gold-soft);
+      color:var(--gold);
+    }
+
+    .btn-admin{
+      border-radius:999px;
+      border:1px solid rgba(230,179,37,0.5);
+      padding:6px 16px;
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--gold);
+      background:transparent;
+    }
+    .btn-admin:hover{background:var(--gold-soft);color:var(--gold);}
+
+    /* HERO */
+    .hero-wrapper{
+      padding:130px 0 80px;
+      background:
+        radial-gradient(circle at top left,#0f3a28 0,transparent 60%),
+        linear-gradient(to bottom,#020c08 10%,#010706 100%);
+    }
+    .hero-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 16px;
+      border-radius:999px;
+      border:1px solid var(--outline);
+      background:rgba(1,10,7,.9);
+      font-size:.72rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(232,245,238,.85);
+    }
+    .hero-pill-dot{
+      width:9px;height:9px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(34,197,94,.22);
+    }
+    .hero-title{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(2.3rem,3.6vw,3.1rem);
+      line-height:1.15;
+      margin-top:20px;
+      margin-bottom:6px;
+    }
+    .hero-title span.highlight{color:var(--gold);}
+    .hero-rotator{
+      font-size:.9rem;
+      color:var(--gold);
+      letter-spacing:.04em;
+      margin-bottom:16px;
+    }
+    .hero-sub{
+      font-size:1.03rem;
+      color:var(--text-soft);
+      max-width:540px;
+      line-height:1.7;
+    }
+    .hero-meta{
+      margin-top:16px;
+      font-size:.78rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(232,245,238,.7);
+    }
+    .hero-cta{
+      margin-top:30px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+    .btn-gold-primary{
+      border-radius:999px;
+      border:none;
+      padding:14px 30px;
+      font-size:.8rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:600;
+      background:var(--gold);
+      color:#111827;
+      box-shadow:0 22px 55px rgba(0,0,0,.6);
+    }
+    .btn-gold-primary i{margin-left:6px;font-size:.9rem;}
+    .btn-gold-primary:hover{background:#f1c341;color:#050816;}
+    .hero-note{
+      font-size:.8rem;
+      color:rgba(190,217,207,.85);
+    }
+    .hero-note span{color:var(--gold);font-weight:500;}
+
+    /* HERO CARD */
+    .hero-card{
+      background:radial-gradient(circle at top left,#0d3e2a 0,#04130f 60%);
+      border-radius:26px;
+      padding:30px 28px;
+      border:1px solid var(--outline);
+      box-shadow:0 26px 70px rgba(0,0,0,.75);
+    }
+    .hero-card-label{
+      font-size:.75rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(232,245,238,.7);
+      margin-bottom:14px;
+    }
+    .hero-card-title{
+      font-size:.95rem;
+      font-weight:600;
+      margin-bottom:16px;
+      color:var(--gold);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .hero-card ul{
+      list-style:none;
+      padding-left:0;
+      margin-bottom:0;
+    }
+    .hero-card li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:.9rem;
+      color:var(--text-soft);
+      margin-bottom:10px;
+    }
+    .hero-card li i{
+      margin-top:2px;
+      color:var(--gold);
+      font-size:.85rem;
+    }
+    .hero-card-footer{
+      margin-top:18px;
+      font-size:.78rem;
+      color:rgba(190,217,207,.78);
+    }
+
+    /* CTA STRIP */
+    .cta-strip{
+      padding:70px 0 80px;
+      background:#020906;
+      border-top:1px solid rgba(230,179,37,.18);
+      border-bottom:1px solid rgba(230,179,37,.18);
+    }
+    .cta-strip h2{
+      font-family:"Playfair Display",serif;
+      font-size:1.8rem;
+      margin-bottom:10px;
+    }
+    .cta-strip p{
+      color:var(--text-soft);
+      max-width:640px;
+      margin:0 auto 22px;
+    }
+
+    /* FOOTER */
+    footer{
+      padding:45px 0 30px;
+      background:#020805;
+      color:rgba(232,245,238,.82);
+      text-align:center;
+      font-size:.9rem;
+    }
+    footer h5{
+      font-family:"Playfair Display",serif;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:10px;
+    }
+    footer .divider{
+      width:52px;
+      height:1px;
+      background:rgba(230,179,37,.6);
+      margin:12px auto 18px;
+    }
+    footer a{color:rgba(232,245,238,.86);}
+    footer a:hover{color:var(--gold);}
+    .footer-meta{
+      font-size:.78rem;
+      color:rgba(156,175,167,.9);
+      margin-top:18px;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#25d366;
+      color:#fff;
+      font-size:1.6rem;
+      box-shadow:0 20px 40px rgba(0,0,0,.6);
+      z-index:999;
+    }
+    .whatsapp-float:hover{background:#3be27a;color:#fff;}
+
+    @media(max-width:991.98px){
+      .hero-wrapper{padding-top:110px;}
+      .hero-card{margin-top:32px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="https://ourwillpower.github.io/worldofwillpower/uploads/1764438907969_willpower.png" alt="Willpower logo" />
+        <span>World of Willpower</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+              Our Ventures
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="willpro-maestros.html">Willpower Maestros</a></li>
+              <li><a class="dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a></li>
+              <li><a class="dropdown-item" href="food-care.html">Willpower Food Care</a></li>
+              <li><a class="dropdown-item" href="ayurveda.html">Willpower Health &amp; Skin Care</a></li>
+              <li><a class="dropdown-item" href="new-business.html">WillPro Technologies &amp; Systems</a></li>
+              <li><a class="dropdown-item" href="willpro-money.html">WillPro Money</a></li>
+              <li><a class="dropdown-item" href="ventures.html">WIN Club (Investors Node)</a></li>
+              <li><a class="dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a href="admin.html" class="btn-admin d-inline-flex align-items-center gap-2">
+              <i class="fas fa-sliders-h"></i>
+              <span>Admin Panel</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-wrapper">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>WillPro Money · Financial Planning & Protection</span>
+          </div>
+
+          <h1 class="hero-title">
+            Money Plans <span class="highlight">That Let You Sleep Well</span>
+          </h1>
+
+          <div class="hero-rotator" id="hero-rotator"></div>
+
+          <p class="hero-sub">
+            WillPro Money helps you build a calm, structured basket of
+            investments, protection and loans – aligned with your goals,
+            not with market noise or random tips.
+          </p>
+
+          <div class="hero-meta">
+            MUTUAL FUNDS · INSURANCE · LOANS · INVESTMENTS · STOCK MARKET & TRAINING
+          </div>
+
+          <div class="hero-cta">
+            <a href="https://wa.me/917039196489?text=I%20want%20to%20discuss%20financial%20planning%20with%20WillPro%20Money."
+               class="btn btn-gold-primary">
+              START A MONEY DISCUSSION
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <div class="hero-note">
+              <span>One conversation.</span> From scattered products to
+              a single, clear money plan.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-card">
+            <div class="hero-card-label">Where WillPro Money usually helps</div>
+            <div class="hero-card-title">You may be in this zone:</div>
+            <ul>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                Multiple policies, funds and loans – but no single view
+                of what they are doing for you.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                Confusion between insurance and investment – not sure
+                what protects and what grows.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                Loans (home, personal, business) that need to sit
+                inside a stable repayment and growth plan.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                Interest in stock markets and trading – but want a
+                structured, risk-aware approach.
+              </li>
+            </ul>
+            <div class="hero-card-footer">
+              We try to make your money plan boring-in-a-good-way:
+              documented, diversified and aligned with your real life.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip text-center">
+    <div class="container">
+      <h2>Want a Single, Integrated View of Your Money?</h2>
+      <p>
+        Mutual funds, insurance, loans, property and equity can all
+        sit inside one calm strategy. If that sounds better than
+        scattered decisions, we should talk.
+      </p>
+      <a href="https://wa.me/917039196489?text=I%20would%20like%20to%20explore%20WillPro%20Money%20financial%20planning."
+         class="btn btn-gold-primary">
+        TALK TO WILLPRO MONEY
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <h5>World of Willpower</h5>
+      <div class="divider"></div>
+      <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 241 204</div>
+      <div class="mt-2">
+        <i class="fab fa-whatsapp text-success me-1"></i>
+        <a href="https://wa.me/917039196489">+91 7039196489</a>
+        <span class="mx-2">·</span>
+        <i class="fas fa-envelope text-warning me-1"></i>
+        <a href="mailto:care@worldofwillpower.com">care@worldofwillpower.com</a>
+      </div>
+      <div class="footer-meta">
+        © 2025 World of Willpower. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/917039196489" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const lines = [
+      "From products and policies to one money blueprint.",
+      "Protection first, growth next – in that order.",
+      "Loans, funds and insurance seen on a single page.",
+      "Less chasing tips, more following a written plan.",
+      "Money decisions that respect your sleep, not just returns."
+    ];
+    let idx = 0;
+    const rotator = document.getElementById("hero-rotator");
+    function showLine() {
+      if (!rotator) return;
+      rotator.textContent = lines[idx];
+      idx = (idx + 1) % lines.length;
+    }
+    showLine();
+    setInterval(showLine, 4000);
+  </script>
+</body>
+</html>
