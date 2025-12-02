@@ -23,321 +23,354 @@
 
     <!-- CSS / Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --bg:#02170f;
-            --bg-soft:#062219;
-            --card:#041d15;
-            --border:#0b2b1f;
-            --gold:#E6B325;
-            --gold-soft:#f5d887;
-            --text:#f8fafc;
-            --muted:#9ca3af;
+        :root{
+            --primary:#02170f;   /* Dark green */
+            --gold:#E6B325;      /* Real gold */
         }
-        *{box-sizing:border-box;}
+
         body{
-            margin:0;
-            font-family:'Manrope',sans-serif;
-            background:radial-gradient(circle at top left,#063826 0,#02170f 55%,#010b07 100%);
-            color:var(--text);
+            font-family:'Poppins', sans-serif;
             overflow-x:hidden;
+            background:#010807;
+            color:#f9fafb;
         }
+
+        /* NAVBAR – same structure / feel as Home */
         .navbar{
-            background:rgba(2,15,10,0.96);
-            border-bottom:1px solid rgba(230,179,37,0.2);
-            padding:0.7rem 4%;
+            background:rgba(2, 15, 10, 0.98);
+            padding:15px 5%;
+            border-bottom:1px solid rgba(230,179,37,0.4);
         }
         .navbar-brand{
-            font-family:'Playfair Display',serif;
-            font-weight:600;
-            letter-spacing:1px;
+            font-family:'Poppins', sans-serif;
             color:var(--gold)!important;
+            font-size:24px;
+            font-weight:700;
             display:flex;
             align-items:center;
-            gap:.75rem;
+            gap:15px;
+            letter-spacing:0.06em;
+            text-transform:uppercase;
         }
-        .navbar-brand img{height:44px;}
+        .navbar-brand img{height:50px;}
         .nav-link{
-            color:rgba(249,250,251,0.85)!important;
-            font-size:.9rem;
-            letter-spacing:.08em;
+            color:rgba(255,255,255,0.9)!important;
             text-transform:uppercase;
-            margin:0 .6rem;
-        }
-        .nav-link.active{color:var(--gold)!important;}
-        .btn-admin{
-            border-radius:999px;
-            border:1px solid rgba(230,179,37,0.5);
-            padding:.4rem 1.2rem;
-            font-size:.8rem;
-            letter-spacing:.12em;
-            text-transform:uppercase;
-            color:var(--gold);
-            background:transparent;
-        }
-        .btn-admin:hover{background:rgba(230,179,37,0.1);color:var(--gold);}
-
-        .hero-wrap{
-            padding:110px 4% 40px;
-        }
-        .hero-badge{
-            display:inline-flex;
-            align-items:center;
-            gap:.4rem;
-            border-radius:999px;
-            padding:.25rem .9rem;
-            border:1px solid rgba(148,163,184,.4);
-            background:rgba(3,24,17,.8);
-            color:var(--muted);
-            font-size:.8rem;
-            letter-spacing:.15em;
-            text-transform:uppercase;
-        }
-        .hero-badge-dot{
-            width:9px;height:9px;border-radius:50%;
-            background:radial-gradient(circle,var(--gold),#f97316);
-            box-shadow:0 0 0 4px rgba(230,179,37,0.25);
-        }
-        .hero-title{
-            margin-top:1.6rem;
-            font-family:'Playfair Display',serif;
-            font-size:2.6rem;
-            line-height:1.2;
-        }
-        .hero-title span{color:var(--gold);}
-        .hero-sub{
-            margin-top:1rem;
-            color:var(--muted);
-            max-width:640px;
-            font-size:.98rem;
-        }
-        .hero-rotator{
-            margin-top:.9rem;
-            font-size:.92rem;
-            color:var(--gold-soft);
-            font-weight:500;
-        }
-        .hero-rotator span{
-            border-bottom:1px dotted rgba(230,179,37,0.5);
-        }
-
-        .section-dark{
-            background:radial-gradient(circle at top,#041c13,#010806);
-            border-top:1px solid rgba(15,23,42,.8);
-            padding:40px 4% 60px;
-        }
-        .sec-title{
-            font-family:'Playfair Display',serif;
-            font-size:1.7rem;
-            margin-bottom:.6rem;
-        }
-        .sec-sub{
-            color:var(--muted);
-            max-width:760px;
-        }
-        .feature-card{
-            background:radial-gradient(circle at top left,#052217,#020f0a);
-            border-radius:22px;
-            padding:1.4rem 1.5rem;
-            border:1px solid rgba(15,118,110,0.35);
-            box-shadow:0 16px 40px rgba(0,0,0,.7);
-            height:100%;
-        }
-        .feature-tag{
-            font-size:.78rem;
-            text-transform:uppercase;
-            letter-spacing:.16em;
-            color:var(--gold-soft);
-        }
-        .feature-title{
-            margin-top:.6rem;
-            font-size:1.05rem;
+            font-size:0.85rem;
+            letter-spacing:1px;
+            margin-left:25px;
             font-weight:600;
         }
-        .feature-text{
-            margin-top:.35rem;
-            color:var(--muted);
-            font-size:.9rem;
+        .nav-link:hover{
+            color:var(--gold)!important;
         }
 
-        footer{
-            border-top:1px solid rgba(15,23,42,.9);
-            background:#010806;
-            padding:35px 4% 28px;
-            font-size:.85rem;
-            color:var(--muted);
-        }
-        footer h5{
-            font-family:'Playfair Display',serif;
-            color:var(--gold);
-            margin-bottom:.4rem;
-        }
-        .wa-float{
-            position:fixed;
-            right:20px;
-            bottom:20px;
-            width:56px;height:56px;
-            border-radius:50%;
-            background:#25d366;
+        /* MAIN HERO – same layout style as Home (big background image + overlay) */
+        .hero-section{
+            height:90vh;
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            position:relative;
             display:flex;
             align-items:center;
             justify-content:center;
-            box-shadow:0 18px 40px rgba(0,0,0,.7);
-            z-index:999;
+            text-align:center;
+            color:#fff;
         }
-        .wa-float img{width:28px;height:28px;}
-        @media(max-width:991px){
-            .hero-wrap{padding:96px 4% 40px;}
-            .hero-title{font-size:2.15rem;}
+        .hero-overlay{
+            position:absolute;
+            top:0;left:0;width:100%;height:100%;
+            background:linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85));
+        }
+        .hero-content{
+            position:relative;
+            z-index:2;
+            padding:20px;
+        }
+        .hero-title{
+            font-size:3.2rem;
+            font-weight:700;
+            margin-bottom:20px;
+            text-shadow:0 5px 15px rgba(0,0,0,0.5);
+        }
+        .hero-subline{
+            font-size:1.25rem;
+            font-weight:500;
+            color:#f3f4f6;
+        }
+        .hero-rotator{
+            margin-top:10px;
+            font-size:0.95rem;
+            color:#fef9c3;
+            letter-spacing:0.04em;
+        }
+
+        /* SECTION WRAPPER (similar spirit to your Home “Who we are / Business Verticals”) */
+        .section-wrap{
+            padding:80px 5%;
+            background:radial-gradient(circle at top,#041b14,#010806);
+        }
+        .section-wrap.alt{
+            background:#020b08;
+        }
+        .sec-title{
+            font-size:2.1rem;
+            color:#f9fafb;
+            margin-bottom:10px;
+        }
+        .sec-sub{
+            color:#9ca3af;
+            max-width:760px;
+            line-height:1.7;
+        }
+
+        /* FEATURE CARDS – keep premium hover feel */
+        .feature-card{
+            background:radial-gradient(circle at top left,#052217,#020f0a);
+            padding:30px;
+            border-radius:18px;
+            border:1px solid rgba(148,163,184,0.25);
+            box-shadow:0 12px 30px rgba(0,0,0,0.65);
+            height:100%;
+            transition:0.35s;
+        }
+        .feature-card:hover{
+            transform:translateY(-6px);
+            box-shadow:0 20px 45px rgba(0,0,0,0.85);
+            border-color:var(--gold);
+        }
+        .feature-tag{
+            font-size:0.78rem;
+            text-transform:uppercase;
+            letter-spacing:0.18em;
+            color:#facc15;
+        }
+        .feature-title{
+            margin-top:10px;
+            font-size:1.1rem;
+            font-weight:700;
+            color:#e5e7eb;
+        }
+        .feature-text{
+            margin-top:8px;
+            font-size:0.95rem;
+            color:#9ca3af;
+            line-height:1.7;
+        }
+
+        /* FOOTER – same structure as Home footer */
+        footer{
+            background:#020813;
+            color:#e5e7eb;
+            padding:40px 5% 30px;
+            text-align:left;
+            border-top:1px solid rgba(15,23,42,0.9);
+        }
+        footer h5{
+            font-size:1.1rem;
+            margin-bottom:5px;
+            color:var(--gold);
+        }
+        footer .small{
+            color:#9ca3af;
+        }
+
+        /* WHATSAPP FLOAT */
+        .float-wa{
+            position:fixed;
+            bottom:30px;
+            right:30px;
+            background:#25d366;
+            color:#fff;
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            z-index:999;
+            box-shadow:0 5px 15px rgba(0,0,0,0.3);
+            text-decoration:none;
+        }
+
+        @media(max-width:768px){
+            .hero-title{font-size:2.1rem;}
+            .hero-section{height:80vh;}
         }
     </style>
 </head>
 <body>
+
+<!-- NAVBAR (same across all pages) -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container-fluid px-0">
+    <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
-            <img src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
-            <span>WORLD OF WILLPOWER</span>
+            <img src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="World of Willpower">
+            <span>World of Willpower</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-            <ul class="navbar-nav align-items-lg-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Our Ventures</a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Ventures</a>
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="willpro-maestros.html">Willpower Maestros</a></li>
                         <li><a class="dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a></li>
                         <li><a class="dropdown-item" href="food-care.html">Willpower Food Care</a></li>
                         <li><a class="dropdown-item" href="ayurveda.html">Willpower Health &amp; Skin Care</a></li>
-                        <li><a class="dropdown-item active" href="new-business.html">WillPro Technologies &amp; Systems</a></li>
+                        <li><a class="dropdown-item" href="new-business.html">WillPro Technologies &amp; Systems</a></li>
                         <li><a class="dropdown-item" href="ventures.html">WIN Club (WillPro Investors Node)</a></li>
                         <li><a class="dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a></li>
                         <li><a class="dropdown-item" href="willpro-money.html">WillPro Money</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
+
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                    <a class="btn btn-sm btn-admin" href="admin.html">↗ Admin Panel</a>
+                    <a class="nav-link" href="admin.html" style="border:1px solid rgba(230,179,37,0.6); border-radius:999px; padding:6px 16px; font-size:0.8rem; letter-spacing:0.12em;">ADMIN</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<section class="hero-wrap">
-    <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        <span>WILLPRO TECHNOLOGIES &amp; SYSTEMS · TECH</span>
-    </div>
-    <h1 class="hero-title">
-        Software &amp; Systems Built<br>
-        <span>Around Your Business Reality.</span>
-    </h1>
-    <p class="hero-sub">
-        WillPro Technologies &amp; Systems exists for one reason — to ensure that your
-        software, websites and automations actually serve your business model, cash
-        flow and operations, instead of becoming a separate headache.
-    </p>
-    <div class="hero-rotator">
-        <span id="tech-rotator"></span>
-    </div>
-</section>
-
-<section class="section-dark">
-    <div class="mb-4">
-        <h2 class="sec-title">Where Tech Really Fits</h2>
-        <p class="sec-sub">
-            The focus is not on chasing every new buzzword. The focus is on mapping
-            your customer journey, your internal processes and your numbers — and 
-            then building tech that quietly supports that structure.
+<!-- HERO: SAME VISUAL LAYOUT AS HOME (but Tech-specific) -->
+<div class="hero-section" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+        <h1 class="hero-title">
+            Software &amp; Systems<br>Built Around Your Business Reality.
+        </h1>
+        <p class="hero-subline">
+            WillPro Technologies &amp; Systems · Business-First Technology
         </p>
+        <div class="hero-rotator">
+            <span id="tech-rotator"></span>
+        </div>
     </div>
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-tag">1 · WEBSITES &amp; PLATFORMS</div>
-                <div class="feature-title">Business-Focused Web Presence</div>
-                <div class="feature-text">
-                    Websites, portals and simple platforms with clarity on purpose:
-                    who should visit, what should happen there and what metrics
-                    actually matter to you.
+</div>
+
+<!-- SECTION 1 – “Where Tech Really Fits” (your venture-specific content) -->
+<section class="section-wrap">
+    <div class="container">
+        <div class="mb-4">
+            <h2 class="sec-title">Where Tech Really Fits</h2>
+            <p class="sec-sub">
+                The focus is not on chasing every new buzzword. The focus is on mapping
+                your customer journey, internal processes and numbers — and then building
+                tech that quietly supports that structure instead of becoming a separate headache.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-tag">1 · WEBSITES &amp; PLATFORMS</div>
+                    <div class="feature-title">Business-Focused Web Presence</div>
+                    <div class="feature-text">
+                        Websites, portals and simple platforms with clarity on purpose:
+                        who should visit, what should happen there and what metrics
+                        actually matter to you as a founder or promoter.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-tag">2 · WORKFLOWS &amp; AUTOMATION</div>
-                <div class="feature-title">Reduce Manual, Not Human Sense</div>
-                <div class="feature-text">
-                    Identifying parts of your process that genuinely benefit from
-                    automation, and building flows that reduce repetitive work
-                    without killing human judgement.
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-tag">2 · WORKFLOWS &amp; AUTOMATION</div>
+                    <div class="feature-title">Reduce Manual, Not Human Sense</div>
+                    <div class="feature-text">
+                        Identifying parts of your process that genuinely benefit from
+                        automation, and building flows that reduce repetitive work
+                        without killing human judgement and ownership.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-tag">3 · LONG-TERM SUPPORT</div>
-                <div class="feature-title">Tech That Ages Gracefully</div>
-                <div class="feature-text">
-                    Support, iteration and upgrades designed around how your business
-                    evolves — so systems stay useful rather than becoming a museum
-                    of old ideas.
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-tag">3 · LONG-TERM SUPPORT</div>
+                    <div class="feature-title">Tech That Ages Gracefully</div>
+                    <div class="feature-text">
+                        Support, iteration and upgrades designed around how your business
+                        evolves — so systems stay useful instead of becoming a museum of
+                        old ideas and unused features.
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- SECTION 2 – Call to Action -->
+<section class="section-wrap alt">
+    <div class="container text-center">
+        <h2 class="sec-title">Let’s Build Tech That Serves Business</h2>
+        <p class="sec-sub mx-auto">
+            If you want technology that respects your business model, people and cash flow,
+            let’s begin with a straightforward conversation — no jargon, no pressure.
+        </p>
+        <a href="https://wa.me/917039196489?text=I%20would%20like%20to%20discuss%20a%20project%20with%20WillPro%20Technologies%20%26%20Systems." class="btn btn-lg mt-3" style="background:var(--gold); color:#02170f; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; border-radius:999px; padding:12px 32px;">
+            Message WillPro Tech on WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER (same structure as Home) -->
 <footer id="contact">
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
-        <div>
-            <h5>World of Willpower</h5>
-            <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
-        </div>
-        <div>
-            <div>📞 +91 7039196489</div>
-            <div>✉️ care@worldofwillpower.com</div>
-        </div>
-        <div>
-            <div>© 2025 World of Willpower.</div>
+    <div class="container">
+        <div class="row gy-3 align-items-start">
+            <div class="col-md-5">
+                <h5>World of Willpower</h5>
+                <p class="mb-1">002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</p>
+            </div>
+            <div class="col-md-4">
+                <p class="mb-1"><i class="fab fa-whatsapp text-success me-2"></i> +91 7039196489</p>
+                <p class="mb-0"><i class="fas fa-envelope text-warning me-2"></i> care@worldofwillpower.com</p>
+            </div>
+            <div class="col-md-3 text-md-end">
+                <p class="small mb-0">&copy; 2025 World of Willpower.</p>
+            </div>
         </div>
     </div>
 </footer>
 
-<a href="https://wa.me/917039196489" class="wa-float" target="_blank" aria-label="WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+<!-- WhatsApp Float -->
+<a href="https://wa.me/917039196489" class="float-wa" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-(function () {
-    const lines = [
-        "For founders who want tech to follow business, not the other way round.",
-        "For people tired of paying for features nobody on the ground uses.",
-        "For teams who want clean, calm systems instead of scattered tools.",
-        "For promoters who want visibility on numbers, not just fancy dashboards.",
-        "For businesses that treat technology as infrastructure, not decoration."
-    ];
-    let i = 0;
-    const el = document.getElementById('tech-rotator');
-    if (!el) return;
-    function update() {
-        el.textContent = lines[i];
-        i = (i + 1) % lines.length;
-    }
-    update();
-    setInterval(update, 3500);
-})();
+    // Rotating Tech sub-lines (flashers)
+    (function () {
+        const lines = [
+            "For founders who want tech to follow business, not the other way round.",
+            "For people tired of paying for features nobody on ground uses.",
+            "For teams who want calm systems instead of scattered tools and logins.",
+            "For promoters who want visibility on numbers, not just fancy dashboards.",
+            "For businesses that treat technology as infrastructure, not decoration."
+        ];
+        let i = 0;
+        const el = document.getElementById('tech-rotator');
+        if (!el) return;
+        function update() {
+            el.textContent = lines[i];
+            i = (i + 1) % lines.length;
+        }
+        update();
+        setInterval(update, 3500);
+    })();
 </script>
 </body>
 </html>
