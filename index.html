@@ -1,104 +1,325 @@
-<!-- VENTURES OVERVIEW -->
-<section id="ventures" class="ventures">
-  <div class="shell">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>World of Willpower – Group of Companies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory — all built around real work and long-term thinking.">
+<link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
-    <div class="ventures-header">
-      <p class="ventures-kicker">WORLD OF WILLPOWER · GROUP OF COMPANIES</p>
-      <h2 class="ventures-title">From Mentoring to Capital – One Connected Ecosystem.</h2>
-      <p class="ventures-sub">
-        Each venture has its own responsibility, formats and disciplines – but all of them are built
-        around the same philosophy: calm thinking, documented work and long-term reputation.
+<style>
+:root{
+  --bg:#021712;
+  --bg-soft:#042018;
+  --card:#062921;
+  --border:#0b3b2f;
+  --accent:#E6B325;
+  --accent-soft:rgba(230,179,37,0.12);
+  --text:#f9f5e9;
+  --muted:#94a3b8;
+  --pill:#0b3126;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
+  color:var(--text);line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+
+/* NAVBAR */
+.nav-shell{
+  position:sticky;top:0;z-index:50;
+  background:rgba(0,0,0,0.95);
+  border-bottom:1px solid #111827;
+  backdrop-filter:blur(14px);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-left{display:flex;align-items:center;gap:14px;}
+.nav-logo{height:40px;width:auto;}
+.nav-brand-text{
+  font-family:"Times New Roman",serif;
+  letter-spacing:0.08em;
+  font-size:18px;color:var(--accent);
+}
+.nav-links{
+  display:flex;align-items:center;gap:24px;
+  font-size:14px;text-transform:uppercase;letter-spacing:0.12em;
+}
+.nav-links a{
+  color:#e5e7eb;
+  padding-bottom:3px;border-bottom:2px solid transparent;
+}
+.nav-links a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.nav-links a:hover{color:var(--accent);}
+.nav-admin-btn{
+  border-radius:999px;padding:8px 18px;border:1px solid rgba(148,163,184,0.4);
+  font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+  color:#e5e7eb;display:flex;align-items:center;gap:8px;
+  background:linear-gradient(90deg,#111827,#020617);
+}
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{
+  position:absolute;top:32px;right:0;
+  background:#020617;border-radius:14px;border:1px solid #111827;
+  box-shadow:0 22px 60px rgba(0,0,0,0.55);
+  padding:10px 0;min-width:260px;display:none;z-index:40;
+}
+.nav-dropdown:hover .nav-dropdown-menu{display:block;}
+.nav-dropdown-item{padding:9px 18px;font-size:13px;color:#e5e7eb;}
+.nav-dropdown-item:hover{background:#020814;color:var(--accent);}
+
+/* HERO */
+.hero{padding:70px 0 70px;}
+.shell{max-width:1180px;margin:0 auto;padding:0 20px;}
+.hero-inner{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
+  gap:36px;align-items:flex-start;
+}
+.hero-pill{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:999px;background:var(--pill);
+  border:1px solid rgba(148,163,184,0.4);font-size:11px;
+  letter-spacing:0.16em;text-transform:uppercase;color:#9ca3af;
+  margin-bottom:22px;
+}
+.hero-pill-dot{
+  height:7px;width:7px;border-radius:999px;background:var(--accent);
+}
+.hero-title{
+  font-family:"Times New Roman",serif;
+  font-size:46px;line-height:1.15;margin-bottom:18px;
+}
+.hero-title span.gold{color:var(--accent);}
+.hero-body{font-size:15px;color:#cbd5f5;max-width:620px;margin-bottom:18px;}
+.hero-tagline{font-size:13px;color:#e5e7eb;text-transform:uppercase;
+  letter-spacing:0.18em;margin-bottom:24px;
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:10px;padding:14px 26px;
+  border-radius:999px;border:none;background:var(--accent);color:#1a1302;
+  font-size:13px;font-weight:600;letter-spacing:0.18em;
+}
+.hero-note{margin-top:12px;font-size:12px;color:#9ca3af;}
+
+.hero-right-card{
+  background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
+  border-radius:22px;border:1px solid var(--border);
+  padding:24px 26px;
+}
+.hero-right-title{font-size:13px;letter-spacing:0.18em;color:#9ca3af;margin-bottom:14px;}
+.hero-right-list{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:13px;}
+.hero-right-list li{display:flex;gap:10px;}
+.hero-right-bullet{height:6px;width:6px;margin-top:7px;border-radius:999px;background:var(--accent);}
+.hero-right-foot{margin-top:18px;font-size:12px;color:#9ca3af;}
+
+/* ROTATING STATEMENTS */
+.rotator{color:var(--accent);font-weight:600;}
+@keyframes rotate {
+  0%,20%{opacity:1;}
+  25%,95%{opacity:0;}
+}
+.rotator span{
+  position:absolute;opacity:0;animation:rotate 12s infinite;
+}
+.rotator span:nth-child(1){animation-delay:0s}
+.rotator span:nth-child(2){animation-delay:4s}
+.rotator span:nth-child(3){animation-delay:8s}
+
+/* VENTURES GRID */
+.ventures{padding:20px 0 80px;}
+.ventures-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:26px;margin-top:26px;
+}
+.venture-card{
+  background:var(--card);border-radius:22px;border:1px solid var(--border);
+  padding:26px 24px 22px;
+}
+.venture-kicker{
+  font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#9ca3af;margin-bottom:10px;
+}
+.venture-title{font-size:18px;font-weight:600;margin-bottom:10px;}
+.venture-copy{font-size:13px;color:#cbd5f5;margin-bottom:14px;}
+.venture-link{font-size:12px;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;}
+
+/* FOOTER */
+footer{border-top:1px solid #111827;background:#02040a;padding:24px 20px 26px;margin-top:20px;}
+.footer-inner{
+  max-width:1180px;margin:0 auto;font-size:12px;color:#9ca3af;
+  display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;justify-content:space-between;
+}
+.footer-brand{color:var(--accent);font-weight:600;}
+
+.wa-float{
+  position:fixed;right:24px;bottom:24px;height:54px;width:54px;border-radius:999px;
+  background:#22c55e;display:flex;align-items:center;justify-content:center;color:white;font-size:26px;
+}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .ventures-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav-shell">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
+      <div class="nav-brand-text">WORLD OF WILLPOWER</div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <div class="nav-dropdown">
+        <a>Our Ventures ▾</a>
+        <div class="nav-dropdown-menu">
+          <a class="nav-dropdown-item" href="willpro-maestros.html">Willpower Maestros</a>
+          <a class="nav-dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a>
+          <a class="nav-dropdown-item" href="food-care.html">Willpower Food Care</a>
+          <a class="nav-dropdown-item" href="ayurveda.html">Willpower Health & Skin Care</a>
+          <a class="nav-dropdown-item" href="new-business.html">WillPro Technologies & Systems</a>
+          <a class="nav-dropdown-item" href="ventures.html">WIN Club</a>
+          <a class="nav-dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a>
+          <a class="nav-dropdown-item" href="willpro-money.html">WillPro Money</a>
+        </div>
+      </div>
+      <a href="#contact">Contact</a>
+      <a class="nav-admin-btn" href="admin.html"><span>↗</span> ADMIN PANEL</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="shell hero-inner">
+    <div>
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        <span>WORLD OF WILLPOWER · GROUP OF COMPANIES</span>
+      </div>
+
+      <h1 class="hero-title">
+        When You Want <span class="gold">Nothing but the Best</span>, You Will Find Willpower.
+      </h1>
+
+      <p class="hero-body">
+        World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda,
+        tech, investors hub, aggregators and financial advisory — all built around real work and long-term thinking.
       </p>
+
+      <div class="hero-tagline">
+        <span class="rotator">
+          <span>Structured Work, Not Random Hustle.</span>
+          <span>Calm Growth, Not Noise.</span>
+          <span>Documentation, Not Shortcuts.</span>
+        </span>
+      </div>
+
+      <a class="hero-cta" href="https://wa.me/917039196489" target="_blank">START A WILLPOWER CONVERSATION →</a>
+
+      <p class="hero-note">Simple WhatsApp connect.</p>
     </div>
 
-    <div class="ventures-grid">
-      <!-- 1 · MENTORING -->
-      <article class="venture-card">
-        <p class="venture-kicker">1 · MENTORING</p>
-        <h3 class="venture-title">Willpower Maestros</h3>
-        <p class="venture-copy">
-          Founder-led mentoring, consultations and high-impact thinking for leaders who want clarity,
-          not buzzwords.
-        </p>
-        <a href="willpro-maestros.html" class="venture-link">View details →</a>
-      </article>
+    <aside class="hero-right-card">
+      <div class="hero-right-title">WHAT TYPICALLY BRINGS PEOPLE HERE</div>
+      <ul class="hero-right-list">
+        <li><span class="hero-right-bullet"></span>Founders wanting clarity, strategic thinking and documented execution.</li>
+        <li><span class="hero-right-bullet"></span>Brands who prefer purity and discipline — dairy, food or Ayurveda.</li>
+        <li><span class="hero-right-bullet"></span>Business-first tech systems aligned with cash flow, operations and scale.</li>
+        <li><span class="hero-right-bullet"></span>Investors exploring curated Willpower opportunities.</li>
+        <li><span class="hero-right-bullet"></span>Individuals seeking grounded financial planning, not quick sales calls.</li>
+      </ul>
+    </aside>
 
-      <!-- 2 · DAIRY -->
-      <article class="venture-card">
-        <p class="venture-kicker">2 · DAIRY</p>
-        <h3 class="venture-title">Willpower Dairy Care</h3>
-        <p class="venture-copy">
-          Pure cow ghee and dairy manufacturing with audits, documentation and processes that can stand
-          any purity discussion.
-        </p>
-        <a href="dairy-manufacturing.html" class="venture-link">View details →</a>
-      </article>
-
-      <!-- 3 · FOODS -->
-      <article class="venture-card">
-        <p class="venture-kicker">3 · FOODS</p>
-        <h3 class="venture-title">Willpower Food Care</h3>
-        <p class="venture-copy">
-          Masalas, RTE foods, agro products and beverages – built with sourcing logic, stability and
-          long-term brand reputation.
-        </p>
-        <a href="food-care.html" class="venture-link">View details →</a>
-      </article>
-
-      <!-- 4 · AYURVEDA & HEALTH -->
-      <article class="venture-card">
-        <p class="venture-kicker">4 · AYURVEDA &amp; HEALTH</p>
-        <h3 class="venture-title">Willpower Health &amp; Skin Care</h3>
-        <p class="venture-copy">
-          Ayurvedic and herbal brands that treat Ayurveda as science – with formulations, rationale and
-          documentation.
-        </p>
-        <a href="ayurveda.html" class="venture-link">View details →</a>
-      </article>
-
-      <!-- 5 · TECHNOLOGY -->
-      <article class="venture-card">
-        <p class="venture-kicker">5 · TECHNOLOGY</p>
-        <h3 class="venture-title">WillPro Technologies &amp; Systems</h3>
-        <p class="venture-copy">
-          Business-first technology, websites and systems – designed so that tech follows business
-          reality, not the other way round.
-        </p>
-        <a href="new-business.html" class="venture-link">View details →</a>
-      </article>
-
-      <!-- 6 · WIN CLUB -->
-      <article class="venture-card">
-        <p class="venture-kicker">6 · CAPITAL · WIN CLUB</p>
-        <h3 class="venture-title">WIN Club (WillPro Investors Node)</h3>
-        <p class="venture-copy">
-          A curated investors hub around World of Willpower opportunities – focused on clarity,
-          documentation and long-term value creation.
-        </p>
-        <a href="ventures.html" class="venture-link">View details →</a>
-      </article>
-
-      <!-- 7 · AGGREGATORS -->
-      <article class="venture-card">
-        <p class="venture-kicker">7 · E-COMMERCE &amp; AGGREGATION</p>
-        <h3 class="venture-title">WillPro Aggregators</h3>
-        <p class="venture-copy">
-          E-commerce and category aggregator stories – bringing manufacturers, brands and logistics
-          partners under one disciplined narrative.
-        </p>
-        <a href="mentoring-strategy.html" class="venture-link">View details →</a>
-      </article>
-
-      <!-- 8 · MONEY -->
-      <article class="venture-card">
-        <p class="venture-kicker">8 · MONEY &amp; PLANNING</p>
-        <h3 class="venture-title">WillPro Money</h3>
-        <p class="venture-copy">
-          Grounded financial and money decisions – mutual funds, insurance and structured planning
-          around your real-life goals, not social media noise.
-        </p>
-        <a href="willpro-money.html" class="venture-link">View details →</a>
-      </article>
-    </div>
   </div>
 </section>
+
+
+
+<!-- VENTURES GRID -->
+<section id="ventures" class="ventures">
+  <div class="shell ventures-grid">
+
+    <article class="venture-card">
+      <p class="venture-kicker">1 · MENTORING</p>
+      <h3 class="venture-title">Willpower Maestros</h3>
+      <p class="venture-copy">Founder-led mentoring and strategic clarity.</p>
+      <a href="willpro-maestros.html" class="venture-link">VIEW DETAILS →</a>
+    </article>
+
+    <article class="venture-card">
+      <p class="venture-kicker">2 · DAIRY</p>
+      <h3 class="venture-title">Willpower Dairy Care</h3>
+      <p class="venture-copy">Pure cow ghee with documentation, audits and quality.</p>
+      <a href="dairy-manufacturing.html" class="venture-link">VIEW DETAILS →</a>
+    </article>
+
+    <article class="venture-card">
+      <p class="venture-kicker">3 · FOODS</p>
+      <h3 class="venture-title">Willpower Food Care</h3>
+      <p class="venture-copy">Masalas, RTE foods, agro beverages with sourcing discipline.</p>
+      <a href="food-care.html" class="venture-link">VIEW DETAILS →</a>
+    </article>
+
+    <article class="venture-card">
+      <p class="venture-kicker">4 · AYURVEDA & HEALTH</p>
+      <h3 class="venture-title">Willpower Health & Skin Care</h3>
+      <p class="venture-copy">Ayurvedic brands with formulations, rationale and documentation.</p>
+      <a href="ayurveda.html" class="venture-link">VIEW DETAILS →</a>
+    </article>
+
+    <article class="venture-card">
+      <p class="venture-kicker">5 · TECHNOLOGY</p>
+      <h3 class="venture-title">WillPro Technologies & Systems</h3>
+      <p class="venture-copy">Websites and systems built around real business operations.</p>
+      <a href="new-business.html" class="venture-link">VIEW DETAILS →</a>
+    </article>
+
+    <article class="venture-card">
+      <p class="venture-kicker">6 · CAPITAL</p>
+      <h3 class="venture-title">WIN Club</h3>
+      <p class="venture-copy">Curated Willpower investor opportunities.</p>
+      <a href="ventures.html" class="venture-link">VIEW DETAILS →</a>
+    </article>
+
+    <article class="venture-card">
+      <p class="venture-kicker">7 · E-COMMERCE</p>
+      <h3 class="venture-title">WillPro Aggregators</h3>
+      <p class="venture-copy">E-commerce category aggregation with structured story.</p>
+      <a href="mentoring-strategy.html" class="venture-link">VIEW DETAILS →</a>
+    </article>
+
+    <article class="venture-card">
+      <p class="venture-kicker">8 · MONEY</p>
+      <h3 class="venture-title">WillPro Money</h3>
+      <p class="venture-copy">Grounded financial planning — mutual funds & insurance.</p>
+      <a href="willpro-money.html" class="venture-link">VIEW DETAILS →</a>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">World of Willpower</div>
+    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane 421204</div>
+    <div>📞 +91 7039196489 • ✉ care@worldofwillpower.com</div>
+    <div>© 2025 World of Willpower.</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/917039196489">⌾</a>
+
+</body>
+</html>
