@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WillPro Technologies &amp; Systems – Business-First Technology</title>
+  <title>WillPro Technologies & Systems – Software That Serves Business</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="WillPro Technologies & Systems builds software, web and digital systems around your business reality – so tech follows business, not the other way round.">
+  <meta name="description" content="WillPro Technologies & Systems builds business-first software, automations and systems – designed around workflows, cashflows and decision-making, not just features.">
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
   <style>
-    /* same base styles as Ayurveda / Food for full uniformity */
     :root{
       --bg:#021712;
       --bg-soft:#042018;
@@ -24,56 +23,239 @@
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
-      color:var(--text);line-height:1.6;
+      color:var(--text);
+      line-height:1.6;
     }
     a{text-decoration:none;color:inherit}
-    .nav-shell{position:sticky;top:0;z-index:50;background:rgba(0,0,0,0.95);border-bottom:1px solid #111827;backdrop-filter:blur(14px);}
-    .nav-inner{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
+
+    /* NAVBAR */
+    .nav-shell{
+      position:sticky;top:0;z-index:50;
+      background:rgba(0,0,0,0.95);
+      border-bottom:1px solid #111827;
+      backdrop-filter:blur(14px);
+    }
+    .nav-inner{
+      max-width:1180px;margin:0 auto;
+      padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
-    .nav-brand-text{font-family:"Times New Roman",serif;letter-spacing:0.08em;font-size:18px;color:var(--accent);}
-    .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;text-transform:uppercase;letter-spacing:0.12em;}
-    .nav-links a{color:#e5e7eb;padding-bottom:3px;border-bottom:2px solid transparent;}
+    .nav-brand-text{
+      font-family:"Times New Roman",serif;
+      letter-spacing:0.08em;
+      font-size:18px;
+      color:var(--accent);
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:24px;
+      font-size:14px;text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+    .nav-links a{
+      color:#e5e7eb;
+      padding-bottom:3px;
+      border-bottom:2px solid transparent;
+    }
     .nav-links a:hover{color:var(--accent);}
-    .nav-admin-btn{border-radius:999px;padding:8px 18px;border:1px solid rgba(148,163,184,0.4);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#e5e7eb;display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#111827,#020617);}
-    .nav-admin-btn span{display:inline-flex;align-items:center;justify-content:center;height:18px;width:18px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:11px;}
+    .nav-dropdown > a{
+      color:var(--accent); /* gold "Our Ventures" everywhere */
+    }
+    .nav-admin-btn{
+      border-radius:999px;
+      padding:8px 18px;
+      border:1px solid rgba(148,163,184,0.4);
+      font-size:12px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:#e5e7eb;
+      display:flex;align-items:center;gap:8px;
+      background:linear-gradient(90deg,#111827,#020617);
+    }
+    .nav-admin-btn span{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:18px;width:18px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-size:11px;
+    }
+
     .nav-dropdown{position:relative;}
-    .nav-dropdown-menu{position:absolute;top:32px;right:0;background:#020617;border-radius:14px;border:1px solid #111827;box-shadow:0 22px 60px rgba(0,0,0,0.55);padding:10px 0;min-width:260px;display:none;z-index:40;}
+    .nav-dropdown-menu{
+      position:absolute;top:32px;right:0;
+      background:#020617;
+      border-radius:14px;
+      border:1px solid #111827;
+      box-shadow:0 22px 60px rgba(0,0,0,0.55);
+      padding:10px 0;
+      min-width:260px;
+      display:none;
+      z-index:40;
+    }
     .nav-dropdown:hover .nav-dropdown-menu{display:block;}
-    .nav-dropdown-item{padding:9px 18px;font-size:13px;color:#e5e7eb;display:flex;flex-direction:column;gap:2px;}
+    .nav-dropdown-item{
+      padding:9px 18px;
+      font-size:13px;
+      color:#e5e7eb;
+      display:flex;flex-direction:column;gap:2px;
+    }
     .nav-dropdown-item span:first-child{font-weight:600;}
-    .nav-dropdown-item span:last-child{font-size:11px;color:#9ca3af;}
-    .nav-dropdown-item:hover{background:#020814;color:var(--accent);}
-    .hero{padding:70px 0 70px;}
+    .nav-dropdown-item span:last-child{
+      font-size:11px;color:#9ca3af;
+    }
+    .nav-dropdown-item:hover{
+      background:#020814;
+      color:var(--accent);
+    }
+
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
-    .hero-inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);gap:36px;align-items:flex-start;}
-    .hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--pill);border:1px solid rgba(148,163,184,0.4);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#9ca3af;margin-bottom:22px;}
-    .hero-pill-dot{height:7px;width:7px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 4px rgba(230,179,37,0.25);}
-    .hero-title{font-family:"Times New Roman",serif;font-size:44px;line-height:1.15;margin-bottom:18px;}
+
+    /* HERO */
+    .hero{padding:60px 0 60px;}
+    .hero-inner{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
+      gap:36px;
+      align-items:flex-start;
+    }
+    .hero-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 14px;border-radius:999px;
+      background:var(--pill);
+      border:1px solid rgba(148,163,184,0.4);
+      font-size:11px;letter-spacing:0.16em;
+      text-transform:uppercase;color:#9ca3af;
+      margin-bottom:22px;
+    }
+    .hero-pill-dot{
+      height:7px;width:7px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(230,179,37,0.25);
+    }
+    .hero-title{
+      font-family:"Times New Roman",serif;
+      font-size:44px;
+      line-height:1.15;
+      margin-bottom:18px;
+    }
     .hero-title span.gold{color:var(--accent);}
-    .hero-body{font-size:15px;color:#cbd5f5;max-width:620px;margin-bottom:18px;}
-    .hero-tagline{font-size:13px;color:#e5e7eb;text-transform:uppercase;letter-spacing:0.18em;margin-bottom:24px;}
-    .hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:999px;border:none;background:var(--accent);color:#1a1302;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;box-shadow:0 18px 40px rgba(0,0,0,0.5);}
+    .hero-body{
+      font-size:15px;color:#cbd5f5;
+      max-width:620px;margin-bottom:16px;
+    }
+    .hero-tagline{
+      font-size:13px;color:#e5e7eb;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      margin-bottom:22px;
+      min-height:1.6em; /* for rotating text */
+    }
+    .hero-cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;padding:14px 26px;
+      border-radius:999px;border:none;
+      background:var(--accent);color:#1a1302;
+      font-size:13px;font-weight:600;
+      letter-spacing:0.18em;text-transform:uppercase;
+      box-shadow:0 18px 40px rgba(0,0,0,0.5);
+    }
     .hero-cta i{font-style:normal;font-size:16px;}
-    .hero-note{margin-top:12px;font-size:12px;color:#9ca3af;}
-    .hero-right-card{background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);border-radius:22px;border:1px solid var(--border);padding:24px 26px;box-shadow:0 26px 60px rgba(0,0,0,0.65);}
-    .hero-right-title{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#9ca3af;margin-bottom:14px;}
-    .hero-right-list{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:13px;color:#e5e7eb;}
+    .hero-note{
+      margin-top:12px;font-size:12px;color:#9ca3af;
+    }
+
+    .hero-right-card{
+      background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
+      border-radius:22px;border:1px solid var(--border);
+      padding:24px 26px;
+      box-shadow:0 26px 60px rgba(0,0,0,0.65);
+    }
+    .hero-right-title{
+      font-size:13px;letter-spacing:0.18em;
+      text-transform:uppercase;color:#9ca3af;
+      margin-bottom:14px;
+    }
+    .hero-right-list{
+      list-style:none;
+      display:flex;flex-direction:column;
+      gap:12px;font-size:13px;color:#e5e7eb;
+    }
     .hero-right-list li{display:flex;gap:10px;}
-    .hero-right-bullet{height:6px;width:6px;margin-top:7px;border-radius:999px;background:var(--accent);}
-    .hero-right-foot{margin-top:18px;font-size:12px;color:#9ca3af;}
-    .section{padding:0 0 80px;}
-    .section-title{font-family:"Times New Roman",serif;font-size:30px;margin-bottom:10px;}
-    .section-sub{font-size:14px;color:#9ca3af;max-width:680px;margin-bottom:24px;}
-    .chip-row{display:flex;flex-wrap:wrap;gap:10px;}
-    .chip{padding:9px 14px;border-radius:999px;border:1px solid var(--border);background:rgba(15,118,110,0.25);font-size:12px;color:#e5e7eb;}
-    footer{border-top:1px solid #111827;background:#02040a;padding:24px 20px 26px;margin-top:20px;}
-    .footer-inner{max-width:1180px;margin:0 auto;font-size:12px;color:#9ca3af;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;justify-content:space-between;}
+    .hero-right-bullet{
+      height:6px;width:6px;margin-top:7px;
+      border-radius:999px;background:var(--accent); /* gold bullets */
+    }
+    .hero-right-foot{
+      margin-top:18px;font-size:12px;color:#9ca3af;
+    }
+
+    /* SECTION */
+    .section{
+      padding:0 0 80px;
+    }
+    .section-title{
+      font-family:"Times New Roman",serif;
+      font-size:30px;margin-bottom:10px;
+    }
+    .section-sub{
+      font-size:14px;color:#9ca3af;
+      max-width:700px;margin-bottom:32px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:22px;border:1px solid var(--border);
+      padding:22px 22px 20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.65);
+    }
+    .card-label{
+      font-size:11px;text-transform:uppercase;
+      letter-spacing:0.18em;color:#9ca3af;
+      margin-bottom:10px;
+    }
+    .card-title{
+      font-size:17px;font-weight:600;margin-bottom:10px;
+    }
+    .card-body{
+      font-size:13px;color:#cbd5f5;
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid #111827;
+      background:#02040a;
+      padding:24px 20px 26px;
+      margin-top:10px;
+    }
+    .footer-inner{
+      max-width:1180px;margin:0 auto;
+      font-size:12px;color:#9ca3af;
+      display:flex;flex-wrap:wrap;
+      gap:8px 22px;align-items:center;
+      justify-content:space-between;
+    }
     .footer-brand{color:var(--accent);font-weight:600;}
     .footer-contact span{margin-right:14px;}
-    .wa-float{position:fixed;right:24px;bottom:24px;height:54px;width:54px;border-radius:999px;background:#22c55e;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(0,0,0,0.6);font-size:26px;color:white;}
-    @media(max-width:900px){
+
+    .wa-float{
+      position:fixed;right:24px;bottom:24px;
+      height:54px;width:54px;border-radius:999px;
+      background:#22c55e;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 18px 40px rgba(0,0,0,0.6);
+      font-size:26px;color:white;
+    }
+
+    @media (max-width:900px){
       .hero-inner{grid-template-columns:minmax(0,1fr);}
+      .hero-right-card{margin-top:10px;}
+      .grid{grid-template-columns:minmax(0,1fr);}
     }
   </style>
 </head>
@@ -91,14 +273,38 @@
       <div class="nav-dropdown">
         <a href="index.html#ventures">Our Ventures ▾</a>
         <div class="nav-dropdown-menu">
-          <a class="nav-dropdown-item" href="willpro-maestros.html"><span>Willpower Maestros</span><span>Mentoring &amp; strategic thinking for founders.</span></a>
-          <a class="nav-dropdown-item" href="dairy-manufacturing.html"><span>Willpower Dairy Care</span><span>Disciplined dairy manufacturing with documentation.</span></a>
-          <a class="nav-dropdown-item" href="food-care.html"><span>Willpower Food Care</span><span>Masalas, RTE foods, agro products &amp; beverages.</span></a>
-          <a class="nav-dropdown-item" href="ayurveda.html"><span>Willpower Health &amp; Skin Care</span><span>Ayurvedic &amp; herbal health and skincare brands.</span></a>
-          <a class="nav-dropdown-item" href="new-business.html"><span>WillPro Technologies &amp; Systems</span><span>Business-first technology &amp; systems.</span></a>
-          <a class="nav-dropdown-item" href="ventures.html"><span>WIN Club (WillPro Investors Node)</span><span>Curated investors hub for Willpower opportunities.</span></a>
-          <a class="nav-dropdown-item" href="mentoring-strategy.html"><span>WillPro Aggregators</span><span>E-commerce &amp; category aggregators.</span></a>
-          <a class="nav-dropdown-item" href="willpro-money.html"><span>WillPro Money</span><span>Grounded financial &amp; money decisions.</span></a>
+          <a class="nav-dropdown-item" href="willpro-maestros.html">
+            <span>Willpower Maestros</span>
+            <span>Mentoring &amp; strategic thinking for founders.</span>
+          </a>
+          <a class="nav-dropdown-item" href="dairy-manufacturing.html">
+            <span>Willpower Dairy Care</span>
+            <span>Disciplined dairy manufacturing with documentation.</span>
+          </a>
+          <a class="nav-dropdown-item" href="food-care.html">
+            <span>Willpower Food Care</span>
+            <span>Masalas, RTE foods, agro products &amp; beverages.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ayurveda.html">
+            <span>Willpower Health &amp; Skin Care</span>
+            <span>Ayurvedic &amp; herbal health and skincare brands.</span>
+          </a>
+          <a class="nav-dropdown-item" href="new-business.html">
+            <span>WillPro Technologies &amp; Systems</span>
+            <span>Business-first technology &amp; systems.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ventures.html">
+            <span>WIN Club (WillPro Investors Node)</span>
+            <span>Curated investors hub for Willpower opportunities.</span>
+          </a>
+          <a class="nav-dropdown-item" href="mentoring-strategy.html">
+            <span>WillPro Aggregators</span>
+            <span>E-commerce &amp; category aggregators.</span>
+          </a>
+          <a class="nav-dropdown-item" href="willpro-money.html">
+            <span>WillPro Money</span>
+            <span>Grounded financial &amp; money decisions.</span>
+          </a>
         </div>
       </div>
 
@@ -117,62 +323,91 @@
       <div>
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
-          <span>WORLD OF WILLPOWER · TECH &amp; SYSTEMS</span>
+          <span>WORLD OF WILLPOWER · TECHNOLOGY & SYSTEMS</span>
         </div>
 
         <h1 class="hero-title">
-          Software &amp; Systems Built Around <span class="gold">Your Business Reality.</span>
+          Software &amp; Systems Designed <span class="gold">Around Your Business.</span>
         </h1>
 
-        <p class="hero-body">
-          WillPro Technologies &amp; Systems is for founders who want technology to follow business – not for business to bend around tools. From simple web presence to full-stack systems, we start with how you actually acquire customers, execute work and get paid.
-        </p>
-
-        <div class="hero-tagline">
-          SOFTWARE &amp; SYSTEMS DESIGNED AROUND YOUR BUSINESS.
+        <div class="hero-tagline" id="rotating-line">
+          LET’S BUILD TECH THAT SERVES BUSINESS, NOT THE OTHER WAY ROUND.
         </div>
 
+        <p class="hero-body">
+          WillPro Technologies &amp; Systems is for founders who want technology that respects operations, cashflows and teams. We translate business logic into clean systems, not complicated dashboards that nobody uses after month three.
+        </p>
+
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
-          START TECH CONVERSATION <i>↗</i>
+          TALK ABOUT SYSTEMS <i>↗</i>
         </a>
 
         <p class="hero-note">
-          Simple WhatsApp connect. Share your current confusion or ambition and we can see if WillPro is the right fit.
+          WhatsApp-only connect. We start from your current complexity, bottlenecks and desired outcomes – not from a fixed software template.
         </p>
       </div>
 
       <aside class="hero-right-card">
         <div class="hero-right-title">
-          WHEN FOUNDERS USUALLY CALL US
+          WHAT TYPICALLY BRINGS PEOPLE HERE
         </div>
         <ul class="hero-right-list">
-          <li><span class="hero-right-bullet"></span><span>There are too many tools, logins and spreadsheets – and nobody has a clear view of what is actually happening.</span></li>
-          <li><span class="hero-right-bullet"></span><span>Reporting takes effort, numbers do not match, and decisions are based on guesswork instead of simple dashboards.</span></li>
-          <li><span class="hero-right-bullet"></span><span>The business has grown but the systems are still at a “jugaad” stage, causing leaks in cash, time and customer experience.</span></li>
-          <li><span class="hero-right-bullet"></span><span>Previous tech attempts were over-built, under-used or abandoned because they did not match how people actually work.</span></li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Founders tired of tools that look good in demos but don’t fit real operations or Indian business realities.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Teams struggling with scattered data across Excel, WhatsApp, email and legacy software – with no single view of truth.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Businesses wanting automation and reporting that directly support sales, collections, service or production decisions.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Leaders who want tech partners that understand business models first, tools and stacks later.</span>
+          </li>
         </ul>
         <div class="hero-right-foot">
-          Our work is not about fancy stacks. It is about stable, understandable systems that support founders, teams and customers for years.
+          We build systems that people actually use daily – simpler, sharper and clearly aligned with business priorities.
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- WHAT WE TYPICALLY DO -->
+  <!-- FOCUS AREAS -->
   <section class="section">
     <div class="shell">
-      <h2 class="section-title">What We Typically Do</h2>
+      <h2 class="section-title">Where WillPro Typically Works</h2>
       <p class="section-sub">
-        The outcome is different for each business – but the questions are similar: what is the simplest way to achieve this, and how do we keep it understandable for the team?
+        The exact stack can change – but the principles stay the same: clarity, adoption and measurable impact on how the business runs every week.
       </p>
 
-      <div class="chip-row">
-        <div class="chip">Websites &amp; landing pages aligned to your positioning</div>
-        <div class="chip">Internal tools for leads, orders &amp; operations tracking</div>
-        <div class="chip">Dashboards for founders &amp; investors</div>
-        <div class="chip">Integrations between website, payments &amp; communication</div>
-        <div class="chip">Lightweight CRMs that your team will actually use</div>
-        <div class="chip">Technology roadmaps for the next 12–36 months</div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-label">1 · INTERNAL SYSTEMS</div>
+          <div class="card-title">Workflows, Dashboards &amp; Control</div>
+          <div class="card-body">
+            Custom workflows, light-weight CRMs, simple ERPs and control systems aligned to approvals, follow-ups and weekly reviews – not generic templates.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">2 · CUSTOMER-FACING</div>
+          <div class="card-title">Portals, Apps &amp; Interfaces</div>
+          <div class="card-body">
+            B2B portals, ordering systems, service tickets and basic apps that help customers and partners interact cleanly with your business.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">3 · DATA &amp; INTEGRATIONS</div>
+          <div class="card-title">Reports, Bridges &amp; Connectors</div>
+          <div class="card-body">
+            Data bridges between existing tools, clean reporting layers and simple automation where it moves the needle for decisions and cashflows.
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -193,5 +428,27 @@
 </footer>
 
 <a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
+
+<script>
+  // Rotating tech lines
+  const techLines = [
+    "LET’S BUILD TECH THAT SERVES BUSINESS, NOT THE OTHER WAY ROUND.",
+    "SYSTEMS DESIGNED AROUND CASHFLOWS, TEAMS AND REALITY.",
+    "TECH THAT YOUR PEOPLE ACTUALLY USE AFTER MONTH THREE.",
+    "INTEGRATIONS, REPORTS AND WORKFLOWS – BUILT WITH CLARITY.",
+    "SOFTWARE THAT RESPECTS YOUR BUSINESS MODEL, NOT JUST FEATURES."
+  ];
+
+  const lineEl = document.getElementById("rotating-line");
+  let lineIndex = 0;
+
+  function rotateLine() {
+    lineIndex = (lineIndex + 1) % techLines.length;
+    lineEl.textContent = techLines[lineIndex];
+  }
+
+  setInterval(rotateLine, 5000);
+</script>
+
 </body>
 </html>
