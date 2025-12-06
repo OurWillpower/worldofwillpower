@@ -155,6 +155,7 @@
       text-transform:uppercase;
       letter-spacing:0.18em;
       margin-bottom:22px;
+      min-height:1.6em; /* keeps height steady while rotating */
     }
     .hero-cta{
       display:inline-flex;align-items:center;justify-content:center;
@@ -357,13 +358,13 @@
           When You Want <span class="gold">Nothing but the Best,</span> You Will Find Willpower.
         </h1>
 
+        <div class="hero-tagline" id="rotating-line">
+          FROM DAIRY &amp; FOODS TO AYURVEDA, TECH AND CAPITAL.
+        </div>
+
         <p class="hero-body">
           World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub and e-commerce aggregators – all built around real work and long-term thinking.
         </p>
-
-        <div class="hero-tagline">
-          FROM DAIRY &amp; FOODS TO AYURVEDA, TECH AND CAPITAL
-        </div>
 
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
           START A WILLPOWER CONVERSATION <i>↗</i>
@@ -495,5 +496,26 @@
 </footer>
 
 <a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
+
+<script>
+  // Rotating key statements under main heading
+  const lines = [
+    "FROM DAIRY & FOODS TO AYURVEDA, TECH AND CAPITAL.",
+    "FOR FOUNDERS WHO PREFER CLARITY, NOT MOTIVATIONAL NOISE.",
+    "FOR BRANDS THAT TAKE PURITY, DOCUMENTATION & NUMBERS SERIOUSLY.",
+    "FOR INVESTORS WHO VALUE CURATED, LONG-TERM OPPORTUNITIES.",
+    "FOR PARTNERS WHO WANT REAL WORK, NOT VANITY PROJECTS."
+  ];
+
+  const lineEl = document.getElementById("rotating-line");
+  let lineIndex = 0;
+
+  function rotateLine() {
+    lineIndex = (lineIndex + 1) % lines.length;
+    lineEl.textContent = lines[lineIndex];
+  }
+
+  setInterval(rotateLine, 5000); // change every 5 seconds
+</script>
 </body>
 </html>
