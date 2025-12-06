@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>World of Willpower – Group of Companies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and money advisory – all built around real work and long-term thinking.">
+  <meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub and e-commerce aggregators – all built around real work and long-term thinking.">
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
   <style>
@@ -114,9 +114,11 @@
       color:var(--accent);
     }
 
-    /* HERO */
-    .hero{padding:70px 0 70px;}
+    /* LAYOUT SHELL */
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+    /* HERO */
+    .hero{padding:60px 0 40px;}
     .hero-inner{
       display:grid;
       grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
@@ -146,13 +148,13 @@
     .hero-title span.gold{color:var(--accent);}
     .hero-body{
       font-size:15px;color:#cbd5f5;
-      max-width:620px;margin-bottom:18px;
+      max-width:620px;margin-bottom:16px;
     }
     .hero-tagline{
       font-size:13px;color:#e5e7eb;
       text-transform:uppercase;
       letter-spacing:0.18em;
-      margin-bottom:24px;
+      margin-bottom:22px;
     }
     .hero-cta{
       display:inline-flex;align-items:center;justify-content:center;
@@ -187,43 +189,68 @@
     .hero-right-list li{display:flex;gap:10px;}
     .hero-right-bullet{
       height:6px;width:6px;margin-top:7px;
-      border-radius:999px;background:var(--accent);
+      border-radius:999px;background:var(--accent); /* gold bullets */
     }
     .hero-right-foot{
       margin-top:18px;font-size:12px;color:#9ca3af;
     }
 
-    /* SECTION */
-    .section{padding:0 0 80px;}
-    .section-title{
+    /* VENTURES GRID */
+    .ventures-section{
+      padding:24px 0 70px;
+    }
+    .ventures-heading{
       font-family:"Times New Roman",serif;
-      font-size:30px;margin-bottom:10px;
+      font-size:28px;
+      margin-bottom:8px;
     }
-    .section-sub{
-      font-size:14px;color:#9ca3af;
-      max-width:680px;margin-bottom:32px;
+    .ventures-sub{
+      font-size:14px;
+      color:#9ca3af;
+      margin-bottom:26px;
+      max-width:760px;
     }
-    .grid{
+    .ventures-grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:22px;
     }
-    .card{
+    .venture-card{
+      display:block;
       background:var(--card);
-      border-radius:22px;border:1px solid var(--border);
-      padding:22px 22px 20px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:22px 22px 18px;
       box-shadow:0 20px 40px rgba(0,0,0,0.65);
+      transition:transform 0.16s ease-out, box-shadow 0.16s ease-out, border-color 0.16s ease-out;
     }
-    .card-label{
-      font-size:11px;text-transform:uppercase;
-      letter-spacing:0.18em;color:#9ca3af;
+    .venture-card:hover{
+      transform:translateY(-4px);
+      border-color:var(--accent);
+      box-shadow:0 24px 55px rgba(0,0,0,0.8);
+    }
+    .venture-label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:#9ca3af;
       margin-bottom:10px;
     }
-    .card-title{
-      font-size:17px;font-weight:600;margin-bottom:10px;
+    .venture-title{
+      font-size:18px;
+      font-weight:600;
+      margin-bottom:8px;
     }
-    .card-body{
-      font-size:13px;color:#cbd5f5;
+    .venture-body{
+      font-size:13px;
+      color:#cbd5f5;
+      margin-bottom:12px;
+    }
+    .venture-link{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:var(--accent);
     }
 
     /* FOOTER */
@@ -231,7 +258,7 @@
       border-top:1px solid #111827;
       background:#02040a;
       padding:24px 20px 26px;
-      margin-top:20px;
+      margin-top:10px;
     }
     .footer-inner{
       max-width:1180px;margin:0 auto;
@@ -255,7 +282,7 @@
     @media (max-width:900px){
       .hero-inner{grid-template-columns:minmax(0,1fr);}
       .hero-right-card{margin-top:10px;}
-      .grid{grid-template-columns:minmax(0,1fr);}
+      .ventures-grid{grid-template-columns:minmax(0,1fr);}
     }
   </style>
 </head>
@@ -331,11 +358,11 @@
         </h1>
 
         <p class="hero-body">
-          World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and money advisory – all built around real work and long-term thinking, not motivational noise.
+          World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub and e-commerce aggregators – all built around real work and long-term thinking.
         </p>
 
         <div class="hero-tagline">
-          INVESTORS WHO PREFER CURATED, LONG-TERM OPPORTUNITIES.
+          FROM DAIRY &amp; FOODS TO AYURVEDA, TECH AND CAPITAL
         </div>
 
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
@@ -343,7 +370,7 @@
         </a>
 
         <p class="hero-note">
-          Simple WhatsApp connect. Share your current context or portfolio and we can see if there is a fit.
+          Simple WhatsApp connect. Investors, founders and partners who prefer curated, long-term opportunities usually resonate with this thinking.
         </p>
       </div>
 
@@ -362,7 +389,7 @@
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Business-first technology &amp; systems built around cash flow, operations and real constraints.</span>
+            <span>Business-first technology &amp; systems, designed around cash flow and operations.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
@@ -374,68 +401,80 @@
           </li>
         </ul>
         <div class="hero-right-foot">
-          One calm conversation is usually enough to know whether there is alignment in thinking, time horizons and discipline.
+          We prefer fewer, serious conversations – with clear expectations on work, documentation, numbers and time horizons.
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- VENTURES OVERVIEW -->
-  <section class="section" id="ventures">
+  <!-- VENTURES GRID -->
+  <section class="ventures-section" id="ventures">
     <div class="shell">
-      <h2 class="section-title">From Dairy &amp; Foods to Ayurveda, Tech and Capital</h2>
-      <p class="section-sub">
-        Each venture is focused, documented and built for the long term. Together, they form a quiet but powerful ecosystem – where serious partners, not casual experiments, feel at home.
+      <h2 class="ventures-heading">Key Willpower Ventures</h2>
+      <p class="ventures-sub">
+        Each venture has a very specific role – from founder-led mentoring and disciplined manufacturing to technology, capital and money planning. Explore the one that matches your current need.
       </p>
 
-      <div class="grid">
-        <div class="card">
-          <div class="card-label">1 · MENTORING</div>
-          <div class="card-title">Willpower Maestros</div>
-          <div class="card-body">
+      <div class="ventures-grid">
+        <!-- 1. Maestros -->
+        <a class="venture-card" href="willpro-maestros.html">
+          <div class="venture-label">1 · MENTORING</div>
+          <div class="venture-title">Willpower Maestros</div>
+          <div class="venture-body">
             Founder-led mentoring, consultations and high-impact thinking for leaders who want clarity, not buzzwords.
           </div>
-        </div>
+          <div class="venture-link">VIEW DETAILS →</div>
+        </a>
 
-        <div class="card">
-          <div class="card-label">2 · DAIRY</div>
-          <div class="card-title">Willpower Dairy Care</div>
-          <div class="card-body">
+        <!-- 2. Dairy -->
+        <a class="venture-card" href="dairy-manufacturing.html">
+          <div class="venture-label">2 · DAIRY</div>
+          <div class="venture-title">Willpower Dairy Care</div>
+          <div class="venture-body">
             Pure cow ghee and dairy manufacturing with audits, documentation and processes that can stand any purity discussion.
           </div>
-        </div>
+          <div class="venture-link">VIEW DETAILS →</div>
+        </a>
 
-        <div class="card">
-          <div class="card-label">3 · FOODS</div>
-          <div class="card-title">Willpower Food Care</div>
-          <div class="card-body">
+        <!-- 3. Food -->
+        <a class="venture-card" href="food-care.html">
+          <div class="venture-label">3 · FOODS</div>
+          <div class="venture-title">Willpower Food Care</div>
+          <div class="venture-body">
             Masalas, RTE foods, agro products and beverages – built with sourcing logic, stability and long-term brand reputation.
           </div>
-        </div>
+          <div class="venture-link">VIEW DETAILS →</div>
+        </a>
 
-        <div class="card">
-          <div class="card-label">4 · AYURVEDA &amp; HEALTH</div>
-          <div class="card-title">Willpower Health &amp; Skin Care</div>
-          <div class="card-body">
+        <!-- 4. Ayurveda -->
+        <a class="venture-card" href="ayurveda.html">
+          <div class="venture-label">4 · AYURVEDA &amp; HEALTH</div>
+          <div class="venture-title">Willpower Health &amp; Skin Care</div>
+          <div class="venture-body">
             Ayurvedic and herbal brands that treat Ayurveda as science – with formulations, rationale and documentation.
           </div>
-        </div>
+          <div class="venture-link">VIEW DETAILS →</div>
+        </a>
 
-        <div class="card">
-          <div class="card-label">5 · TECHNOLOGY</div>
-          <div class="card-title">WillPro Technologies &amp; Systems</div>
-          <div class="card-body">
+        <!-- 5. Technology -->
+        <a class="venture-card" href="new-business.html">
+          <div class="venture-label">5 · TECHNOLOGY</div>
+          <div class="venture-title">WillPro Technologies &amp; Systems</div>
+          <div class="venture-body">
             Business-first technology, websites and systems – designed so that tech follows business reality, not the other way round.
           </div>
-        </div>
+          <div class="venture-link">VIEW DETAILS →</div>
+        </a>
 
-        <div class="card">
-          <div class="card-label">6 · CAPITAL &amp; AGGREGATION</div>
-          <div class="card-title">WIN Club, Aggregators &amp; Money</div>
-          <div class="card-body">
-            WIN Club, WillPro Aggregators and WillPro Money – a mix of curated investors hub, e-commerce aggregator stories and grounded financial planning.
+        <!-- 6. Capital / Aggregation / Money -->
+        <a class="venture-card" href="ventures.html">
+          <div class="venture-label">6 · CAPITAL &amp; AGGREGATION</div>
+          <div class="venture-title">WIN Club, Aggregators &amp; Money</div>
+          <div class="venture-body">
+            WIN Club, WillPro Aggregators and WillPro Money – curated investors hub, e-commerce aggregator stories and grounded financial planning.
           </div>
-        </div>
+          <div class="venture-link">VIEW DETAILS →</div>
+        </a>
       </div>
     </div>
   </section>
