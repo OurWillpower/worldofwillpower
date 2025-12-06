@@ -1,437 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Willpower Maestros – Founder Mentoring & Strategy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- SEO -->
-  <meta name="description" content="Willpower Maestros offers founder-level mentoring, strategic direction and long-term business thinking for serious entrepreneurs and professionals." />
-  <meta property="og:title" content="Willpower Maestros – Founder Mentoring & Strategy" />
-  <meta property="og:description" content="Clear thinking, business-first mentoring and structured strategy support for founders and leaders." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.worldofwillpower.com/willpro-maestros.html" />
-
-  <!-- CSS / Fonts / Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <title>Willpower Maestros – Founder-Led Mentoring & Strategic Thinking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Willpower Maestros works with founders and leaders who want clear thinking, practical direction and long-term perspective for their business – not motivational noise.">
+  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
   <style>
     :root{
-      --bg:#021910;
-      --bg-soft:#04261a;
-      --panel:#06251a;
-      --border:#123828;
-      --gold:#E6B325;
-      --text:#f9fafb;
-      --muted:#9ca3af;
+      --bg:#021712;
+      --bg-soft:#042018;
+      --card:#062921;
+      --border:#0b3b2f;
+      --accent:#E6B325;
+      --accent-soft:rgba(230,179,37,0.12);
+      --text:#f9f5e9;
+      --muted:#94a3b8;
+      --pill:#0b3126;
     }
-    *{box-sizing:border-box;}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      margin:0;
-      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:radial-gradient(circle at top,#063322 0,#021910 45%,#010c08 100%);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
       color:var(--text);
+      line-height:1.6;
     }
-    a{text-decoration:none;}
-    /* NAVBAR */
-    .navbar{
-      background:rgba(1,12,8,0.96);
-      border-bottom:1px solid #0b2c1e;
-      padding:0.85rem 5%;
-    }
-    .brand-logo{
-      height:44px;
-      margin-right:10px;
-    }
-    .brand-text{
-      font-family:'Playfair Display',serif;
-      font-size:1.3rem;
-      letter-spacing:0.04em;
-      color:var(--gold);
-    }
-    .nav-link{
-      font-size:0.9rem;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:#e5e7eb!important;
-    }
-    .nav-link.active{
-      color:var(--gold)!important;
-    }
-    .btn-admin{
-      border-radius:999px;
-      border:1px solid var(--gold);
-      padding:.35rem 1.4rem;
-      font-size:.8rem;
-      font-weight:600;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      color:var(--gold);
-      background:transparent;
-    }
-    .btn-admin:hover{
-      background:var(--gold);
-      color:#021910;
-    }
-    /* HERO LAYOUT */
-    .hero-wrapper{
-      padding:5rem 5% 4rem;
-    }
-    .badge-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      padding:.4rem 1rem;
-      border-radius:999px;
-      border:1px solid #1b3b2b;
-      background:rgba(3,29,20,0.9);
-      font-size:.78rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:#cbd5f5;
-      margin-bottom:2.5rem;
-    }
-    .badge-pill i{color:#10b981;}
+    a{text-decoration:none;color:inherit}
 
-    .hero-title{
-      font-family:'Playfair Display',serif;
-      font-size:3.1rem;
-      line-height:1.15;
-      max-width:640px;
+    /* NAVBAR */
+    .nav-shell{
+      position:sticky;top:0;z-index:50;
+      background:rgba(0,0,0,0.95);
+      border-bottom:1px solid #111827;
+      backdrop-filter:blur(14px);
     }
-    .hero-title span{color:var(--gold);}
-    .hero-sub{
-      margin-top:1.3rem;
-      font-size:1.05rem;
-      max-width:640px;
+    .nav-inner{
+      max-width:1180px;margin:0 auto;
+      padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .nav-left{display:flex;align-items:center;gap:14px;}
+    .nav-logo{height:40px;width:auto;}
+    .nav-brand-text{
+      font-family:"Times New Roman",serif;
+      letter-spacing:0.08em;
+      font-size:18px;
+      color:var(--accent);
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:24px;
+      font-size:14px;text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+    .nav-links a{
       color:#e5e7eb;
+      padding-bottom:3px;
+      border-bottom:2px solid transparent;
     }
-    .hero-founders-line{
-      margin-top:1rem;
-      font-size:.9rem;
-      letter-spacing:.14em;
+    .nav-links a:hover{color:var(--accent);}
+    .nav-links a.home-link{
+      /* just a subtle underline when user is deep in a venture */
+      border-bottom-color:transparent;
+    }
+    .nav-dropdown > a{
+      color:var(--accent); /* Our Ventures always gold */
+    }
+    .nav-admin-btn{
+      border-radius:999px;
+      padding:8px 18px;
+      border:1px solid rgba(148,163,184,0.4);
+      font-size:12px;
+      letter-spacing:0.14em;
       text-transform:uppercase;
-      color:var(--muted);
+      color:#e5e7eb;
+      display:flex;align-items:center;gap:8px;
+      background:linear-gradient(90deg,#111827,#020617);
+    }
+    .nav-admin-btn span{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:18px;width:18px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-size:11px;
+    }
+
+    .nav-dropdown{position:relative;}
+    .nav-dropdown-menu{
+      position:absolute;top:32px;right:0;
+      background:#020617;
+      border-radius:14px;
+      border:1px solid #111827;
+      box-shadow:0 22px 60px rgba(0,0,0,0.55);
+      padding:10px 0;
+      min-width:260px;
+      display:none;
+      z-index:40;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+    .nav-dropdown-item{
+      padding:9px 18px;
+      font-size:13px;
+      color:#e5e7eb;
+      display:flex;flex-direction:column;gap:2px;
+    }
+    .nav-dropdown-item span:first-child{font-weight:600;}
+    .nav-dropdown-item span:last-child{
+      font-size:11px;color:#9ca3af;
+    }
+    .nav-dropdown-item:hover{
+      background:#020814;
+      color:var(--accent);
+    }
+
+    /* LAYOUT SHELL */
+    .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+    /* HERO */
+    .hero{padding:60px 0 60px;}
+    .hero-inner{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
+      gap:36px;
+      align-items:flex-start;
+    }
+    .hero-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 14px;border-radius:999px;
+      background:var(--pill);
+      border:1px solid rgba(148,163,184,0.4);
+      font-size:11px;letter-spacing:0.16em;
+      text-transform:uppercase;color:#9ca3af;
+      margin-bottom:22px;
+    }
+    .hero-pill-dot{
+      height:7px;width:7px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(230,179,37,0.25);
+    }
+    .hero-title{
+      font-family:"Times New Roman",serif;
+      font-size:44px;
+      line-height:1.15;
+      margin-bottom:18px;
+    }
+    .hero-title span.gold{color:var(--accent);}
+    .hero-body{
+      font-size:15px;color:#cbd5f5;
+      max-width:620px;margin-bottom:16px;
+    }
+    .hero-tagline{
+      font-size:13px;color:#e5e7eb;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      margin-bottom:22px;
+      min-height:1.6em; /* holds space for rotating text */
     }
     .hero-cta{
-      margin-top:2.2rem;
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      gap:1rem;
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;padding:14px 26px;
+      border-radius:999px;border:none;
+      background:var(--accent);color:#1a1302;
+      font-size:13px;font-weight:600;
+      letter-spacing:0.18em;text-transform:uppercase;
+      box-shadow:0 18px 40px rgba(0,0,0,0.5);
     }
-    .btn-wa{
-      border-radius:999px;
-      padding:.9rem 2.2rem;
-      border:none;
-      font-weight:600;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      background:var(--gold);
-      color:#021910;
-      font-size:.88rem;
-      display:inline-flex;
-      align-items:center;
-      gap:.6rem;
-      box-shadow:0 18px 45px rgba(0,0,0,0.45);
-    }
-    .btn-wa i{font-size:1.1rem;}
+    .hero-cta i{font-style:normal;font-size:16px;}
     .hero-note{
-      font-size:.9rem;
-      color:var(--muted);
+      margin-top:12px;font-size:12px;color:#9ca3af;
     }
 
-    .hero-right{
-      background:radial-gradient(circle at top left,#0c3a28,#041811);
-      border-radius:24px;
-      border:1px solid var(--border);
-      padding:1.9rem 2.1rem;
-      box-shadow:0 22px 60px rgba(0,0,0,0.55);
+    .hero-right-card{
+      background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
+      border-radius:22px;border:1px solid var(--border);
+      padding:24px 26px;
+      box-shadow:0 26px 60px rgba(0,0,0,0.65);
     }
-    .hero-right h3{
-      font-size:.9rem;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:#d1d5db;
-      margin-bottom:1.3rem;
+    .hero-right-title{
+      font-size:13px;letter-spacing:0.18em;
+      text-transform:uppercase;color:#9ca3af;
+      margin-bottom:14px;
     }
-    .hero-right ul{
-      padding-left:1.1rem;
-      margin-bottom:1.2rem;
+    .hero-right-list{
+      list-style:none;
+      display:flex;flex-direction:column;
+      gap:12px;font-size:13px;color:#e5e7eb;
     }
-    .hero-right li{
-      font-size:.95rem;
-      margin-bottom:.55rem;
-      color:#e5e7eb;
+    .hero-right-list li{display:flex;gap:10px;}
+    .hero-right-bullet{
+      height:6px;width:6px;margin-top:7px;
+      border-radius:999px;background:var(--accent); /* gold bullets */
     }
-    .hero-right small{
-      color:var(--muted);
-      font-size:.8rem;
+    .hero-right-foot{
+      margin-top:18px;font-size:12px;color:#9ca3af;
     }
 
-    /* WHAT WE DO */
-    .section-wrapper{
-      padding:0 5% 4.5rem;
-    }
-    .section-header{
-      max-width:720px;
-      margin-bottom:2.5rem;
-    }
-    .section-eyebrow{
-      font-size:.8rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:.6rem;
+    /* SECTION – HOW WE WORK */
+    .section{
+      padding:0 0 80px;
     }
     .section-title{
-      font-family:'Playfair Display',serif;
-      font-size:2rem;
-      margin-bottom:.4rem;
+      font-family:"Times New Roman",serif;
+      font-size:30px;margin-bottom:10px;
     }
-    .section-text{
-      color:var(--muted);
-      font-size:.96rem;
+    .section-sub{
+      font-size:14px;color:#9ca3af;
+      max-width:700px;margin-bottom:32px;
     }
-    .wwd-card{
-      background:rgba(5,35,25,0.98);
-      border-radius:20px;
-      padding:1.9rem 1.8rem;
-      border:1px solid #123828;
-      box-shadow:0 16px 40px rgba(0,0,0,0.55);
-      height:100%;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
     }
-    .wwd-tag{
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--muted);
-      margin-bottom:.8rem;
+    .card{
+      background:var(--card);
+      border-radius:22px;border:1px solid var(--border);
+      padding:22px 22px 20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.65);
     }
-    .wwd-title{
-      font-weight:600;
-      margin-bottom:.5rem;
+    .card-label{
+      font-size:11px;text-transform:uppercase;
+      letter-spacing:0.18em;color:#9ca3af;
+      margin-bottom:10px;
     }
-    .wwd-text{
-      font-size:.93rem;
-      color:#d1d5db;
-      margin-bottom:.6rem;
+    .card-title{
+      font-size:17px;font-weight:600;margin-bottom:10px;
     }
-    .wwd-card ul{
-      padding-left:1.1rem;
-      margin:0;
-      color:#9ca3af;
-      font-size:.9rem;
+    .card-body{
+      font-size:13px;color:#cbd5f5;
     }
 
-    /* FOOTER & FLOAT */
+    /* FOOTER */
     footer{
-      border-top:1px solid #0c2a1d;
-      padding:1.3rem 5% 1.4rem;
-      font-size:.86rem;
-      color:var(--muted);
-      background:#010c08;
+      border-top:1px solid #111827;
+      background:#02040a;
+      padding:24px 20px 26px;
+      margin-top:10px;
     }
-    .float-wa{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      width:56px;
-      height:56px;
-      border-radius:50%;
-      background:#25D366;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      font-size:1.5rem;
-      box-shadow:0 18px 40px rgba(0,0,0,0.5);
-      z-index:999;
+    .footer-inner{
+      max-width:1180px;margin:0 auto;
+      font-size:12px;color:#9ca3af;
+      display:flex;flex-wrap:wrap;
+      gap:8px 22px;align-items:center;
+      justify-content:space-between;
     }
-    @media (max-width:991px){
-      .hero-wrapper{padding-top:4rem;}
-      .hero-title{font-size:2.4rem;}
-      .hero-right{margin-top:2.5rem;}
+    .footer-brand{color:var(--accent);font-weight:600;}
+    .footer-contact span{margin-right:14px;}
+
+    .wa-float{
+      position:fixed;right:24px;bottom:24px;
+      height:54px;width:54px;border-radius:999px;
+      background:#22c55e;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 18px 40px rgba(0,0,0,0.6);
+      font-size:26px;color:white;
+    }
+
+    @media (max-width:900px){
+      .hero-inner{grid-template-columns:minmax(0,1fr);}
+      .hero-right-card{margin-top:10px;}
+      .grid{grid-template-columns:minmax(0,1fr);}
     }
   </style>
 </head>
 <body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container-fluid px-0">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" class="brand-logo" alt="Willpower logo" />
-      <span class="brand-text">WORLD OF WILLPOWER</span>
-    </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navMain">
-      <ul class="navbar-nav align-items-lg-center mb-2 mb-lg-0 me-lg-3">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Our Ventures</a>
-          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-            <li><a class="dropdown-item active" href="willpro-maestros.html">Willpower Maestros</a></li>
-            <li><a class="dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a></li>
-            <li><a class="dropdown-item" href="food-care.html">Willpower Food Care</a></li>
-            <li><a class="dropdown-item" href="ayurveda.html">Willpower Health &amp; Skin Care</a></li>
-            <li><a class="dropdown-item" href="new-business.html">WillPro Technologies &amp; Systems</a></li>
-            <li><a class="dropdown-item" href="ventures.html">WIN Club (WillPro Investors Node)</a></li>
-            <li><a class="dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a></li>
-            <li><a class="dropdown-item" href="willpro-money.html">WillPro Money</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact-footer">Contact</a>
-        </li>
-      </ul>
-      <a href="admin.html" class="btn-admin">↗ Admin Panel</a>
+<header class="nav-shell">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
+      <div class="nav-brand-text">WORLD OF WILLPOWER</div>
     </div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="home-link">Home</a>
+
+      <div class="nav-dropdown">
+        <a href="index.html#ventures">Our Ventures ▾</a>
+        <div class="nav-dropdown-menu">
+          <a class="nav-dropdown-item" href="willpro-maestros.html">
+            <span>Willpower Maestros</span>
+            <span>Mentoring &amp; strategic thinking for founders.</span>
+          </a>
+          <a class="nav-dropdown-item" href="dairy-manufacturing.html">
+            <span>Willpower Dairy Care</span>
+            <span>Disciplined dairy manufacturing with documentation.</span>
+          </a>
+          <a class="nav-dropdown-item" href="food-care.html">
+            <span>Willpower Food Care</span>
+            <span>Masalas, RTE foods, agro products &amp; beverages.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ayurveda.html">
+            <span>Willpower Health &amp; Skin Care</span>
+            <span>Ayurvedic &amp; herbal health and skincare brands.</span>
+          </a>
+          <a class="nav-dropdown-item" href="new-business.html">
+            <span>WillPro Technologies &amp; Systems</span>
+            <span>Business-first technology &amp; systems.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ventures.html">
+            <span>WIN Club (WillPro Investors Node)</span>
+            <span>Curated investors hub for Willpower opportunities.</span>
+          </a>
+          <a class="nav-dropdown-item" href="mentoring-strategy.html">
+            <span>WillPro Aggregators</span>
+            <span>E-commerce &amp; category aggregators.</span>
+          </a>
+          <a class="nav-dropdown-item" href="willpro-money.html">
+            <span>WillPro Money</span>
+            <span>Grounded financial &amp; money decisions.</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="#contact">Contact</a>
+      <a class="nav-admin-btn" href="admin.html">
+        <span>↗</span> ADMIN PANEL
+      </a>
+    </nav>
   </div>
-</nav>
+</header>
 
 <main>
-
   <!-- HERO -->
-  <section class="hero-wrapper pt-5 mt-4">
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-7">
-        <div class="badge-pill">
-          <i class="fa-solid fa-crown"></i>
-          WORLD OF WILLPOWER · MAESTROS
+  <section class="hero">
+    <div class="shell hero-inner">
+      <div>
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          <span>WORLD OF WILLPOWER · MAESTROS</span>
         </div>
 
         <h1 class="hero-title">
-          When You Want <span>Clarity, Not Noise</span> In Your Business.
+          Ready for a <span class="gold">Serious Conversation,</span> Not Motivation?
         </h1>
 
-        <p class="hero-sub">
-          Willpower Maestros works with founders and professionals who want clear thinking,
-          structured strategy and grounded advice – not motivational pep-talks.
+        <div class="hero-tagline" id="rotating-line">
+          FOUNDER-LED MENTORING FOR CLEAR, PRACTICAL THINKING.
+        </div>
+
+        <p class="hero-body">
+          Willpower Maestros works with founders and leaders who want calm, structured thinking around their business – not slides full of jargon. The focus is on decisions, numbers and long-term direction that respects both ambition and cash flow reality.
         </p>
 
-        <p class="hero-founders-line">
-          For founders who prefer honest conversations and long-term direction.
+        <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
+          CONNECT WITH MAESTROS <i>↗</i>
+        </a>
+
+        <p class="hero-note">
+          Simple WhatsApp connect. Share a brief context and we can explore whether a Maestros engagement makes sense for your stage and challenges.
         </p>
-
-        <div class="hero-cta">
-          <a href="https://wa.me/917039196489?text=I%20want%20to%20discuss%20mentoring%20with%20Willpower%20Maestros."
-             class="btn-wa">
-            START MAESTROS CONVERSATION
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <span class="hero-note">Simple WhatsApp connect. We decide together if there is a fit.</span>
-        </div>
       </div>
 
-      <div class="col-lg-5">
-        <div class="hero-right">
-          <h3>WHAT TYPICALLY BRINGS PEOPLE HERE</h3>
-          <ul>
-            <li>Founders who feel “stuck” despite working hard and need clear direction.</li>
-            <li>Professionals preparing for a big shift – new venture, role or market.</li>
-            <li>Owners who want someone to question assumptions and challenge plans.</li>
-            <li>People who are done with motivational noise and want real conversations.</li>
-          </ul>
-          <small>
-            Every engagement starts with one simple call – to understand where you are, and
-            whether Maestros can truly add value.
-          </small>
+      <aside class="hero-right-card">
+        <div class="hero-right-title">
+          WHAT TYPICALLY BRINGS PEOPLE HERE
         </div>
-      </div>
+        <ul class="hero-right-list">
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Founders who are tired of scattered advice and want one clear, accountable thinking partner.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Leaders who need help converting ideas into an execution roadmap, with priorities and trade-offs.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Businesses at a crossroads – scale up, reset, pivot or exit – and want to think through scenarios calmly.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Professionals moving from job to entrepreneurship who want a realistic view of risk, funding and timelines.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Founders who value confidentiality and long-term continuity over one-off “motivational sessions”.</span>
+          </li>
+        </ul>
+        <div class="hero-right-foot">
+          Most Maestros relationships are long-term and quiet – built around recurring conversations, written notes and steady course corrections.
+        </div>
+      </aside>
     </div>
   </section>
 
-  <!-- WHAT WE TYPICALLY DO -->
-  <section class="section-wrapper pb-5 mb-4">
-    <div class="section-header">
-      <div class="section-eyebrow">WHAT WE TYPICALLY DO</div>
-      <h2 class="section-title">Mentoring, Strategy & Grounded Execution Support.</h2>
-      <p class="section-text">
-        The work is simple: understand your reality, clarify the real questions and build a path you
-        can actually execute. No fluff, no jargon – just structured thinking, check-points
-        and accountability.
+  <!-- HOW WE TYPICALLY WORK -->
+  <section class="section">
+    <div class="shell">
+      <h2 class="section-title">How Maestros Typically Engages</h2>
+      <p class="section-sub">
+        Every founder, market and balance sheet is different – but the structure of work is simple: understand reality, clarify direction and then support disciplined execution over time.
       </p>
-    </div>
 
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="wwd-card">
-          <div class="wwd-tag">1 · FOUNDER MENTORING</div>
-          <div class="wwd-title">One-to-One Strategic Conversations</div>
-          <p class="wwd-text">
-            Fortnightly or monthly sessions focused on your toughest questions – markets,
-            pricing, product, people and personal bandwidth.
-          </p>
-          <ul>
-            <li>Sharpening vision, focus and priorities.</li>
-            <li>Turning ideas into structured roadmaps.</li>
-            <li>Independent sounding board for key decisions.</li>
-          </ul>
+      <div class="grid">
+        <div class="card">
+          <div class="card-label">1 · CLARITY</div>
+          <div class="card-title">Deep-Dive Conversations</div>
+          <div class="card-body">
+            Structured discussions around your current situation – numbers, people, product, customers and constraints – to arrive at a shared view of reality before suggesting any moves.
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="wwd-card">
-          <div class="wwd-tag">2 · STRATEGY & PLANNING</div>
-          <div class="wwd-title">From PowerPoint to Practical Plans</div>
-          <p class="wwd-text">
-            Work on pitch decks, business plans and annual strategy with someone who has
-            lived execution – not just theory.
-          </p>
-          <ul>
-            <li>Investor / board-friendly pitch narratives.</li>
-            <li>Unit economics and growth assumptions sanity-checked.</li>
-            <li>Execution plans aligned to cash-flow reality.</li>
-          </ul>
+        <div class="card">
+          <div class="card-label">2 · DIRECTION</div>
+          <div class="card-title">Roadmap &amp; Priorities</div>
+          <div class="card-body">
+            A practical roadmap that balances ambition with risk: what to focus on now, what to park, and what experiments to run without disturbing cash flow or core operations.
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="wwd-card">
-          <div class="wwd-tag">3 · LONG-TERM COMPANIONSHIP</div>
-          <div class="wwd-title">A Calm Presence Around Your Work</div>
-          <p class="wwd-text">
-            For founders who prefer a long-term partner around their thinking, not a
-            one-time workshop.
-          </p>
-          <ul>
-            <li>Quarterly reviews and course-corrections.</li>
-            <li>Support while building teams, vendors and partners.</li>
-            <li>Honest feedback when things don’t go as planned.</li>
-          </ul>
+        <div class="card">
+          <div class="card-label">3 · CONTINUITY</div>
+          <div class="card-title">Ongoing Founder Support</div>
+          <div class="card-body">
+            Regular check-ins, written notes and course corrections as markets, people and numbers change – so you are not thinking alone when decisions actually show up.
+          </div>
         </div>
       </div>
     </div>
   </section>
-
 </main>
 
-<!-- FOOTER -->
-<footer id="contact-footer">
-  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-    <div class="mb-2 mb-md-0">
-      <strong>World of Willpower</strong><br/>
-      002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">World of Willpower</div>
+    <div class="footer-contact">
+      <span>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</span>
     </div>
-    <div>
-      <span class="me-3"><i class="fa-brands fa-whatsapp text-success"></i> +91 7039196489</span>
-      <span><i class="fa-solid fa-envelope text-warning"></i> care@worldofwillpower.com</span><br/>
-      <span>© 2025 World of Willpower.</span>
+    <div class="footer-contact">
+      <span>📞 +91 7039196489</span>
+      <span>✉ care@worldofwillpower.com</span>
     </div>
+    <div>© 2025 World of Willpower.</div>
   </div>
 </footer>
 
-<a href="https://wa.me/917039196489" class="float-wa">
-  <i class="fa-brands fa-whatsapp"></i>
-</a>
+<a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Rotating key statements for Maestros page
+  const lines = [
+    "FOUNDER-LED MENTORING FOR CLEAR, PRACTICAL THINKING.",
+    "FOR LEADERS WHO WANT DIRECTION, NOT JUST MOTIVATION.",
+    "FOR BUSINESSES READY TO FACE REALITY, NOT SLIDES.",
+    "FOR FOUNDERS WHO VALUE CALM, LONG-TERM CONVERSATIONS.",
+    "FOR PEOPLE WHO WANT DECISIONS BACKED BY NUMBERS & NUANCE."
+  ];
+
+  const lineEl = document.getElementById("rotating-line");
+  let lineIndex = 0;
+
+  function rotateLine() {
+    lineIndex = (lineIndex + 1) % lines.length;
+    lineEl.textContent = lines[lineIndex];
+  }
+
+  setInterval(rotateLine, 5000); // change every 5 seconds
+</script>
 </body>
 </html>
