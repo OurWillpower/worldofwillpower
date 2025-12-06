@@ -2,64 +2,259 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WIN Club – WillPro Investors Node</title>
+  <title>WIN Club – WillPro Investors Node for Serious Opportunities</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="WIN Club is a focused investors hub for curated, structured World of Willpower opportunities – for serious investors who prefer calm thinking over hype.">
+  <meta name="description" content="WIN Club (WillPro Investors Node) is a curated investors hub around the World of Willpower ecosystem – focused on clear opportunities, disciplined documentation and long-term value creation.">
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
   <style>
-    /* same base layout */
-    :root{--bg:#021712;--bg-soft:#042018;--card:#062921;--border:#0b3b2f;--accent:#E6B325;--accent-soft:rgba(230,179,37,0.12);--text:#f9f5e9;--muted:#94a3b8;--pill:#0b3126;}
+    :root{
+      --bg:#021712;
+      --bg-soft:#042018;
+      --card:#062921;
+      --border:#0b3b2f;
+      --accent:#E6B325;
+      --accent-soft:rgba(230,179,37,0.12);
+      --text:#f9f5e9;
+      --muted:#94a3b8;
+      --pill:#0b3126;
+    }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);color:var(--text);line-height:1.6;}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
     a{text-decoration:none;color:inherit}
-    .nav-shell{position:sticky;top:0;z-index:50;background:rgba(0,0,0,0.95);border-bottom:1px solid #111827;backdrop-filter:blur(14px);}
-    .nav-inner{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
+
+    /* NAVBAR */
+    .nav-shell{
+      position:sticky;top:0;z-index:50;
+      background:rgba(0,0,0,0.95);
+      border-bottom:1px solid #111827;
+      backdrop-filter:blur(14px);
+    }
+    .nav-inner{
+      max-width:1180px;margin:0 auto;
+      padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
-    .nav-brand-text{font-family:"Times New Roman",serif;letter-spacing:0.08em;font-size:18px;color:var(--accent);}
-    .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;text-transform:uppercase;letter-spacing:0.12em;}
-    .nav-links a{color:#e5e7eb;padding-bottom:3px;border-bottom:2px solid transparent;}
+    .nav-brand-text{
+      font-family:"Times New Roman",serif;
+      letter-spacing:0.08em;
+      font-size:18px;
+      color:var(--accent);
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:24px;
+      font-size:14px;text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+    .nav-links a{
+      color:#e5e7eb;
+      padding-bottom:3px;
+      border-bottom:2px solid transparent;
+    }
     .nav-links a:hover{color:var(--accent);}
-    .nav-admin-btn{border-radius:999px;padding:8px 18px;border:1px solid rgba(148,163,184,0.4);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#e5e7eb;display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#111827,#020617);}
-    .nav-admin-btn span{display:inline-flex;align-items:center;justify-content:center;height:18px;width:18px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:11px;}
+    .nav-dropdown > a{
+      color:var(--accent); /* gold Our Ventures link */
+    }
+    .nav-admin-btn{
+      border-radius:999px;
+      padding:8px 18px;
+      border:1px solid rgba(148,163,184,0.4);
+      font-size:12px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:#e5e7eb;
+      display:flex;align-items:center;gap:8px;
+      background:linear-gradient(90deg,#111827,#020617);
+    }
+    .nav-admin-btn span{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:18px;width:18px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-size:11px;
+    }
+
     .nav-dropdown{position:relative;}
-    .nav-dropdown-menu{position:absolute;top:32px;right:0;background:#020617;border-radius:14px;border:1px solid #111827;box-shadow:0 22px 60px rgba(0,0,0,0.55);padding:10px 0;min-width:260px;display:none;z-index:40;}
+    .nav-dropdown-menu{
+      position:absolute;top:32px;right:0;
+      background:#020617;
+      border-radius:14px;
+      border:1px solid #111827;
+      box-shadow:0 22px 60px rgba(0,0,0,0.55);
+      padding:10px 0;
+      min-width:260px;
+      display:none;
+      z-index:40;
+    }
     .nav-dropdown:hover .nav-dropdown-menu{display:block;}
-    .nav-dropdown-item{padding:9px 18px;font-size:13px;color:#e5e7eb;display:flex;flex-direction:column;gap:2px;}
+    .nav-dropdown-item{
+      padding:9px 18px;
+      font-size:13px;
+      color:#e5e7eb;
+      display:flex;flex-direction:column;gap:2px;
+    }
     .nav-dropdown-item span:first-child{font-weight:600;}
-    .nav-dropdown-item span:last-child{font-size:11px;color:#9ca3af;}
-    .nav-dropdown-item:hover{background:#020814;color:var(--accent);}
-    .hero{padding:70px 0 70px;}
+    .nav-dropdown-item span:last-child{
+      font-size:11px;color:#9ca3af;
+    }
+    .nav-dropdown-item:hover{
+      background:#020814;
+      color:var(--accent);
+    }
+
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
-    .hero-inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);gap:36px;align-items:flex-start;}
-    .hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--pill);border:1px solid rgba(148,163,184,0.4);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#9ca3af;margin-bottom:22px;}
-    .hero-pill-dot{height:7px;width:7px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 4px rgba(230,179,37,0.25);}
-    .hero-title{font-family:"Times New Roman",serif;font-size:44px;line-height:1.15;margin-bottom:18px;}
+
+    /* HERO */
+    .hero{padding:60px 0 60px;}
+    .hero-inner{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
+      gap:36px;
+      align-items:flex-start;
+    }
+    .hero-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 14px;border-radius:999px;
+      background:var(--pill);
+      border:1px solid rgba(148,163,184,0.4);
+      font-size:11px;letter-spacing:0.16em;
+      text-transform:uppercase;color:#9ca3af;
+      margin-bottom:22px;
+    }
+    .hero-pill-dot{
+      height:7px;width:7px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(230,179,37,0.25);
+    }
+    .hero-title{
+      font-family:"Times New Roman",serif;
+      font-size:44px;
+      line-height:1.15;
+      margin-bottom:18px;
+    }
     .hero-title span.gold{color:var(--accent);}
-    .hero-body{font-size:15px;color:#cbd5f5;max-width:620px;margin-bottom:18px;}
-    .hero-tagline{font-size:13px;color:#e5e7eb;text-transform:uppercase;letter-spacing:0.18em;margin-bottom:24px;}
-    .hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:999px;border:none;background:var(--accent);color:#1a1302;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;box-shadow:0 18px 40px rgba(0,0,0,0.5);}
+    .hero-body{
+      font-size:15px;color:#cbd5f5;
+      max-width:620px;margin-bottom:16px;
+    }
+    .hero-tagline{
+      font-size:13px;color:#e5e7eb;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      margin-bottom:22px;
+      min-height:1.6em;
+    }
+    .hero-cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;padding:14px 26px;
+      border-radius:999px;border:none;
+      background:var(--accent);color:#1a1302;
+      font-size:13px;font-weight:600;
+      letter-spacing:0.18em;text-transform:uppercase;
+      box-shadow:0 18px 40px rgba(0,0,0,0.5);
+    }
     .hero-cta i{font-style:normal;font-size:16px;}
-    .hero-note{margin-top:12px;font-size:12px;color:#9ca3af;}
-    .hero-right-card{background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);border-radius:22px;border:1px solid var(--border);padding:24px 26px;box-shadow:0 26px 60px rgba(0,0,0,0.65);}
-    .hero-right-title{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#9ca3af;margin-bottom:14px;}
-    .hero-right-list{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:13px;color:#e5e7eb;}
+    .hero-note{
+      margin-top:12px;font-size:12px;color:#9ca3af;
+    }
+
+    .hero-right-card{
+      background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
+      border-radius:22px;border:1px solid var(--border);
+      padding:24px 26px;
+      box-shadow:0 26px 60px rgba(0,0,0,0.65);
+    }
+    .hero-right-title{
+      font-size:13px;letter-spacing:0.18em;
+      text-transform:uppercase;color:#9ca3af;
+      margin-bottom:14px;
+    }
+    .hero-right-list{
+      list-style:none;
+      display:flex;flex-direction:column;
+      gap:12px;font-size:13px;color:#e5e7eb;
+    }
     .hero-right-list li{display:flex;gap:10px;}
-    .hero-right-bullet{height:6px;width:6px;margin-top:7px;border-radius:999px;background:var(--accent);}
-    .hero-right-foot{margin-top:18px;font-size:12px;color:#9ca3af;}
-    .section{padding:0 0 80px;}
-    .section-title{font-family:"Times New Roman",serif;font-size:30px;margin-bottom:10px;}
-    .section-sub{font-size:14px;color:#9ca3af;max-width:680px;margin-bottom:24px;}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
-    .card{background:var(--card);border-radius:22px;border:1px solid var(--border);padding:20px 22px;box-shadow:0 20px 40px rgba(0,0,0,0.65);font-size:13px;color:#cbd5f5;}
-    footer{border-top:1px solid #111827;background:#02040a;padding:24px 20px 26px;margin-top:20px;}
-    .footer-inner{max-width:1180px;margin:0 auto;font-size:12px;color:#9ca3af;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;justify-content:space-between;}
+    .hero-right-bullet{
+      height:6px;width:6px;margin-top:7px;
+      border-radius:999px;background:var(--accent); /* gold bullets */
+    }
+    .hero-right-foot{
+      margin-top:18px;font-size:12px;color:#9ca3af;
+    }
+
+    /* SECTION */
+    .section{
+      padding:0 0 80px;
+    }
+    .section-title{
+      font-family:"Times New Roman",serif;
+      font-size:30px;margin-bottom:10px;
+    }
+    .section-sub{
+      font-size:14px;color:#9ca3af;
+      max-width:700px;margin-bottom:32px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:22px;border:1px solid var(--border);
+      padding:22px 22px 20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.65);
+    }
+    .card-label{
+      font-size:11px;text-transform:uppercase;
+      letter-spacing:0.18em;color:#9ca3af;
+      margin-bottom:10px;
+    }
+    .card-title{
+      font-size:17px;font-weight:600;margin-bottom:10px;
+    }
+    .card-body{
+      font-size:13px;color:#cbd5f5;
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid #111827;
+      background:#02040a;
+      padding:24px 20px 26px;
+      margin-top:10px;
+    }
+    .footer-inner{
+      max-width:1180px;margin:0 auto;
+      font-size:12px;color:#9ca3af;
+      display:flex;flex-wrap:wrap;
+      gap:8px 22px;align-items:center;
+      justify-content:space-between;
+    }
     .footer-brand{color:var(--accent);font-weight:600;}
     .footer-contact span{margin-right:14px;}
-    .wa-float{position:fixed;right:24px;bottom:24px;height:54px;width:54px;border-radius:999px;background:#22c55e;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(0,0,0,0.6);font-size:26px;color:white;}
-    @media(max-width:900px){
+
+    .wa-float{
+      position:fixed;right:24px;bottom:24px;
+      height:54px;width:54px;border-radius:999px;
+      background:#22c55e;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 18px 40px rgba(0,0,0,0.6);
+      font-size:26px;color:white;
+    }
+
+    @media (max-width:900px){
       .hero-inner{grid-template-columns:minmax(0,1fr);}
+      .hero-right-card{margin-top:10px;}
       .grid{grid-template-columns:minmax(0,1fr);}
     }
   </style>
@@ -78,14 +273,38 @@
       <div class="nav-dropdown">
         <a href="index.html#ventures">Our Ventures ▾</a>
         <div class="nav-dropdown-menu">
-          <a class="nav-dropdown-item" href="willpro-maestros.html"><span>Willpower Maestros</span><span>Mentoring &amp; strategic thinking for founders.</span></a>
-          <a class="nav-dropdown-item" href="dairy-manufacturing.html"><span>Willpower Dairy Care</span><span>Disciplined dairy manufacturing with documentation.</span></a>
-          <a class="nav-dropdown-item" href="food-care.html"><span>Willpower Food Care</span><span>Masalas, RTE foods, agro products &amp; beverages.</span></a>
-          <a class="nav-dropdown-item" href="ayurveda.html"><span>Willpower Health &amp; Skin Care</span><span>Ayurvedic &amp; herbal health and skincare brands.</span></a>
-          <a class="nav-dropdown-item" href="new-business.html"><span>WillPro Technologies &amp; Systems</span><span>Business-first technology &amp; systems.</span></a>
-          <a class="nav-dropdown-item" href="ventures.html"><span>WIN Club (WillPro Investors Node)</span><span>Curated investors hub for Willpower opportunities.</span></a>
-          <a class="nav-dropdown-item" href="mentoring-strategy.html"><span>WillPro Aggregators</span><span>E-commerce &amp; category aggregators.</span></a>
-          <a class="nav-dropdown-item" href="willpro-money.html"><span>WillPro Money</span><span>Grounded financial &amp; money decisions.</span></a>
+          <a class="nav-dropdown-item" href="willpro-maestros.html">
+            <span>Willpower Maestros</span>
+            <span>Mentoring &amp; strategic thinking for founders.</span>
+          </a>
+          <a class="nav-dropdown-item" href="dairy-manufacturing.html">
+            <span>Willpower Dairy Care</span>
+            <span>Disciplined dairy manufacturing with documentation.</span>
+          </a>
+          <a class="nav-dropdown-item" href="food-care.html">
+            <span>Willpower Food Care</span>
+            <span>Masalas, RTE foods, agro products &amp; beverages.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ayurveda.html">
+            <span>Willpower Health &amp; Skin Care</span>
+            <span>Ayurvedic &amp; herbal health and skincare brands.</span>
+          </a>
+          <a class="nav-dropdown-item" href="new-business.html">
+            <span>WillPro Technologies &amp; Systems</span>
+            <span>Business-first technology &amp; systems.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ventures.html">
+            <span>WIN Club (WillPro Investors Node)</span>
+            <span>Curated investors hub for Willpower opportunities.</span>
+          </a>
+          <a class="nav-dropdown-item" href="mentoring-strategy.html">
+            <span>WillPro Aggregators</span>
+            <span>E-commerce &amp; category aggregators.</span>
+          </a>
+          <a class="nav-dropdown-item" href="willpro-money.html">
+            <span>WillPro Money</span>
+            <span>Grounded financial &amp; money decisions.</span>
+          </a>
         </div>
       </div>
 
@@ -108,67 +327,86 @@
         </div>
 
         <h1 class="hero-title">
-          For Investors Who Prefer <span class="gold">Calm Thinking</span> Over Noise.
+          A Curated Investors Node <span class="gold">Around Real Businesses.</span>
         </h1>
 
-        <p class="hero-body">
-          WIN Club – the WillPro Investors Node – is a quiet, focused space for serious investors who resonate with the World of Willpower philosophy. It is not a public forum or mass community. It is a private conversation around curated, structured opportunities.
-        </p>
-
-        <div class="hero-tagline">
-          FOR INVESTORS WHO PREFER CURATED, LONG-TERM OPPORTUNITIES.
+        <div class="hero-tagline" id="rotating-line">
+          CAPITAL THAT RESPECTS PROCESS, NOT ONLY PITCH DECKS.
         </div>
 
+        <p class="hero-body">
+          WIN Club (WillPro Investors Node) is not a generic funding platform. It is a focused circle around World of Willpower ventures and aligned opportunities – where founders, products and operational discipline are visible, not just projections.
+        </p>
+
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
-          INITIATE WIN CLUB CONVERSATION <i>↗</i>
+          START WIN CLUB CONVERSATION <i>↗</i>
         </a>
 
         <p class="hero-note">
-          A brief WhatsApp introduction is the first step. From there, we decide jointly whether to move ahead.
+          Introductory connect is always direct. No mass forms. Share your investment appetite, time horizon and comfort zone – we respond if there is a genuine fit.
         </p>
       </div>
 
       <aside class="hero-right-card">
         <div class="hero-right-title">
-          WHEN WIN CLUB TYPICALLY MAKES SENSE
+          WHAT TYPICALLY BRINGS INVESTORS HERE
         </div>
         <ul class="hero-right-list">
-          <li><span class="hero-right-bullet"></span><span>You prefer fewer, better-understood investments over constantly chasing “hot” deals.</span></li>
-          <li><span class="hero-right-bullet"></span><span>You value reputation, documentation and alignment of values as much as returns.</span></li>
-          <li><span class="hero-right-bullet"></span><span>You are comfortable saying “no” more often than “yes” – and want someone who thinks the same way.</span></li>
-          <li><span class="hero-right-bullet"></span><span>You see capital as a long-term partnership with founders, not a short-term trade.</span></li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Investors who want exposure to real operating businesses – not only idea-stage or pure slides.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Professionals or HNIs looking for curated opportunities in dairy, foods, Ayurveda, technology, e-commerce and allied areas.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Partners who appreciate documentation, governance intent and clarity on how capital is actually deployed.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>People who prefer a smaller, serious circle rather than noisy “funding clubs” with no follow-through.</span>
+          </li>
         </ul>
         <div class="hero-right-foot">
-          WIN Club stays intentionally small. It is designed for investors who understand patience, compounding and structured communication.
+          WIN Club is intentionally limited. The idea is alignment, visibility and disciplined communication – not volume.
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- HOW WE THINK ABOUT CAPITAL -->
+  <!-- FOCUS AREAS -->
   <section class="section">
     <div class="shell">
-      <h2 class="section-title">How We Think About Capital</h2>
+      <h2 class="section-title">How WIN Club Typically Engages</h2>
       <p class="section-sub">
-        Every opportunity is evaluated on three simple filters – clarity of work, clarity of numbers and clarity of people. Without these, we prefer to pass, even if the story looks attractive.
+        The specific structure may differ by opportunity – but the philosophy remains constant: clarity, protection of trust, and transparent use of funds.
       </p>
 
       <div class="grid">
         <div class="card">
-          <strong>1 · WORK</strong><br>
-          What exactly needs to be done? Is the work realistic, repeatable and aligned with the founders’ strengths – or is it built on wishful thinking?
+          <div class="card-label">1 · OPPORTUNITY WINDOWS</div>
+          <div class="card-title">Focused, Thematic Invites</div>
+          <div class="card-body">
+            Carefully chosen windows across dairy, foods, Ayurveda, technology and logistics – typically aligned to capacity expansion, new verticals or category launches.
+          </div>
         </div>
+
         <div class="card">
-          <strong>2 · NUMBERS</strong><br>
-          Do the numbers make sense after stress-testing? Are we honest about risk, volatility and time horizon – not just IRR slides?
+          <div class="card-label">2 · STRUCTURE &amp; GOVERNANCE</div>
+          <div class="card-title">Clarity on “What, How &amp; When”</div>
+          <div class="card-body">
+            High-level structure, risk notes, potential scenarios and basic governance logic – communicated in simple language, not jargon.
+          </div>
         </div>
+
         <div class="card">
-          <strong>3 · PEOPLE</strong><br>
-          Do we trust the people involved – their intent, patience and willingness to face reality when the story is not going as planned?
-        </div>
-        <div class="card">
-          <strong>WIN CLUB STRUCTURE</strong><br>
-          Access, communication and documentation are handled with discretion. We prefer fewer PDFs and more honest conversations.
+          <div class="card-label">3 · ONGOING VIEW</div>
+          <div class="card-title">Visibility &amp; Communication Rhythm</div>
+          <div class="card-body">
+            Periodic updates, business-side milestones and a clear point of contact – designed around respect for both time and capital.
+          </div>
         </div>
       </div>
     </div>
@@ -190,5 +428,26 @@
 </footer>
 
 <a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
+
+<script>
+  const winLines = [
+    "CAPITAL THAT RESPECTS PROCESS, NOT ONLY PITCH DECKS.",
+    "A QUIETER INVESTOR CIRCLE AROUND REAL OPERATIONS.",
+    "VISIBILITY INTO WHAT IS BEING BUILT, NOT JUST WHAT IS PROMISED.",
+    "ALIGNMENT BETWEEN FOUNDERS, CASHFLOWS AND CAPITAL.",
+    "OPPORTUNITIES WHERE DISCIPLINE MATTERS AS MUCH AS RETURNS."
+  ];
+
+  const winEl = document.getElementById("rotating-line");
+  let winIndex = 0;
+
+  function rotateWinLine() {
+    winIndex = (winIndex + 1) % winLines.length;
+    winEl.textContent = winLines[winIndex];
+  }
+
+  setInterval(rotateWinLine, 5000);
+</script>
+
 </body>
 </html>
