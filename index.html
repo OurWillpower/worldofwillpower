@@ -8,162 +8,30 @@
 <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
 <style>
-:root{
-  --bg:#021712;
-  --bg-soft:#042018;
-  --card:#062921;
-  --border:#0b3b2f;
-  --accent:#E6B325;
-  --accent-soft:rgba(230,179,37,0.12);
-  --text:#f9f5e9;
-  --muted:#94a3b8;
-  --pill:#0b3126;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
-  color:var(--text);line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-
-/* NAVBAR */
-.nav-shell{
-  position:sticky;top:0;z-index:50;
-  background:rgba(0,0,0,0.95);
-  border-bottom:1px solid #111827;
-  backdrop-filter:blur(14px);
-}
-.nav-inner{
-  max-width:1180px;margin:0 auto;
-  padding:14px 20px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-left{display:flex;align-items:center;gap:14px;}
-.nav-logo{height:40px;width:auto;}
-.nav-brand-text{
-  font-family:"Times New Roman",serif;
-  letter-spacing:0.08em;
-  font-size:18px;color:var(--accent);
-}
-.nav-links{
-  display:flex;align-items:center;gap:24px;
-  font-size:14px;text-transform:uppercase;letter-spacing:0.12em;
-}
-.nav-links a{
-  color:#e5e7eb;
-  padding-bottom:3px;border-bottom:2px solid transparent;
-}
-.nav-links a.active{color:var(--accent);border-bottom-color:var(--accent);}
-.nav-links a:hover{color:var(--accent);}
-.nav-admin-btn{
-  border-radius:999px;padding:8px 18px;border:1px solid rgba(148,163,184,0.4);
-  font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
-  color:#e5e7eb;display:flex;align-items:center;gap:8px;
-  background:linear-gradient(90deg,#111827,#020617);
-}
-.nav-dropdown{position:relative;}
+/* === NAV DROPDOWN – READABILITY FIX === */
 .nav-dropdown-menu{
-  position:absolute;top:32px;right:0;
-  background:#020617;border-radius:14px;border:1px solid #111827;
-  box-shadow:0 22px 60px rgba(0,0,0,0.55);
-  padding:10px 0;min-width:260px;display:none;z-index:40;
-}
-.nav-dropdown:hover .nav-dropdown-menu{display:block;}
-.nav-dropdown-item{padding:9px 18px;font-size:13px;color:#e5e7eb;}
-.nav-dropdown-item:hover{background:#020814;color:var(--accent);}
-
-/* HERO */
-.hero{padding:70px 0 70px;}
-.shell{max-width:1180px;margin:0 auto;padding:0 20px;}
-.hero-inner{
-  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
-  gap:36px;align-items:flex-start;
-}
-.hero-pill{
-  display:flex;align-items:center;gap:8px;
-  padding:6px 14px;border-radius:999px;background:var(--pill);
-  border:1px solid rgba(148,163,184,0.4);font-size:11px;
-  letter-spacing:0.16em;text-transform:uppercase;color:#9ca3af;
-  margin-bottom:22px;
-}
-.hero-pill-dot{
-  height:7px;width:7px;border-radius:999px;background:var(--accent);
-}
-.hero-title{
-  font-family:"Times New Roman",serif;
-  font-size:46px;line-height:1.15;margin-bottom:18px;
-}
-.hero-title span.gold{color:var(--accent);}
-.hero-body{font-size:15px;color:#cbd5f5;max-width:620px;margin-bottom:18px;}
-.hero-tagline{font-size:13px;color:#e5e7eb;text-transform:uppercase;
-  letter-spacing:0.18em;margin-bottom:24px;
-}
-.hero-cta{
-  display:inline-flex;align-items:center;gap:10px;padding:14px 26px;
-  border-radius:999px;border:none;background:var(--accent);color:#1a1302;
-  font-size:13px;font-weight:600;letter-spacing:0.18em;
-}
-.hero-note{margin-top:12px;font-size:12px;color:#9ca3af;}
-
-.hero-right-card{
-  background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
-  border-radius:22px;border:1px solid var(--border);
-  padding:24px 26px;
-}
-.hero-right-title{font-size:13px;letter-spacing:0.18em;color:#9ca3af;margin-bottom:14px;}
-.hero-right-list{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:13px;}
-.hero-right-list li{display:flex;gap:10px;}
-.hero-right-bullet{height:6px;width:6px;margin-top:7px;border-radius:999px;background:var(--accent);}
-.hero-right-foot{margin-top:18px;font-size:12px;color:#9ca3af;}
-
-/* ROTATING STATEMENTS */
-.rotator{color:var(--accent);font-weight:600;}
-@keyframes rotate {
-  0%,20%{opacity:1;}
-  25%,95%{opacity:0;}
-}
-.rotator span{
-  position:absolute;opacity:0;animation:rotate 12s infinite;
-}
-.rotator span:nth-child(1){animation-delay:0s}
-.rotator span:nth-child(2){animation-delay:4s}
-.rotator span:nth-child(3){animation-delay:8s}
-
-/* VENTURES GRID */
-.ventures{padding:20px 0 80px;}
-.ventures-grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:26px;margin-top:26px;
-}
-.venture-card{
-  background:var(--card);border-radius:22px;border:1px solid var(--border);
-  padding:26px 24px 22px;
-}
-.venture-kicker{
-  font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#9ca3af;margin-bottom:10px;
-}
-.venture-title{font-size:18px;font-weight:600;margin-bottom:10px;}
-.venture-copy{font-size:13px;color:#cbd5f5;margin-bottom:14px;}
-.venture-link{font-size:12px;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;}
-
-/* FOOTER */
-footer{border-top:1px solid #111827;background:#02040a;padding:24px 20px 26px;margin-top:20px;}
-.footer-inner{
-  max-width:1180px;margin:0 auto;font-size:12px;color:#9ca3af;
-  display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;justify-content:space-between;
-}
-.footer-brand{color:var(--accent);font-weight:600;}
-
-.wa-float{
-  position:fixed;right:24px;bottom:24px;height:54px;width:54px;border-radius:999px;
-  background:#22c55e;display:flex;align-items:center;justify-content:center;color:white;font-size:26px;
+  min-width: 320px;              /* gives each item enough width */
 }
 
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;}
-  .ventures-grid{grid-template-columns:1fr;}
+/* Make dropdown items normal case + well spaced */
+.nav-dropdown-menu,
+.nav-dropdown-item{
+  text-transform: none;          /* don't force ALL CAPS here */
+  letter-spacing: 0;             /* normal spacing for readability */
 }
+
+.nav-dropdown-item{
+  display: block;
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(15,23,42,0.7);
+  font-size: 13px;
+}
+
+/* Last item without border line */
+.nav-dropdown-item:last-child{
+  border-bottom: none;
+}
+
 </style>
 </head>
 
