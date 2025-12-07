@@ -2,72 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WillPro Money – Grounded Financial &amp; Money Decisions</title>
+  <title>WillPro Money – Calm, Grounded Financial Decisions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="WillPro Money helps individuals and businesses design grounded financial plans using mutual funds, insurance, loans and market-linked options – aligned to their real goals and risk comfort.">
+  <meta name="description" content="WillPro Money helps individuals and businesses make calm, documented money decisions with clarity, protection and long-term view — not panic, bias or sales pressure.">
+
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
   <style>
-    :root{--bg:#021712;--bg-soft:#042018;--card:#062921;--border:#0b3b2f;--accent:#E6B325;--accent-soft:rgba(230,179,37,0.12);--text:#f9f5e9;--muted:#94a3b8;--pill:#0b3126;}
+    :root{
+      --bg:#021712;--bg-soft:#042018;--card:#062921;--border:#0b3b2f;
+      --accent:#E6B325;--accent-soft:rgba(230,179,37,0.12);--text:#f9f5e9;
+      --muted:#94a3b8;--pill:#0b3126;
+    }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);color:var(--text);line-height:1.6;}
-    a{text-decoration:none;color:inherit}
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
+      color:var(--text);line-height:1.6;}
+    a{text-decoration:none;color:inherit;}
+
+    /* NAVBAR (same as others) */
     .nav-shell{position:sticky;top:0;z-index:50;background:rgba(0,0,0,0.95);border-bottom:1px solid #111827;backdrop-filter:blur(14px);}
     .nav-inner{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
     .nav-brand-text{font-family:"Times New Roman",serif;letter-spacing:0.08em;font-size:18px;color:var(--accent);}
+
     .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;text-transform:uppercase;letter-spacing:0.12em;}
     .nav-links a{color:#e5e7eb;padding-bottom:3px;border-bottom:2px solid transparent;}
+    .nav-links a.active{color:var(--accent);border-bottom-color:var(--accent);}
     .nav-links a:hover{color:var(--accent);}
+
     .nav-admin-btn{border-radius:999px;padding:8px 18px;border:1px solid rgba(148,163,184,0.4);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#e5e7eb;display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#111827,#020617);}
     .nav-admin-btn span{display:inline-flex;align-items:center;justify-content:center;height:18px;width:18px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:11px;}
+
     .nav-dropdown{position:relative;}
     .nav-dropdown-menu{position:absolute;top:32px;right:0;background:#020617;border-radius:14px;border:1px solid #111827;box-shadow:0 22px 60px rgba(0,0,0,0.55);padding:10px 0;min-width:260px;display:none;z-index:40;}
     .nav-dropdown:hover .nav-dropdown-menu{display:block;}
-    .nav-dropdown-item{padding:9px 18px;font-size:13px;color:#e5e7eb;display:flex;flex-direction:column;gap:2px;}
-    .nav-dropdown-item span:first-child{font-weight:600;}
-    .nav-dropdown-item span:last-child{font-size:11px;color:#9ca3af;}
+    .nav-dropdown-item{padding:9px 18px;font-size:13px;color:#e5e7eb;display:block;}
     .nav-dropdown-item:hover{background:#020814;color:var(--accent);}
-    .hero{padding:70px 0 70px;}
+
+    /* HERO */
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
+    .hero{padding:70px 0 70px;}
     .hero-inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);gap:36px;align-items:flex-start;}
+
     .hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--pill);border:1px solid rgba(148,163,184,0.4);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#9ca3af;margin-bottom:22px;}
     .hero-pill-dot{height:7px;width:7px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 4px rgba(230,179,37,0.25);}
+
     .hero-title{font-family:"Times New Roman",serif;font-size:44px;line-height:1.15;margin-bottom:18px;}
     .hero-title span.gold{color:var(--accent);}
+
     .hero-body{font-size:15px;color:#cbd5f5;max-width:620px;margin-bottom:18px;}
+
     .hero-tagline{font-size:13px;color:#e5e7eb;text-transform:uppercase;letter-spacing:0.18em;margin-bottom:24px;}
+
     .hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:999px;border:none;background:var(--accent);color:#1a1302;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;box-shadow:0 18px 40px rgba(0,0,0,0.5);}
     .hero-cta i{font-style:normal;font-size:16px;}
+
     .hero-note{margin-top:12px;font-size:12px;color:#9ca3af;}
+
     .hero-right-card{background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);border-radius:22px;border:1px solid var(--border);padding:24px 26px;box-shadow:0 26px 60px rgba(0,0,0,0.65);}
     .hero-right-title{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#9ca3af;margin-bottom:14px;}
+
     .hero-right-list{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:13px;color:#e5e7eb;}
     .hero-right-list li{display:flex;gap:10px;}
     .hero-right-bullet{height:6px;width:6px;margin-top:7px;border-radius:999px;background:var(--accent);}
     .hero-right-foot{margin-top:18px;font-size:12px;color:#9ca3af;}
+
+    /* SECTION */
     .section{padding:0 0 80px;}
     .section-title{font-family:"Times New Roman",serif;font-size:30px;margin-bottom:10px;}
-    .section-sub{font-size:14px;color:#9ca3af;max-width:680px;margin-bottom:24px;}
+    .section-sub{font-size:14px;color:#9ca3af;max-width:680px;margin-bottom:32px;}
     .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
-    .card{background:var(--card);border-radius:22px;border:1px solid var(--border);padding:20px 22px;box-shadow:0 20px 40px rgba(0,0,0,0.65);font-size:13px;color:#cbd5f5;}
+    .card{background:var(--card);border-radius:22px;border:1px solid var(--border);padding:22px 22px 20px;box-shadow:0 20px 40px rgba(0,0,0,0.65);}
+    .card-label{font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#9ca3af;margin-bottom:10px;}
+    .card-title{font-size:17px;font-weight:600;margin-bottom:10px;}
+    .card-body{font-size:13px;color:#cbd5f5;}
+
+    /* FOOTER */
     footer{border-top:1px solid #111827;background:#02040a;padding:24px 20px 26px;margin-top:20px;}
     .footer-inner{max-width:1180px;margin:0 auto;font-size:12px;color:#9ca3af;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;justify-content:space-between;}
     .footer-brand{color:var(--accent);font-weight:600;}
-    .footer-contact span{margin-right:14px;}
+
     .wa-float{position:fixed;right:24px;bottom:24px;height:54px;width:54px;border-radius:999px;background:#22c55e;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(0,0,0,0.6);font-size:26px;color:white;}
-    @media(max-width:900px){
+
+    @media (max-width:900px){
       .hero-inner{grid-template-columns:minmax(0,1fr);}
+      .hero-right-card{margin-top:10px;}
       .grid{grid-template-columns:minmax(0,1fr);}
     }
   </style>
 </head>
 <body>
+
 <header class="nav-shell">
   <div class="nav-inner">
     <div class="nav-left">
-      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
       <div class="nav-brand-text">WORLD OF WILLPOWER</div>
     </div>
 
@@ -75,23 +106,21 @@
       <a href="index.html">Home</a>
 
       <div class="nav-dropdown">
-        <a href="index.html#ventures">Our Ventures ▾</a>
+        <a class="active">Our Ventures ▾</a>
         <div class="nav-dropdown-menu">
-          <a class="nav-dropdown-item" href="willpro-maestros.html"><span>Willpower Maestros</span><span>Mentoring &amp; strategic thinking for founders.</span></a>
-          <a class="nav-dropdown-item" href="dairy-manufacturing.html"><span>Willpower Dairy Care</span><span>Disciplined dairy manufacturing with documentation.</span></a>
-          <a class="nav-dropdown-item" href="food-care.html"><span>Willpower Food Care</span><span>Masalas, RTE foods, agro products &amp; beverages.</span></a>
-          <a class="nav-dropdown-item" href="ayurveda.html"><span>Willpower Health &amp; Skin Care</span><span>Ayurvedic &amp; herbal health and skincare brands.</span></a>
-          <a class="nav-dropdown-item" href="new-business.html"><span>WillPro Technologies &amp; Systems</span><span>Business-first technology &amp; systems.</span></a>
-          <a class="nav-dropdown-item" href="ventures.html"><span>WIN Club (WillPro Investors Node)</span><span>Curated investors hub for Willpower opportunities.</span></a>
-          <a class="nav-dropdown-item" href="mentoring-strategy.html"><span>WillPro Aggregators</span><span>E-commerce &amp; category aggregators.</span></a>
-          <a class="nav-dropdown-item" href="willpro-money.html"><span>WillPro Money</span><span>Grounded financial &amp; money decisions.</span></a>
+          <a class="nav-dropdown-item" href="willpro-maestros.html">Willpower Maestros</a>
+          <a class="nav-dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a>
+          <a class="nav-dropdown-item" href="food-care.html">Willpower Food Care</a>
+          <a class="nav-dropdown-item" href="ayurveda.html">Willpower Health & Skin Care</a>
+          <a class="nav-dropdown-item" href="new-business.html">WillPro Technologies</a>
+          <a class="nav-dropdown-item" href="ventures.html">WIN Club</a>
+          <a class="nav-dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a>
+          <a class="nav-dropdown-item" href="willpro-money.html">WillPro Money</a>
         </div>
       </div>
 
       <a href="#contact">Contact</a>
-      <a class="nav-admin-btn" href="admin.html">
-        <span>↗</span> ADMIN PANEL
-      </a>
+      <a class="nav-admin-btn" href="admin.html"><span>↗</span> ADMIN PANEL</a>
     </nav>
   </div>
 </header>
@@ -103,75 +132,66 @@
       <div>
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
-          <span>WORLD OF WILLPOWER · WILLPRO MONEY</span>
+          <span>WORLD OF WILLPOWER · MONEY</span>
         </div>
 
         <h1 class="hero-title">
-          Grounded Financial &amp; Money Decisions, <span class="gold">Not Quick Tips.</span>
+          Grounded Financial & Money Decisions, <span class="gold">Not Quick Tips.</span>
         </h1>
 
         <p class="hero-body">
-          WillPro Money helps individuals and businesses design money decisions around real-life goals – not social media fear or greed. From protection and liquidity to growth and opportunity, we work with a clear, written plan.
+          WillPro Money helps individuals and businesses design calm, documented money decisions around real-life goals — not media fear or greed. From protection and liquidity to growth and opportunity, everything begins with clarity and a written plan.
         </p>
 
-        <div class="hero-tagline">
-          FROM “PRODUCTS” TO A CLEAR, WRITTEN MONEY PLAN.
-        </div>
+        <div class="hero-tagline">FROM “PRODUCTS” TO A CLEAR MONEY PLAN.</div>
 
-        <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
+        <a class="hero-cta" href="https://wa.me/917039196489" target="_blank">
           START MONEY CONVERSATION <i>↗</i>
         </a>
 
         <p class="hero-note">
-          A simple WhatsApp message with your situation and goals is enough to begin. No instant promises, no forced products.
+          A simple WhatsApp message with your situation and goals is enough to begin. No forced sales.
         </p>
       </div>
 
       <aside class="hero-right-card">
-        <div class="hero-right-title">
-          WHEN PEOPLE TYPICALLY REACH OUT
-        </div>
+        <div class="hero-right-title">WHEN PEOPLE TYPICALLY REACH OUT</div>
         <ul class="hero-right-list">
-          <li><span class="hero-right-bullet"></span><span>You have investments and policies scattered across agents, apps and banks – but no single view of your money.</span></li>
+          <li><span class="hero-right-bullet"></span><span>You have investments and policies scattered everywhere — but no clear view of your money.</span></li>
           <li><span class="hero-right-bullet"></span><span>You are unsure whether you are over-insured, under-insured or mis-insured.</span></li>
-          <li><span class="hero-right-bullet"></span><span>You want to invest in mutual funds, markets or ventures – but with a clear understanding of risk and time horizon.</span></li>
-          <li><span class="hero-right-bullet"></span><span>You want money conversations to be calm, documented and aligned to your life and business, not to someone’s monthly sales target.</span></li>
+          <li><span class="hero-right-bullet"></span><span>You want to invest calmly in funds, markets or ventures — with real understanding of risk and time horizon.</span></li>
+          <li><span class="hero-right-bullet"></span><span>You want money conversations aligned to your life and business — not someone’s monthly sales target.</span></li>
         </ul>
         <div class="hero-right-foot">
-          The objective is simple: money decisions that you can explain to yourself and your family five years from now – without embarrassment.
+          The objective is simple: money decisions you can explain to yourself and your family five years later — without embarrassment.
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- MONEY TOOLKIT -->
+  <!-- SECTION -->
   <section class="section">
     <div class="shell">
-      <h2 class="section-title">What Typically Goes Into the Plan</h2>
-      <p class="section-sub">
-        The exact mix will change from person to person – but these are the broad levers we usually work with.
-      </p>
+      <h2 class="section-title">Where We Typically Work</h2>
+      <p class="section-sub">Clarity, protection, liquidity, disciplined investing and real-world accountability.</p>
 
       <div class="grid">
         <div class="card">
-          <strong>1 · PROTECTION</strong><br>
-          Life insurance, health insurance, accident and credit protection to make sure one event does not collapse the entire plan.
+          <div class="card-label">1 · CLARITY</div>
+          <div class="card-title">Written Money Plan</div>
+          <div class="card-body">Life goals, family needs, risk milestones and liquidity — written so you can act calmly.</div>
         </div>
+
         <div class="card">
-          <strong>2 · SAVINGS &amp; GROWTH</strong><br>
-          Mutual funds, market-linked products and simple compounding vehicles chosen to match your risk comfort and timelines.
+          <div class="card-label">2 · PROTECTION</div>
+          <div class="card-title">Insurance & Risk Design</div>
+          <div class="card-body">Right level of cover, correct formats, long-term suitability — not panic-driven products.</div>
         </div>
+
         <div class="card">
-          <strong>3 · LOANS &amp; LIABILITIES</strong><br>
-          Structuring or re-structuring personal, home and business loans so EMI and growth can co-exist without constant stress.
-        </div>
-        <div class="card">
-          <strong>4 · OPPORTUNITY &amp; VENTURES</strong><br>
-          Exposure to ventures, property or market opportunities – only after the base plan is secure, not as a replacement for it.
-        </div>
-        <div class="card">
-          <strong>5 · REVIEW RHYTHM</strong><br>
-          Simple checkpoints so the plan can be adjusted as life, business and markets evolve – without panic.
+          <div class="card-label">3 · OPPORTUNITY</div>
+          <div class="card-title">Investments With Accountability</div>
+          <div class="card-body">Calm investing — funds, markets or ventures — supported by discipline, documentation and horizon clarity.</div>
         </div>
       </div>
     </div>
@@ -181,17 +201,13 @@
 <footer id="contact">
   <div class="footer-inner">
     <div class="footer-brand">World of Willpower</div>
-    <div class="footer-contact">
-      <span>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</span>
-    </div>
-    <div class="footer-contact">
-      <span>📞 +91 7039196489</span>
-      <span>✉ care@worldofwillpower.com</span>
-    </div>
+    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane – 421 204</div>
+    <div>📞 +91 7039196489 • ✉ care@worldofwillpower.com</div>
     <div>© 2025 World of Willpower.</div>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
+<a class="wa-float" href="https://wa.me/917039196489" target="_blank">⌾</a>
+
 </body>
 </html>
