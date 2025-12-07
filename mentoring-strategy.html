@@ -62,9 +62,18 @@
 
     .hero-body{font-size:15px;color:#cbd5f5;max-width:620px;margin-bottom:18px;}
 
-    .hero-tagline{font-size:13px;color:#e5e7eb;text-transform:uppercase;letter-spacing:0.18em;margin-bottom:24px;}
+    .hero-tagline{font-size:13px;color:#e5e7eb;text-transform:uppercase;letter-spacing:0.18em;margin-bottom:10px;}
 
-    .hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:999px;border:none;background:var(--accent);color:#1a1302;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;box-shadow:0 18px 40px rgba(0,0,0,0.5);}
+    .hero-rotator{
+      margin-top:10px;
+      font-size:13px;
+      color:#e5e7eb;
+      opacity:0.9;
+      min-height:1.4em;
+      transition:opacity .4s ease;
+    }
+
+    .hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:999px;border:none;background:var(--accent);color:#1a1302;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;box-shadow:0 18px 40px rgba(0,0,0,0.5);margin-top:18px;}
     .hero-cta i{font-style:normal;font-size:16px;}
 
     .hero-note{margin-top:12px;font-size:12px;color:#9ca3af;}
@@ -106,7 +115,7 @@
 <header class="nav-shell">
   <div class="nav-inner">
     <div class="nav-left">
-      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
       <div class="nav-brand-text">WORLD OF WILLPOWER</div>
     </div>
 
@@ -119,8 +128,8 @@
           <a class="nav-dropdown-item" href="willpro-maestros.html">Willpower Maestros</a>
           <a class="nav-dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a>
           <a class="nav-dropdown-item" href="food-care.html">Willpower Food Care</a>
-          <a class="nav-dropdown-item" href="ayurveda.html">Willpower Health & Skin Care</a>
-          <a class="nav-dropdown-item" href="new-business.html">WillPro Technologies</a>
+          <a class="nav-dropdown-item" href="ayurveda.html">Willpower Health &amp; Skin Care</a>
+          <a class="nav-dropdown-item" href="new-business.html">WillPro Technologies &amp; Systems</a>
           <a class="nav-dropdown-item" href="ventures.html">WIN Club</a>
           <a class="nav-dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a>
           <a class="nav-dropdown-item" href="willpro-money.html">WillPro Money</a>
@@ -140,7 +149,7 @@
       <div>
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
-          <span>WORLD OF WILLPOWER · AGGREGATORS</span>
+          <span>WORLD OF WILLPOWER · WILLPRO AGGREGATORS</span>
         </div>
 
         <h1 class="hero-title">
@@ -148,30 +157,49 @@
         </h1>
 
         <p class="hero-body">
-          WillPro Aggregators works with manufacturers, brand owners and logistics allies who resonate with one disciplined thinking: one strong story, many products, many partners — instead of everyone doing random, unstructured experiments online.
+          WillPro Aggregators works with manufacturers, brand owners and logistics allies who resonate with one disciplined story: one strong narrative, many products, many partners – instead of everyone running their own random experiments online.
         </p>
 
-        <div class="hero-tagline">FOR PARTNERS WHO THINK BEYOND “LISTING ONLINE”.</div>
+        <div class="hero-tagline">FOR PARTNERS WHO THINK BEYOND “JUST LISTING ONLINE”.</div>
 
-        <a class="hero-cta" href="https://wa.me/917039196489" target="_blank">
+        <!-- ROTATING KEY STATEMENTS -->
+        <div class="hero-rotator" id="hero-rotator">
+          Turning scattered products into one disciplined category story.
+        </div>
+
+        <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
           START AGGREGATOR CONVERSATION <i>↗</i>
         </a>
 
         <p class="hero-note">
-          Share who you are — manufacturer, brand, logistics or capital — and we see fit in current or future aggregator stories.
+          Share who you are – manufacturer, brand, logistics or capital – and we can see if there is a fit in current or future aggregator stories.
         </p>
       </div>
 
       <aside class="hero-right-card">
-        <div class="hero-right-title">WHEN AGGREGATOR STORIES MAKE SENSE</div>
+        <div class="hero-right-title">
+          WHAT TYPICALLY BRINGS PEOPLE HERE
+        </div>
         <ul class="hero-right-list">
-          <li><span class="hero-right-bullet"></span><span>You have a good product or capacity but don’t want to run a full consumer brand on your own.</span></li>
-          <li><span class="hero-right-bullet"></span><span>You know your catalogue, pricing or communication is scattered.</span></li>
-          <li><span class="hero-right-bullet"></span><span>You prefer structured roles — who makes, who owns the brand, who manages logistics and demand.</span></li>
-          <li><span class="hero-right-bullet"></span><span>You want predictable quality, documented process and transparent numbers.</span></li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>You have good products or capacity but don’t want to run a full consumer brand on your own.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>You are already selling online but know that your catalogue, pricing or communication is scattered.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>You prefer structured roles – who makes, who owns the brand, who manages logistics and who drives demand.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>You are willing to operate with documentation, predictable quality and transparent numbers.</span>
+          </li>
         </ul>
         <div class="hero-right-foot">
-          Aggregator stories need patience and clarity. We would rather build one strong story than ten weak ones.
+          Aggregator stories need patience and clarity, not shortcuts. We would rather build one strong story than ten weak ones.
         </div>
       </aside>
     </div>
@@ -181,25 +209,33 @@
   <section class="section">
     <div class="shell">
       <h2 class="section-title">How We Typically Work</h2>
-      <p class="section-sub">Each aggregator journey touches category logic, sourcing discipline and logistics clarity — supported by documentation and shared business interest.</p>
+      <p class="section-sub">
+        Each aggregator journey touches category logic, sourcing discipline and logistics clarity – supported by documentation and shared business interest.
+      </p>
 
       <div class="grid">
         <div class="card">
           <div class="card-label">1 · CATEGORY ARCHITECTURE</div>
           <div class="card-title">Structured Catalogue Logic</div>
-          <div class="card-body">Clear brand hierarchy, pricing logic and pack decisions — not random launches.</div>
+          <div class="card-body">
+            Clear brand hierarchy, pricing logic and pack decisions – not random launches and discounts.
+          </div>
         </div>
 
         <div class="card">
-          <div class="card-label">2 · SOURCING & DOCUMENTATION</div>
+          <div class="card-label">2 · SOURCING &amp; DOCUMENTATION</div>
           <div class="card-title">Predictable Quality</div>
-          <div class="card-body">Specs, batch documentation, and consistent quality discipline — not luck-based results.</div>
+          <div class="card-body">
+            Specs, batch documentation and consistent quality discipline – so every lot can stand scrutiny.
+          </div>
         </div>
 
         <div class="card">
-          <div class="card-label">3 · LOGISTICS & DEMAND</div>
+          <div class="card-label">3 · LOGISTICS &amp; DEMAND</div>
           <div class="card-title">Shared Responsibilities</div>
-          <div class="card-body">The right roles between manufacturing, brand strategy, logistics and demand creation.</div>
+          <div class="card-body">
+            The right roles between manufacturing, brand strategy, logistics and demand creation – with shared upside.
+          </div>
         </div>
       </div>
     </div>
@@ -209,13 +245,40 @@
 <footer id="contact">
   <div class="footer-inner">
     <div class="footer-brand">World of Willpower</div>
-    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane – 421 204</div>
+    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
     <div>📞 +91 7039196489 • ✉ care@worldofwillpower.com</div>
     <div>© 2025 World of Willpower.</div>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/917039196489" target="_blank">⌾</a>
+<a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
+
+<script>
+  (function(){
+    const lines = [
+      "Turning scattered products into one disciplined category story.",
+      "One story, many partners – not many random stories.",
+      "From ‘list it and hope’ to structured aggregator strategy.",
+      "Helping serious manufacturers plug into curated e-commerce playbooks.",
+      "Aggregator stories built around documentation, not luck."
+    ];
+    const el = document.getElementById("hero-rotator");
+    if (!el) return;
+    let idx = 0;
+
+    function rotate(){
+      el.style.opacity = 0;
+      setTimeout(function(){
+        el.textContent = lines[idx];
+        el.style.opacity = 1;
+        idx = (idx + 1) % lines.length;
+      }, 400);
+    }
+
+    rotate();
+    setInterval(rotate, 3500);
+  })();
+</script>
 
 </body>
 </html>
