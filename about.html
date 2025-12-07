@@ -1,258 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>About World of Willpower</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="About World of Willpower – a group of ventures spanning mentoring, dairy, foods, Ayurveda, technology, capital and money advisory, all built on long-term thinking and disciplined execution.">
-<link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
+  <meta charset="UTF-8" />
+  <title>About World of Willpower</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="About World of Willpower – a calm, premium ecosystem of ventures built around long-term thinking, documentation and disciplined work across mentoring, dairy, foods, Ayurveda, technology, capital and money." />
+  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" />
 
-<style>
-:root{
-  --bg:#021712;
-  --bg-soft:#042018;
-  --card:#062921;
-  --border:#0b3b2f;
-  --accent:#E6B325;
-  --accent-soft:rgba(230,179,37,0.14);
-  --text:#f9f5e9;
-  --muted:#94a3b8;
-  --pill:#0b3126;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
-  color:var(--text);
-  line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-
-/* NAVBAR */
-.nav-shell{
-  position:sticky;top:0;z-index:50;
-  background:rgba(0,0,0,0.95);
-  border-bottom:1px solid #111827;
-  backdrop-filter:blur(14px);
-}
-.nav-inner{
-  max-width:1180px;margin:0 auto;
-  padding:14px 20px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-left{display:flex;align-items:center;gap:14px;}
-.nav-logo{height:40px;width:auto;}
-.nav-brand-text{
-  font-family:"Times New Roman",serif;
-  letter-spacing:0.08em;
-  font-size:18px;
-  color:var(--accent);
-}
-.nav-links{
-  display:flex;align-items:center;gap:24px;
-  font-size:14px;text-transform:uppercase;
-  letter-spacing:0.12em;
-}
-.nav-links a{
-  color:#e5e7eb;
-  padding-bottom:3px;
-  border-bottom:2px solid transparent;
-}
-.nav-links a.active{
-  color:var(--accent);
-  border-bottom-color:var(--accent);
-}
-.nav-links a:hover{color:var(--accent);}
-.nav-admin-btn{
-  border-radius:999px;
-  padding:8px 18px;
-  border:1px solid rgba(148,163,184,0.4);
-  font-size:12px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:#e5e7eb;
-  display:flex;align-items:center;gap:8px;
-  background:linear-gradient(90deg,#111827,#020617);
-}
-.nav-admin-btn span{
-  display:inline-flex;align-items:center;justify-content:center;
-  height:18px;width:18px;
-  border-radius:999px;
-  background:var(--accent-soft);
-  color:var(--accent);
-  font-size:11px;
-}
-
-.nav-dropdown{position:relative;}
-.nav-dropdown:hover .nav-dropdown-menu{display:block;}
-.nav-dropdown-menu{
-  position:absolute;top:32px;right:0;
-  background:#020617;
-  border-radius:14px;
-  border:1px solid #111827;
-  box-shadow:0 22px 60px rgba(0,0,0,0.55);
-  padding:8px 0;
-  min-width:280px;
-  display:none;
-  z-index:40;
-}
-.nav-dropdown-item{
-  display:block;
-  padding:10px 18px;
-  border-bottom:1px solid rgba(15,23,42,0.7);
-  font-size:13px;
-  color:#e5e7eb;
-}
-.nav-dropdown-item:last-child{border-bottom:none;}
-.nav-dropdown-item:hover{
-  background:#020814;
-  color:var(--accent);
-}
-
-/* PAGE BODY */
-.page-shell{
-  max-width:960px;
-  margin:60px auto;
-  padding:0 20px;
-}
-.page-title{
-  font-family:"Times New Roman",serif;
-  font-size:38px;
-  margin-bottom:20px;
-}
-.page-block{
-  margin-bottom:40px;
-}
-.page-block h2{
-  font-size:22px;
-  margin-bottom:10px;
-  color:var(--accent);
-}
-
-/* FOOTER */
-footer{
-  border-top:1px solid #111827;
-  background:#02040a;
-  padding:24px 20px 26px;
-  margin-top:50px;
-}
-.footer-inner{
-  max-width:1180px;margin:0 auto;
-  font-size:12px;color:#9ca3af;
-  display:flex;flex-wrap:wrap;
-  gap:8px 22px;align-items:center;
-  justify-content:space-between;
-}
-.footer-brand{color:var(--accent);font-weight:600;}
-
-.wa-float{
-  position:fixed;right:24px;bottom:24px;
-  height:54px;width:54px;border-radius:999px;
-  background:#22c55e;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 18px 40px rgba(0,0,0,0.6);
-  font-size:26px;color:white;
-}
-
-@media(max-width:700px){
-  .nav-inner{flex-direction:column;align-items:flex-start;gap:10px;}
-  .nav-links{
-    width:100%;display:flex;flex-wrap:wrap;
-    row-gap:6px;column-gap:16px;font-size:12px;
-    justify-content:flex-start;
-  }
-  .nav-admin-btn{margin-left:0;}
-}
-</style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.worldofwillpower.com/#org",
-      "name": "World of Willpower",
-      "legalName": "World of Willpower",
-      "url": "https://www.worldofwillpower.com/",
-      "logo": "https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png",
-      "description": "World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory — all built around real work and long-term thinking.",
-      "foundingDate": "2012",
-      "founder": {
-        "@id": "https://www.worldofwillpower.com/#founder"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "002, A Wing, Saj Shrushti Complex, Daighar",
-        "addressLocality": "Thane",
-        "addressRegion": "Maharashtra",
-        "postalCode": "421204",
-        "addressCountry": "IN"
-      },
-      "contactPoint": [
-        {
+  <!-- Main Organization / Founder / Website / AboutPage schema graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.worldofwillpower.com/#org",
+        "name": "World of Willpower",
+        "url": "https://www.worldofwillpower.com/",
+        "logo": "https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png",
+        "description": "World of Willpower is a calm, premium ecosystem of ventures across mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory.",
+        "founder": {
+          "@id": "https://www.worldofwillpower.com/#founder"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "002, A Wing, Saj Shrushti Complex, Daighar",
+          "addressLocality": "Thane",
+          "addressRegion": "Maharashtra",
+          "postalCode": "421204",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+91-7039196489",
           "contactType": "customer service",
-          "email": "care@worldofwillpower.com",
-          "areaServed": "IN",
-          "availableLanguage": [
-            "en",
-            "hi",
-            "mr"
-          ]
+          "email": "care@worldofwillpower.com"
         }
-      ]
-    },
-    {
-      "@type": "Person",
-      "@id": "https://www.worldofwillpower.com/#founder",
-      "name": "Dr. Jayant Vishnu Bhat",
-      "alternateName": [
-        "Jayant Vishnu Bhat"
-      ],
-      "jobTitle": "Founder & Group Mentor",
-      "description": "Dr. Jayant Vishnu Bhat, MD (Naturopath), M.Sc Cytogenetics, has worked across corporate roles, manufacturing, brand-building and consulting before shaping World of Willpower into a calm, serious group of ventures.",
-      "affiliation": {
-        "@id": "https://www.worldofwillpower.com/#org"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.worldofwillpower.com/#website",
-      "url": "https://www.worldofwillpower.com/",
-      "name": "World of Willpower",
-      "description": "Official site of World of Willpower – a group of ventures across mentoring, dairy, foods, Ayurveda, technology, investors hub, aggregators and financial advisory.",
-      "publisher": {
-        "@id": "https://www.worldofwillpower.com/#org"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.worldofwillpower.com/about.html#webpage",
-      "url": "https://www.worldofwillpower.com/about.html",
-      "name": "About World of Willpower",
-      "description": "About World of Willpower, its origin, philosophy and leadership under Dr. Jayant Vishnu Bhat.",
-      "isPartOf": {
-        "@id": "https://www.worldofwillpower.com/#website"
       },
-      "about": {
-        "@id": "https://www.worldofwillpower.com/#org"
+      {
+        "@type": "Person",
+        "@id": "https://www.worldofwillpower.com/#founder",
+        "name": "Dr. Jayant Vishnu Bhat",
+        "jobTitle": "Founder & Group Mentor",
+        "description": "Dr. Jayant Vishnu Bhat, MD (Naturopath), M.Sc Cytogenetics, has worked across corporate roles, manufacturing, brand-building and consulting before shaping World of Willpower as a calm, serious group of ventures.",
+        "worksFor": {
+          "@id": "https://www.worldofwillpower.com/#org"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.worldofwillpower.com/#website",
+        "url": "https://www.worldofwillpower.com/",
+        "name": "World of Willpower",
+        "publisher": {
+          "@id": "https://www.worldofwillpower.com/#org"
+        }
+      },
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.worldofwillpower.com/about.html#about",
+        "url": "https://www.worldofwillpower.com/about.html",
+        "name": "About World of Willpower",
+        "description": "Background, philosophy and leadership story of World of Willpower and its founder, Dr. Jayant Vishnu Bhat.",
+        "isPartOf": {
+          "@id": "https://www.worldofwillpower.com/#website"
+        },
+        "about": {
+          "@id": "https://www.worldofwillpower.com/#org"
+        }
       }
+    ]
+  }
+  </script>
+
+  <!-- Styles: same system as index.html -->
+  <style>
+    :root{
+      --bg:#021712;
+      --bg-soft:#042018;
+      --card:#062921;
+      --border:#0b3b2f;
+      --accent:#E6B325;
+      --accent-soft:rgba(230,179,37,0.14);
+      --text:#f9f5e9;
+      --muted:#94a3b8;
+      --pill:#0b3126;
     }
-  ]
-}
-</script>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+
+    .nav-shell{
+      position:sticky;top:0;z-index:50;
+      background:rgba(0,0,0,0.96);
+      border-bottom:1px solid #111827;
+      backdrop-filter:blur(14px);
+    }
+    .nav-inner{
+      max-width:1180px;margin:0 auto;
+      padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .nav-left{display:flex;align-items:center;gap:14px;}
+    .nav-logo{height:40px;width:auto;}
+    .nav-brand-text{
+      font-family:"Times New Roman",serif;
+      letter-spacing:0.08em;
+      font-size:18px;
+      color:var(--accent);
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:24px;
+      font-size:14px;text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+    .nav-links a{
+      color:#e5e7eb;
+      padding-bottom:3px;
+      border-bottom:2px solid transparent;
+    }
+    .nav-links a.active{
+      color:var(--accent);
+      border-bottom-color:var(--accent);
+    }
+    .nav-links a:hover{color:var(--accent);}
+    .nav-admin-btn{
+      border-radius:999px;
+      padding:8px 18px;
+      border:1px solid rgba(148,163,184,0.4);
+      font-size:12px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:#e5e7eb;
+      display:flex;align-items:center;gap:8px;
+      background:linear-gradient(90deg,#111827,#020617);
+    }
+    .nav-admin-btn span{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:18px;width:18px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-size:11px;
+    }
+    .nav-dropdown{position:relative;}
+    .nav-dropdown > a{cursor:pointer;}
+    .nav-dropdown-menu{
+      position:absolute;top:32px;right:0;
+      background:#020617;
+      border-radius:14px;
+      border:1px solid #111827;
+      box-shadow:0 22px 60px rgba(0,0,0,0.55);
+      padding:6px 0;
+      min-width:260px;
+      display:none;
+      z-index:40;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+    .nav-dropdown-item{
+      display:block;
+      padding:9px 18px;
+      border-bottom:1px solid rgba(15,23,42,0.7);
+      font-size:13px;
+      text-transform:none;
+      letter-spacing:0;
+      color:#e5e7eb;
+    }
+    .nav-dropdown-item:last-child{border-bottom:none;}
+    .nav-dropdown-item span:first-child{font-weight:600;display:block;}
+    .nav-dropdown-item span:last-child{
+      font-size:11px;color:#9ca3af;display:block;margin-top:2px;
+    }
+    .nav-dropdown-item:hover{
+      background:#020814;
+      color:var(--accent);
+    }
+
+    .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
+    .about-hero{padding:70px 0 40px;}
+    .about-title{
+      font-family:"Times New Roman",serif;
+      font-size:40px;
+      line-height:1.1;
+      margin-bottom:18px;
+    }
+    .about-body{
+      font-size:15px;color:#e5e7eb;
+      max-width:900px;
+    }
+    .about-body p{margin-bottom:14px;}
+    .about-body strong{color:var(--accent);}
+    .about-list{
+      margin:12px 0 16px 18px;
+      padding-left:0;
+      list-style:disc;
+      color:#e5e7eb;
+    }
+    .about-list li{margin-bottom:6px;}
+
+    .section{padding:0 0 60px;}
+    .section-heading{
+      font-family:"Times New Roman",serif;
+      font-size:26px;
+      margin-bottom:10px;
+    }
+    .section-text{
+      font-size:14px;color:#e5e7eb;
+      max-width:900px;
+    }
+    .section-text p{margin-bottom:10px;}
+
+    footer{
+      border-top:1px solid #111827;
+      background:#02040a;
+      padding:24px 20px 26px;
+      margin-top:10px;
+    }
+    .footer-inner{
+      max-width:1180px;margin:0 auto;
+      font-size:12px;color:#9ca3af;
+      display:flex;flex-wrap:wrap;
+      gap:8px 22px;align-items:center;
+      justify-content:space-between;
+    }
+    .footer-brand{color:var(--accent);font-weight:600;}
+
+    .wa-float{
+      position:fixed;right:24px;bottom:24px;
+      height:54px;width:54px;border-radius:999px;
+      background:#22c55e;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 18px 40px rgba(0,0,0,0.6);
+      font-size:26px;color:white;
+      z-index:60;
+    }
+
+    @media (max-width:900px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+      .nav-links{
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        row-gap:6px;
+        column-gap:16px;
+        font-size:12px;
+        justify-content:flex-start;
+      }
+      .nav-admin-btn{margin-left:0;}
+      .about-title{font-size:34px;}
+    }
+  </style>
 </head>
 
 <body>
-
-<!-- NAVBAR -->
 <header class="nav-shell">
   <div class="nav-inner">
     <div class="nav-left">
-      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo" />
       <div class="nav-brand-text">WORLD OF WILLPOWER</div>
     </div>
 
@@ -261,21 +274,44 @@ footer{
       <a href="about.html" class="active">About</a>
 
       <div class="nav-dropdown">
-        <a href="#">Our Ventures ▾</a>
+        <a href="index.html#ventures">Our Ventures ▾</a>
         <div class="nav-dropdown-menu">
-          <a class="nav-dropdown-item" href="willpro-maestros.html">Willpower Maestros</a>
-          <a class="nav-dropdown-item" href="dairy-manufacturing.html">Willpower Dairy Care</a>
-          <a class="nav-dropdown-item" href="food-care.html">Willpower Food Care</a>
-          <a class="nav-dropdown-item" href="ayurveda.html">Willpower Health & Skin Care</a>
-          <a class="nav-dropdown-item" href="new-business.html">WillPro Technologies & Systems</a>
-          <a class="nav-dropdown-item" href="ventures.html">WIN Club</a>
-          <a class="nav-dropdown-item" href="mentoring-strategy.html">WillPro Aggregators</a>
-          <a class="nav-dropdown-item" href="willpro-money.html">WillPro Money</a>
+          <a class="nav-dropdown-item" href="willpro-maestros.html">
+            <span>Willpower Maestros</span>
+            <span>Mentoring &amp; strategic thinking for founders.</span>
+          </a>
+          <a class="nav-dropdown-item" href="dairy-manufacturing.html">
+            <span>Willpower Dairy Care</span>
+            <span>Disciplined dairy manufacturing with documentation.</span>
+          </a>
+          <a class="nav-dropdown-item" href="food-care.html">
+            <span>Willpower Food Care</span>
+            <span>Masalas, RTE foods, agro products &amp; beverages.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ayurveda.html">
+            <span>Willpower Health &amp; Skin Care</span>
+            <span>Ayurvedic &amp; herbal health and skincare brands.</span>
+          </a>
+          <a class="nav-dropdown-item" href="new-business.html">
+            <span>WillPro Technologies &amp; Systems</span>
+            <span>Business-first technology &amp; systems.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ventures.html">
+            <span>WIN Club (WillPro Investors Node)</span>
+            <span>Curated investors hub for Willpower opportunities.</span>
+          </a>
+          <a class="nav-dropdown-item" href="mentoring-strategy.html">
+            <span>WillPro Aggregators</span>
+            <span>E-commerce &amp; category aggregators.</span>
+          </a>
+          <a class="nav-dropdown-item" href="willpro-money.html">
+            <span>WillPro Money</span>
+            <span>Grounded financial &amp; money decisions.</span>
+          </a>
         </div>
       </div>
 
       <a href="#contact">Contact</a>
-
       <a class="nav-admin-btn" href="admin.html">
         <span>↗</span> ADMIN PANEL
       </a>
@@ -283,56 +319,58 @@ footer{
   </div>
 </header>
 
-<!-- PAGE CONTENT -->
-<div class="page-shell">
+<main>
+  <section class="about-hero">
+    <div class="shell">
+      <h1 class="about-title">About World of Willpower</h1>
 
-  <h1 class="page-title">About World of Willpower</h1>
+      <div class="about-body">
+        <p>
+          World of Willpower was born from a simple observation: many people want to build brands, but very few are
+          willing to do the real, disciplined work behind them. Over the years, the group has grown into multiple
+          ventures – mentoring, dairy, foods, Ayurveda, technology, capital and money – all driven by one mindset:
+          <strong>long-term thinking over quick noise.</strong>
+        </p>
 
-  <div class="page-block">
-    <p>
-      World of Willpower was born from a simple observation: many people want to build brands, but very few are willing to do the real, disciplined work behind them.
-      Over the years, the group has grown into multiple ventures – mentoring, dairy, foods, Ayurveda, technology, capital and money –
-      all driven by one mindset: <strong>long-term thinking over quick noise.</strong>
-    </p>
-  </div>
+        <p>
+          The journey of World of Willpower started with a practical need – founders and professionals required someone
+          who could think through strategy, documentation and execution without adding noise. What began as mentoring
+          and consulting gradually layered into dairy, foods, Ayurveda, technology, capital and money advisory –
+          wherever the Willpower mindset could add value.
+        </p>
 
-  <div class="page-block">
-    <p>
-      The journey of World of Willpower started with a practical need – founders and professionals required someone who could think through strategy,
-      documentation and execution without adding noise. What began as mentoring and consulting gradually became dairy, foods, Ayurveda,
-      technology and money advisory – wherever the Willpower mindset could add value.
-    </p>
-  </div>
+        <p>Across each vertical, the approach has remained consistent:</p>
+        <ul class="about-list">
+          <li>Clarity in positioning and purpose.</li>
+          <li>Respect for regulations, documentation and quality benchmarks.</li>
+          <li>Products and services that can stand scrutiny, not just marketing lines.</li>
+          <li>Partners who understand that brand-building is a long-term game.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <div class="page-block">
-    <h2>Our Approach</h2>
-    <ul>
-      <li>Clarity in positioning and purpose</li>
-      <li>Respect for regulations, documentation and quality benchmarks</li>
-      <li>Products and services that can stand scrutiny, not just marketing lines</li>
-      <li>Partners who understand brand-building is a long-term game</li>
-    </ul>
-  </div>
+  <section class="section">
+    <div class="shell">
+      <h2 class="section-heading">Leadership</h2>
+      <div class="section-text">
+        <p>
+          Founded in 2012, World of Willpower has been shaped by the experience and thinking style of
+          <strong> Dr. Jayant Vishnu Bhat, MD (Naturopath), M.Sc Cytogenetics</strong> – a founder who has seen multiple
+          sides of business: corporate roles, manufacturing, brand-building, consulting and now a group of ventures
+          under one calm, serious identity.
+        </p>
+        <p>
+          Jayant has had the opportunity to work with large conglomerates like Troikaa Pharma, Raptakos Brett,
+          ICICI PruLife, MetLife India Reinsurance Group of Americas, Reliance and ING Life at decisive levels.
+          This mindset flows into every Willpower venture – whether it is dairy purity, Ayurvedic formulations,
+          technology systems or financial planning.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <div class="page-block">
-    <h2>Leadership</h2>
-    <p>
-      Founded in 2012, World of Willpower has been shaped by the experience and thinking style of
-      <strong>Dr. Jayant Vishnu Bhat, MD (Naturopath), M.Sc Cytogenetics</strong> – a founder who has seen multiple sides of business:
-      corporate roles, manufacturing, brand-building, consulting and now a group of ventures under one calm, serious identity.
-    </p>
-
-    <p>
-      Jayant has had the opportunity to work with large conglomerates like Troikaa Pharma, Raptakos Brett, ICICI PruLife,
-      MetLife India Reinsurance Group of Americas, Reliance and ING Life at decisive levels.
-      This mindset flows into every Willpower venture, whether it is dairy purity, Ayurvedic formulations,
-      technology systems or financial planning.
-    </p>
-  </div>
-
-</div>
-
-<!-- FOOTER -->
 <footer id="contact">
   <div class="footer-inner">
     <div class="footer-brand">World of Willpower</div>
@@ -343,6 +381,5 @@ footer{
 </footer>
 
 <a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
-
 </body>
 </html>
