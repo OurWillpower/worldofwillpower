@@ -94,7 +94,7 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* NAV (same as home) */
+    /* NAVBAR – same look as home */
     .nav-shell{
       position:sticky;top:0;z-index:50;
       background:rgba(0,0,0,0.96);
@@ -181,9 +181,9 @@
       color:var(--accent);
     }
 
-    /* LAYOUT */
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
+    /* ABOUT HERO LAYOUT */
     .about-hero{
       padding:70px 0 40px;
     }
@@ -213,6 +213,7 @@
       line-height:1.15;
       margin-bottom:14px;
     }
+    .about-title span.gold{color:var(--accent);}
     .about-lede{
       font-size:15px;color:#e5e7eb;
       margin-bottom:16px;
@@ -224,7 +225,6 @@
     .about-body strong{color:var(--accent);}
     .about-list{
       margin:8px 0 4px 18px;
-      padding-left:0;
       list-style:disc;
     }
     .about-list li{margin-bottom:6px;}
@@ -280,4 +280,176 @@
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 18px 40px rgba(0,0,0,0.6);
       font-size:26px;color:white;
-      z-index:60
+      z-index:60;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width:1000px){
+      .about-grid{
+        grid-template-columns:minmax(0,1fr);
+      }
+      .about-side-card{
+        margin-top:10px;
+      }
+    }
+    @media (max-width:700px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header class="nav-shell">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo" />
+      <div class="nav-brand-text">WORLD OF WILLPOWER</div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+
+      <a href="about.html" class="active">About</a>
+
+      <div class="nav-dropdown">
+        <a href="index.html#ventures">Our Ventures ▾</a>
+        <div class="nav-dropdown-menu">
+          <a class="nav-dropdown-item" href="willpro-maestros.html">
+            <span>Willpower Maestros</span>
+            <span>Mentoring &amp; strategic thinking for founders.</span>
+          </a>
+          <a class="nav-dropdown-item" href="dairy-manufacturing.html">
+            <span>Willpower Dairy Care</span>
+            <span>Disciplined dairy manufacturing with documentation.</span>
+          </a>
+          <a class="nav-dropdown-item" href="food-care.html">
+            <span>Willpower Food Care</span>
+            <span>Masalas, RTE foods, agro products &amp; beverages.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ayurveda.html">
+            <span>Willpower Health &amp; Skin Care</span>
+            <span>Ayurvedic &amp; herbal health and skincare brands.</span>
+          </a>
+          <a class="nav-dropdown-item" href="new-business.html">
+            <span>WillPro Technologies &amp; Systems</span>
+            <span>Business-first technology &amp; systems.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ventures.html">
+            <span>WIN Club (WillPro Investors Node)</span>
+            <span>Curated investors hub for Willpower opportunities.</span>
+          </a>
+          <a class="nav-dropdown-item" href="mentoring-strategy.html">
+            <span>WillPro Aggregators</span>
+            <span>E-commerce &amp; category aggregators.</span>
+          </a>
+          <a class="nav-dropdown-item" href="willpro-money.html">
+            <span>WillPro Money</span>
+            <span>Grounded financial &amp; money decisions.</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="index.html#contact">Contact</a>
+
+      <a class="nav-admin-btn" href="admin.html">
+        <span>↗</span> ADMIN PANEL
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="about">
+  <!-- ABOUT HERO -->
+  <section class="about-hero">
+    <div class="shell about-grid">
+      <div>
+        <div class="about-pill">
+          <span class="about-pill-dot"></span>
+          <span>WORLD OF WILLPOWER · ABOUT</span>
+        </div>
+
+        <h1 class="about-title">
+          About <span class="gold">World of Willpower</span>
+        </h1>
+
+        <p class="about-lede">
+          World of Willpower was born from a simple observation: many people want to build brands,
+          but very few are willing to do the real, disciplined work behind them.
+        </p>
+
+        <div class="about-body">
+          <p>
+            Over the years, the group has grown into multiple ventures – mentoring, dairy, foods, Ayurveda,
+            technology, capital and money – all driven by one mindset:
+            <strong> long-term thinking over quick noise.</strong>
+          </p>
+          <p>
+            The journey of World of Willpower started with a practical need – founders and professionals
+            required someone who could think through strategy, documentation and execution without adding noise.
+            What began as mentoring and consulting gradually layered into dairy, foods, Ayurveda, technology,
+            capital and money advisory – wherever the Willpower mindset could add value.
+          </p>
+          <p>
+            Across each vertical, the approach has remained consistent:
+          </p>
+          <ul class="about-list">
+            <li>Clarity in positioning and purpose.</li>
+            <li>Respect for regulations, documentation and quality benchmarks.</li>
+            <li>Products and services that can stand scrutiny, not just marketing lines.</li>
+            <li>Partners who understand that brand-building is a long-term game.</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="about-side-card">
+        <div class="about-side-title">ONE MINDSET, MANY VENTURES</div>
+        <p>
+          Whether it is mentoring a founder, auditing a ghee manufacturing line, shaping an Ayurvedic tonic,
+          designing a technology stack or planning money decisions, the lens remains the same:
+        </p>
+        <p style="margin-top:8px;">
+          <strong>Calm work, documented processes, and brands that can stand questions for years – not just quarters.</strong>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP SECTION -->
+  <section class="section">
+    <div class="shell">
+      <h2 class="section-heading">Leadership</h2>
+      <div class="section-text">
+        <p>
+          Founded in 2012, World of Willpower has been shaped by the experience and thinking style of
+          <strong> Dr. Jayant Vishnu Bhat, MD (Naturopath), M.Sc Cytogenetics</strong> – a founder who has seen
+          multiple sides of business: corporate roles, manufacturing, brand-building, consulting and now
+          a group of ventures under one calm, serious identity.
+        </p>
+        <p>
+          Jayant has had the opportunity to work with large conglomerates like Troikaa Pharma, Raptakos Brett,
+          ICICI PruLife, MetLife India Reinsurance Group of Americas, Reliance and ING Life at decisive levels.
+          This mindset flows into every Willpower venture, whether it is dairy purity, Ayurvedic formulations,
+          technology systems or financial planning.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">World of Willpower</div>
+    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
+    <div>📞 +91 7039196489 • ✉ care@worldofwillpower.com</div>
+    <div>© 2025 World of Willpower.</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
+
+</body>
+</html>
