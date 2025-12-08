@@ -1,311 +1,508 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shree Varad Maternity — Premium Maternity & Women's Health | Dr. Vinit Chafekar</title>
-  <meta name="description" content="Premium obstetrics & gynecology care in Pune. Dr. Vinit Chafekar provides antenatal care, fertility support, minimally invasive and robotic surgery, comprehensive women's health and more." />
-  <meta name="keywords" content="maternity clinic Pune, gynecology Pune, antenatal care, infertility treatment, laparoscopy, robotic surgery, women's health" />
-  <link rel="canonical" href="https://ourwillpower.github.io/DrVinit/" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta charset="UTF-8">
+  <title>World of Willpower – Group of Companies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory — all built around real work and long-term thinking.">
+  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#021712;
+      --bg-soft:#042018;
+      --card:#062921;
+      --border:#0b3b2f;
+      --accent:#E6B325;
+      --accent-soft:rgba(230,179,37,0.14);
+      --text:#f9f5e9;
+      --muted:#94a3b8;
+      --pill:#0b3126;
+    }
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
 
-  <!-- Scripts -->
-  <script defer src="scripts.js"></script>
+    /* NAVBAR */
+    .nav-shell{
+      position:sticky;top:0;z-index:50;
+      background:rgba(0,0,0,0.95);
+      border-bottom:1px solid #111827;
+      backdrop-filter:blur(14px);
+    }
+    .nav-inner{
+      max-width:1180px;margin:0 auto;
+      padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .nav-left{display:flex;align-items:center;gap:14px;}
+    .nav-logo{height:40px;width:auto;}
+    .nav-brand-text{
+      font-family:"Times New Roman",serif;
+      letter-spacing:0.08em;
+      font-size:18px;
+      color:var(--accent);
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:24px;
+      font-size:14px;text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+    .nav-links a{
+      color:#e5e7eb;
+      padding-bottom:3px;
+      border-bottom:2px solid transparent;
+    }
+    .nav-links a.active{
+      color:var(--accent);
+      border-bottom-color:var(--accent);
+    }
+    .nav-links a:hover{color:var(--accent);}
 
-  <!-- OG -->
-  <meta property="og:title" content="Shree Varad Maternity — Dr. Vinit Chafekar" />
-  <meta property="og:description" content="Premium maternity & women's health care — antenatal, fertility, minimally invasive and robotic surgery." />
-  <meta property="og:image" content="assets/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+    .nav-dropdown{position:relative;}
+    .nav-dropdown > a{
+      cursor:pointer;
+    }
+    .nav-dropdown-menu{
+      position:absolute;top:32px;right:0;
+      background:#020617;
+      border-radius:14px;
+      border:1px solid #111827;
+      box-shadow:0 22px 60px rgba(0,0,0,0.55);
+      padding:6px 0;
+      min-width:320px;
+      display:none;
+      z-index:40;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+    .nav-dropdown-item{
+      display:block;
+      padding:10px 18px;
+      border-bottom:1px solid rgba(15,23,42,0.7);
+      font-size:13px;
+      text-transform:none;
+      letter-spacing:0;
+      color:#e5e7eb;
+    }
+    .nav-dropdown-item:last-child{border-bottom:none;}
+    .nav-dropdown-item span:first-child{font-weight:600;display:block;}
+    .nav-dropdown-item span:last-child{
+      font-size:11px;color:#9ca3af;display:block;margin-top:2px;
+    }
+    .nav-dropdown-item:hover{
+      background:#020814;
+      color:var(--accent);
+    }
+
+    .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+    /* HERO */
+    .hero{padding:70px 0 60px;}
+    .hero-inner{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
+      gap:36px;
+      align-items:flex-start;
+    }
+    .hero-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 14px;border-radius:999px;
+      background:var(--pill);
+      border:1px solid rgba(148,163,184,0.4);
+      font-size:11px;letter-spacing:0.16em;
+      text-transform:uppercase;color:#9ca3af;
+      margin-bottom:22px;
+    }
+    .hero-pill-dot{
+      height:7px;width:7px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(230,179,37,0.25);
+    }
+    .hero-title{
+      font-family:"Times New Roman",serif;
+      font-size:44px;
+      line-height:1.15;
+      margin-bottom:18px;
+    }
+    .hero-title .gold{color:var(--accent);}
+    .hero-body{
+      font-size:15px;color:#cbd5f5;
+      max-width:620px;margin-bottom:18px;
+    }
+    .hero-tagline{
+      font-size:13px;color:#e5e7eb;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      margin-bottom:24px;
+      min-height:1.6em;
+    }
+
+    /* Rotating lines */
+    .rotator{
+      position:relative;
+      display:inline-block;
+      overflow:hidden;
+      height:1.4em;
+      vertical-align:bottom;
+    }
+    .rotator span{
+      position:absolute;
+      left:0;right:0;
+      opacity:0;
+      transform:translateY(100%);
+      animation:rotateLines 12s linear infinite;
+      white-space:nowrap;
+    }
+    .rotator span:nth-child(1){animation-delay:0s;}
+    .rotator span:nth-child(2){animation-delay:4s;}
+    .rotator span:nth-child(3){animation-delay:8s;}
+
+    @keyframes rotateLines{
+      0%{opacity:0;transform:translateY(100%);}
+      5%,25%{opacity:1;transform:translateY(0);}
+      30%{opacity:0;transform:translateY(-100%);}
+      100%{opacity:0;transform:translateY(-100%);}
+    }
+
+    .hero-cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;padding:14px 26px;
+      border-radius:999px;border:none;
+      background:var(--accent);color:#1a1302;
+      font-size:13px;font-weight:600;
+      letter-spacing:0.18em;text-transform:uppercase;
+      box-shadow:0 18px 40px rgba(0,0,0,0.5);
+      margin-bottom:10px;
+    }
+    .hero-note{
+      font-size:12px;color:#9ca3af;
+    }
+
+    .hero-right-card{
+      background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
+      border-radius:22px;border:1px solid var(--border);
+      padding:24px 26px;
+      box-shadow:0 26px 60px rgba(0,0,0,0.65);
+    }
+    .hero-right-title{
+      font-size:13px;letter-spacing:0.18em;
+      text-transform:uppercase;color:#9ca3af;
+      margin-bottom:14px;
+    }
+    .hero-right-list{
+      list-style:none;
+      display:flex;flex-direction:column;
+      gap:12px;font-size:13px;color:#e5e7eb;
+    }
+    .hero-right-list li{display:flex;gap:10px;}
+    .hero-right-bullet{
+      height:6px;width:6px;margin-top:7px;
+      border-radius:999px;background:var(--accent);
+    }
+
+    /* VENTURES GRID */
+    .ventures{padding:10px 0 70px;}
+    .ventures-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:26px;
+    }
+    .venture-card{
+      background:var(--card);
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:22px 22px 20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.65);
+    }
+    .venture-kicker{
+      font-size:11px;text-transform:uppercase;
+      letter-spacing:0.18em;color:#9ca3af;
+      margin-bottom:10px;
+    }
+    .venture-title{
+      font-size:18px;font-weight:600;margin-bottom:10px;
+    }
+    .venture-copy{
+      font-size:13px;color:#cbd5f5;margin-bottom:18px;
+    }
+    .venture-link{
+      display:inline-flex;align-items:center;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:var(--accent);
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid #111827;
+      background:#02040a;
+      padding:24px 20px 26px;
+      margin-top:10px;
+    }
+    .footer-inner{
+      max-width:1180px;margin:0 auto;
+      font-size:12px;color:#9ca3af;
+      display:flex;flex-wrap:wrap;
+      gap:8px 22px;align-items:center;
+      justify-content:space-between;
+    }
+    .footer-brand{color:var(--accent);font-weight:600;}
+
+    .wa-float{
+      position:fixed;right:24px;bottom:24px;
+      height:54px;width:54px;border-radius:999px;
+      background:#22c55e;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 18px 40px rgba(0,0,0,0.6);
+      font-size:26px;color:white;
+      z-index:60;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width:1000px){
+      .hero-inner{
+        grid-template-columns:minmax(0,1fr);
+      }
+      .hero-right-card{
+        margin-top:10px;
+      }
+      .ventures-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media (max-width:700px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+      .ventures-grid{
+        grid-template-columns:minmax(0,1fr);
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Floating WhatsApp -->
-  <a class="whatsapp-float" href="https://wa.me/917039196489?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A10.4 10.4 0 0 0 3.5 20.5L2 22l1.7-1.2A10.4 10.4 0 1 0 20.5 3.5zM12 20a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" fill="white" opacity="0.06"/><path d="M17.2 14.2c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.8.1-.8.6-1.9.8-3.2.5-.9-.2-1.6-.7-2.3-1.2-1.2-1-1.8-2.3-1.9-3.9-.1-1.1.4-1.9 1.1-2.6.5-.5 1-.8 1.6-.9.3 0 .6.1.8.2.2.1.4.3.5.6.1.3.1.6 0 .9-.1.2-.2.5-.3.7-.1.2 0 .4.1.6.2.5.8 1.4 1.8 2.2 1.1.9 2.1 1.3 3.1 1.6.3.1.6.1.7.3.1.2.1.5 0 .7-.1.3-.4.5-.7.6z" fill="#fff"/></svg>
-  </a>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <div class="logo-mark" aria-hidden="true">SV</div>
-        <div class="brand-text">
-          <div class="brand-title">Shree Varad Maternity</div>
-          <div class="brand-sub">Dr. Vinit Chafekar, MD — Physician & DGO</div>
-        </div>
-      </div>
-
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="header-actions">
-        <!-- Global book CTA removed intentionally -->
-        <a class="btn btn-ghost" href="tel:+917039196489" aria-label="Call clinic">📞 +91 7039196489</a>
-      </div>
+<header class="nav-shell">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
+      <div class="nav-brand-text">WORLD OF WILLPOWER</div>
     </div>
-  </header>
 
-  <!-- Hero -->
-  <main>
-    <section class="hero container">
-      <div class="hero-left">
-        <h1>Premium Maternity & Women's Health Care — Compassionate, Evidence-Based</h1>
-        <p class="lead">Specialised obstetrics and gynecology services including antenatal care, fertility support, minimally invasive and robotic surgery — delivered with a modern, patient-centered approach.</p>
-        <div class="hero-actions">
-          <a class="btn btn-ghost" href="#services">View Services</a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+
+      <div class="nav-dropdown">
+        <a href="#ventures">Our Ventures ▾</a>
+        <div class="nav-dropdown-menu">
+          <a class="nav-dropdown-item" href="willpro-maestros.html">
+            <span>Willpower Maestros</span>
+            <span>Mentoring & strategic thinking for founders.</span>
+          </a>
+          <a class="nav-dropdown-item" href="dairy-manufacturing.html">
+            <span>Willpower Dairy Care</span>
+            <span>Disciplined dairy manufacturing with documentation.</span>
+          </a>
+          <a class="nav-dropdown-item" href="food-care.html">
+            <span>Willpower Food Care</span>
+            <span>Masalas, RTE foods, agro products & beverages.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ayurveda.html">
+            <span>Willpower Health & Skin Care</span>
+            <span>Ayurvedic & herbal health and skincare brands.</span>
+          </a>
+          <a class="nav-dropdown-item" href="new-business.html">
+            <span>WillPro Technologies & Systems</span>
+            <span>Business-first technology & systems.</span>
+          </a>
+          <a class="nav-dropdown-item" href="ventures.html">
+            <span>WIN Club (WillPro Investors Node)</span>
+            <span>Curated investors hub for Willpower opportunities.</span>
+          </a>
+          <a class="nav-dropdown-item" href="mentoring-strategy.html">
+            <span>WillPro Aggregators</span>
+            <span>E-commerce & category aggregators.</span>
+          </a>
+          <a class="nav-dropdown-item" href="willpro-money.html">
+            <span>WillPro Money</span>
+            <span>Grounded financial & money decisions.</span>
+          </a>
         </div>
       </div>
 
-      <aside class="hero-right">
-        <div class="card hero-card">
-          <img src="assets/dr-vinit-small.jpg" alt="Dr Vinit Chafekar" class="hero-doctor" />
-          <div class="hero-card-body">
-            <div class="muted">Dr. Vinit Chafekar</div>
-            <div class="strong">MD (Physician), DGO</div>
-          </div>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="shell hero-inner">
+      <div>
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          <span>WORLD OF WILLPOWER · GROUP OF COMPANIES</span>
         </div>
+
+        <h1 class="hero-title">
+          When You Want <span class="gold">Nothing but the Best</span>, You Will Find Willpower.
+        </h1>
+
+        <p class="hero-body">
+          World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda,
+          technology, investors hub, e-commerce aggregators and financial advisory — all built around real work and
+          long-term thinking.
+        </p>
+
+        <div class="hero-tagline">
+          <span class="rotator">
+            <span>Structured Work, Not Random Hustle.</span>
+            <span>Calm Growth, Not Noise.</span>
+            <span>Documentation, Not Shortcuts.</span>
+          </span>
+        </div>
+
+        <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
+          START A WILLPOWER CONVERSATION →
+        </a>
+
+        <p class="hero-note">
+          Simple WhatsApp connect. Share your current situation or opportunity and we can see if there is a fit.
+        </p>
+      </div>
+
+      <aside class="hero-right-card">
+        <div class="hero-right-title">
+          WHAT TYPICALLY BRINGS PEOPLE HERE
+        </div>
+        <ul class="hero-right-list">
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Founders or professionals wanting clear, strategic thinking and documented execution.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Trusted manufacturing in dairy, foods or Ayurveda with documentation and long-term reputation.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Business-first technology & systems, designed around cash flow and operations.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Curated investors hub and e-commerce aggregators exploring structured Willpower opportunities.</span>
+          </li>
+          <li>
+            <span class="hero-right-bullet"></span>
+            <span>Individuals and firms seeking grounded financial & money decisions via WillPro Money.</span>
+          </li>
+        </ul>
       </aside>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="container services-section">
-      <h2 class="section-title">Services — Comprehensive Care</h2>
-      <p class="muted section-intro">A spectrum of services for women at every life stage. Click "Book" on any service to request an appointment.</p>
-
-      <div class="services-grid">
-
-        <!-- Service: General Health Checkups -->
-        <article class="service-card" id="svc-general-health">
-          <div class="service-image" style="background-image:url('assets/services/general-health.jpg')" role="img" aria-label="General Health Checkups"></div>
-          <div class="service-body">
-            <h3>General Health Checkups</h3>
-            <p class="muted">Wellness screening, preventive evaluation and comprehensive women's health checks including screening tests and lifestyle counselling.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="General Health Checkups" data-service-id="svc01" aria-label="Book General Health Checkup">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Antenatal & Pregnancy Care -->
-        <article class="service-card" id="svc-antenatal">
-          <div class="service-image" style="background-image:url('assets/services/antenatal.jpg')" role="img" aria-label="Antenatal Care"></div>
-          <div class="service-body">
-            <h3>Antenatal & Pregnancy Care</h3>
-            <p class="muted">Routine antenatal visits, screening, nutrition advice and personalized birth planning for safe pregnancy journeys.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Antenatal & Pregnancy Care" data-service-id="svc02" aria-label="Book Antenatal Care">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Infertility -->
-        <article class="service-card" id="svc-infertility">
-          <div class="service-image" style="background-image:url('assets/services/infertility.jpg')" role="img" aria-label="Infertility Treatment"></div>
-          <div class="service-body">
-            <h3>Infertility Evaluation & Support</h3>
-            <p class="muted">Comprehensive infertility workup, counseling, ovulation support and coordination for assisted fertility procedures.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Infertility Evaluation & Support" data-service-id="svc03" aria-label="Book Infertility Consultation">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Laparoscopy -->
-        <article class="service-card" id="svc-laparoscopy">
-          <div class="service-image" style="background-image:url('assets/services/laparoscopy.jpg')" role="img" aria-label="Laparoscopic Surgery"></div>
-          <div class="service-body">
-            <h3>Minimal Invasive (Laparoscopic) Surgery</h3>
-            <p class="muted">Keyhole surgery for fibroids, ovarian cysts and endometriosis — quicker recovery and minimal scarring.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Minimal Invasive (Laparoscopic) Surgery" data-service-id="svc04" aria-label="Book Laparoscopic Surgery Consult">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Robotic Surgery -->
-        <article class="service-card" id="svc-robotic">
-          <div class="service-image" style="background-image:url('assets/services/robotic.jpg')" role="img" aria-label="Robotic Surgery"></div>
-          <div class="service-body">
-            <h3>Robotic & Advanced Surgical Care</h3>
-            <p class="muted">Precision robotic procedures for complex gynecological conditions when clinically indicated.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Robotic & Advanced Surgical Care" data-service-id="svc05" aria-label="Book Robotic Surgery Consultation">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- High-risk pregnancy -->
-        <article class="service-card" id="svc-highrisk">
-          <div class="service-image" style="background-image:url('assets/services/high-risk.jpg')" role="img" aria-label="High-Risk Pregnancy"></div>
-          <div class="service-body">
-            <h3>High-Risk Pregnancy Management</h3>
-            <p class="muted">Specialized monitoring, multi-disciplinary care and individualized delivery planning for complex pregnancies.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="High-Risk Pregnancy Management" data-service-id="svc06" aria-label="Book High-Risk Pregnancy Consultation">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PCOS -->
-        <article class="service-card" id="svc-pcos">
-          <div class="service-image" style="background-image:url('assets/services/pcos.jpg')" role="img" aria-label="PCOS Care"></div>
-          <div class="service-body">
-            <h3>PCOS & Hormonal Health</h3>
-            <p class="muted">Endocrine assessment, lifestyle programs and medical options to manage PCOS and restore reproductive health.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="PCOS & Hormonal Health" data-service-id="svc07" aria-label="Book PCOS Consultation">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Menopause -->
-        <article class="service-card" id="svc-menopause">
-          <div class="service-image" style="background-image:url('assets/services/menopause.jpg')" role="img" aria-label="Menopause Care"></div>
-          <div class="service-body">
-            <h3>Menopause Care & Bone Health</h3>
-            <p class="muted">Symptom management, bone health monitoring and individualized hormone therapy where appropriate.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Menopause Care & Bone Health" data-service-id="svc08" aria-label="Book Menopause Consultation">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- C-Section -->
-        <article class="service-card" id="svc-cesarean">
-          <div class="service-image" style="background-image:url('assets/services/cesarean.jpg')" role="img" aria-label="Cesarean Delivery"></div>
-          <div class="service-body">
-            <h3>Planned & Emergency Cesarean Delivery</h3>
-            <p class="muted">Safe cesarean services with modern anesthesia and post-op care protocols for mother and baby.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Planned & Emergency Cesarean Delivery" data-service-id="svc09" aria-label="Book Cesarean Consultation">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Hysteroscopy -->
-        <article class="service-card" id="svc-hysteroscopy">
-          <div class="service-image" style="background-image:url('assets/services/hysteroscopy.jpg')" role="img" aria-label="Hysteroscopy"></div>
-          <div class="service-body">
-            <h3>Hysteroscopy & Endometrial Procedures</h3>
-            <p class="muted">Diagnostic and operative hysteroscopy for irregular bleeding, polyps and uterine pathology.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Hysteroscopy & Endometrial Procedures" data-service-id="svc10" aria-label="Book Hysteroscopy Consultation">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Colposcopy -->
-        <article class="service-card" id="svc-colposcopy">
-          <div class="service-image" style="background-image:url('assets/services/colposcopy.jpg')" role="img" aria-label="Colposcopy"></div>
-          <div class="service-body">
-            <h3>Colposcopy & Cervical Screening</h3>
-            <p class="muted">PAP/HPV screening, detailed cervical evaluation and early treatment of pre-cancerous lesions.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Colposcopy & Cervical Screening" data-service-id="svc11" aria-label="Book Colposcopy">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Lactation -->
-        <article class="service-card" id="svc-lactation">
-          <div class="service-image" style="background-image:url('assets/services/lactation.jpg')" role="img" aria-label="Lactation Support"></div>
-          <div class="service-body">
-            <h3>Lactation Support & Postnatal Care</h3>
-            <p class="muted">Breastfeeding guidance, newborn feeding support, and structured postnatal follow-ups.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Lactation Support & Postnatal Care" data-service-id="svc12" aria-label="Book Lactation Support">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Family planning -->
-        <article class="service-card" id="svc-familyplanning">
-          <div class="service-image" style="background-image:url('assets/services/family-planning.jpg')" role="img" aria-label="Family Planning"></div>
-          <div class="service-body">
-            <h3>Family Planning & Contraception</h3>
-            <p class="muted">Counseling and options including IUD, implants, sterilization counseling and short-term methods.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Family Planning & Contraception" data-service-id="svc13" aria-label="Book Family Planning">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Urogynecology -->
-        <article class="service-card" id="svc-urogyn">
-          <div class="service-image" style="background-image:url('assets/services/urogyn.jpg')" role="img" aria-label="Urogynecology"></div>
-          <div class="service-body">
-            <h3>Urogynecology & Pelvic Floor Health</h3>
-            <p class="muted">Assessment and treatment for incontinence, prolapse and pelvic floor rehabilitation.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Urogynecology & Pelvic Floor Health" data-service-id="svc14" aria-label="Book Urogynecology">Book</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Neonatal coordination -->
-        <article class="service-card" id="svc-neonatal">
-          <div class="service-image" style="background-image:url('assets/services/neonatal.jpg')" role="img" aria-label="Neonatal Care"></div>
-          <div class="service-body">
-            <h3>Neonatal & Newborn Care Coordination</h3>
-            <p class="muted">Immediate newborn assessment, breastfeeding initiation and pediatric referrals when required.</p>
-            <div class="service-cta">
-              <a class="btn btn-outline" href="#" data-apt="open" data-service="Neonatal & Newborn Care Coordination" data-service-id="svc15" aria-label="Book Neonatal Care">Book</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="container section about-section">
-      <h2 class="section-title">About the Clinic</h2>
-      <div class="two-col">
-        <div>
-          <p class="muted">Shree Varad Maternity combines clinical excellence with personalised care. Our team offers modern surgical options, evidence-based medical management and holistic support through pregnancy and beyond.</p>
-        </div>
-        <aside>
-          <div class="card">
-            <img src="assets/dr-vinit.jpg" alt="Dr Vinit Chafekar" class="doctor-img">
-            <p class="muted">Dr. Vinit Chafekar — MD (Physician), DGO</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="container section contact-section">
-      <h2 class="section-title">Contact & Booking</h2>
-      <div class="two-col">
-        <div class="card">
-          <p><strong>Phone:</strong> <a href="tel:+917039196489">+91 7039196489</a></p>
-          <p><strong>Email:</strong> <a href="mailto:info@shreevaradmaternity.com">info@shreevaradmaternity.com</a></p>
-          <p class="muted">To request appointments, use the Book buttons on service cards.</p>
-        </div>
-        <div class="card" style="padding:0;">
-          <iframe title="clinic map" src="https://www.google.com/maps/embed?pb=PLACEHOLDER" style="width:100%;height:260px;border:0;" loading="lazy"></iframe>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> Shree Varad Maternity</div>
-      <div class="muted">All rights reserved</div>
     </div>
-  </footer>
+  </section>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <!-- VENTURES GRID -->
+  <section id="ventures" class="ventures">
+    <div class="shell ventures-grid">
+
+      <article class="venture-card">
+        <p class="venture-kicker">1 · MENTORING</p>
+        <h3 class="venture-title">Willpower Maestros</h3>
+        <p class="venture-copy">
+          Founder-led mentoring, consultations and high-impact thinking for leaders who want clarity, not buzzwords.
+        </p>
+        <a href="willpro-maestros.html" class="venture-link">VIEW DETAILS →</a>
+      </article>
+
+      <article class="venture-card">
+        <p class="venture-kicker">2 · DAIRY</p>
+        <h3 class="venture-title">Willpower Dairy Care</h3>
+        <p class="venture-copy">
+          Pure cow ghee and dairy manufacturing with audits, documentation and processes that can stand any purity discussion.
+        </p>
+        <a href="dairy-manufacturing.html" class="venture-link">VIEW DETAILS →</a>
+      </article>
+
+      <article class="venture-card">
+        <p class="venture-kicker">3 · FOODS</p>
+        <h3 class="venture-title">Willpower Food Care</h3>
+        <p class="venture-copy">
+          Masalas, RTE foods, agro products and beverages – built with sourcing logic, stability and long-term brand reputation.
+        </p>
+        <a href="food-care.html" class="venture-link">VIEW DETAILS →</a>
+      </article>
+
+      <article class="venture-card">
+        <p class="venture-kicker">4 · AYURVEDA & HEALTH</p>
+        <h3 class="venture-title">Willpower Health & Skin Care</h3>
+        <p class="venture-copy">
+          Ayurvedic and herbal brands that treat Ayurveda as science – with formulations, rationale and documentation.
+        </p>
+        <a href="ayurveda.html" class="venture-link">VIEW DETAILS →</a>
+      </article>
+
+      <article class="venture-card">
+        <p class="venture-kicker">5 · TECHNOLOGY</p>
+        <h3 class="venture-title">WillPro Technologies & Systems</h3>
+        <p class="venture-copy">
+          Business-first technology, websites and systems – designed so that tech follows business reality, not the other way round.
+        </p>
+        <a href="new-business.html" class="venture-link">VIEW DETAILS →</a>
+      </article>
+
+      <article class="venture-card">
+        <p class="venture-kicker">6 · CAPITAL & INVESTORS</p>
+        <h3 class="venture-title">WIN Club</h3>
+        <p class="venture-copy">
+          A focused investors hub for curated, structured Willpower opportunities across brands and ventures.
+        </p>
+        <a href="ventures.html" class="venture-link">VIEW DETAILS →</a>
+      </article>
+
+      <article class="venture-card">
+        <p class="venture-kicker">7 · E-COMMERCE</p>
+        <h3 class="venture-title">WillPro Aggregators</h3>
+        <p class="venture-copy">
+          E-commerce and category aggregators with one disciplined story, many products and partners – instead of scattered listings.
+        </p>
+        <a href="mentoring-strategy.html" class="venture-link">VIEW DETAILS →</a>
+      </article>
+
+      <article class="venture-card">
+        <p class="venture-kicker">8 · MONEY</p>
+        <h3 class="venture-title">WillPro Money</h3>
+        <p class="venture-copy">
+          Grounded financial & money decisions – mutual funds, insurance and planning aligned to real-life goals, not monthly sales targets.
+        </p>
+        <a href="willpro-money.html" class="venture-link">VIEW DETAILS →</a>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">World of Willpower</div>
+    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
+    <div>📞 +91 7039196489 • ✉ care@worldofwillpower.com</div>
+    <div>© 2025 World of Willpower.</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
+
 </body>
 </html>
