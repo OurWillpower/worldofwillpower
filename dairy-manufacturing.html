@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Willpower Dairy Care – Pure Cow Ghee & Disciplined Dairy Manufacturing</title>
+  <title>Willpower Dairy Care – Dairy Manufacturing & Pure Cow Ghee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Willpower Dairy Care focuses on pure cow ghee and disciplined dairy manufacturing with audits, documentation and processes that can stand any purity discussion." />
+  <meta name="description" content="Willpower Dairy Care focuses on disciplined dairy manufacturing, pure cow ghee and allied dairy products – built with documentation, hygiene and long-term brand trust." />
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" />
 
-  <!-- Schema for Organization + Dairy Page -->
+  <!-- Schema: Organization + WebPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,25 +35,22 @@
         }
       },
       {
-        "@type": "WebPage",
-        "@id": "https://www.worldofwillpower.com/dairy-manufacturing.html#page",
-        "url": "https://www.worldofwillpower.com/dairy-manufacturing.html",
-        "name": "Willpower Dairy Care – Pure Cow Ghee & Disciplined Dairy Manufacturing",
-        "description": "Pure cow ghee and dairy manufacturing with audits, documentation and processes that can stand any purity discussion.",
-        "isPartOf": {
-          "@id": "https://www.worldofwillpower.com/#website"
-        },
-        "about": {
-          "@id": "https://www.worldofwillpower.com/#org"
-        }
-      },
-      {
         "@type": "WebSite",
         "@id": "https://www.worldofwillpower.com/#website",
         "url": "https://www.worldofwillpower.com/",
         "name": "World of Willpower",
         "publisher": {
           "@id": "https://www.worldofwillpower.com/#org"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.worldofwillpower.com/dairy-manufacturing.html#page",
+        "url": "https://www.worldofwillpower.com/dairy-manufacturing.html",
+        "name": "Willpower Dairy Care – Dairy Manufacturing & Pure Cow Ghee",
+        "description": "Willpower Dairy Care focuses on disciplined dairy manufacturing, pure cow ghee and allied dairy products – built with documentation, hygiene and long-term brand trust.",
+        "isPartOf": {
+          "@id": "https://www.worldofwillpower.com/#website"
         }
       }
     ]
@@ -82,7 +79,7 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* ========== NAVBAR (same pattern, NO admin) ========== */
+    /* NAVBAR – same pattern as index */
     .nav-shell{
       position:sticky;top:0;z-index:50;
       background:rgba(0,0,0,0.96);
@@ -93,7 +90,6 @@
       max-width:1180px;margin:0 auto;
       padding:14px 20px;
       display:flex;align-items:center;justify-content:space-between;
-      gap:18px;
     }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
@@ -104,12 +100,9 @@
       color:var(--accent);
     }
     .nav-links{
-      display:flex;align-items:center;
-      gap:24px;
-      font-size:14px;
-      text-transform:uppercase;
+      display:flex;align-items:center;gap:24px;
+      font-size:14px;text-transform:uppercase;
       letter-spacing:0.12em;
-      flex-wrap:wrap;
     }
     .nav-links a{
       color:#e5e7eb;
@@ -121,6 +114,7 @@
       border-bottom-color:var(--accent);
     }
     .nav-links a:hover{color:var(--accent);}
+    .nav-admin-btn{display:none;} /* admin hidden */
 
     .nav-dropdown{position:relative;}
     .nav-dropdown > a{cursor:pointer;}
@@ -157,13 +151,13 @@
 
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
-    /* ========== HERO SECTION (Dairy Care) ========== */
+    /* HERO */
     .hero{
       padding:70px 0 60px;
     }
     .hero-inner{
       display:grid;
-      grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);
+      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
       gap:36px;
       align-items:flex-start;
     }
@@ -187,17 +181,46 @@
       line-height:1.15;
       margin-bottom:18px;
     }
-    .hero-title span.gold{color:var(--accent);}
+    .hero-title .gold{color:var(--accent);}
     .hero-body{
       font-size:15px;color:#cbd5f5;
-      max-width:640px;margin-bottom:18px;
+      max-width:620px;margin-bottom:18px;
     }
     .hero-tagline{
       font-size:13px;color:#e5e7eb;
       text-transform:uppercase;
       letter-spacing:0.18em;
-      margin-bottom:22px;
+      margin-bottom:24px;
+      min-height:1.6em;
     }
+
+    /* Rotator (same pattern as index) */
+    .rotator{
+      position:relative;
+      display:inline-block;
+      overflow:hidden;
+      height:1.4em;
+      vertical-align:bottom;
+    }
+    .rotator span{
+      position:absolute;
+      left:0;right:0;
+      opacity:0;
+      transform:translateY(100%);
+      animation:rotateLines 12s linear infinite;
+      white-space:nowrap;
+    }
+    .rotator span:nth-child(1){animation-delay:0s;}
+    .rotator span:nth-child(2){animation-delay:4s;}
+    .rotator span:nth-child(3){animation-delay:8s;}
+
+    @keyframes rotateLines{
+      0%{opacity:0;transform:translateY(100%);}
+      5%,25%{opacity:1;transform:translateY(0);}
+      30%{opacity:0;transform:translateY(-100%);}
+      100%{opacity:0;transform:translateY(-100%);}
+    }
+
     .hero-cta{
       display:inline-flex;align-items:center;justify-content:center;
       gap:10px;padding:14px 26px;
@@ -208,9 +231,8 @@
       box-shadow:0 18px 40px rgba(0,0,0,0.5);
       margin-bottom:10px;
     }
-    .hero-cta i{font-style:normal;font-size:16px;}
     .hero-note{
-      font-size:12px;color:#9ca3af;margin-top:8px;
+      font-size:12px;color:#9ca3af;
     }
 
     .hero-right-card{
@@ -218,7 +240,6 @@
       border-radius:22px;border:1px solid var(--border);
       padding:24px 26px;
       box-shadow:0 26px 60px rgba(0,0,0,0.65);
-      font-size:13px;color:#e5e7eb;
     }
     .hero-right-title{
       font-size:13px;letter-spacing:0.18em;
@@ -239,7 +260,7 @@
       margin-top:18px;font-size:12px;color:#9ca3af;
     }
 
-    /* ========== SECONDARY SECTION ========== */
+    /* SECTION BELOW HERO */
     .section{
       padding:0 0 70px;
     }
@@ -248,13 +269,39 @@
       font-size:26px;
       margin-bottom:10px;
     }
-    .section-text{
+    .section-sub{
       font-size:14px;color:#e5e7eb;
-      max-width:900px;
+      max-width:850px;
+      margin-bottom:26px;
     }
-    .section-text p{margin-bottom:10px;}
 
-    /* ========== FOOTER ========== */
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:24px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:20px 20px 18px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.65);
+      font-size:13px;
+    }
+    .card-label{
+      font-size:11px;text-transform:uppercase;
+      letter-spacing:0.16em;color:#9ca3af;
+      margin-bottom:6px;
+    }
+    .card-title{
+      font-size:17px;font-weight:600;
+      margin-bottom:8px;
+    }
+    .card-body{
+      font-size:13px;color:#cbd5f5;
+    }
+
+    /* FOOTER */
     footer{
       border-top:1px solid #111827;
       background:#02040a;
@@ -280,7 +327,7 @@
       z-index:60;
     }
 
-    /* ========== RESPONSIVE ========== */
+    /* Responsive tweaks */
     @media (max-width:1000px){
       .hero-inner{
         grid-template-columns:minmax(0,1fr);
@@ -288,20 +335,18 @@
       .hero-right-card{
         margin-top:10px;
       }
+      .grid-3{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
     }
-
     @media (max-width:700px){
       .nav-inner{
         flex-direction:column;
         align-items:flex-start;
         gap:10px;
       }
-      .nav-links{
-        width:100%;
-        column-gap:16px;
-        row-gap:6px;
-        font-size:12px;
-        justify-content:flex-start;
+      .grid-3{
+        grid-template-columns:minmax(0,1fr);
       }
     }
   </style>
@@ -357,7 +402,8 @@
         </div>
       </div>
 
-      <a href="#contact">Contact</a>
+      <a href="store.html">Willpower Store</a>
+      <a href="index.html#contact">Contact Us</a>
     </nav>
   </div>
 </header>
@@ -369,83 +415,102 @@
       <div>
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
-          <span>WORLD OF WILLPOWER · DAIRY CARE</span>
+          <span>WORLD OF WILLPOWER · DAIRY MANUFACTURING</span>
         </div>
 
         <h1 class="hero-title">
-          Purity In Dairy, <span class="gold">Backed By Documentation &amp; Discipline.</span>
+          Willpower Dairy Care – <span class="gold">Purity You Can Stand Behind.</span>
         </h1>
 
         <p class="hero-body">
-          Willpower Dairy Care is built on one simple idea – if you respect the cow, the process and the consumer,
-          the product will automatically command trust. Our work focuses on pure cow ghee and disciplined dairy
-          manufacturing that can stand tough questions from auditors, partners and customers.
+          Willpower Dairy Care is built around one simple idea – if you say “pure cow ghee” or talk about dairy hygiene,
+          you must be able to show the documentation, the processes and the mindset that sits behind every batch.
         </p>
 
         <div class="hero-tagline">
-          FOR BRANDS THAT WANT PURITY, AUDITS AND LONG-TERM CUSTOMER CONFIDENCE.
+          <span class="rotator">
+            <span>Purity backed by paperwork, not just promises.</span>
+            <span>Dairy lines that can face tough questions.</span>
+            <span>Ghee that respects both science and tradition.</span>
+          </span>
         </div>
 
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
-          DISCUSS DAIRY MANUFACTURING <i>↗</i>
+          TALK DAIRY &amp; GHEE →
         </a>
 
         <p class="hero-note">
-          Simple WhatsApp connect. We understand your need and then suggest formats – whether bulk packing,
-          retail packs or contract manufacturing.
+          Simple WhatsApp connect. Share what you are planning – your own brand, third-party manufacturing or a new
+          dairy line – and we can see whether there is a serious fit.
         </p>
       </div>
 
       <aside class="hero-right-card">
-        <div class="hero-right-title">WHAT TYPICALLY BRINGS PEOPLE HERE</div>
+        <div class="hero-right-title">
+          WHO USUALLY REACHES OUT
+        </div>
         <ul class="hero-right-list">
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Brands that want pure cow ghee with documented sourcing and process – not vague claims.</span>
+            <span>Founders who want their ghee or dairy brand to actually stand for purity, not just packaging language.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Businesses looking for disciplined third-party manufacturing – not casual arrangements.</span>
+            <span>Businesses looking at serious third-party manufacturing with hygiene, documentation and repeatability.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Founders who need product plus paperwork – specs, batch records and labels – ready for scrutiny.</span>
+            <span>Partners who understand that audits, records and traceability are part of brand-building – not a burden.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>People who want consistency across batches, not “luck-based” quality.</span>
+            <span>People who want Indian dairy capabilities built with both discipline and commercial sense.</span>
           </li>
         </ul>
         <div class="hero-right-foot">
-          We treat dairy as a serious, long-term responsibility – from milk handling and boiling discipline to final
-          packing and storage.
+          The aim is simple – create dairy operations and brands that you can proudly defend in any discussion on
+          purity, process and long-term consumer trust.
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- SECONDARY SECTION -->
+  <!-- FOCUS AREAS -->
   <section class="section">
     <div class="shell">
-      <h2 class="section-heading">How Willpower Dairy Care Typically Engages</h2>
-      <div class="section-text">
-        <p>
-          Every engagement starts with clarity: what exactly do you want to build – a premium ghee brand, a stable
-          house label for your stores, or a private-label extension for an existing portfolio.
-        </p>
-        <p>
-          From there, we work on:
-        </p>
-        <p>
-          • Milk and cream sourcing logic – what is practical yet honest for your brand story.<br>
-          • Boiling, clarification and filtration protocols that can be repeated and documented.<br>
-          • Batch-wise records, COAs and packaging details that auditors and partners can trust.<br>
-          • Label narratives that match what is actually happening in your plant – not wishful writing.
-        </p>
-        <p>
-          The result we aim for is simple: ghee and dairy products that you can stand behind in any discussion –
-          whether with consumers, retailers, regulators or investors.
-        </p>
+      <h2 class="section-heading">Where Willpower Dairy Care Typically Works</h2>
+      <p class="section-sub">
+        The exact product mix may change – but the foundation stays the same: disciplined sourcing, controlled
+        processing, and documentation that can stand inspection.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-label">1 · CORE GHEE</div>
+          <div class="card-title">Pure Cow Ghee &amp; Variants</div>
+          <div class="card-body">
+            Batch-controlled, process-driven pure cow ghee and related formats – with clarity on milk source,
+            process flow and testing. Built for brands that want to stay in the purity conversation for years.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">2 · DAIRY PRODUCTS</div>
+          <div class="card-title">Paneer, Curd &amp; More</div>
+          <div class="card-body">
+            Structured manufacturing for paneer, curd and other dairy SKUs where consistency, hygiene and shelf-life
+            matter as much as taste and texture for your consumers.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">3 · DOCUMENTATION &amp; AUDITS</div>
+          <div class="card-title">Processes That Can Be Shown</div>
+          <div class="card-body">
+            From SOPs and records to audits and traceability, the focus is on having a dairy story you can walk an
+            investor, partner or regulator through – calmly and confidently.
+          </div>
+        </div>
       </div>
     </div>
   </section>
