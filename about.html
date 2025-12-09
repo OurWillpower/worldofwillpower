@@ -7,7 +7,7 @@
   <meta name="description" content="About World of Willpower – a calm, premium ecosystem of ventures built around long-term thinking, documentation and disciplined work across mentoring, dairy, foods, Ayurveda, technology, capital and money." />
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" />
 
-  <!-- Organization / Website / AboutPage schema -->
+  <!-- Main Organization / Founder / Website / AboutPage schema graph -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,6 +32,19 @@
           "telephone": "+91-7039196489",
           "contactType": "customer service",
           "email": "care@worldofwillpower.com"
+        },
+        "founder": {
+          "@id": "https://www.worldofwillpower.com/#founder"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.worldofwillpower.com/#founder",
+        "name": "Mr. Jayant Vishnu Bhat",
+        "jobTitle": "Founder & Group Mentor",
+        "description": "Mr. Jayant Vishnu Bhat, MD (Naturopath), M.Sc Cytogenetics, has worked across corporate roles, manufacturing, brand-building and consulting before shaping World of Willpower as a calm, serious group of ventures.",
+        "worksFor": {
+          "@id": "https://www.worldofwillpower.com/#org"
         }
       },
       {
@@ -82,7 +95,7 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* ========== NAVBAR (same as home) ========== */
+    /* NAVBAR – same structure as index */
     .nav-shell{
       position:sticky;top:0;z-index:50;
       background:rgba(0,0,0,0.96);
@@ -93,7 +106,6 @@
       max-width:1180px;margin:0 auto;
       padding:14px 20px;
       display:flex;align-items:center;justify-content:space-between;
-      gap:18px;
     }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
@@ -104,12 +116,9 @@
       color:var(--accent);
     }
     .nav-links{
-      display:flex;align-items:center;
-      gap:24px;
-      font-size:14px;
-      text-transform:uppercase;
+      display:flex;align-items:center;gap:24px;
+      font-size:14px;text-transform:uppercase;
       letter-spacing:0.12em;
-      flex-wrap:wrap;
     }
     .nav-links a{
       color:#e5e7eb;
@@ -121,6 +130,9 @@
       border-bottom-color:var(--accent);
     }
     .nav-links a:hover{color:var(--accent);}
+    .nav-admin-btn{
+      display:none; /* hidden from public site as per your decision */
+    }
 
     .nav-dropdown{position:relative;}
     .nav-dropdown > a{cursor:pointer;}
@@ -157,7 +169,7 @@
 
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
-    /* ========== ABOUT HERO ========== */
+    /* ABOUT HERO LAYOUT */
     .about-hero{
       padding:70px 0 40px;
     }
@@ -203,6 +215,12 @@
     }
     .about-list li{margin-bottom:6px;}
 
+    .about-side{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
     .about-side-card{
       background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
       border-radius:22px;border:1px solid var(--border);
@@ -218,11 +236,8 @@
       margin-bottom:10px;
     }
 
-    /* ========== FOUNDER BLOCK (RIGHT UNDER BOX) ========== */
+    /* FOUNDER BLOCK – sits just under side-card on RHS */
     .founder-block{
-      max-width:1180px;
-      margin:0 auto 50px;
-      padding:0 20px;
       display:flex;
       justify-content:flex-end;
     }
@@ -256,7 +271,6 @@
       font-size:13px;
       text-align:center;
       min-width:220px;
-      color:#e5e7eb;
     }
     .founder-caption span:first-child{
       display:block;
@@ -267,14 +281,13 @@
       display:block;
       font-size:11px;
       color:#e5e7eb;
-      opacity:0.9;
     }
+
     @keyframes fadeInUp{
       0%{opacity:0;transform:translateY(18px);}
       100%{opacity:1;transform:translateY(0);}
     }
 
-    /* ========== LEADERSHIP SECTION ========== */
     .section{
       padding:0 0 60px;
     }
@@ -289,11 +302,11 @@
     }
     .section-text p{margin-bottom:10px;}
 
-    /* ========== FOOTER ========== */
     footer{
       border-top:1px solid #111827;
       background:#02040a;
       padding:24px 20px 26px;
+      margin-top:10px;
     }
     .footer-inner{
       max-width:1180px;margin:0 auto;
@@ -314,31 +327,20 @@
       z-index:60;
     }
 
-    /* ========== RESPONSIVE ========== */
+    /* Mobile tweaks */
     @media (max-width:1000px){
       .about-grid{
         grid-template-columns:minmax(0,1fr);
-      }
-      .about-side-card{
-        margin-top:10px;
       }
       .founder-block{
         justify-content:center;
       }
     }
-
     @media (max-width:700px){
       .nav-inner{
         flex-direction:column;
         align-items:flex-start;
         gap:10px;
-      }
-      .nav-links{
-        width:100%;
-        column-gap:16px;
-        row-gap:6px;
-        font-size:12px;
-        justify-content:flex-start;
       }
     }
   </style>
@@ -394,7 +396,8 @@
         </div>
       </div>
 
-      <a href="#contact">Contact</a>
+      <a href="store.html">Willpower Store</a>
+      <a href="index.html#contact">Contact Us</a>
     </nav>
   </div>
 </header>
@@ -402,67 +405,75 @@
 <main id="about">
   <!-- ABOUT HERO -->
   <section class="about-hero">
-    <div class="shell about-grid">
-      <div>
-        <div class="about-pill">
-          <span class="about-pill-dot"></span>
-          <span>WORLD OF WILLPOWER · ABOUT</span>
+    <div class="shell">
+      <div class="about-grid">
+        <!-- LEFT COLUMN -->
+        <div>
+          <div class="about-pill">
+            <span class="about-pill-dot"></span>
+            <span>WORLD OF WILLPOWER · ABOUT</span>
+          </div>
+
+          <h1 class="about-title">
+            About <span class="gold">World of Willpower</span>
+          </h1>
+
+          <p class="about-lede">
+            World of Willpower was born from a simple observation: many people want to build brands,
+            but very few are willing to do the real, disciplined work behind them.
+          </p>
+
+          <div class="about-body">
+            <p>
+              Over the years, the group has grown into multiple ventures – mentoring, dairy, foods, Ayurveda,
+              technology, capital and money – all driven by one mindset:
+              <strong> long-term thinking over quick noise.</strong>
+            </p>
+            <p>
+              The journey of World of Willpower started with a practical need – founders and professionals
+              required someone who could think through strategy, documentation and execution without adding noise.
+              What began as mentoring and consulting gradually layered into dairy, foods, Ayurveda, technology,
+              capital and money advisory – wherever the Willpower mindset could add value.
+            </p>
+            <p>
+              Across each vertical, the approach has remained consistent:
+            </p>
+            <ul class="about-list">
+              <li>Clarity in positioning and purpose.</li>
+              <li>Respect for regulations, documentation and quality benchmarks.</li>
+              <li>Products and services that can stand scrutiny, not just marketing lines.</li>
+              <li>Partners who understand that brand-building is a long-term game.</li>
+            </ul>
+          </div>
         </div>
 
-        <h1 class="about-title">
-          About <span class="gold">World of Willpower</span>
-        </h1>
+        <!-- RIGHT COLUMN: SIDE CARD + FOUNDER PHOTO -->
+        <div class="about-side">
+          <aside class="about-side-card">
+            <div class="about-side-title">ONE MINDSET, MANY VENTURES</div>
+            <p>
+              Whether it is mentoring a founder, auditing a ghee manufacturing line, shaping an Ayurvedic tonic,
+              designing a technology stack or planning money decisions, the lens remains the same:
+            </p>
+            <p style="margin-top:8px;">
+              <strong>Calm work, documented processes, and brands that can stand questions for years – not just quarters.</strong>
+            </p>
+          </aside>
 
-        <p class="about-lede">
-          World of Willpower was born from a simple observation: many people want to build brands,
-          but very few are willing to do the real, disciplined work behind them.
-        </p>
-
-        <div class="about-body">
-          <p>
-            Over the years, the group has grown into multiple ventures – mentoring, dairy, foods, Ayurveda,
-            technology, capital and money – all driven by one mindset:
-            <strong> long-term thinking over quick noise.</strong>
-          </p>
-          <p>
-            The journey of World of Willpower started with a practical need – founders and professionals
-            required someone who could think through strategy, documentation and execution without adding noise.
-            What began as mentoring and consulting gradually layered into dairy, foods, Ayurveda, technology,
-            capital and money advisory – wherever the Willpower mindset could add value.
-          </p>
-          <p>Across each vertical, the approach has remained consistent:</p>
-          <ul class="about-list">
-            <li>Clarity in positioning and purpose.</li>
-            <li>Respect for regulations, documentation and quality benchmarks.</li>
-            <li>Products and services that can stand scrutiny, not just marketing lines.</li>
-            <li>Partners who understand that brand-building is a long-term game.</li>
-          </ul>
-        </div>
-      </div>
-
-      <aside class="about-side-card">
-        <div class="about-side-title">ONE MINDSET, MANY VENTURES</div>
-        <p>
-          Whether it is mentoring a founder, auditing a ghee manufacturing line, shaping an Ayurvedic tonic,
-          designing a technology stack or planning money decisions, the lens remains the same:
-        </p>
-        <p style="margin-top:8px;">
-          <strong>Calm work, documented processes, and brands that can stand questions for years – not just quarters.</strong>
-        </p>
-      </aside>
-    </div>
-  </section>
-
-  <!-- FOUNDER BLOCK: right under the box -->
-  <section class="founder-block">
-    <div class="founder-inner">
-      <div class="founder-photo">
-        <img src="https://ourwillpower.github.io/worldofwillpower/uploads/jb-pic.png" alt="Mr. Jayant Vishnu Bhat" />
-      </div>
-      <div class="founder-caption">
-        <span>Mr. Jayant Vishnu Bhat</span>
-        <span>Founder, World of Willpower</span>
-      </div>
+          <div class="founder-block">
+            <div class="founder-inner">
+              <div class="founder-photo">
+                <img src="https://ourwillpower.github.io/worldofwillpower/uploads/jb-pic.png"
+                     alt="Mr. Jayant Vishnu Bhat – Founder, World of Willpower" />
+              </div>
+              <div class="founder-caption">
+                <span>Mr. Jayant Vishnu Bhat</span>
+                <span>Founder, World of Willpower</span>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /about-side -->
+      </div> <!-- /about-grid -->
     </div>
   </section>
 
@@ -478,7 +489,7 @@
           a group of ventures under one calm, serious identity.
         </p>
         <p>
-          Jayant has had the opportunity to work with large conglomerates like Troikaa Pharma, Raptakos Brett,
+          Mr. Bhat has had the opportunity to work with large conglomerates like Troikaa Pharma, Raptakos Brett,
           ICICI PruLife, MetLife India Reinsurance Group of Americas, Reliance and ING Life at decisive levels.
           This mindset flows into every Willpower venture, whether it is dairy purity, Ayurvedic formulations,
           technology systems or financial planning.
