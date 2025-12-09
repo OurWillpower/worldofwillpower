@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Willpower Maestros – Founder-Led Mentoring & Strategic Thinking</title>
+  <title>Willpower Maestros – Mentoring & Strategic Thinking for Founders</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Willpower Maestros offers founder-led mentoring, consultations and high-impact strategic thinking for leaders who want clarity, not buzzwords." />
+  <meta name="description" content="Willpower Maestros offers calm, serious mentoring and strategic thinking for founders and professionals who want clarity, structured execution and long-term growth instead of random hustle." />
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" />
 
-  <!-- Schema for Organization + Maestros Page -->
+  <!-- Schema: Organization + WebPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,13 +38,10 @@
         "@type": "WebPage",
         "@id": "https://www.worldofwillpower.com/willpro-maestros.html#page",
         "url": "https://www.worldofwillpower.com/willpro-maestros.html",
-        "name": "Willpower Maestros – Founder-Led Mentoring & Strategic Thinking",
-        "description": "Founder-led mentoring, consultations and high-impact thinking for leaders who want clarity, not buzzwords.",
+        "name": "Willpower Maestros – Mentoring & Strategic Thinking for Founders",
+        "description": "Willpower Maestros offers calm, serious mentoring and strategic thinking for founders and professionals who want clarity, structured execution and long-term growth.",
         "isPartOf": {
           "@id": "https://www.worldofwillpower.com/#website"
-        },
-        "about": {
-          "@id": "https://www.worldofwillpower.com/#org"
         }
       },
       {
@@ -82,7 +79,7 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* ========== NAVBAR (same pattern as index/about, NO admin) ========== */
+    /* NAVBAR – same pattern as index */
     .nav-shell{
       position:sticky;top:0;z-index:50;
       background:rgba(0,0,0,0.96);
@@ -93,7 +90,6 @@
       max-width:1180px;margin:0 auto;
       padding:14px 20px;
       display:flex;align-items:center;justify-content:space-between;
-      gap:18px;
     }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
@@ -104,12 +100,9 @@
       color:var(--accent);
     }
     .nav-links{
-      display:flex;align-items:center;
-      gap:24px;
-      font-size:14px;
-      text-transform:uppercase;
+      display:flex;align-items:center;gap:24px;
+      font-size:14px;text-transform:uppercase;
       letter-spacing:0.12em;
-      flex-wrap:wrap;
     }
     .nav-links a{
       color:#e5e7eb;
@@ -121,6 +114,7 @@
       border-bottom-color:var(--accent);
     }
     .nav-links a:hover{color:var(--accent);}
+    .nav-admin-btn{display:none;} /* admin hidden as decided */
 
     .nav-dropdown{position:relative;}
     .nav-dropdown > a{cursor:pointer;}
@@ -157,13 +151,13 @@
 
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
-    /* ========== HERO SECTION (Maestros) ========== */
+    /* HERO */
     .hero{
       padding:70px 0 60px;
     }
     .hero-inner{
       display:grid;
-      grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);
+      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
       gap:36px;
       align-items:flex-start;
     }
@@ -187,17 +181,46 @@
       line-height:1.15;
       margin-bottom:18px;
     }
-    .hero-title span.gold{color:var(--accent);}
+    .hero-title .gold{color:var(--accent);}
     .hero-body{
       font-size:15px;color:#cbd5f5;
-      max-width:640px;margin-bottom:18px;
+      max-width:620px;margin-bottom:18px;
     }
     .hero-tagline{
       font-size:13px;color:#e5e7eb;
       text-transform:uppercase;
       letter-spacing:0.18em;
-      margin-bottom:22px;
+      margin-bottom:24px;
+      min-height:1.6em;
     }
+
+    /* Rotating lines (same animation style as home) */
+    .rotator{
+      position:relative;
+      display:inline-block;
+      overflow:hidden;
+      height:1.4em;
+      vertical-align:bottom;
+    }
+    .rotator span{
+      position:absolute;
+      left:0;right:0;
+      opacity:0;
+      transform:translateY(100%);
+      animation:rotateLines 12s linear infinite;
+      white-space:nowrap;
+    }
+    .rotator span:nth-child(1){animation-delay:0s;}
+    .rotator span:nth-child(2){animation-delay:4s;}
+    .rotator span:nth-child(3){animation-delay:8s;}
+
+    @keyframes rotateLines{
+      0%{opacity:0;transform:translateY(100%);}
+      5%,25%{opacity:1;transform:translateY(0);}
+      30%{opacity:0;transform:translateY(-100%);}
+      100%{opacity:0;transform:translateY(-100%);}
+    }
+
     .hero-cta{
       display:inline-flex;align-items:center;justify-content:center;
       gap:10px;padding:14px 26px;
@@ -208,9 +231,8 @@
       box-shadow:0 18px 40px rgba(0,0,0,0.5);
       margin-bottom:10px;
     }
-    .hero-cta i{font-style:normal;font-size:16px;}
     .hero-note{
-      font-size:12px;color:#9ca3af;margin-top:8px;
+      font-size:12px;color:#9ca3af;
     }
 
     .hero-right-card{
@@ -218,7 +240,6 @@
       border-radius:22px;border:1px solid var(--border);
       padding:24px 26px;
       box-shadow:0 26px 60px rgba(0,0,0,0.65);
-      font-size:13px;color:#e5e7eb;
     }
     .hero-right-title{
       font-size:13px;letter-spacing:0.18em;
@@ -239,7 +260,7 @@
       margin-top:18px;font-size:12px;color:#9ca3af;
     }
 
-    /* ========== SECONDARY SECTION ========== */
+    /* SECTION BELOW HERO */
     .section{
       padding:0 0 70px;
     }
@@ -248,13 +269,39 @@
       font-size:26px;
       margin-bottom:10px;
     }
-    .section-text{
+    .section-sub{
       font-size:14px;color:#e5e7eb;
-      max-width:900px;
+      max-width:850px;
+      margin-bottom:26px;
     }
-    .section-text p{margin-bottom:10px;}
 
-    /* ========== FOOTER ========== */
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:24px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:20px 20px 18px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.65);
+      font-size:13px;
+    }
+    .card-label{
+      font-size:11px;text-transform:uppercase;
+      letter-spacing:0.16em;color:#9ca3af;
+      margin-bottom:6px;
+    }
+    .card-title{
+      font-size:17px;font-weight:600;
+      margin-bottom:8px;
+    }
+    .card-body{
+      font-size:13px;color:#cbd5f5;
+    }
+
+    /* FOOTER */
     footer{
       border-top:1px solid #111827;
       background:#02040a;
@@ -280,7 +327,7 @@
       z-index:60;
     }
 
-    /* ========== RESPONSIVE ========== */
+    /* Responsive tweaks */
     @media (max-width:1000px){
       .hero-inner{
         grid-template-columns:minmax(0,1fr);
@@ -288,20 +335,18 @@
       .hero-right-card{
         margin-top:10px;
       }
+      .grid-3{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
     }
-
     @media (max-width:700px){
       .nav-inner{
         flex-direction:column;
         align-items:flex-start;
         gap:10px;
       }
-      .nav-links{
-        width:100%;
-        column-gap:16px;
-        row-gap:6px;
-        font-size:12px;
-        justify-content:flex-start;
+      .grid-3{
+        grid-template-columns:minmax(0,1fr);
       }
     }
   </style>
@@ -357,7 +402,8 @@
         </div>
       </div>
 
-      <a href="#contact">Contact</a>
+      <a href="store.html">Willpower Store</a>
+      <a href="index.html#contact">Contact Us</a>
     </nav>
   </div>
 </header>
@@ -369,79 +415,102 @@
       <div>
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
-          <span>WORLD OF WILLPOWER · MENTORING</span>
+          <span>WORLD OF WILLPOWER · MENTORING &amp; STRATEGY</span>
         </div>
 
         <h1 class="hero-title">
-          Founder-Led Mentoring, <span class="gold">Not Motivational Noise.</span>
+          Willpower Maestros – <span class="gold">Serious Mentoring for Serious Founders.</span>
         </h1>
 
         <p class="hero-body">
-          Willpower Maestros works with founders and leaders who want calm, serious conversations about
-          strategy, growth and decisions – not one more workshop full of buzzwords and slides.
+          Willpower Maestros is for founders and professionals who are tired of random advice and
+          motivational noise. The work here is calm, structured and rooted in documentation – so that
+          decisions, decks and execution all line up.
         </p>
 
         <div class="hero-tagline">
-          FOR LEADERS WHO WANT CLARITY, NOT SLOGANS.
+          <span class="rotator">
+            <span>Clarity on where you are really stuck.</span>
+            <span>Strategy you can explain to your team.</span>
+            <span>Execution that respects time and cash flow.</span>
+          </span>
         </div>
 
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
-          START MAESTROS CONVERSATION <i>↗</i>
+          START A MAESTROS CONVERSATION →
         </a>
 
         <p class="hero-note">
-          Simple WhatsApp connect. Share your context briefly and we can explore if mentoring or a focused
-          consultation makes sense.
+          Simple WhatsApp connect. Share your current stage, challenges and what you are looking for – we can see if there is a fit.
         </p>
       </div>
 
       <aside class="hero-right-card">
-        <div class="hero-right-title">WHEN PEOPLE TYPICALLY REACH OUT</div>
+        <div class="hero-right-title">
+          WHO THIS IS USUALLY FOR
+        </div>
         <ul class="hero-right-list">
           <li>
             <span class="hero-right-bullet"></span>
-            <span>You are leading a brand or company but feel your thinking is scattered across too many ideas.</span>
+            <span>Founders who want structured thinking for fundraising, product or expansion decisions.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>You want a calm, external mind to question assumptions – without trying to “run” your business.</span>
+            <span>Professionals stepping into leadership roles and needing a clear, calm sounding board.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>You are tired of generic training and want specific, written actions for your situation.</span>
+            <span>Teams that require well-built pitch decks, plans and documentation – not just slides with slogans.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>You value documentation – notes, frameworks, formats – not just inspiring conversations.</span>
+            <span>People who value direct feedback, confidentiality and practical next steps over theory.</span>
           </li>
         </ul>
         <div class="hero-right-foot">
-          The objective is simple: fewer random moves, more deliberate decisions that you can explain to yourself
-          and your team even years later.
+          The objective is simple: make your thinking sharper, your documentation tighter and your execution
+          less chaotic – so that investors, teams and partners can take you seriously.
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- HOW MAESTROS TYPICALLY WORKS -->
+  <!-- HOW WE WORK -->
   <section class="section">
     <div class="shell">
       <h2 class="section-heading">How Willpower Maestros Typically Works</h2>
-      <div class="section-text">
-        <p>
-          Most engagements start with a focused discovery conversation – understanding where you are, what is
-          confusing you, and what is at stake. From there, the work is designed to be practical and documented:
-        </p>
-        <p>
-          • Short, high-intensity mentoring cycles instead of never-ending retainers.<br>
-          • Clear notes, formats and action points after conversations – not just “nice talk”.<br>
-          • Space to question assumptions around products, people, numbers and narrative.<br>
-          • A pace that respects your actual bandwidth as a founder or senior leader.
-        </p>
-        <p>
-          Willpower Maestros is not about motivational speeches or crowded events. It is about a working alliance
-          with someone who treats your time, your brand and your numbers with seriousness.
-        </p>
+      <p class="section-sub">
+        Every engagement is different, but most serious work tends to move through a few clear layers –
+        from understanding reality to defining direction and then locking execution.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-label">1 · DIAGNOSIS</div>
+          <div class="card-title">Clarity on the Real Problem</div>
+          <div class="card-body">
+            Honest discussions around numbers, product, people and markets – to separate symptoms from root causes.
+            We work on where you are actually stuck, not just where it looks good to talk.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">2 · STRATEGY</div>
+          <div class="card-title">Direction You Can Defend</div>
+          <div class="card-body">
+            Positioning, priorities and strategic choices shaped into clear narratives – whether for investors,
+            key hires or internal buy-in. The goal is coherence, not fancy jargon.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">3 · EXECUTION SUPPORT</div>
+          <div class="card-title">Documents, Decks & Rhythm</div>
+          <div class="card-body">
+            Help in shaping decks, frameworks, review rhythms and decision logs – so your growth is trackable,
+            explainable and ready for the next stage of the journey.
+          </div>
+        </div>
       </div>
     </div>
   </section>
