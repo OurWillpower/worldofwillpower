@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>World of Willpower – Group of Companies</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory — all built around real work and long-term thinking.">
-  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory — all built around real work and long-term thinking." />
+  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" />
 
-  <!-- Home / Organization / Website schema -->
+  <!-- Basic Organization + Website schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -18,7 +18,7 @@
         "name": "World of Willpower",
         "url": "https://www.worldofwillpower.com/",
         "logo": "https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png",
-        "description": "World of Willpower is a calm, premium ecosystem of ventures across mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory.",
+        "description": "World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "002, A Wing, Saj Shrushti Complex, Daighar",
@@ -42,19 +42,6 @@
         "publisher": {
           "@id": "https://www.worldofwillpower.com/#org"
         }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.worldofwillpower.com/#home",
-        "url": "https://www.worldofwillpower.com/",
-        "name": "World of Willpower – Group of Companies",
-        "isPartOf": {
-          "@id": "https://www.worldofwillpower.com/#website"
-        },
-        "about": {
-          "@id": "https://www.worldofwillpower.com/#org"
-        },
-        "description": "Home page of World of Willpower – a calm, premium group of companies across mentoring, dairy, foods, Ayurveda, technology, capital and money."
       }
     ]
   }
@@ -82,7 +69,7 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* NAVBAR */
+    /* ========== NAVBAR ========== */
     .nav-shell{
       position:sticky;top:0;z-index:50;
       background:rgba(0,0,0,0.96);
@@ -93,6 +80,7 @@
       max-width:1180px;margin:0 auto;
       padding:14px 20px;
       display:flex;align-items:center;justify-content:space-between;
+      gap:18px;
     }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
@@ -103,9 +91,12 @@
       color:var(--accent);
     }
     .nav-links{
-      display:flex;align-items:center;gap:24px;
-      font-size:14px;text-transform:uppercase;
+      display:flex;align-items:center;
+      gap:24px;
+      font-size:14px;
+      text-transform:uppercase;
       letter-spacing:0.12em;
+      flex-wrap:wrap;
     }
     .nav-links a{
       color:#e5e7eb;
@@ -118,26 +109,6 @@
     }
     .nav-links a:hover{color:var(--accent);}
 
-    .nav-admin-btn{
-      border-radius:999px;
-      padding:8px 18px;
-      border:1px solid rgba(148,163,184,0.4);
-      font-size:12px;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      color:#e5e7eb;
-      display:flex;align-items:center;gap:8px;
-      background:linear-gradient(90deg,#111827,#020617);
-    }
-    .nav-admin-btn span{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:18px;width:18px;
-      border-radius:999px;
-      background:var(--accent-soft);
-      color:var(--accent);
-      font-size:11px;
-    }
-
     .nav-dropdown{position:relative;}
     .nav-dropdown > a{cursor:pointer;}
     .nav-dropdown-menu{
@@ -147,14 +118,14 @@
       border:1px solid #111827;
       box-shadow:0 22px 60px rgba(0,0,0,0.55);
       padding:6px 0;
-      min-width:320px;
+      min-width:260px;
       display:none;
       z-index:40;
     }
     .nav-dropdown:hover .nav-dropdown-menu{display:block;}
     .nav-dropdown-item{
       display:block;
-      padding:10px 18px;
+      padding:9px 18px;
       border-bottom:1px solid rgba(15,23,42,0.7);
       font-size:13px;
       text-transform:none;
@@ -173,8 +144,8 @@
 
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
-    /* HERO */
-    .hero{padding:70px 0 60px;}
+    /* ========== HERO ========== */
+    .hero{padding:70px 0 50px;}
     .hero-inner{
       display:grid;
       grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
@@ -206,7 +177,6 @@
       font-size:15px;color:#cbd5f5;
       max-width:620px;margin-bottom:18px;
     }
-
     .hero-tagline{
       font-size:13px;color:#e5e7eb;
       text-transform:uppercase;
@@ -215,7 +185,7 @@
       min-height:1.6em;
     }
 
-    /* Rotating lines */
+    /* rotating short lines */
     .rotator{
       position:relative;
       display:inline-block;
@@ -234,6 +204,7 @@
     .rotator span:nth-child(1){animation-delay:0s;}
     .rotator span:nth-child(2){animation-delay:4s;}
     .rotator span:nth-child(3){animation-delay:8s;}
+
     @keyframes rotateLines{
       0%{opacity:0;transform:translateY(100%);}
       5%,25%{opacity:1;transform:translateY(0);}
@@ -278,7 +249,7 @@
       border-radius:999px;background:var(--accent);
     }
 
-    /* VENTURES GRID */
+    /* ========== VENTURES GRID ========== */
     .ventures{padding:10px 0 70px;}
     .ventures-grid{
       display:grid;
@@ -311,12 +282,11 @@
       color:var(--accent);
     }
 
-    /* FOOTER */
+    /* ========== FOOTER & WHATSAPP FLOAT ========== */
     footer{
       border-top:1px solid #111827;
       background:#02040a;
       padding:24px 20px 26px;
-      margin-top:10px;
     }
     .footer-inner{
       max-width:1180px;margin:0 auto;
@@ -337,23 +307,34 @@
       z-index:60;
     }
 
-    /* Responsive */
+    /* ========== RESPONSIVE ADJUSTMENTS ========== */
+
+    /* Tablets: hero stacks, ventures go to 2 columns */
     @media (max-width:1000px){
       .hero-inner{
         grid-template-columns:minmax(0,1fr);
       }
       .hero-right-card{
-        margin-top:10px;
+        margin-top:16px;
       }
       .ventures-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
+
+    /* Mobiles: navbar stacks, ventures 1 column */
     @media (max-width:700px){
       .nav-inner{
         flex-direction:column;
         align-items:flex-start;
         gap:10px;
+      }
+      .nav-links{
+        width:100%;
+        column-gap:16px;
+        row-gap:6px;
+        font-size:12px;
+        justify-content:flex-start;
       }
       .ventures-grid{
         grid-template-columns:minmax(0,1fr);
@@ -366,14 +347,12 @@
 <header class="nav-shell">
   <div class="nav-inner">
     <div class="nav-left">
-      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo" />
       <div class="nav-brand-text">WORLD OF WILLPOWER</div>
     </div>
 
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
-
-      <!-- NEW: About link visible on home -->
       <a href="about.html">About</a>
 
       <div class="nav-dropdown">
@@ -415,14 +394,11 @@
       </div>
 
       <a href="#contact">Contact</a>
-      <a class="nav-admin-btn" href="admin.html">
-        <span>↗</span> ADMIN PANEL
-      </a>
     </nav>
   </div>
 </header>
 
-<main id="home">
+<main>
   <!-- HERO -->
   <section class="hero">
     <div class="shell hero-inner">
@@ -438,8 +414,8 @@
 
         <p class="hero-body">
           World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda,
-          technology, investors hub, e-commerce aggregators and financial advisory — all built around real work and
-          long-term thinking.
+          technology, investors hub, e-commerce aggregators and financial advisory — all built around real work
+          and long-term thinking.
         </p>
 
         <div class="hero-tagline">
@@ -460,9 +436,7 @@
       </div>
 
       <aside class="hero-right-card">
-        <div class="hero-right-title">
-          WHAT TYPICALLY BRINGS PEOPLE HERE
-        </div>
+        <div class="hero-right-title">WHAT TYPICALLY BRINGS PEOPLE HERE</div>
         <ul class="hero-right-list">
           <li>
             <span class="hero-right-bullet"></span>
