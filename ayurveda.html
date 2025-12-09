@@ -1,29 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Willpower Health & Skin Care – Serious Herbal & Ayurvedic Brands</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Willpower Health & Skin Care partners with founders who treat Ayurveda as science, not slogan — building serious herbal and Ayurvedic brands in health, wellness and skincare with formulations, rationale and documentation." />
+  <meta charset="UTF-8" />
+  <title>Willpower Health &amp; Skin Care – Serious Herbal &amp; Ayurvedic Brands</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Willpower Health & Skin Care is for founders who treat Ayurveda and herbal science as a long-term responsibility – with real formulations, documentation and products that can stand scrutiny." />
+  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" />
 
-  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Willpower Health & Skin Care – Ayurvedic & Herbal Brands",
-  "provider": {
-    "@type": "Organization",
-    "name": "World of Willpower",
-    "url": "https://www.worldofwillpower.com"
-  },
-  "url": "https://www.worldofwillpower.com/ayurveda.html",
-  "description": "Ayurvedic and herbal brands that treat Ayurveda as science, with formulations, rationale and documentation that can stand scrutiny from practitioners, consumers and regulators.",
-  "areaServed": "IN",
-  "serviceType": "Ayurvedic and herbal product development and manufacturing"
-}
-</script>
+  <!-- Schema for Organization + Ayurveda Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.worldofwillpower.com/#org",
+        "name": "World of Willpower",
+        "url": "https://www.worldofwillpower.com/",
+        "logo": "https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png",
+        "description": "World of Willpower is a calm, premium ecosystem of ventures across mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "002, A Wing, Saj Shrushti Complex, Daighar",
+          "addressLocality": "Thane",
+          "addressRegion": "Maharashtra",
+          "postalCode": "421204",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-7039196489",
+          "contactType": "customer service",
+          "email": "care@worldofwillpower.com"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.worldofwillpower.com/#website",
+        "url": "https://www.worldofwillpower.com/",
+        "name": "World of Willpower",
+        "publisher": {
+          "@id": "https://www.worldofwillpower.com/#org"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.worldofwillpower.com/ayurveda.html#page",
+        "url": "https://www.worldofwillpower.com/ayurveda.html",
+        "name": "Willpower Health & Skin Care – Serious Herbal & Ayurvedic Brands",
+        "description": "Ayurvedic and herbal health & skincare brands built with clear formulations, documentation and long-term thinking.",
+        "isPartOf": {
+          "@id": "https://www.worldofwillpower.com/#website"
+        },
+        "about": {
+          "@id": "https://www.worldofwillpower.com/#org"
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root{
@@ -32,11 +67,12 @@
       --card:#062921;
       --border:#0b3b2f;
       --accent:#E6B325;
-      --accent-soft:rgba(230,179,37,0.12);
+      --accent-soft:rgba(230,179,37,0.14);
       --text:#f9f5e9;
       --muted:#94a3b8;
       --pill:#0b3126;
     }
+
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -46,10 +82,10 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* NAVBAR */
+    /* ========== NAVBAR (same style, no admin) ========== */
     .nav-shell{
       position:sticky;top:0;z-index:50;
-      background:rgba(0,0,0,0.95);
+      background:rgba(0,0,0,0.96);
       border-bottom:1px solid #111827;
       backdrop-filter:blur(14px);
     }
@@ -57,6 +93,7 @@
       max-width:1180px;margin:0 auto;
       padding:14px 20px;
       display:flex;align-items:center;justify-content:space-between;
+      gap:18px;
     }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
@@ -67,60 +104,51 @@
       color:var(--accent);
     }
     .nav-links{
-      display:flex;align-items:center;gap:24px;
-      font-size:14px;text-transform:uppercase;
+      display:flex;align-items:center;
+      gap:24px;
+      font-size:14px;
+      text-transform:uppercase;
       letter-spacing:0.12em;
+      flex-wrap:wrap;
     }
     .nav-links a{
       color:#e5e7eb;
       padding-bottom:3px;
       border-bottom:2px solid transparent;
     }
-    .nav-dropdown > a{
+    .nav-links a.active{
       color:var(--accent);
+      border-bottom-color:var(--accent);
     }
     .nav-links a:hover{color:var(--accent);}
-    .nav-admin-btn{
-      border-radius:999px;
-      padding:8px 18px;
-      border:1px solid rgba(148,163,184,0.4);
-      font-size:12px;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      color:#e5e7eb;
-      display:flex;align-items:center;gap:8px;
-      background:linear-gradient(90deg,#111827,#020617);
-    }
-    .nav-admin-btn span{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:18px;width:18px;
-      border-radius:999px;
-      background:var(--accent-soft);
-      color:var(--accent);
-      font-size:11px;
-    }
+
     .nav-dropdown{position:relative;}
+    .nav-dropdown > a{cursor:pointer;}
     .nav-dropdown-menu{
       position:absolute;top:32px;right:0;
       background:#020617;
       border-radius:14px;
       border:1px solid #111827;
       box-shadow:0 22px 60px rgba(0,0,0,0.55);
-      padding:10px 0;
+      padding:6px 0;
       min-width:260px;
       display:none;
       z-index:40;
     }
     .nav-dropdown:hover .nav-dropdown-menu{display:block;}
     .nav-dropdown-item{
+      display:block;
       padding:9px 18px;
+      border-bottom:1px solid rgba(15,23,42,0.7);
       font-size:13px;
+      text-transform:none;
+      letter-spacing:0;
       color:#e5e7eb;
-      display:flex;flex-direction:column;gap:2px;
     }
-    .nav-dropdown-item span:first-child{font-weight:600;}
+    .nav-dropdown-item:last-child{border-bottom:none;}
+    .nav-dropdown-item span:first-child{font-weight:600;display:block;}
     .nav-dropdown-item span:last-child{
-      font-size:11px;color:#9ca3af;
+      font-size:11px;color:#9ca3af;display:block;margin-top:2px;
     }
     .nav-dropdown-item:hover{
       background:#020814;
@@ -129,11 +157,13 @@
 
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
-    /* HERO */
-    .hero{padding:60px 0 60px;}
+    /* ========== HERO SECTION ========== */
+    .hero{
+      padding:70px 0 60px;
+    }
     .hero-inner{
       display:grid;
-      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
+      grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);
       gap:36px;
       align-items:flex-start;
     }
@@ -160,14 +190,13 @@
     .hero-title span.gold{color:var(--accent);}
     .hero-body{
       font-size:15px;color:#cbd5f5;
-      max-width:620px;margin-bottom:16px;
+      max-width:640px;margin-bottom:18px;
     }
     .hero-tagline{
       font-size:13px;color:#e5e7eb;
       text-transform:uppercase;
       letter-spacing:0.18em;
       margin-bottom:22px;
-      min-height:1.6em;
     }
     .hero-cta{
       display:inline-flex;align-items:center;justify-content:center;
@@ -177,10 +206,11 @@
       font-size:13px;font-weight:600;
       letter-spacing:0.18em;text-transform:uppercase;
       box-shadow:0 18px 40px rgba(0,0,0,0.5);
+      margin-bottom:10px;
     }
     .hero-cta i{font-style:normal;font-size:16px;}
     .hero-note{
-      margin-top:12px;font-size:12px;color:#9ca3af;
+      font-size:12px;color:#9ca3af;margin-top:8px;
     }
 
     .hero-right-card{
@@ -188,6 +218,7 @@
       border-radius:22px;border:1px solid var(--border);
       padding:24px 26px;
       box-shadow:0 26px 60px rgba(0,0,0,0.65);
+      font-size:13px;color:#e5e7eb;
     }
     .hero-right-title{
       font-size:13px;letter-spacing:0.18em;
@@ -208,42 +239,51 @@
       margin-top:18px;font-size:12px;color:#9ca3af;
     }
 
-    /* SECTION */
+    /* ========== FOCUS AREAS GRID ========== */
     .section{
-      padding:0 0 80px;
+      padding:0 0 70px;
     }
-    .section-title{
+    .section-heading{
       font-family:"Times New Roman",serif;
-      font-size:30px;margin-bottom:10px;
+      font-size:26px;
+      margin-bottom:10px;
     }
     .section-sub{
-      font-size:14px;color:#9ca3af;
-      max-width:700px;margin-bottom:32px;
+      font-size:14px;
+      color:#e5e7eb;
+      max-width:780px;
+      margin-bottom:26px;
     }
     .grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:22px;
+      gap:24px;
     }
     .card{
       background:var(--card);
-      border-radius:22px;border:1px solid var(--border);
+      border-radius:22px;
+      border:1px solid var(--border);
       padding:22px 22px 20px;
       box-shadow:0 20px 40px rgba(0,0,0,0.65);
     }
     .card-label{
-      font-size:11px;text-transform:uppercase;
-      letter-spacing:0.18em;color:#9ca3af;
-      margin-bottom:10px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:#9ca3af;
+      margin-bottom:8px;
     }
     .card-title{
-      font-size:17px;font-weight:600;margin-bottom:10px;
+      font-size:17px;
+      font-weight:600;
+      margin-bottom:8px;
     }
     .card-body{
-      font-size:13px;color:#cbd5f5;
+      font-size:13px;
+      color:#cbd5f5;
     }
 
-    /* FOOTER */
+    /* ========== FOOTER ========== */
     footer{
       border-top:1px solid #111827;
       background:#02040a;
@@ -258,7 +298,6 @@
       justify-content:space-between;
     }
     .footer-brand{color:var(--accent);font-weight:600;}
-    .footer-contact span{margin-right:14px;}
 
     .wa-float{
       position:fixed;right:24px;bottom:24px;
@@ -267,68 +306,51 @@
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 18px 40px rgba(0,0,0,0.6);
       font-size:26px;color:white;
+      z-index:60;
     }
 
-    @media (max-width:900px){
-      .hero-inner{grid-template-columns:minmax(0,1fr);}
+    /* ========== RESPONSIVE ========== */
+    @media (max-width:1000px){
+      .hero-inner{
+        grid-template-columns:minmax(0,1fr);
+      }
       .hero-right-card{margin-top:10px;}
-      .grid{grid-template-columns:minmax(0,1fr);}
+      .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
     }
-/* ===== MOBILE NAVBAR FIX (Below 900px) ===== */
-@media (max-width:900px) {
-  .nav-inner{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:14px;
-    padding-bottom:10px;
-  }
-
-  .nav-links{
-    flex-wrap:wrap;
-    width:100%;
-    gap:16px;
-    font-size:14px;
-  }
-
-  .nav-links a,
-  .nav-dropdown > a{
-    font-size:14px;
-    letter-spacing:0.06em;
-  }
-
-  .nav-dropdown-menu{
-    position:relative;
-    top:0;
-    right:0;
-    width:100%;
-    min-width:100%;
-    border-radius:8px;
-    margin-top:6px;
-  }
-
-  .nav-dropdown-item{
-    font-size:14px;
-    padding:12px 18px;
-  }
-
-  .nav-admin-btn{
-    align-self:flex-start;
-    padding:8px 18px;
-  }
-}
+    @media (max-width:700px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+      .nav-links{
+        width:100%;
+        column-gap:16px;
+        row-gap:6px;
+        font-size:12px;
+        justify-content:flex-start;
+      }
+      .grid{
+        grid-template-columns:minmax(0,1fr);
+      }
+    }
   </style>
 </head>
+
 <body>
 <header class="nav-shell">
   <div class="nav-inner">
     <div class="nav-left">
-      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo" />
       <div class="nav-brand-text">WORLD OF WILLPOWER</div>
     </div>
 
     <nav class="nav-links">
       <a href="index.html">Home</a>
-<a href="about.html">About</a>
+      <a href="about.html">About</a>
+
       <div class="nav-dropdown">
         <a href="index.html#ventures">Our Ventures ▾</a>
         <div class="nav-dropdown-menu">
@@ -349,12 +371,12 @@
             <span>Ayurvedic &amp; herbal health and skincare brands.</span>
           </a>
           <a class="nav-dropdown-item" href="new-business.html">
-            <span>WillPro Technologies</span>
-            <span>Business-first digital systems.</span>
+            <span>WillPro Technologies &amp; Systems</span>
+            <span>Business-first technology &amp; systems.</span>
           </a>
           <a class="nav-dropdown-item" href="ventures.html">
-            <span>WIN Club</span>
-            <span>Curated investor hub.</span>
+            <span>WIN Club (WillPro Investors Node)</span>
+            <span>Curated investors hub for Willpower opportunities.</span>
           </a>
           <a class="nav-dropdown-item" href="mentoring-strategy.html">
             <span>WillPro Aggregators</span>
@@ -368,9 +390,6 @@
       </div>
 
       <a href="#contact">Contact</a>
-      <a class="nav-admin-btn" href="admin.html">
-        <span>↗</span> ADMIN PANEL
-      </a>
     </nav>
   </div>
 </header>
@@ -382,54 +401,56 @@
       <div>
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
-          <span>WORLD OF WILLPOWER · HEALTH & SKIN CARE</span>
+          <span>WORLD OF WILLPOWER · HEALTH &amp; SKIN CARE</span>
         </div>
 
         <h1 class="hero-title">
-          Ayurveda Built with <span class="gold">Documentation, Integrity &amp; Discipline.</span>
+          Serious Herbal &amp; Ayurvedic Brands, <span class="gold">Not Casual Experiments.</span>
         </h1>
 
-        <div class="hero-tagline" id="rotating-line">
-          AYURVEDA THAT CAN WITHSTAND QUESTIONS, NOT JUST LABELS.
-        </div>
-
         <p class="hero-body">
-          Willpower Health & Skin Care works with founders and healthcare voices who see Ayurveda and herbal science as a responsibility — requiring serious formulations, documentation, rationale, sourcing discipline and stability logic. Not shortcut mixes and anecdotal experiments.
+          Willpower Health &amp; Skin Care is for founders who see Ayurveda and herbal science as a long-term responsibility –
+          not just a label on the bottle. The focus is on products, formats and documentation that can stand scrutiny from
+          practitioners, consumers and regulators alike.
         </p>
 
+        <div class="hero-tagline">
+          FOR BRANDS THAT TREAT AYURVEDA AS SCIENCE, NOT SLOGAN.
+        </div>
+
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
-          DISCUSS AYURVEDIC BRANDS <i>↗</i>
+          START HEALTH &amp; SKIN CONVERSATION <i>↗</i>
         </a>
 
         <p class="hero-note">
-          Simple WhatsApp connect. Share your idea, category or current brand position — we explore if there is alignment with the Willpower philosophy.
+          Simple WhatsApp connect. Share your idea or portfolio and we can explore if there is alignment with the
+          Willpower philosophy.
         </p>
       </div>
 
       <aside class="hero-right-card">
-        <div class="hero-right-title">
-          WHAT TYPICALLY BRINGS PEOPLE HERE
-        </div>
+        <div class="hero-right-title">WHAT TYPICALLY BRINGS PEOPLE HERE</div>
         <ul class="hero-right-list">
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Founders wanting Ayurvedic or herbal brands built on formulation logic — not random recipes handed down verbally.</span>
+            <span>Founders who want Ayurvedic or herbal brands with real formulations – not copy-paste mixes – and are ready for disciplined work.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Healthcare aligned portfolios requiring batch documentation, rationale, safety logic and defensible claims.</span>
+            <span>Professionals who value product documentation, rationale and stability testing instead of “secret recipes” with no paperwork.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Brands entering nutraceuticals, skincare or wellness needing clean ingredient philosophy + regulatory alignment.</span>
+            <span>Brands keen to expand into wellness, nutraceutical, personal care or skincare lines that respect both tradition and modern quality benchmarks.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Leaders who prioritise sourcing integrity, traceability and repeatability — not secrecy or formulation ambiguity.</span>
+            <span>Partners who want a manufacturing &amp; brand ally that understands ingredient integrity, sourcing discipline and long-term consumer trust.</span>
           </li>
         </ul>
         <div class="hero-right-foot">
-          We believe Ayurveda earns trust through clarity, documentation, sourcing, defensibility and day-to-day discipline.
+          Work revolves around formulations that can be explained, defended and improved – combining classical wisdom
+          with current expectations on safety and performance.
         </div>
       </aside>
     </div>
@@ -438,35 +459,39 @@
   <!-- FOCUS AREAS -->
   <section class="section">
     <div class="shell">
-      <h2 class="section-title">Where Willpower Typically Works</h2>
+      <h2 class="section-heading">Where We Typically Work</h2>
       <p class="section-sub">
-        Herbal formulations, nutraceutical ranges and serious skincare — rooted in classical wisdom, interpreted with paperwork, rationale and safety logic.
+        The exact product may change – but the mindset remains the same: clear positioning, clean formulations and a brand
+        that consumers can stay with for years.
       </p>
 
       <div class="grid">
-        <div class="card">
+        <article class="card">
           <div class="card-label">1 · CORE HEALTH</div>
-          <div class="card-title">Daily Herbal Health</div>
-          <div class="card-body">
-            Tonic, capsule and liquid formats focused on metabolic, gut, immunity and overall health — built for consistency and documentation.
-          </div>
-        </div>
+          <h3 class="card-title">Metabolic, Gut &amp; Daily Wellness</h3>
+          <p class="card-body">
+            Tonic, capsule and liquid formats focused on daily health, metabolism, digestion and immunity – built for
+            long-term use, not overnight promises.
+          </p>
+        </article>
 
-        <div class="card">
-          <div class="card-label">2 · SKIN & TOPICALS</div>
-          <div class="card-title">Herbal & Skin Lines</div>
-          <div class="card-body">
-            Oils, serums, cleansers and creams where sourcing, sensoriality, stability and rationale all align without dilution.
-          </div>
-        </div>
+        <article class="card">
+          <div class="card-label">2 · TOPICAL &amp; SKIN CARE</div>
+          <h3 class="card-title">Face, Hair &amp; Skin Lines</h3>
+          <p class="card-body">
+            Creams, serums, oils and cleansers where ingredients, textures and claims are aligned – from classical herbs
+            to modern sensorial expectations.
+          </p>
+        </article>
 
-        <div class="card">
-          <div class="card-label">3 · NUTRACEUTICAL</div>
-          <div class="card-title">Lifestyle & Condition</div>
-          <div class="card-body">
-            Specialized ranges (stress, sleep, women’s wellness, hair nutrition, digestion) backed by reasoning + disciplined ingredient sourcing.
-          </div>
-        </div>
+        <article class="card">
+          <div class="card-label">3 · NUTRACEUTICAL &amp; LIFESTYLE</div>
+          <h3 class="card-title">Lifestyle &amp; Condition-Focused Ranges</h3>
+          <p class="card-body">
+            Specialized formulations – stress, sleep, joint support, women’s health and more – that strengthen your
+            brand’s credibility, not dilute it with random launches.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -475,34 +500,13 @@
 <footer id="contact">
   <div class="footer-inner">
     <div class="footer-brand">World of Willpower</div>
-    <div class="footer-contact">
-      <span>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</span>
-    </div>
-    <div class="footer-contact">
-      <span>📞 +91 7039196489</span>
-      <span>✉ care@worldofwillpower.com</span>
-    </div>
+    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
+    <div>📞 +91 7039196489 • ✉ care@worldofwillpower.com</div>
     <div>© 2025 World of Willpower.</div>
   </div>
 </footer>
 
 <a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
-
-<script>
-  const lines = [
-    "AYURVEDA THAT CAN WITHSTAND QUESTIONS, NOT JUST LABELS.",
-    "FORMULATIONS THAT RESPECT SCIENCE, NOT ANECDOTES.",
-    "HERBAL RANGES THAT CAN BE DEFENDED, NOT HIDDEN.",
-    "DAILY WELLNESS THAT VALUES TRACEABILITY AND DOCUMENTATION.",
-    "BRANDS THAT REWARD RESPONSIBILITY OVER CLAIMS."
-  ];
-  let idx = 0;
-  const el = document.getElementById("rotating-line");
-  setInterval(() => {
-    idx = (idx + 1) % lines.length;
-    el.textContent = lines[idx];
-  }, 5000);
-</script>
 
 </body>
 </html>
