@@ -7,7 +7,7 @@
   <meta name="description" content="About World of Willpower – a calm, premium ecosystem of ventures built around long-term thinking, documentation and disciplined work across mentoring, dairy, foods, Ayurveda, technology, capital and money." />
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" />
 
-  <!-- Schema: Organization + Founder + Website + AboutPage -->
+  <!-- Organization / Website / AboutPage schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,19 +32,6 @@
           "telephone": "+91-7039196489",
           "contactType": "customer service",
           "email": "care@worldofwillpower.com"
-        },
-        "founder": {
-          "@id": "https://www.worldofwillpower.com/#founder"
-        }
-      },
-      {
-        "@type": "Person",
-        "@id": "https://www.worldofwillpower.com/#founder",
-        "name": "Mr. Jayant Vishnu Bhat",
-        "jobTitle": "Founder & Group Mentor",
-        "description": "Mr. Jayant Vishnu Bhat, MD (Naturopath), M.Sc Cytogenetics, has worked across corporate roles, manufacturing, brand-building and consulting before shaping World of Willpower as a calm, serious group of ventures.",
-        "worksFor": {
-          "@id": "https://www.worldofwillpower.com/#org"
         }
       },
       {
@@ -87,32 +74,26 @@
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:radial-gradient(circle at top,#083322 0,#020a05 55%,#000 100%);
       color:var(--text);
       line-height:1.6;
     }
-
     a{text-decoration:none;color:inherit}
 
-    /* NAVBAR – same as home */
+    /* ========== NAVBAR (same as home) ========== */
     .nav-shell{
-      position:sticky;
-      top:0;
-      z-index:50;
+      position:sticky;top:0;z-index:50;
       background:rgba(0,0,0,0.96);
       border-bottom:1px solid #111827;
       backdrop-filter:blur(14px);
     }
     .nav-inner{
-      max-width:1180px;
-      margin:0 auto;
+      max-width:1180px;margin:0 auto;
       padding:14px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:18px;
     }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
@@ -123,12 +104,12 @@
       color:var(--accent);
     }
     .nav-links{
-      display:flex;
-      align-items:center;
+      display:flex;align-items:center;
       gap:24px;
       font-size:14px;
       text-transform:uppercase;
       letter-spacing:0.12em;
+      flex-wrap:wrap;
     }
     .nav-links a{
       color:#e5e7eb;
@@ -140,37 +121,11 @@
       border-bottom-color:var(--accent);
     }
     .nav-links a:hover{color:var(--accent);}
-    .nav-admin-btn{
-      border-radius:999px;
-      padding:8px 18px;
-      border:1px solid rgba(148,163,184,0.4);
-      font-size:12px;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      color:#e5e7eb;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      background:linear-gradient(90deg,#111827,#020617);
-    }
-    .nav-admin-btn span{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      height:18px;
-      width:18px;
-      border-radius:999px;
-      background:var(--accent-soft);
-      color:var(--accent);
-      font-size:11px;
-    }
 
     .nav-dropdown{position:relative;}
     .nav-dropdown > a{cursor:pointer;}
     .nav-dropdown-menu{
-      position:absolute;
-      top:32px;
-      right:0;
+      position:absolute;top:32px;right:0;
       background:#020617;
       border-radius:14px;
       border:1px solid #111827;
@@ -191,103 +146,69 @@
       color:#e5e7eb;
     }
     .nav-dropdown-item:last-child{border-bottom:none;}
-    .nav-dropdown-item span:first-child{
-      font-weight:600;
-      display:block;
-    }
+    .nav-dropdown-item span:first-child{font-weight:600;display:block;}
     .nav-dropdown-item span:last-child{
-      font-size:11px;
-      color:#9ca3af;
-      display:block;
-      margin-top:2px;
+      font-size:11px;color:#9ca3af;display:block;margin-top:2px;
     }
     .nav-dropdown-item:hover{
       background:#020814;
       color:var(--accent);
     }
 
-    .shell{
-      max-width:1180px;
-      margin:0 auto;
-      padding:0 20px;
-    }
+    .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
-    /* ABOUT HERO */
+    /* ========== ABOUT HERO ========== */
     .about-hero{
       padding:70px 0 40px;
     }
-
     .about-grid{
       display:grid;
-      grid-template-columns:minmax(0,1.25fr) minmax(0,0.9fr);
-      gap:28px;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);
+      gap:34px;
       align-items:flex-start;
     }
-
     .about-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 14px;
-      border-radius:999px;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 14px;border-radius:999px;
       background:var(--pill);
       border:1px solid rgba(148,163,184,0.4);
-      font-size:11px;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      color:#9ca3af;
+      font-size:11px;letter-spacing:0.16em;
+      text-transform:uppercase;color:#9ca3af;
       margin-bottom:18px;
     }
     .about-pill-dot{
-      height:7px;
-      width:7px;
-      border-radius:999px;
+      height:7px;width:7px;border-radius:999px;
       background:var(--accent);
       box-shadow:0 0 0 4px rgba(230,179,37,0.25);
     }
-
     .about-title{
       font-family:"Times New Roman",serif;
       font-size:40px;
       line-height:1.15;
       margin-bottom:14px;
     }
-    .about-title .gold{color:var(--accent);}
-
+    .about-title span.gold{color:var(--accent);}
     .about-lede{
-      font-size:15px;
-      color:#e5e7eb;
+      font-size:15px;color:#e5e7eb;
       margin-bottom:16px;
     }
-
     .about-body{
-      font-size:14px;
-      color:#e5e7eb;
+      font-size:14px;color:#e5e7eb;
     }
     .about-body p{margin-bottom:12px;}
     .about-body strong{color:var(--accent);}
-
     .about-list{
-      margin:6px 0 0 18px;
+      margin:8px 0 4px 18px;
       list-style:disc;
     }
     .about-list li{margin-bottom:6px;}
 
-    .about-right{
-      display:flex;
-      flex-direction:column;
-      gap:16px;           /* tight gap between box & photo */
-      align-items:stretch;
-    }
-
     .about-side-card{
       background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
-      border-radius:22px;
-      border:1px solid var(--border);
+      border-radius:22px;border:1px solid var(--border);
       padding:22px 24px;
       box-shadow:0 26px 60px rgba(0,0,0,0.65);
-      font-size:13px;
-      color:#e5e7eb;
+      font-size:13px;color:#e5e7eb;
     }
     .about-side-title{
       font-size:13px;
@@ -297,51 +218,63 @@
       margin-bottom:10px;
     }
 
-    /* FOUNDER CARD – sits right under the box */
-    .founder-card{
-      border-radius:22px;
-      border:1px solid var(--border);
-      background:radial-gradient(circle at top,#031712 0,#02060a 55%);
-      padding:18px 20px 16px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.7);
-      text-align:center;
-      animation:fadeInUp 0.9s ease-out both;
+    /* ========== FOUNDER BLOCK (RIGHT UNDER BOX) ========== */
+    .founder-block{
+      max-width:1180px;
+      margin:0 auto 50px;
+      padding:0 20px;
+      display:flex;
+      justify-content:flex-end;
     }
-
+    .founder-inner{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      animation:fadeInUp 900ms ease-out 0.2s both;
+    }
     .founder-photo{
-      width:220px;
-      max-width:100%;
-      border-radius:20px;
-      box-shadow:0 18px 42px rgba(0,0,0,0.7);
-      border:1px solid rgba(230,179,37,0.45);
+      width:230px;
+      height:270px;
+      border-radius:26px;
+      overflow:hidden;
+      background:#020b08;
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      border:1px solid rgba(230,179,37,0.32);
     }
-
+    .founder-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
     .founder-caption{
       margin-top:10px;
-      padding:8px 14px;
+      padding:10px 18px;
       border-radius:999px;
-      background:rgba(0,0,0,0.85);
+      background:rgba(0,0,0,0.88);
       border:1px solid rgba(230,179,37,0.5);
-      display:inline-block;
-      min-width:210px;
-    }
-    .founder-name{
       font-size:13px;
+      text-align:center;
+      min-width:220px;
+      color:#e5e7eb;
+    }
+    .founder-caption span:first-child{
+      display:block;
       font-weight:600;
       color:var(--accent);
     }
-    .founder-role{
+    .founder-caption span:last-child{
+      display:block;
       font-size:11px;
       color:#e5e7eb;
       opacity:0.9;
     }
-
     @keyframes fadeInUp{
       0%{opacity:0;transform:translateY(18px);}
       100%{opacity:1;transform:translateY(0);}
     }
 
-    /* LEADERSHIP SECTION */
+    /* ========== LEADERSHIP SECTION ========== */
     .section{
       padding:0 0 60px;
     }
@@ -351,59 +284,46 @@
       margin-bottom:10px;
     }
     .section-text{
-      font-size:14px;
-      color:#e5e7eb;
+      font-size:14px;color:#e5e7eb;
       max-width:900px;
     }
     .section-text p{margin-bottom:10px;}
 
-    /* FOOTER */
+    /* ========== FOOTER ========== */
     footer{
       border-top:1px solid #111827;
       background:#02040a;
       padding:24px 20px 26px;
-      margin-top:10px;
     }
     .footer-inner{
-      max-width:1180px;
-      margin:0 auto;
-      font-size:12px;
-      color:#9ca3af;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px 22px;
-      align-items:center;
+      max-width:1180px;margin:0 auto;
+      font-size:12px;color:#9ca3af;
+      display:flex;flex-wrap:wrap;
+      gap:8px 22px;align-items:center;
       justify-content:space-between;
     }
-    .footer-brand{
-      color:var(--accent);
-      font-weight:600;
-    }
+    .footer-brand{color:var(--accent);font-weight:600;}
 
     .wa-float{
-      position:fixed;
-      right:24px;
-      bottom:24px;
-      height:54px;
-      width:54px;
-      border-radius:999px;
+      position:fixed;right:24px;bottom:24px;
+      height:54px;width:54px;border-radius:999px;
       background:#22c55e;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:flex;align-items:center;justify-content:center;
       box-shadow:0 18px 40px rgba(0,0,0,0.6);
-      font-size:26px;
-      color:white;
+      font-size:26px;color:white;
       z-index:60;
     }
 
-    /* MOBILE */
+    /* ========== RESPONSIVE ========== */
     @media (max-width:1000px){
       .about-grid{
         grid-template-columns:minmax(0,1fr);
       }
-      .about-right{
-        max-width:420px;
+      .about-side-card{
+        margin-top:10px;
+      }
+      .founder-block{
+        justify-content:center;
       }
     }
 
@@ -413,7 +333,13 @@
         align-items:flex-start;
         gap:10px;
       }
-      .about-title{font-size:32px;}
+      .nav-links{
+        width:100%;
+        column-gap:16px;
+        row-gap:6px;
+        font-size:12px;
+        justify-content:flex-start;
+      }
     }
   </style>
 </head>
@@ -468,11 +394,7 @@
         </div>
       </div>
 
-      <a href="index.html#contact">Contact</a>
-
-      <a class="nav-admin-btn" href="admin.html">
-        <span>↗</span> ADMIN PANEL
-      </a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -481,8 +403,6 @@
   <!-- ABOUT HERO -->
   <section class="about-hero">
     <div class="shell about-grid">
-
-      <!-- LEFT COLUMN -->
       <div>
         <div class="about-pill">
           <span class="about-pill-dot"></span>
@@ -520,29 +440,29 @@
         </div>
       </div>
 
-      <!-- RIGHT COLUMN -->
-      <div class="about-right">
-        <aside class="about-side-card">
-          <div class="about-side-title">ONE MINDSET, MANY VENTURES</div>
-          <p>
-            Whether it is mentoring a founder, auditing a ghee manufacturing line, shaping an Ayurvedic tonic,
-            designing a technology stack or planning money decisions, the lens remains the same:
-          </p>
-          <p style="margin-top:8px;">
-            <strong>Calm work, documented processes, and brands that can stand questions for years – not just quarters.</strong>
-          </p>
-        </aside>
+      <aside class="about-side-card">
+        <div class="about-side-title">ONE MINDSET, MANY VENTURES</div>
+        <p>
+          Whether it is mentoring a founder, auditing a ghee manufacturing line, shaping an Ayurvedic tonic,
+          designing a technology stack or planning money decisions, the lens remains the same:
+        </p>
+        <p style="margin-top:8px;">
+          <strong>Calm work, documented processes, and brands that can stand questions for years – not just quarters.</strong>
+        </p>
+      </aside>
+    </div>
+  </section>
 
-        <!-- FOUNDER BLOCK – directly under the box -->
-        <div class="founder-card">
-          <img src="uploads/jb-pic.png" alt="Mr. Jayant Vishnu Bhat" class="founder-photo">
-          <div class="founder-caption">
-            <div class="founder-name">Mr. Jayant Vishnu Bhat</div>
-            <div class="founder-role">Founder, World of Willpower</div>
-          </div>
-        </div>
+  <!-- FOUNDER BLOCK: right under the box -->
+  <section class="founder-block">
+    <div class="founder-inner">
+      <div class="founder-photo">
+        <img src="https://ourwillpower.github.io/worldofwillpower/uploads/jb-pic.png" alt="Mr. Jayant Vishnu Bhat" />
       </div>
-
+      <div class="founder-caption">
+        <span>Mr. Jayant Vishnu Bhat</span>
+        <span>Founder, World of Willpower</span>
+      </div>
     </div>
   </section>
 
