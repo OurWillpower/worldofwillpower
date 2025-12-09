@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>World of Willpower – Group of Companies</title>
+  <title>Willpower Store – Products & Services from World of Willpower</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators, financial advisory and a dedicated Willpower Store for products and services.">
+  <meta name="description" content="Willpower Store brings together products and services from all World of Willpower ventures – Ayurvedic tonics, herbal juices, dairy, skincare, nutraceuticals, private label, distribution and product-linked mentoring.">
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
   <style>
@@ -64,7 +64,6 @@
       border-bottom-color:var(--accent);
     }
     .nav-links a:hover{color:var(--accent);}
-
     .nav-dropdown{position:relative;}
     .nav-dropdown > a{cursor:pointer;}
     .nav-dropdown-menu{
@@ -74,14 +73,14 @@
       border:1px solid #111827;
       box-shadow:0 22px 60px rgba(0,0,0,0.55);
       padding:6px 0;
-      min-width:320px;
+      min-width:260px;
       display:none;
       z-index:40;
     }
     .nav-dropdown:hover .nav-dropdown-menu{display:block;}
     .nav-dropdown-item{
       display:block;
-      padding:10px 18px;
+      padding:9px 18px;
       border-bottom:1px solid rgba(15,23,42,0.7);
       font-size:13px;
       text-transform:none;
@@ -100,7 +99,7 @@
 
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
-    /* HERO */
+    /* HERO LAYOUT */
     .hero{padding:70px 0 60px;}
     .hero-inner{
       display:grid;
@@ -124,14 +123,14 @@
     }
     .hero-title{
       font-family:"Times New Roman",serif;
-      font-size:44px;
+      font-size:40px;
       line-height:1.15;
       margin-bottom:18px;
     }
     .hero-title .gold{color:var(--accent);}
     .hero-body{
       font-size:15px;color:#cbd5f5;
-      max-width:620px;margin-bottom:18px;
+      max-width:640px;margin-bottom:18px;
     }
     .hero-tagline{
       font-size:13px;color:#e5e7eb;
@@ -141,7 +140,6 @@
       min-height:1.6em;
     }
 
-    /* Rotating lines */
     .rotator{
       position:relative;
       display:inline-block;
@@ -204,40 +202,72 @@
       border-radius:999px;background:var(--accent);
     }
 
-    /* VENTURES GRID */
-    .ventures{padding:10px 0 70px;}
-    .ventures-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:26px;
+    /* PRODUCT & SERVICE GRID */
+    .section{
+      padding:0 0 70px;
     }
-    .venture-card{
-      background:var(--card);
-      border-radius:22px;
-      border:1px solid var(--border);
-      padding:22px 22px 20px;
-      box-shadow:0 20px 40px rgba(0,0,0,0.65);
+    .section-heading{
+      font-family:"Times New Roman",serif;
+      font-size:26px;
+      margin-bottom:8px;
     }
-    .venture-kicker{
-      font-size:11px;text-transform:uppercase;
-      letter-spacing:0.18em;color:#9ca3af;
-      margin-bottom:10px;
-    }
-    .venture-title{
-      font-size:18px;font-weight:600;margin-bottom:10px;
-    }
-    .venture-copy{
-      font-size:13px;color:#cbd5f5;margin-bottom:18px;
-    }
-    .venture-link{
-      display:inline-flex;align-items:center;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.18em;
-      color:var(--accent);
+    .section-sub{
+      font-size:14px;color:#e5e7eb;
+      max-width:780px;
+      margin-bottom:26px;
     }
 
-    /* FOOTER */
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+    }
+    .product-card{
+      background:var(--card);
+      border-radius:20px;
+      border:1px solid var(--border);
+      padding:18px 18px 16px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.6);
+      font-size:13px;
+    }
+    .product-tag{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:#9ca3af;
+      margin-bottom:6px;
+    }
+    .product-title{
+      font-size:16px;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+    .product-desc{
+      font-size:13px;
+      color:#cbd5f5;
+      margin-bottom:10px;
+    }
+    .product-note{
+      font-size:11px;
+      color:#9ca3af;
+    }
+
+    .store-cta-row{
+      margin-top:26px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+    .store-cta-pill{
+      font-size:12px;
+      color:#e5e7eb;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px dashed rgba(148,163,184,0.7);
+      background:rgba(0,0,0,0.3);
+    }
+
     footer{
       border-top:1px solid #111827;
       background:#02040a;
@@ -263,11 +293,17 @@
       z-index:60;
     }
 
-    /* Mobile tweaks */
+    /* Mobile */
     @media (max-width:1000px){
-      .hero-inner{grid-template-columns:minmax(0,1fr);}
-      .hero-right-card{margin-top:10px;}
-      .ventures-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .hero-inner{
+        grid-template-columns:minmax(0,1fr);
+      }
+      .hero-right-card{
+        margin-top:10px;
+      }
+      .product-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
     }
     @media (max-width:700px){
       .nav-inner{
@@ -275,7 +311,9 @@
         align-items:flex-start;
         gap:10px;
       }
-      .ventures-grid{grid-template-columns:minmax(0,1fr);}
+      .product-grid{
+        grid-template-columns:minmax(0,1fr);
+      }
     }
   </style>
 </head>
@@ -289,11 +327,12 @@
     </div>
 
     <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="willpower-store.html" class="active">Willpower Store</a>
 
       <div class="nav-dropdown">
-        <a href="#ventures">Our Ventures ▾</a>
+        <a href="index.html#ventures">Our Ventures ▾</a>
         <div class="nav-dropdown-menu">
           <a class="nav-dropdown-item" href="willpro-maestros.html">
             <span>Willpower Maestros</span>
@@ -327,14 +366,10 @@
             <span>WillPro Money</span>
             <span>Grounded financial & money decisions.</span>
           </a>
-          <a class="nav-dropdown-item" href="willpower-store.html">
-            <span>Willpower Store</span>
-            <span>Products & services from the house of Willpower.</span>
-          </a>
         </div>
       </div>
 
-      <a href="#contact">Contact</a>
+      <a href="index.html#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -346,151 +381,203 @@
       <div>
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
-          <span>WORLD OF WILLPOWER · GROUP OF COMPANIES</span>
+          <span>WORLD OF WILLPOWER · WILLPOWER STORE</span>
         </div>
 
         <h1 class="hero-title">
-          When You Want <span class="gold">Nothing but the Best</span>, You Will Find Willpower.
+          Willpower Store – <span class="gold">Products & Services</span> from Every Venture.
         </h1>
 
         <p class="hero-body">
-          World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda,
-          technology, investors hub, e-commerce aggregators, financial advisory and a dedicated Willpower Store for
-          core products and services – all built around real work and long-term thinking.
+          Willpower Store brings together offerings from all World of Willpower ventures – dairy,
+          foods, Ayurveda, health, skincare, technology and money – so that products and services
+          sit in one calm, serious place instead of being scattered everywhere.
         </p>
 
         <div class="hero-tagline">
           <span class="rotator">
-            <span>Structured Work, Not Random Hustle.</span>
-            <span>Calm Growth, Not Noise.</span>
-            <span>Documentation, Not Shortcuts.</span>
+            <span>Serious Products, Serious Services.</span>
+            <span>Built for Daily Use, Not Hype.</span>
+            <span>One Store, Many Willpower Ventures.</span>
           </span>
         </div>
 
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
-          START A WILLPOWER CONVERSATION →
+          TALK ABOUT PRODUCTS & SERVICES →
         </a>
 
         <p class="hero-note">
-          Simple WhatsApp connect. Share your current situation or opportunity and we can see if there is a fit.
+          For now, all product and service discussions start with a simple WhatsApp conversation.
         </p>
       </div>
 
       <aside class="hero-right-card">
         <div class="hero-right-title">
-          WHAT TYPICALLY BRINGS PEOPLE HERE
+          WHAT WILLPOWER STORE COVERS
         </div>
         <ul class="hero-right-list">
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Founders or professionals wanting clear, strategic thinking and documented execution.</span>
+            <span>Flagship products like Betatic, Herbal Punch, Drona Ghee, Snova goat-milk soap and targeted herbal capsules.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Trusted manufacturing in dairy, foods or Ayurveda with documentation and long-term reputation.</span>
+            <span>Health, skincare and nutraceutical lines that connect directly to Willpower Health & Skin Care and related ventures.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Business-first technology & systems, designed around cash flow and operations.</span>
+            <span>Services around manufacturing, private label, distribution and structured collaborations for serious partners.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Curated investors hub and e-commerce aggregators exploring structured Willpower opportunities.</span>
-          </li>
-          <li>
-            <span class="hero-right-bullet"></span>
-            <span>Individuals and firms seeking grounded financial & money decisions and serious products via Willpower Store.</span>
+            <span>A single window into the “business side” of Willpower products – pricing, availability, regions and formats.</span>
           </li>
         </ul>
       </aside>
     </div>
   </section>
 
-  <!-- VENTURES GRID -->
-  <section id="ventures" class="ventures">
-    <div class="shell ventures-grid">
+  <!-- PRODUCT FAMILIES -->
+  <section class="section">
+    <div class="shell">
+      <h2 class="section-heading">Product Families</h2>
+      <p class="section-sub">
+        The exact SKUs and packaging can evolve, but the direction stays the same – calm, serious products
+        designed for repeated use by the same family, not just for one-time trials.
+      </p>
 
-      <article class="venture-card">
-        <p class="venture-kicker">1 · MENTORING</p>
-        <h3 class="venture-title">Willpower Maestros</h3>
-        <p class="venture-copy">
-          Founder-led mentoring, consultations and high-impact thinking for leaders who want clarity, not buzzwords.
-        </p>
-        <a href="willpro-maestros.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-tag">DIABETES & METABOLIC SUPPORT</div>
+          <div class="product-title">Betatic & Related Tonics</div>
+          <p class="product-desc">
+            Herbal formulations focused on blood sugar management, metabolic support and long-term discipline –
+            aligned with a serious approach to diabetes care.
+          </p>
+          <p class="product-note">
+            Intended for long-term use under proper guidance – not “magic cure” positioning.
+          </p>
+        </article>
 
-      <article class="venture-card">
-        <p class="venture-kicker">2 · DAIRY</p>
-        <h3 class="venture-title">Willpower Dairy Care</h3>
-        <p class="venture-copy">
-          Pure cow ghee and dairy manufacturing with audits, documentation and processes that can stand any purity discussion.
-        </p>
-        <a href="dairy-manufacturing.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+        <article class="product-card">
+          <div class="product-tag">HERBAL JUICES</div>
+          <div class="product-title">Herbal Punch & Aloe Combinations</div>
+          <p class="product-desc">
+            Aloe vera with combinations like karela, jamun, neem, moringa, amla and others – for gut health,
+            daily vitality and overall wellness.
+          </p>
+          <p class="product-note">
+            Each combination has a clear internal logic – not random herb lists.
+          </p>
+        </article>
 
-      <article class="venture-card">
-        <p class="venture-kicker">3 · FOODS</p>
-        <h3 class="venture-title">Willpower Food Care</h3>
-        <p class="venture-copy">
-          Masalas, RTE foods, agro products and beverages – built with sourcing logic, stability and long-term brand reputation.
-        </p>
-        <a href="food-care.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+        <article class="product-card">
+          <div class="product-tag">DAIRY & TRADITIONAL FATS</div>
+          <div class="product-title">Drona Pure Desi Cow Ghee</div>
+          <p class="product-desc">
+            Ghee built on purity, traceability and respect for traditional fats – extending Willpower Dairy Care
+            into homes that care about both taste and long-term health.
+          </p>
+          <p class="product-note">
+            Planned SKU structure that can work across retail, e-commerce and institutional buyers.
+          </p>
+        </article>
 
-      <article class="venture-card">
-        <p class="venture-kicker">4 · AYURVEDA & HEALTH</p>
-        <h3 class="venture-title">Willpower Health & Skin Care</h3>
-        <p class="venture-copy">
-          Ayurvedic and herbal brands that treat Ayurveda as science – with formulations, rationale and documentation.
-        </p>
-        <a href="ayurveda.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+        <article class="product-card">
+          <div class="product-tag">SKIN & BATH CARE</div>
+          <div class="product-title">Snova Goat Milk Soap Range</div>
+          <p class="product-desc">
+            Goat-milk based soaps with supporting oils like coconut and castor – built for a soft, comfortable
+            skin feel, especially for people who are careful about what touches their skin.
+          </p>
+          <p class="product-note">
+            Can be extended into variants for different skin preferences over time.
+          </p>
+        </article>
 
-      <article class="venture-card">
-        <p class="venture-kicker">5 · TECHNOLOGY</p>
-        <h3 class="venture-title">WillPro Technologies & Systems</h3>
-        <p class="venture-copy">
-          Business-first technology, websites and systems – designed so that tech follows business reality, not the other way round.
-        </p>
-        <a href="new-business.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+        <article class="product-card">
+          <div class="product-tag">HERBAL CAPSULES</div>
+          <div class="product-title">Targeted Nutraceutical Capsules</div>
+          <p class="product-desc">
+            Pure, non-gimmicky capsules built for specific health needs – metabolic, kidney, general wellness and
+            more – prioritising ingredient quality and documentation.
+          </p>
+          <p class="product-note">
+            Designed for people who read labels and ask detailed questions.
+          </p>
+        </article>
 
-      <article class="venture-card">
-        <p class="venture-kicker">6 · CAPITAL & INVESTORS</p>
-        <h3 class="venture-title">WIN Club</h3>
-        <p class="venture-copy">
-          A focused investors hub for curated, structured Willpower opportunities across brands and ventures.
-        </p>
-        <a href="ventures.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+        <article class="product-card">
+          <div class="product-tag">COMING ADDITIONS</div>
+          <div class="product-title">Future Health & Lifestyle Lines</div>
+          <p class="product-desc">
+            As the Willpower ecosystem grows, new product concepts will come here only when they are ready to stand
+            scrutiny – not just because a category is trending.
+          </p>
+          <p class="product-note">
+            Better to launch slowly with clarity than quickly with confusion.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      <article class="venture-card">
-        <p class="venture-kicker">7 · E-COMMERCE AGGREGATORS</p>
-        <h3 class="venture-title">WillPro Aggregators</h3>
-        <p class="venture-copy">
-          E-commerce and category aggregators with one disciplined story, many products and partners – instead of scattered listings.
-        </p>
-        <a href="mentoring-strategy.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+  <!-- SERVICES SECTION -->
+  <section class="section">
+    <div class="shell">
+      <h2 class="section-heading">Services Around Products</h2>
+      <p class="section-sub">
+        Along with products, Willpower Store is also a bridge to services – for founders, retailers, investors
+        and collaborators who want to plug into the ecosystem in a structured way.
+      </p>
 
-      <article class="venture-card">
-        <p class="venture-kicker">8 · MONEY</p>
-        <h3 class="venture-title">WillPro Money</h3>
-        <p class="venture-copy">
-          Grounded financial & money decisions – mutual funds, insurance and planning aligned to real-life goals, not monthly sales targets.
-        </p>
-        <a href="willpro-money.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-tag">DISTRIBUTION & CHANNELS</div>
+          <div class="product-title">Regional & Niche Distribution</div>
+          <p class="product-desc">
+            Opportunities for distributors, stockists and serious retailers who want to represent Willpower products
+            in a focused geography or niche.
+          </p>
+          <p class="product-note">
+            Built with clarity on margins, expectations and long-term relationship, not month-to-month pressure alone.
+          </p>
+        </article>
 
-      <article class="venture-card">
-        <p class="venture-kicker">9 · STORE</p>
-        <h3 class="venture-title">Willpower Store</h3>
-        <p class="venture-copy">
-          A dedicated hub for products and services from World of Willpower – Ayurvedic tonics, herbal ranges, dairy, skincare and structured service offerings.
-        </p>
-        <a href="willpower-store.html" class="venture-link">VIEW DETAILS →</a>
-      </article>
+        <article class="product-card">
+          <div class="product-tag">PRIVATE LABEL / WHITE LABEL</div>
+          <div class="product-title">Serious White Label Partnerships</div>
+          <p class="product-desc">
+            For founders who want to build their own brand on top of serious formulations and production discipline –
+            not just any anonymous factory.
+          </p>
+          <p class="product-note">
+            Conversation starts with clarity on positioning and responsibility, not only price per unit.
+          </p>
+        </article>
 
+        <article class="product-card">
+          <div class="product-tag">BRAND & STRATEGY</div>
+          <div class="product-title">Product-Linked Mentoring</div>
+          <p class="product-desc">
+            For founders who need help in connecting product, brand story, packaging and channel strategy –
+            integrating the Willpower Maestros way of thinking.
+          </p>
+          <p class="product-note">
+            Especially useful when you don’t want to repeat the same mistakes seen in the market.
+          </p>
+        </article>
+      </div>
+
+      <div class="store-cta-row">
+        <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
+          SHARE WHAT YOU ARE LOOKING FOR →
+        </a>
+        <div class="store-cta-pill">
+          Whether you are a consumer, retailer, founder or investor – Willpower Store is the place to start a
+          structured conversation around products and services from every Willpower venture.
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -498,13 +585,4 @@
 <footer id="contact">
   <div class="footer-inner">
     <div class="footer-brand">World of Willpower</div>
-    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
-    <div>📞 +91 7039196489 • ✉ care@worldofwillpower.com</div>
-    <div>© 2025 World of Willpower.</div>
-  </div>
-</footer>
-
-<a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
-
-</body>
-</html>
+    <div>002, A Wing, Saj Shrushti Comp
