@@ -366,6 +366,28 @@
         grid-template-columns:minmax(0,1fr);
       }
     }
+    /* --- MOBILE NAV LAYOUT FIX --- */
+@media (max-width:700px){
+
+  /* Stack logo + menu vertically */
+  .nav-inner{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  /* Make menu wrap nicely on 2 lines instead of one long row */
+  .nav-links{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    row-gap:6px;
+    column-gap:16px;
+    font-size:12px;
+    justify-content:flex-start;
+  }
+}
+
   </style>
 </head>
 
