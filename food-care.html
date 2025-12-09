@@ -1,28 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Willpower Food Care – Masalas, RTE Foods & Agro Beverages with Logic</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Willpower Food Care focuses on masalas, RTE foods and agro products & beverages built with sourcing logic, stability and long-term brand reputation — not random launches." />
-  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
+  <meta charset="UTF-8" />
+  <title>Willpower Food Care – Masalas, RTE Foods & Agro Beverages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Willpower Food Care focuses on everyday food categories like masalas, RTE foods and agro beverages – built with sourcing logic, stability and long-term brand reputation." />
+  <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" />
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Willpower Food Care – Masalas, RTE Foods & Agro Products",
-  "provider": {
-    "@type": "Organization",
-    "name": "World of Willpower",
-    "url": "https://www.worldofwillpower.com"
-  },
-  "url": "https://www.worldofwillpower.com/food-care.html",
-  "description": "Masalas, ready-to-eat foods, agro products and beverages built with sourcing logic, stability and long-term brand reputation.",
-  "areaServed": "IN",
-  "serviceType": "Food manufacturing and private label"
-}
-</script>
+  <!-- Schema for Organization + Food Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.worldofwillpower.com/#org",
+        "name": "World of Willpower",
+        "url": "https://www.worldofwillpower.com/",
+        "logo": "https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png",
+        "description": "World of Willpower is a calm, premium ecosystem of ventures across mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "002, A Wing, Saj Shrushti Complex, Daighar",
+          "addressLocality": "Thane",
+          "addressRegion": "Maharashtra",
+          "postalCode": "421204",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-7039196489",
+          "contactType": "customer service",
+          "email": "care@worldofwillpower.com"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.worldofwillpower.com/#website",
+        "url": "https://www.worldofwillpower.com/",
+        "name": "World of Willpower",
+        "publisher": {
+          "@id": "https://www.worldofwillpower.com/#org"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.worldofwillpower.com/food-care.html#page",
+        "url": "https://www.worldofwillpower.com/food-care.html",
+        "name": "Willpower Food Care – Masalas, RTE Foods & Agro Beverages",
+        "description": "Masalas, RTE foods, agro products and beverages – built with sourcing logic, stability and long-term brand reputation.",
+        "isPartOf": {
+          "@id": "https://www.worldofwillpower.com/#website"
+        },
+        "about": {
+          "@id": "https://www.worldofwillpower.com/#org"
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root{
@@ -31,11 +67,12 @@
       --card:#062921;
       --border:#0b3b2f;
       --accent:#E6B325;
-      --accent-soft:rgba(230,179,37,0.12);
+      --accent-soft:rgba(230,179,37,0.14);
       --text:#f9f5e9;
       --muted:#94a3b8;
       --pill:#0b3126;
     }
+
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -45,10 +82,10 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* NAVBAR */
+    /* ========== NAVBAR (same pattern, no admin) ========== */
     .nav-shell{
       position:sticky;top:0;z-index:50;
-      background:rgba(0,0,0,0.95);
+      background:rgba(0,0,0,0.96);
       border-bottom:1px solid #111827;
       backdrop-filter:blur(14px);
     }
@@ -56,6 +93,7 @@
       max-width:1180px;margin:0 auto;
       padding:14px 20px;
       display:flex;align-items:center;justify-content:space-between;
+      gap:18px;
     }
     .nav-left{display:flex;align-items:center;gap:14px;}
     .nav-logo{height:40px;width:auto;}
@@ -66,78 +104,66 @@
       color:var(--accent);
     }
     .nav-links{
-      display:flex;align-items:center;gap:24px;
-      font-size:14px;text-transform:uppercase;
+      display:flex;align-items:center;
+      gap:24px;
+      font-size:14px;
+      text-transform:uppercase;
       letter-spacing:0.12em;
+      flex-wrap:wrap;
     }
     .nav-links a{
       color:#e5e7eb;
       padding-bottom:3px;
       border-bottom:2px solid transparent;
     }
-    .nav-links a:hover{color:var(--accent);}
-    .nav-links a.home-link{
-      border-bottom-color:transparent;
-    }
-    .nav-dropdown > a{
-      color:var(--accent); /* Always gold */
-    }
-    .nav-admin-btn{
-      border-radius:999px;
-      padding:8px 18px;
-      border:1px solid rgba(148,163,184,0.4);
-      font-size:12px;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      color:#e5e7eb;
-      display:flex;align-items:center;gap:8px;
-      background:linear-gradient(90deg,#111827,#020617);
-    }
-    .nav-admin-btn span{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:18px;width:18px;
-      border-radius:999px;
-      background:var(--accent-soft);
+    .nav-links a.active{
       color:var(--accent);
-      font-size:11px;
+      border-bottom-color:var(--accent);
     }
+    .nav-links a:hover{color:var(--accent);}
 
     .nav-dropdown{position:relative;}
+    .nav-dropdown > a{cursor:pointer;}
     .nav-dropdown-menu{
       position:absolute;top:32px;right:0;
       background:#020617;
       border-radius:14px;
       border:1px solid #111827;
       box-shadow:0 22px 60px rgba(0,0,0,0.55);
-      padding:10px 0;
+      padding:6px 0;
       min-width:260px;
       display:none;
       z-index:40;
     }
     .nav-dropdown:hover .nav-dropdown-menu{display:block;}
     .nav-dropdown-item{
+      display:block;
       padding:9px 18px;
+      border-bottom:1px solid rgba(15,23,42,0.7);
       font-size:13px;
+      text-transform:none;
+      letter-spacing:0;
       color:#e5e7eb;
-      display:flex;flex-direction:column;gap:2px;
     }
-    .nav-dropdown-item span:first-child{font-weight:600;}
+    .nav-dropdown-item:last-child{border-bottom:none;}
+    .nav-dropdown-item span:first-child{font-weight:600;display:block;}
     .nav-dropdown-item span:last-child{
-      font-size:11px;color:#9ca3af;
+      font-size:11px;color:#9ca3af;display:block;margin-top:2px;
     }
     .nav-dropdown-item:hover{
       background:#020814;
       color:var(--accent);
     }
 
-    /* LAYOUT SHELL */
     .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
 
-    /* HERO */
-    .hero{padding:60px 0 60px;}
+    /* ========== HERO SECTION ========== */
+    .hero{
+      padding:70px 0 60px;
+    }
     .hero-inner{
       display:grid;
-      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
+      grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);
       gap:36px;
       align-items:flex-start;
     }
@@ -164,14 +190,13 @@
     .hero-title span.gold{color:var(--accent);}
     .hero-body{
       font-size:15px;color:#cbd5f5;
-      max-width:620px;margin-bottom:16px;
+      max-width:640px;margin-bottom:18px;
     }
     .hero-tagline{
       font-size:13px;color:#e5e7eb;
       text-transform:uppercase;
       letter-spacing:0.18em;
       margin-bottom:22px;
-      min-height:1.6em; /* for rotating lines */
     }
     .hero-cta{
       display:inline-flex;align-items:center;justify-content:center;
@@ -181,10 +206,11 @@
       font-size:13px;font-weight:600;
       letter-spacing:0.18em;text-transform:uppercase;
       box-shadow:0 18px 40px rgba(0,0,0,0.5);
+      margin-bottom:10px;
     }
     .hero-cta i{font-style:normal;font-size:16px;}
     .hero-note{
-      margin-top:12px;font-size:12px;color:#9ca3af;
+      font-size:12px;color:#9ca3af;margin-top:8px;
     }
 
     .hero-right-card{
@@ -192,6 +218,7 @@
       border-radius:22px;border:1px solid var(--border);
       padding:24px 26px;
       box-shadow:0 26px 60px rgba(0,0,0,0.65);
+      font-size:13px;color:#e5e7eb;
     }
     .hero-right-title{
       font-size:13px;letter-spacing:0.18em;
@@ -206,48 +233,57 @@
     .hero-right-list li{display:flex;gap:10px;}
     .hero-right-bullet{
       height:6px;width:6px;margin-top:7px;
-      border-radius:999px;background:var(--accent); /* gold bullets */
+      border-radius:999px;background:var(--accent);
     }
     .hero-right-foot{
       margin-top:18px;font-size:12px;color:#9ca3af;
     }
 
-    /* SECTION – FOOD WORK */
+    /* ========== KEY FOOD VERTICALS GRID ========== */
     .section{
-      padding:0 0 80px;
+      padding:0 0 70px;
     }
-    .section-title{
+    .section-heading{
       font-family:"Times New Roman",serif;
-      font-size:30px;margin-bottom:10px;
+      font-size:26px;
+      margin-bottom:10px;
     }
     .section-sub{
-      font-size:14px;color:#9ca3af;
-      max-width:700px;margin-bottom:32px;
+      font-size:14px;
+      color:#e5e7eb;
+      max-width:780px;
+      margin-bottom:26px;
     }
     .grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:22px;
+      gap:24px;
     }
     .card{
       background:var(--card);
-      border-radius:22px;border:1px solid var(--border);
+      border-radius:22px;
+      border:1px solid var(--border);
       padding:22px 22px 20px;
       box-shadow:0 20px 40px rgba(0,0,0,0.65);
     }
     .card-label{
-      font-size:11px;text-transform:uppercase;
-      letter-spacing:0.18em;color:#9ca3af;
-      margin-bottom:10px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:#9ca3af;
+      margin-bottom:8px;
     }
     .card-title{
-      font-size:17px;font-weight:600;margin-bottom:10px;
+      font-size:17px;
+      font-weight:600;
+      margin-bottom:8px;
     }
     .card-body{
-      font-size:13px;color:#cbd5f5;
+      font-size:13px;
+      color:#cbd5f5;
     }
 
-    /* FOOTER */
+    /* ========== FOOTER ========== */
     footer{
       border-top:1px solid #111827;
       background:#02040a;
@@ -262,7 +298,6 @@
       justify-content:space-between;
     }
     .footer-brand{color:var(--accent);font-weight:600;}
-    .footer-contact span{margin-right:14px;}
 
     .wa-float{
       position:fixed;right:24px;bottom:24px;
@@ -271,26 +306,51 @@
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 18px 40px rgba(0,0,0,0.6);
       font-size:26px;color:white;
+      z-index:60;
     }
 
-    @media (max-width:900px){
-      .hero-inner{grid-template-columns:minmax(0,1fr);}
+    /* ========== RESPONSIVE ========== */
+    @media (max-width:1000px){
+      .hero-inner{
+        grid-template-columns:minmax(0,1fr);
+      }
       .hero-right-card{margin-top:10px;}
-      .grid{grid-template-columns:minmax(0,1fr);}
+      .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media (max-width:700px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+      .nav-links{
+        width:100%;
+        column-gap:16px;
+        row-gap:6px;
+        font-size:12px;
+        justify-content:flex-start;
+      }
+      .grid{
+        grid-template-columns:minmax(0,1fr);
+      }
     }
   </style>
 </head>
+
 <body>
 <header class="nav-shell">
   <div class="nav-inner">
     <div class="nav-left">
-      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo">
+      <img class="nav-logo" src="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png" alt="Willpower logo" />
       <div class="nav-brand-text">WORLD OF WILLPOWER</div>
     </div>
 
     <nav class="nav-links">
-      <a href="index.html" class="home-link">Home</a>
-<a href="about.html">About</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+
       <div class="nav-dropdown">
         <a href="index.html#ventures">Our Ventures ▾</a>
         <div class="nav-dropdown-menu">
@@ -330,9 +390,6 @@
       </div>
 
       <a href="#contact">Contact</a>
-      <a class="nav-admin-btn" href="admin.html">
-        <span>↗</span> ADMIN PANEL
-      </a>
     </nav>
   </div>
 </header>
@@ -348,96 +405,93 @@
         </div>
 
         <h1 class="hero-title">
-          Food Brands Built with <span class="gold">Clarity, Discipline &amp; Traceability.</span>
+          Everyday Food Categories, <span class="gold">Built With Serious Discipline.</span>
         </h1>
 
-        <div class="hero-tagline" id="rotating-line">
-          FROM MASALAS TO BEVERAGES – BUILT WITH LOGIC, NOT SHORTCUTS.
-        </div>
-
         <p class="hero-body">
-          Willpower Food Care works with brands that want masalas, RTE foods, agro products and beverages with clean sourcing logic, processing discipline and documentation. We treat food not as a commodity, but as a brand responsibility – one batch at a time, consistently.
+          Willpower Food Care focuses on food categories people consume constantly – masalas, RTE foods and agro-based
+          beverages – but builds them with the seriousness they deserve, from sourcing to packing. The objective is
+          simple: repeatable quality, clear documentation and long-term brand reputation.
         </p>
 
+        <div class="hero-tagline">
+          FOR BRANDS THAT WANT STABLE, DOCUMENTED FOOD RANGES – NOT RANDOM EXPERIMENTS.
+        </div>
+
         <a class="hero-cta" href="https://wa.me/917039196489" target="_blank" rel="noopener">
-          DISCUSS FOOD MANUFACTURING <i>↗</i>
+          START FOOD CONVERSATION <i>↗</i>
         </a>
 
         <p class="hero-note">
-          Simple WhatsApp connect. We start with your brand story, sourcing expectations, quality narrative and documentation requirements.
+          Share what you have in mind – new brand, existing SKUs or private label – and we can see if there is a fit
+          within current or future food verticals.
         </p>
       </div>
 
       <aside class="hero-right-card">
-        <div class="hero-right-title">
-          WHAT TYPICALLY BRINGS PEOPLE HERE
-        </div>
+        <div class="hero-right-title">WHEN FOOD PARTNERS REACH OUT</div>
         <ul class="hero-right-list">
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Brands wanting masalas with repeatable taste and credibility – not shortcuts or blended compromises.</span>
+            <span>You want masalas or blends that taste the same across batches – with documented recipes, not guesswork.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Teams that want RTE foods backed by sourcing logic, batch documentation and consistency without surprises.</span>
+            <span>You are planning RTE or convenience foods and want shelf-life, safety and taste to work together – not fight each other.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Founders wanting agro products with clean procurement practices and traceability, not middlemen confusion.</span>
+            <span>You are exploring agro beverages and want sourcing logic, claims and stability that match your brand story.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>People building beverages with clarity on safety, batch handling and flavour consistency over seasons.</span>
+            <span>You prefer partners who respect documentation, labels and regulations – not shortcuts.</span>
           </li>
         </ul>
         <div class="hero-right-foot">
-          We believe food brands earn trust one disciplined process at a time – sourcing, documentation, batches and transparency.
+          Food categories stay in a consumer’s kitchen and fridge for years. We prefer to build formats that your
+          brand can live with comfortably over the long term.
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- FOOD SECTORS WE COVER -->
+  <!-- KEY FOOD VERTICALS -->
   <section class="section">
     <div class="shell">
-      <h2 class="section-title">Where Willpower Typically Works</h2>
+      <h2 class="section-heading">Key Food Verticals</h2>
       <p class="section-sub">
-        Whether the format is masalas, RTE foods, agro products or beverages – our approach remains the same: clarity on sourcing, clean processing, batch records, repeatable quality and brand reputation.
+        The idea is simple: pick everyday food categories people consume constantly – and then build them with the
+        seriousness they deserve, from sourcing to packing.
       </p>
 
       <div class="grid">
-        <div class="card">
-          <div class="card-label">1 · MASALAS</div>
-          <div class="card-title">Pure Masalas &amp; Blends</div>
-          <div class="card-body">
-            Ingredient-led masalas built with sourcing logic and repeatable taste profiles, not random adjustments or shortcuts – backed by paperwork and traceability.
-          </div>
-        </div>
+        <article class="card">
+          <div class="card-label">1 · MASALA POWDERS</div>
+          <h3 class="card-title">Masalas &amp; Blends</h3>
+          <p class="card-body">
+            Everyday masalas, specialty blends and proprietary spice mixes designed to be repeatable – controlled
+            recipes, stable flavour profiles and clear documentation on process and inputs.
+          </p>
+        </article>
 
-        <div class="card">
-          <div class="card-label">2 · RTE FOODS</div>
-          <div class="card-title">Ready-To-Eat &amp; Heat-To-Eat</div>
-          <div class="card-body">
-            Trusted formats for daily consumption – simple recipes, safe processing, clean ingredient logic and batch discipline for large or small runs.
-          </div>
-        </div>
+        <article class="card">
+          <div class="card-label">2 · READY-TO-EAT &amp; CONVENIENCE</div>
+          <h3 class="card-title">RTE Foods That Respect Trust</h3>
+          <p class="card-body">
+            Ready-to-eat and convenience foods where shelf-life, safety and taste must work together – so what is
+            promised on pack aligns with what the consumer actually experiences on the plate.
+          </p>
+        </article>
 
-        <div class="card">
-          <div class="card-label">3 · AGRO PRODUCTS</div>
-          <div class="card-title">Agro Sourcing &amp; Packs</div>
-          <div class="card-body">
-            Agro ranges with procurement discipline – clarity on origin, procurement, sorting and batch records. Built for brand reputation, not just sourcing arbitrage.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-label">4 · BEVERAGES</div>
-          <div class="card-title">Functional &amp; Daily Beverages</div>
-          <div class="card-body">
-            Beverage manufacturing that respects safety, batch handling, consistency and flavour integrity across seasons and storage conditions.
-          </div>
-        </div>
-
+        <article class="card">
+          <div class="card-label">3 · AGRO PRODUCTS &amp; BEVERAGES</div>
+          <h3 class="card-title">Agro Products &amp; Beverages</h3>
+          <p class="card-body">
+            Scope to work with agro-based lines and beverages – from sourcing logic to processing and packing – for
+            partners who think beyond one season and want long-term brand presence.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -446,38 +500,13 @@
 <footer id="contact">
   <div class="footer-inner">
     <div class="footer-brand">World of Willpower</div>
-    <div class="footer-contact">
-      <span>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</span>
-    </div>
-    <div class="footer-contact">
-      <span>📞 +91 7039196489</span>
-      <span>✉ care@worldofwillpower.com</span>
-    </div>
+    <div>002, A Wing, Saj Shrushti Complex, Daighar, Thane, Maharashtra. 421 204</div>
+    <div>📞 +91 7039196489 • ✉ care@worldofwillpower.com</div>
     <div>© 2025 World of Willpower.</div>
   </div>
 </footer>
 
 <a class="wa-float" href="https://wa.me/917039196489" target="_blank" rel="noopener">⌾</a>
 
-<script>
-  // Rotating key statements for Food page
-  const lines = [
-    "FROM MASALAS TO BEVERAGES – BUILT WITH LOGIC, NOT SHORTCUTS.",
-    "FOR FOUNDERS WHO WANT TRACEABILITY, NOT SURPRISES.",
-    "FOR TEAMS WHO VALUE REPEATABLE TASTE AND CLEAN SOURCING.",
-    "FOR BRANDS THAT EXPECT BATCH DOCUMENTATION AND QUALITY.",
-    "FOR PEOPLE WHO WANT FOOD THAT CAN WITHSTAND DISCUSSIONS."
-  ];
-
-  const lineEl = document.getElementById("rotating-line");
-  let lineIndex = 0;
-
-  function rotateLine() {
-    lineIndex = (lineIndex + 1) % lines.length;
-    lineEl.textContent = lines[lineIndex];
-  }
-
-  setInterval(rotateLine, 5000);
-</script>
 </body>
 </html>
