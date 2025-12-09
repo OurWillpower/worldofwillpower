@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>World of Willpower – Group of Companies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory – with Willpower Store as a hub for products and services.">
+  <meta name="description" content="World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda, technology, investors hub, e-commerce aggregators and financial advisory — all built around real work and long-term thinking.">
   <link rel="icon" type="image/png" href="https://ourwillpower.github.io/worldofwillpower/uploads/1764358147192_willpower.png">
 
   <style>
@@ -29,30 +29,48 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* NAVBAR */
+    /* ========== NAVBAR ========== */
     .nav-shell{
-      position:sticky;top:0;z-index:50;
+      position:sticky;
+      top:0;
+      z-index:50;
       background:rgba(0,0,0,0.96);
       border-bottom:1px solid #111827;
       backdrop-filter:blur(14px);
     }
     .nav-inner{
-      max-width:1180px;margin:0 auto;
+      max-width:1180px;
+      margin:0 auto;
       padding:14px 20px;
-      display:flex;align-items:center;justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
-    .nav-left{display:flex;align-items:center;gap:14px;}
-    .nav-logo{height:40px;width:auto;}
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .nav-logo{
+      height:40px;
+      width:auto;
+    }
     .nav-brand-text{
       font-family:"Times New Roman",serif;
       letter-spacing:0.08em;
       font-size:18px;
       color:var(--accent);
     }
+
     .nav-links{
-      display:flex;align-items:center;gap:24px;
-      font-size:14px;text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:14px;
+      text-transform:uppercase;
       letter-spacing:0.12em;
+      flex-wrap:wrap;
     }
     .nav-links a{
       color:#e5e7eb;
@@ -63,45 +81,69 @@
       color:var(--accent);
       border-bottom-color:var(--accent);
     }
-    .nav-links a:hover{color:var(--accent);}
+    .nav-links a:hover{
+      color:var(--accent);
+    }
 
-    .nav-dropdown{position:relative;}
-    .nav-dropdown > a{cursor:pointer;}
+    .nav-dropdown{
+      position:relative;
+    }
+    .nav-dropdown > a{
+      cursor:pointer;
+    }
     .nav-dropdown-menu{
-      position:absolute;top:32px;right:0;
+      position:absolute;
+      top:32px;
+      right:0;
       background:#020617;
       border-radius:14px;
       border:1px solid #111827;
       box-shadow:0 22px 60px rgba(0,0,0,0.55);
       padding:6px 0;
-      min-width:320px;
+      min-width:260px;
       display:none;
       z-index:40;
     }
-    .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+    .nav-dropdown:hover .nav-dropdown-menu{
+      display:block;
+    }
     .nav-dropdown-item{
       display:block;
-      padding:10px 18px;
+      padding:9px 18px;
       border-bottom:1px solid rgba(15,23,42,0.7);
       font-size:13px;
       text-transform:none;
       letter-spacing:0;
       color:#e5e7eb;
     }
-    .nav-dropdown-item:last-child{border-bottom:none;}
-    .nav-dropdown-item span:first-child{font-weight:600;display:block;}
+    .nav-dropdown-item:last-child{
+      border-bottom:none;
+    }
+    .nav-dropdown-item span:first-child{
+      display:block;
+      font-weight:600;
+    }
     .nav-dropdown-item span:last-child{
-      font-size:11px;color:#9ca3af;display:block;margin-top:2px;
+      display:block;
+      margin-top:2px;
+      font-size:11px;
+      color:#9ca3af;
     }
     .nav-dropdown-item:hover{
       background:#020814;
       color:var(--accent);
     }
 
-    .shell{max-width:1180px;margin:0 auto;padding:0 20px;}
+    .shell{
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 20px;
+    }
 
-    /* HERO */
-    .hero{padding:70px 0 60px;}
+    /* ========== HERO ========== */
+    .hero{
+      padding:70px 0 60px;
+    }
     .hero-inner{
       display:grid;
       grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
@@ -109,16 +151,23 @@
       align-items:flex-start;
     }
     .hero-pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 14px;border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 14px;
+      border-radius:999px;
       background:var(--pill);
       border:1px solid rgba(148,163,184,0.4);
-      font-size:11px;letter-spacing:0.16em;
-      text-transform:uppercase;color:#9ca3af;
+      font-size:11px;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:#9ca3af;
       margin-bottom:22px;
     }
     .hero-pill-dot{
-      height:7px;width:7px;border-radius:999px;
+      height:7px;
+      width:7px;
+      border-radius:999px;
       background:var(--accent);
       box-shadow:0 0 0 4px rgba(230,179,37,0.25);
     }
@@ -128,20 +177,25 @@
       line-height:1.15;
       margin-bottom:18px;
     }
-    .hero-title .gold{color:var(--accent);}
+    .hero-title .gold{
+      color:var(--accent);
+    }
     .hero-body{
-      font-size:15px;color:#cbd5f5;
-      max-width:620px;margin-bottom:18px;
+      font-size:15px;
+      color:#cbd5f5;
+      max-width:620px;
+      margin-bottom:18px;
     }
     .hero-tagline{
-      font-size:13px;color:#e5e7eb;
+      font-size:13px;
+      color:#e5e7eb;
       text-transform:uppercase;
       letter-spacing:0.18em;
       margin-bottom:24px;
       min-height:1.6em;
     }
 
-    /* Rotating lines */
+    /* Rotating taglines */
     .rotator{
       position:relative;
       display:inline-block;
@@ -151,7 +205,8 @@
     }
     .rotator span{
       position:absolute;
-      left:0;right:0;
+      left:0;
+      right:0;
       opacity:0;
       transform:translateY(100%);
       animation:rotateLines 12s linear infinite;
@@ -169,43 +224,67 @@
     }
 
     .hero-cta{
-      display:inline-flex;align-items:center;justify-content:center;
-      gap:10px;padding:14px 26px;
-      border-radius:999px;border:none;
-      background:var(--accent);color:#1a1302;
-      font-size:13px;font-weight:600;
-      letter-spacing:0.18em;text-transform:uppercase;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 26px;
+      border-radius:999px;
+      border:none;
+      background:var(--accent);
+      color:#1a1302;
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
       box-shadow:0 18px 40px rgba(0,0,0,0.5);
       margin-bottom:10px;
     }
     .hero-note{
-      font-size:12px;color:#9ca3af;
+      font-size:12px;
+      color:#9ca3af;
     }
 
     .hero-right-card{
       background:radial-gradient(circle at top left,#0b3b2c 0,#020b08 55%);
-      border-radius:22px;border:1px solid var(--border);
+      border-radius:22px;
+      border:1px solid var(--border);
       padding:24px 26px;
       box-shadow:0 26px 60px rgba(0,0,0,0.65);
+      font-size:13px;
+      color:#e5e7eb;
     }
     .hero-right-title{
-      font-size:13px;letter-spacing:0.18em;
-      text-transform:uppercase;color:#9ca3af;
+      font-size:13px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:#9ca3af;
       margin-bottom:14px;
     }
     .hero-right-list{
       list-style:none;
-      display:flex;flex-direction:column;
-      gap:12px;font-size:13px;color:#e5e7eb;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      font-size:13px;
+      color:#e5e7eb;
     }
-    .hero-right-list li{display:flex;gap:10px;}
+    .hero-right-list li{
+      display:flex;
+      gap:10px;
+    }
     .hero-right-bullet{
-      height:6px;width:6px;margin-top:7px;
-      border-radius:999px;background:var(--accent);
+      height:6px;
+      width:6px;
+      margin-top:7px;
+      border-radius:999px;
+      background:var(--accent);
     }
 
-    /* VENTURES GRID */
-    .ventures{padding:10px 0 70px;}
+    /* ========== VENTURES GRID ========== */
+    .ventures{
+      padding:10px 0 70px;
+    }
     .ventures-grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
@@ -219,25 +298,32 @@
       box-shadow:0 20px 40px rgba(0,0,0,0.65);
     }
     .venture-kicker{
-      font-size:11px;text-transform:uppercase;
-      letter-spacing:0.18em;color:#9ca3af;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:#9ca3af;
       margin-bottom:10px;
     }
     .venture-title{
-      font-size:18px;font-weight:600;margin-bottom:10px;
+      font-size:18px;
+      font-weight:600;
+      margin-bottom:10px;
     }
     .venture-copy{
-      font-size:13px;color:#cbd5f5;margin-bottom:18px;
+      font-size:13px;
+      color:#cbd5f5;
+      margin-bottom:18px;
     }
     .venture-link{
-      display:inline-flex;align-items:center;
+      display:inline-flex;
+      align-items:center;
       font-size:12px;
       text-transform:uppercase;
       letter-spacing:0.18em;
       color:var(--accent);
     }
 
-    /* FOOTER */
+    /* ========== FOOTER ========== */
     footer{
       border-top:1px solid #111827;
       background:#02040a;
@@ -245,30 +331,52 @@
       margin-top:10px;
     }
     .footer-inner{
-      max-width:1180px;margin:0 auto;
-      font-size:12px;color:#9ca3af;
-      display:flex;flex-wrap:wrap;
-      gap:8px 22px;align-items:center;
+      max-width:1180px;
+      margin:0 auto;
+      font-size:12px;
+      color:#9ca3af;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 22px;
+      align-items:center;
       justify-content:space-between;
     }
-    .footer-brand{color:var(--accent);font-weight:600;}
+    .footer-brand{
+      color:var(--accent);
+      font-weight:600;
+    }
 
     .wa-float{
-      position:fixed;right:24px;bottom:24px;
-      height:54px;width:54px;border-radius:999px;
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      height:54px;
+      width:54px;
+      border-radius:999px;
       background:#22c55e;
-      display:flex;align-items:center;justify-content:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       box-shadow:0 18px 40px rgba(0,0,0,0.6);
-      font-size:26px;color:white;
+      font-size:26px;
+      color:white;
       z-index:60;
     }
 
-    /* Mobile tweaks */
+    /* ========== RESPONSIVE ========== */
+
     @media (max-width:1000px){
-      .hero-inner{grid-template-columns:minmax(0,1fr);}
-      .hero-right-card{margin-top:10px;}
-      .ventures-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .hero-inner{
+        grid-template-columns:minmax(0,1fr);
+      }
+      .hero-right-card{
+        margin-top:10px;
+      }
+      .ventures-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
     }
+
     @media (max-width:700px){
       .nav-inner{
         flex-direction:column;
@@ -276,10 +384,15 @@
         gap:10px;
       }
       .nav-links{
-        flex-wrap:wrap;
-        row-gap:8px;
+        width:100%;
+        justify-content:flex-start;
+        row-gap:6px;
+        column-gap:16px;
+        font-size:12px;
       }
-      .ventures-grid{grid-template-columns:minmax(0,1fr);}
+      .ventures-grid{
+        grid-template-columns:minmax(0,1fr);
+      }
     }
   </style>
 </head>
@@ -297,11 +410,11 @@
       <a href="about.html">About</a>
 
       <div class="nav-dropdown">
-        <a href="#ventures">Our Ventures ▾</a>
+        <a href="index.html#ventures">Our Ventures ▾</a>
         <div class="nav-dropdown-menu">
           <a class="nav-dropdown-item" href="willpro-maestros.html">
             <span>Willpower Maestros</span>
-            <span>Mentoring & strategic thinking for founders.</span>
+            <span>Mentoring &amp; strategic thinking for founders.</span>
           </a>
           <a class="nav-dropdown-item" href="dairy-manufacturing.html">
             <span>Willpower Dairy Care</span>
@@ -309,15 +422,15 @@
           </a>
           <a class="nav-dropdown-item" href="food-care.html">
             <span>Willpower Food Care</span>
-            <span>Masalas, RTE foods, agro products & beverages.</span>
+            <span>Masalas, RTE foods, agro products &amp; beverages.</span>
           </a>
           <a class="nav-dropdown-item" href="ayurveda.html">
-            <span>Willpower Health & Skin Care</span>
-            <span>Ayurvedic & herbal health and skincare brands.</span>
+            <span>Willpower Health &amp; Skin Care</span>
+            <span>Ayurvedic &amp; herbal health and skincare brands.</span>
           </a>
           <a class="nav-dropdown-item" href="new-business.html">
-            <span>WillPro Technologies & Systems</span>
-            <span>Business-first technology & systems.</span>
+            <span>WillPro Technologies &amp; Systems</span>
+            <span>Business-first technology &amp; systems.</span>
           </a>
           <a class="nav-dropdown-item" href="ventures.html">
             <span>WIN Club (WillPro Investors Node)</span>
@@ -325,11 +438,11 @@
           </a>
           <a class="nav-dropdown-item" href="mentoring-strategy.html">
             <span>WillPro Aggregators</span>
-            <span>E-commerce & category aggregators.</span>
+            <span>E-commerce &amp; category aggregators.</span>
           </a>
           <a class="nav-dropdown-item" href="willpro-money.html">
             <span>WillPro Money</span>
-            <span>Grounded financial & money decisions.</span>
+            <span>Grounded financial &amp; money decisions.</span>
           </a>
         </div>
       </div>
@@ -356,8 +469,8 @@
 
         <p class="hero-body">
           World of Willpower is a calm, premium ecosystem of ventures spanning mentoring, dairy, foods, Ayurveda,
-          technology, investors hub, e-commerce aggregators and financial advisory – with Willpower Store acting
-          as the common hub for our products and services.
+          technology, investors hub, e-commerce aggregators and financial advisory — all built around real work
+          and long-term thinking.
         </p>
 
         <div class="hero-tagline">
@@ -378,9 +491,7 @@
       </div>
 
       <aside class="hero-right-card">
-        <div class="hero-right-title">
-          WHAT TYPICALLY BRINGS PEOPLE HERE
-        </div>
+        <div class="hero-right-title">WHAT TYPICALLY BRINGS PEOPLE HERE</div>
         <ul class="hero-right-list">
           <li>
             <span class="hero-right-bullet"></span>
@@ -392,7 +503,7 @@
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Business-first technology & systems, designed around cash flow and operations.</span>
+            <span>Business-first technology &amp; systems, designed around cash flow and operations.</span>
           </li>
           <li>
             <span class="hero-right-bullet"></span>
@@ -400,7 +511,7 @@
           </li>
           <li>
             <span class="hero-right-bullet"></span>
-            <span>Individuals and firms seeking grounded financial & money decisions – and a single hub for products & services.</span>
+            <span>Individuals and firms seeking grounded financial &amp; money decisions via WillPro Money.</span>
           </li>
         </ul>
       </aside>
@@ -439,8 +550,8 @@
       </article>
 
       <article class="venture-card">
-        <p class="venture-kicker">4 · AYURVEDA & HEALTH</p>
-        <h3 class="venture-title">Willpower Health & Skin Care</h3>
+        <p class="venture-kicker">4 · AYURVEDA &amp; HEALTH</p>
+        <h3 class="venture-title">Willpower Health &amp; Skin Care</h3>
         <p class="venture-copy">
           Ayurvedic and herbal brands that treat Ayurveda as science – with formulations, rationale and documentation.
         </p>
@@ -449,7 +560,7 @@
 
       <article class="venture-card">
         <p class="venture-kicker">5 · TECHNOLOGY</p>
-        <h3 class="venture-title">WillPro Technologies & Systems</h3>
+        <h3 class="venture-title">WillPro Technologies &amp; Systems</h3>
         <p class="venture-copy">
           Business-first technology, websites and systems – designed so that tech follows business reality, not the other way round.
         </p>
@@ -457,7 +568,7 @@
       </article>
 
       <article class="venture-card">
-        <p class="venture-kicker">6 · CAPITAL & INVESTORS</p>
+        <p class="venture-kicker">6 · CAPITAL &amp; INVESTORS</p>
         <h3 class="venture-title">WIN Club</h3>
         <p class="venture-copy">
           A focused investors hub for curated, structured Willpower opportunities across brands and ventures.
@@ -478,7 +589,7 @@
         <p class="venture-kicker">8 · MONEY</p>
         <h3 class="venture-title">WillPro Money</h3>
         <p class="venture-copy">
-          Grounded financial & money decisions – mutual funds, insurance and planning aligned to real-life goals, not monthly sales targets.
+          Grounded financial &amp; money decisions – mutual funds, insurance and planning aligned to real-life goals, not monthly sales targets.
         </p>
         <a href="willpro-money.html" class="venture-link">VIEW DETAILS →</a>
       </article>
